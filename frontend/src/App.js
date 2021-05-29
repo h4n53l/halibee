@@ -1,12 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from "react-router-dom"
+import Home from "./views"
 
 function App() {
   return (
-    <div className="App">
-      
-    
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path='/' component={Home} exact/>
+        </Switch>
+        </BrowserRouter>
   );
 }
 
