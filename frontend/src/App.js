@@ -1,10 +1,12 @@
 import React from 'react'
+import {ThemeProvider} from '@material-ui/core'
+import theme from './utilities/theme'
 
 const App = () => {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       
-    </div>
+    </ThemeProvider>
   )
 }
 
