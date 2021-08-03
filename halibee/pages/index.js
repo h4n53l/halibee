@@ -1,20 +1,15 @@
-import Layout from "../components/layout";
-import Navbar from "../components/navbar";
+import Layout from "../components/layout/layout";
+import Navbar from "../components/layout/navbar/navbar";
+import Home from "./home";
 
-const Home = () => {
+const Index = () => {
   return (
     <Layout>
-    <div>
-    <h1>Featured HaLiBees</h1>
-    <ul>
-      <li>HaLiBee 1</li>
-      <li>HaLiBee 2</li>
-      <li>HaLiBee 3</li>
-    </ul>
-    </div>
+    <Home />
+    
     </Layout>
   );
 }
 
-export default Home
+export default Index
 ;
