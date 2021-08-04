@@ -103,14 +103,20 @@ export const SearchIcon = styled(IoSearchCircleOutline)`
   color: ${props => props.theme.secondary};
 `;
 
-export const ProfileIcon = styled(CgProfile)`
+export const ProfileIcon = styled(CgProfile, FiMail)`
   font-size: 2rem;
   color: ${props => props.theme.secondary};
+  &:hover {
+    color: ${props => props.theme.tetiary};
+  }
 `;
 
 export const MessageIcon = styled(FiMail)`
   font-size: 2rem;
   color: ${props => props.theme.secondary};
+  &:hover {
+    color: ${props => props.theme.tetiary};
+  }
 `;
 
 export const NavLogo = styled.a`
@@ -131,3 +137,24 @@ export const NavLogo = styled.a`
     font-size: 1rem;
   }
 `;
+
+export const NavbarDropdownContent = styled.div`
+display: none;
+position: absolute;
+background-color: ${props => props.theme.primary};
+min-width: 160px;
+z-index: 99;
+`;
+
+export const NavbarDropdown = styled.div`
+position: relative;
+display: inline-block;
+color: transparent;
+background: transparent;
+
+&:hover ${NavbarDropdownContent}{
+  display: block;
+}
+`;
+
+

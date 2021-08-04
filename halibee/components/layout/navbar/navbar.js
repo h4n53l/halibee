@@ -11,6 +11,8 @@ import {
   ProfileIcon,
   MessageIcon,
   NavItems,
+  NavbarDropdown,
+  NavbarDropdownContent,
 } from "./navbarStyle";
 
 const Navbar = () => {
@@ -52,9 +54,14 @@ const Navbar = () => {
           
         </SearchBox>
 <NavMenu>
-        <NavLink href="/">
+        <NavbarDropdown>
           <ProfileIcon />
-        </NavLink>
+          <NavbarDropdownContent>
+            <NavLink href="/login">Register</NavLink>
+            <NavLink href="/">Login</NavLink>
+          </NavbarDropdownContent>
+        </NavbarDropdown>
+          
         <NavLink href="/">
           <MessageIcon />
         </NavLink>

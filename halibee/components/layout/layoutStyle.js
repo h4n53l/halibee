@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const LayoutContainer = styled.div`
-  background-color: ${props => props.theme.background};
+  display: inline;
+  background: ${props => props.theme.background};
   height: 100%;
+  width: 100%;
 `;
