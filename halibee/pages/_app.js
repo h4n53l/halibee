@@ -1,16 +1,15 @@
-import { useEffect } from "react";
+import Amplify from 'aws-amplify'
 import { ThemeProvider } from "styled-components";
 import Layout from "../components/layout/layout";
 import "../styles/globals.css";
 import { Theme } from "../utils/theme";
+import config from "../src/aws-exports";
 
+Amplify.configure({
+  ...config,
+  ssr: true
+})
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    const jssStyles = document.querySelector("#jss-server-side");
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
-    }
-  }, []);
   return (
     <ThemeProvider theme={Theme}>
       <Layout>

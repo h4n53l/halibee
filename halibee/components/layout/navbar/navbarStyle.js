@@ -36,7 +36,7 @@ export const NavItems = styled.div`
   align-items: center;
   position: relative;
   flex-wrap: wrap;
-  overflow: hidden;
+  overflow: visible;
 `;
 
 export const NavLink = styled.a`
@@ -141,6 +141,7 @@ export const NavLogo = styled.a`
 export const NavbarDropdownContent = styled.div`
 display: none;
 position: absolute;
+left: -60px;
 background-color: ${props => props.theme.primary};
 min-width: 160px;
 z-index: 99;
@@ -153,7 +154,10 @@ color: transparent;
 background: transparent;
 
 &:hover ${NavbarDropdownContent}{
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 `;
 

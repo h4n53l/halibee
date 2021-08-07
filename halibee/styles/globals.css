@@ -1,16 +1,6 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+:root {
+  --amplify-primary-color: #11a29b;
+  --amplify-primary-tint: #000000;
+  --amplify-primary-shade: #000000;
+  --amplify-background-color: #e0faf4;
 }

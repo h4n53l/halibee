@@ -6,9 +6,10 @@ export const FooterSection = styled.div`
   height: auto;
   width: 100%;
   overflow: hidden;
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
   bottom: 0;
 `;

@@ -1,0 +1,47 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-halibee-dev-85741-authRole",
+      "UnauthRoleArn": "arn:aws:iam::081272876148:role/amplify-halibee-dev-85741-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::081272876148:role/amplify-halibee-dev-85741-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-halibee-dev-85741-deployment",
+      "UnauthRoleName": "amplify-halibee-dev-85741-unauthRole",
+      "StackName": "amplify-halibee-dev-85741",
+      "StackId": "arn:aws:cloudformation:eu-west-2:081272876148:stack/amplify-halibee-dev-85741/2649be60-f755-11eb-a551-06378e4bf33a",
+      "AmplifyAppId": "d1pw5f0me616pf"
+    },
+    "categories": {
+      "function": {
+        "halibee0d8b65c6DefineAuthChallenge": {
+          "deploymentBucketName": "amplify-halibee-dev-85741-deployment",
+          "s3Key": "amplify-builds/halibee0d8b65c6DefineAuthChallenge-73396c5a66536e433673-build.zip"
+        },
+        "halibee0d8b65c6CreateAuthChallenge": {
+          "deploymentBucketName": "amplify-halibee-dev-85741-deployment",
+          "s3Key": "amplify-builds/halibee0d8b65c6CreateAuthChallenge-556a436e34395a586769-build.zip"
+        },
+        "halibee0d8b65c6VerifyAuthChallengeResponse": {
+          "RECAPTCHASECRET": "",
+          "deploymentBucketName": "amplify-halibee-dev-85741-deployment",
+          "s3Key": "amplify-builds/halibee0d8b65c6VerifyAuthChallengeResponse-496b72524d517263784a-build.zip"
+        },
+        "halibee0d8b65c6CustomMessage": {
+          "REDIRECTURL": "",
+          "EMAILSUBJECT": "Hi from HaLiBee",
+          "EMAILMESSAGE": "Did  you just try to log into HaLiBee?",
+          "deploymentBucketName": "amplify-halibee-dev-85741-deployment",
+          "s3Key": "amplify-builds/halibee0d8b65c6CustomMessage-6565682b586355496939-build.zip"
+        },
+        "halibee0d8b65c6PostConfirmation": {
+          "GROUP": "basicUser",
+          "deploymentBucketName": "amplify-halibee-dev-85741-deployment",
+          "s3Key": "amplify-builds/halibee0d8b65c6PostConfirmation-5a41646b4c4975384f70-build.zip"
+        }
+      },
+      "auth": {
+        "halibee0d8b65c6": {}
+      }
+    }
+  }
+}

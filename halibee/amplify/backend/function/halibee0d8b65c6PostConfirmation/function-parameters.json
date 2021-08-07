@@ -1,0 +1,18 @@
+{
+  "trigger": true,
+  "modules": [
+    "add-to-group"
+  ],
+  "parentResource": "halibee0d8b65c6",
+  "functionName": "halibee0d8b65c6PostConfirmation",
+  "resourceName": "halibee0d8b65c6PostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "C:\\Users\\theJonathansFamily\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "triggerEventPath": "PostConfirmation.event.json",
+  "roleName": "halibee0d8b65c6PostConfirmation",
+  "skipEdit": true,
+  "GROUP": "basicUser",
+  "enableCors": false
+}

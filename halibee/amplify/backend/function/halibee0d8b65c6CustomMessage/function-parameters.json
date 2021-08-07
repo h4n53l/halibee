@@ -1,0 +1,26 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "halibee0d8b65c6",
+  "functionName": "halibee0d8b65c6CustomMessage",
+  "resourceName": "halibee0d8b65c6CustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": [
+    {
+      "key": "RESOURCENAME",
+      "value": "resourceName"
+    }
+  ],
+  "triggerDir": "C:\\Users\\theJonathansFamily\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "triggerEventPath": "CustomMessage.event.json",
+  "roleName": "halibee0d8b65c6CustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "",
+  "EMAILSUBJECT": "Hi from HaLiBee",
+  "EMAILMESSAGE": "Did  you just try to log into HaLiBee?",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}

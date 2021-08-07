@@ -1,0 +1,8 @@
+type Card @model {
+  id: ID!
+  name: String!
+  username: String!,
+  description: String!,
+  clientsServed: Int!,
+  Review: Float!
+}

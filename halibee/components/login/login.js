@@ -1,35 +1,30 @@
-import Button from "../button/button";
-import Input from "../input/input";
 import {
-  ButtonContainer,
-  ForgotPassword,
-  HorizontalRule,
-  IconsContainer,
-  InputContainer,
-  LoginWith,
   MainContainer,
   WelcomeText,
   Wrapper,
 } from "./loginStyles";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import Icon from "../icon";
+import { AmplifySignOut, withAuthenticator } from "@aws-amplify/ui-react";
+import { useEffect, useState } from "react";
 
 const LoginComponent = () => {
+  const [user, setUser] = useState(null)
+  const [authState, setAuthState] = useState(null)
+  useEffect(() => {
+    // Access the user session on the client
+    Auth.currentAuthenticatedUser()
+      .then(user => {
+        setUser(user)
+      })
+      .catch(error => setUser(null))
+  }, [])
   return (
       <Wrapper>
     <MainContainer>
-      <WelcomeText>Welcome</WelcomeText>
-      <InputContainer>
-        <Input type="text" placeholder="Email" />
-        <Input type="password" placeholder="Password" />
-      </InputContainer>
-      <ButtonContainer>
-        <Button content="Sign Up" />
-      </ButtonContainer>
-      <HorizontalRule />
-      <ForgotPassword>Forgot Password ?</ForgotPassword>
+      
+      { user && <WelcomeText>Welcome, {user.username}</WelcomeText>}
+        <AmplifySignOut />
     </MainContainer>
     </Wrapper>
   );
 };
-export default LoginComponent;
+export default withAuthenticator(LoginComponent);

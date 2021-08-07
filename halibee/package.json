@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-amplify/cli": "^5.2.1",
+    "@aws-amplify/ui-react": "^1.2.8",
+    "aws-amplify": "^4.2.2",
     "babel-plugin-styled-components": "^1.13.2",
     "next": "11.0.1",
     "react": "17.0.2",

@@ -1,0 +1,250 @@
+{
+  "Description": "Custom Resource stack for Auth Trigger created using Amplify CLI",
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+    "env": {
+      "Type": "String"
+    },
+    "userpoolId": {
+      "Type": "String"
+    },
+    "userpoolArn": {
+      "Type": "String"
+    },
+    "functionhalibee0d8b65c6DefineAuthChallengeName": {
+      "Type": "String"
+    },
+    "functionhalibee0d8b65c6DefineAuthChallengeArn": {
+      "Type": "String"
+    },
+    "functionhalibee0d8b65c6CreateAuthChallengeName": {
+      "Type": "String"
+    },
+    "functionhalibee0d8b65c6CreateAuthChallengeArn": {
+      "Type": "String"
+    },
+    "functionhalibee0d8b65c6VerifyAuthChallengeResponseName": {
+      "Type": "String"
+    },
+    "functionhalibee0d8b65c6VerifyAuthChallengeResponseArn": {
+      "Type": "String"
+    },
+    "functionhalibee0d8b65c6CustomMessageName": {
+      "Type": "String"
+    },
+    "functionhalibee0d8b65c6CustomMessageArn": {
+      "Type": "String"
+    },
+    "functionhalibee0d8b65c6PostConfirmationName": {
+      "Type": "String"
+    },
+    "functionhalibee0d8b65c6PostConfirmationArn": {
+      "Type": "String"
+    }
+  },
+  "Conditions": {
+    "ShouldNotCreateEnvResources": {
+      "Fn::Equals": [
+        {
+          "Ref": "env"
+        },
+        "NONE"
+      ]
+    }
+  },
+  "Resources": {
+    "UserPoolDefineAuthChallengeLambdaInvokePermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "functionhalibee0d8b65c6DefineAuthChallengeName"
+        },
+        "Principal": "cognito-idp.amazonaws.com",
+        "SourceArn": {
+          "Ref": "userpoolArn"
+        }
+      }
+    },
+    "UserPoolCreateAuthChallengeLambdaInvokePermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "functionhalibee0d8b65c6CreateAuthChallengeName"
+        },
+        "Principal": "cognito-idp.amazonaws.com",
+        "SourceArn": {
+          "Ref": "userpoolArn"
+        }
+      }
+    },
+    "UserPoolVerifyAuthChallengeResponseLambdaInvokePermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "functionhalibee0d8b65c6VerifyAuthChallengeResponseName"
+        },
+        "Principal": "cognito-idp.amazonaws.com",
+        "SourceArn": {
+          "Ref": "userpoolArn"
+        }
+      }
+    },
+    "UserPoolCustomMessageLambdaInvokePermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "functionhalibee0d8b65c6CustomMessageName"
+        },
+        "Principal": "cognito-idp.amazonaws.com",
+        "SourceArn": {
+          "Ref": "userpoolArn"
+        }
+      }
+    },
+    "UserPoolPostConfirmationLambdaInvokePermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "functionhalibee0d8b65c6PostConfirmationName"
+        },
+        "Principal": "cognito-idp.amazonaws.com",
+        "SourceArn": {
+          "Ref": "userpoolArn"
+        }
+      }
+    },
+    "authTriggerFnServiceRole08093B67": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "authTriggerFnServiceRoleDefaultPolicyEC9285A8": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "cognito-idp:DescribeUserPoolClient",
+                "cognito-idp:UpdateUserPool"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "authTriggerFnServiceRoleDefaultPolicyEC9285A8",
+        "Roles": [
+          {
+            "Ref": "authTriggerFnServiceRole08093B67"
+          }
+        ]
+      }
+    },
+    "authTriggerFn7FCFA449": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "ZipFile": "const response = require('cfn-response');\nconst aws = require('aws-sdk');\n\nexports.handler = async function (event, context) {\n  try {\n    const userPoolId = event.ResourceProperties.userpoolId;\n    const lambdaConfig = event.ResourceProperties.lambdaConfig;\n    const config = {};\n    lambdaConfig.forEach(lambda => (config[`${lambda.triggerType}`] = lambda.lambdaFunctionArn));\n    if (event.RequestType == 'Delete') {\n      const authParams = { UserPoolId: userPoolId, LambdaConfig: {} };\n      const cognitoclient = new aws.CognitoIdentityServiceProvider();\n      try {\n        const result = await cognitoclient.updateUserPool(authParams).promise();\n        console.log('delete response data ' + JSON.stringify(result));\n        await response.send(event, context, response.SUCCESS, {});\n      } catch (err) {\n        console.log(err.stack);\n        await response.send(event, context, response.FAILED, { err });\n      }\n    }\n    if (event.RequestType == 'Update' || event.RequestType == 'Create') {\n      const authParams = { UserPoolId: userPoolId, LambdaConfig: config };\n      console.log(authParams);\n      const cognitoclient = new aws.CognitoIdentityServiceProvider();\n      try {\n        const result = await cognitoclient.updateUserPool(authParams).promise();\n        console.log('createOrUpdate response data ' + JSON.stringify(result));\n        await response.send(event, context, response.SUCCESS, { result });\n      } catch (err) {\n        console.log(err.stack);\n        await response.send(event, context, response.FAILED, { err });\n      }\n    }\n  } catch (err) {\n    console.log(err.stack);\n    await response.send(event, context, response.FAILED, { err });\n  }\n};\n"
+        },
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "authTriggerFnServiceRole08093B67",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs12.x"
+      },
+      "DependsOn": [
+        "authTriggerFnServiceRoleDefaultPolicyEC9285A8",
+        "authTriggerFnServiceRole08093B67"
+      ]
+    },
+    "CustomAuthTriggerResource": {
+      "Type": "Custom::CustomAuthTriggerResourceOutputs",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "authTriggerFn7FCFA449",
+            "Arn"
+          ]
+        },
+        "userpoolId": {
+          "Ref": "userpoolId"
+        },
+        "lambdaConfig": [
+          {
+            "triggerType": "DefineAuthChallenge",
+            "lambdaFunctionName": "halibee0d8b65c6DefineAuthChallenge",
+            "lambdaFunctionArn": {
+              "Ref": "functionhalibee0d8b65c6DefineAuthChallengeArn"
+            }
+          },
+          {
+            "triggerType": "CreateAuthChallenge",
+            "lambdaFunctionName": "halibee0d8b65c6CreateAuthChallenge",
+            "lambdaFunctionArn": {
+              "Ref": "functionhalibee0d8b65c6CreateAuthChallengeArn"
+            }
+          },
+          {
+            "triggerType": "VerifyAuthChallengeResponse",
+            "lambdaFunctionName": "halibee0d8b65c6VerifyAuthChallengeResponse",
+            "lambdaFunctionArn": {
+              "Ref": "functionhalibee0d8b65c6VerifyAuthChallengeResponseArn"
+            }
+          },
+          {
+            "triggerType": "CustomMessage",
+            "lambdaFunctionName": "halibee0d8b65c6CustomMessage",
+            "lambdaFunctionArn": {
+              "Ref": "functionhalibee0d8b65c6CustomMessageArn"
+            }
+          },
+          {
+            "triggerType": "PostConfirmation",
+            "lambdaFunctionName": "halibee0d8b65c6PostConfirmation",
+            "lambdaFunctionArn": {
+              "Ref": "functionhalibee0d8b65c6PostConfirmationArn"
+            }
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete"
+    }
+  }
+}

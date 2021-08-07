@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <Nav>
       
-      <NavLogo href="">
+      <NavLogo href="/">
         HaLi<span>Bee</span>
       </NavLogo>
 
@@ -58,7 +58,7 @@ const Navbar = () => {
           <ProfileIcon />
           <NavbarDropdownContent>
             <NavLink href="/login">Register</NavLink>
-            <NavLink href="/">Login</NavLink>
+            <NavLink href="/login">Login</NavLink>
           </NavbarDropdownContent>
         </NavbarDropdown>
           
