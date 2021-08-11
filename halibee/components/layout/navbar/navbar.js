@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Auth } from "aws-amplify";
 import {
   NavMenu,
   NavLink,
@@ -13,15 +14,38 @@ import {
   NavItems,
   NavbarDropdown,
   NavbarDropdownContent,
+  NavButton,
 } from "./navbarStyle";
 
 const Navbar = () => {
+  const [loggedIn, setLoggedIn] = useState("");
   const [input, setInput] = useState("");
   const [barOpened, setBarOpened] = useState(false);
   const inputFocus = useRef();
+
+  const signOut = async () => {
+    try {
+      await Auth.signOut();
+      setLoggedIn(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const CheckLoggedInState = () => {
+    Auth.currentAuthenticatedUser()
+      .then(() => {
+        setLoggedIn(true);
+      })
+      .catch(() => {
+        setLoggedIn(false);
+      });
+  };
+  
+  CheckLoggedInState();
+
   return (
     <Nav>
-      
       <NavLogo href="/">
         HaLi<span>Bee</span>
       </NavLogo>
@@ -51,21 +75,27 @@ const Navbar = () => {
           <SearchButton type="submit" barOpened={barOpened}>
             <SearchIcon />
           </SearchButton>
-          
         </SearchBox>
-<NavMenu>
-        <NavbarDropdown>
+        {loggedIn ? (<NavMenu>
+          <NavbarDropdown>
+            <ProfileIcon />
+            <NavbarDropdownContent>
+            
+                <NavButton onClick={signOut}>Sign Out</NavButton>
+              
+            </NavbarDropdownContent>
+          </NavbarDropdown>
+            <NavLink href="/">
+              <MessageIcon />
+            </NavLink>
+          </NavMenu>) :
+          <NavbarDropdown>
           <ProfileIcon />
           <NavbarDropdownContent>
-            <NavLink href="/login">Register</NavLink>
-            <NavLink href="/login">Login</NavLink>
+              <NavLink href="/login">Login</NavLink>
           </NavbarDropdownContent>
         </NavbarDropdown>
-          
-        <NavLink href="/">
-          <MessageIcon />
-        </NavLink>
-      </NavMenu>
+          }
       </NavItems>
     </Nav>
   );

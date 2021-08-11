@@ -1,6 +1,6 @@
 import { StyledButton } from "./buttonStyle";
 
-export default function Button({ content }) {
-  return <StyledButton>{content}</StyledButton>;
+export default function Button({ content, onClick }) {
+  return <StyledButton onClick={onClick}>{content}</StyledButton>;
 }
 

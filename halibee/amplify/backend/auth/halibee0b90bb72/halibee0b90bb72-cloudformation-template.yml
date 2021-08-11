@@ -10,58 +10,6 @@ Parameters:
     Type: String
 
   
-  
-  
-  functionhalibee0d8b65c6DefineAuthChallengeArn:
-    Type: String
-    Default: functionhalibee0d8b65c6DefineAuthChallengeArn
-  
-  functionhalibee0d8b65c6DefineAuthChallengeName:
-    Type: String
-    Default: functionhalibee0d8b65c6DefineAuthChallengeName
-  
-  
-  
-  functionhalibee0d8b65c6CreateAuthChallengeArn:
-    Type: String
-    Default: functionhalibee0d8b65c6CreateAuthChallengeArn
-  
-  functionhalibee0d8b65c6CreateAuthChallengeName:
-    Type: String
-    Default: functionhalibee0d8b65c6CreateAuthChallengeName
-  
-  
-  
-  functionhalibee0d8b65c6VerifyAuthChallengeResponseArn:
-    Type: String
-    Default: functionhalibee0d8b65c6VerifyAuthChallengeResponseArn
-  
-  functionhalibee0d8b65c6VerifyAuthChallengeResponseName:
-    Type: String
-    Default: functionhalibee0d8b65c6VerifyAuthChallengeResponseName
-  
-  
-  
-  functionhalibee0d8b65c6CustomMessageArn:
-    Type: String
-    Default: functionhalibee0d8b65c6CustomMessageArn
-  
-  functionhalibee0d8b65c6CustomMessageName:
-    Type: String
-    Default: functionhalibee0d8b65c6CustomMessageName
-  
-  
-  
-  functionhalibee0d8b65c6PostConfirmationArn:
-    Type: String
-    Default: functionhalibee0d8b65c6PostConfirmationArn
-  
-  functionhalibee0d8b65c6PostConfirmationName:
-    Type: String
-    Default: functionhalibee0d8b65c6PostConfirmationName
-  
-  
-  
 
     
   identityPoolName:
@@ -170,10 +118,6 @@ Parameters:
     Type: String
   
             
-  triggers:
-    Type: String
-  
-            
         
   userPoolGroupList:
     Type: CommaDelimitedList
@@ -183,30 +127,10 @@ Parameters:
     Type: String
   
             
-  verificationBucketName:
-    Type: String
-  
-            
   
   usernameCaseSensitive:
     Type: String
             
-      
-  parentStack:
-    Type: String
-        
-  authTriggerConnections:
-    Type: String
-  
-            
-  
-  breakCircularDependency:
-    Type: String
-            
-        
-  permissions:
-    Type: CommaDelimitedList
-      
         
   dependsOn:
     Type: CommaDelimitedList
@@ -219,34 +143,13 @@ Conditions:
 
 Resources:
   
-  CustomMessageConfirmationBucket:
-    Type: AWS::S3::Bucket
-    DeletionPolicy: "Retain"
-    Properties:
-      BucketName:  !If [ShouldNotCreateEnvResources, !Ref verificationBucketName, !Join ['',[!Ref verificationBucketName, '-', !Ref env]]]
-      AccessControl: "Private"
-      WebsiteConfiguration:
-        IndexDocument: "index.html"
-        ErrorDocument: "index.html"
-      CorsConfiguration:
-        CorsRules:
-          -
-            AllowedHeaders:
-              - "Authorization"
-              - "Content-Length"
-            AllowedMethods:
-              - "GET"
-            AllowedOrigins:
-              - "*"
-            MaxAge: 3000
-  
   
   # BEGIN SNS ROLE RESOURCE
   SNSRole:
   # Created to allow the UserPool SMS Config to publish via the Simple Notification Service during MFA Process
     Type: AWS::IAM::Role
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, 'halibe0d8b65c6_sns-role', !Join ['',[ 'sns', '0d8b65c6', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, 'halibe0b90bb72_sns-role', !Join ['',[ 'sns', '0b90bb72', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:
@@ -258,10 +161,10 @@ Resources:
               - "sts:AssumeRole"
             Condition:
               StringEquals:
-                sts:ExternalId: halibe0d8b65c6_role_external_id
+                sts:ExternalId: halibe0b90bb72_role_external_id
       Policies:
         -
-          PolicyName: halibe0d8b65c6-sns-policy
+          PolicyName: halibe0b90bb72-sns-policy
           PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -318,7 +221,7 @@ Resources:
       SmsAuthenticationMessage: !Ref smsAuthenticationMessage
       SmsConfiguration:
         SnsCallerArn: !GetAtt SNSRole.Arn
-        ExternalId: halibe0d8b65c6_role_external_id
+        ExternalId: halibe0b90bb72_role_external_id
     
   
   UserPoolClientWeb:
@@ -326,7 +229,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: halibe0d8b65c6_app_clientWeb
+      ClientName: halibe0b90bb72_app_clientWeb
       
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
@@ -336,7 +239,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: halibe0d8b65c6_app_client
+      ClientName: halibe0b90bb72_app_client
       
       GenerateSecret: !Ref userpoolClientGenerateSecret
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
@@ -347,7 +250,7 @@ Resources:
   # Created to execute Lambda which gets userpool app client config values
     Type: 'AWS::IAM::Role'
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, !Ref userpoolClientLambdaRole, !Join ['',['upClientLambdaRole', '0d8b65c6', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, !Ref userpoolClientLambdaRole, !Join ['',['upClientLambdaRole', '0b90bb72', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -401,7 +304,7 @@ Resources:
   # Marked as depending on UserPoolClientRole for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: halibe0d8b65c6_userpoolclient_lambda_iam_policy
+      PolicyName: halibe0b90bb72_userpoolclient_lambda_iam_policy
       Roles:
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -418,7 +321,7 @@ Resources:
   # Marked as depending on UserPoolClientLambdaPolicy for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: halibe0d8b65c6_userpoolclient_lambda_log_policy
+      PolicyName: halibe0b90bb72_userpoolclient_lambda_log_policy
       Roles:
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -458,7 +361,7 @@ Resources:
   # Always created
     Type: AWS::Cognito::IdentityPool
     Properties:
-      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'halibee0d8b65c6_identitypool_0d8b65c6', !Join ['',['halibee0d8b65c6_identitypool_0d8b65c6', '__', !Ref env]]]
+      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'halibee0b90bb72_identitypool_0b90bb72', !Join ['',['halibee0b90bb72_identitypool_0b90bb72', '__', !Ref env]]]
       
       CognitoIdentityProviders:
         - ClientId:  !Ref UserPoolClient

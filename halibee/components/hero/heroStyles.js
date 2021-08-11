@@ -5,34 +5,36 @@ export const HeroSection = styled.section`
   	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	padding: 10px;
 	align-items: center;
-	height: 70vh;
-	padding: 1em;
-	box-sizing: border-box;
+	text-align: center;
+	height: calc(70vh);
+	width: 100%;
 	color: white;
-	background: url(https://images.unsplash.com/photo-1500417148159-68083bd7333a) center center no-repeat;
+	background: url('https://images.unsplash.com/photo-1500417148159-68083bd7333a') 100% no-repeat;
 	background-size: cover;
 `;
 
 export const HeroTitle = styled.h1`
-	max-width: 16em;
-	margin: 0;
-	font-size: 12vh;
+	width: 100vw;
+	margin: 10px;
+	font-size: 8vh;
 	font-weight: bold;
 	line-height: .9;
+	overflow-wrap: break-word;
 	span {
     font-weight: bolder;
-    font-size: 15vh;
-  }
+    font-size: 11vh;
+	}
 `;
 
 export const HeroSubtitle = styled.h3`
-	text-decoration: none;
-  color: white;
-  font-size: 5vh;
-  font-weight: bold;
-  span{
-	  font-weight: normal;
-	  font-style: italic;
-  }
+	color: white;
+	font-size: 5vh;
+	font-weight: bold;
+	overflow-wrap: break-word;
+	span{
+		font-weight: normal;
+		font-style: italic;
+	}
 `;

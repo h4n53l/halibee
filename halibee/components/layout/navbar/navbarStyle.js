@@ -12,9 +12,7 @@ export const Nav = styled.nav`
   flex-wrap: wrap;
   background: ${props => props.theme.primary};
   position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
 `;
 
 export const NavMenu = styled.div`
@@ -65,8 +63,10 @@ export const SearchBox = styled.div`
   height: 20px;
   border-radius: 5rem;
   transition: width 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  @media (min-width: 500px) {
-    width: ${props => (props.barOpened ? "20rem" : "2rem")};
+  width: ${props => (props.barOpened ? "20rem" : "2rem")};
+  @media (max-width: 490px) {
+    width: ${props => (props.barOpened ? "10rem" : "2rem")};
+  }
   cursor: ${props => (props.barOpened ? "auto" : "pointer")};
   }
 `;
@@ -75,7 +75,7 @@ export const SearchInput = styled.input`
   font-size: 14px;
   background-color: ${props => props.theme.secondary};
   width: 100%;
-  margin-left: ${props => (props.barOpened ? "1rem" : "0rem")};
+  margin-left: ${props => (props.barOpened ? "1rem" : "0")};
   border: none;
   color: white;
   transition: margin 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -87,6 +87,15 @@ export const SearchInput = styled.input`
   &::placeholder {
     color: white;
   }
+`;
+
+export const NavButton = styled.button`
+  color: ${props => props.theme.secondary};
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bolder;
 `;
 
 export const SearchButton = styled.button`

@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "halibee",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authhalibee0b90bb72",
+      "Outputs.UserPoolId"
+    ]
+  }
 }
