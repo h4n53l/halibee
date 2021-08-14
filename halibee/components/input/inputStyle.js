@@ -24,3 +24,7 @@ font-weight: bold;
   font-size: 1rem;
 }
 `;
+
+export const Link = styled.a`
+  
+`;

@@ -9358,6 +9358,11 @@ neo-async@^2.6.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+neomo@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/neomo/-/neomo-2.1.0.tgz#01b873e4e4027904b96b9e52236c24221a67bbc5"
+  integrity sha512-ywQCunsrhPy1AFR2LRteeT8c+dPZ0OHyOG/PShi6R4kXB52dcRIuBwgqNfgQfIexAypu9cc0hiBWGENtYulddg==
+
 netmask@^2.0.1, netmask@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/netmask/-/netmask-2.0.2.tgz#8b01a07644065d536383835823bc52004ebac5e7"

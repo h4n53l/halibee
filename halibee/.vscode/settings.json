@@ -8,5 +8,5 @@
     "amplify/backend/amplify-meta.json": true,
     "amplify/backend/awscloudformation": true
   },
-  "editor.fontSize": 24
+  "editor.fontSize": 20
 }

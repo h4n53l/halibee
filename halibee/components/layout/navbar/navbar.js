@@ -36,6 +36,7 @@ const Navbar = () => {
     Auth.currentAuthenticatedUser()
       .then(() => {
         setLoggedIn(true);
+        console.log(Auth.currentAuthenticatedUser())
       })
       .catch(() => {
         setLoggedIn(false);

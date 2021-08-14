@@ -1,6 +1,163 @@
-:root {
-  --amplify-primary-color: #11a29b;
-  --amplify-primary-tint: #000000;
-  --amplify-primary-shade: #000000;
-  --amplify-background-color: #e0faf4;
+.header {
+    justify-content: space-between;
+    border-bottom: .0625rem solid rgba(38, 40, 51, 0.096);
+  }
+  .header-nav {
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .header-logo {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  .header-logo--main {
+    width: calc(20px + 4vw);
+    height: calc(20px + 4vw);
+  }
+  .header-logo--name {
+    width: 6vw;
+    height: 3vh;
+  }
+  .header-dropdown {
+    padding: auto 0;
+  }
+  .dropdown-content a {
+    color: rgb(95, 95, 95);
+  }
+  .nav-link {
+    padding: 1rem;
+    margin: 0 0.4rem;
+  }
+
+  .horizontal-margin {
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+
+  .vertical-margin {
+      margin-top: 10px;
+      margin-bottom: 10px;
 }
+
+  .invisible-button {
+      border: none;
+      outline: none;
+      color: transparent;
+  }
+
+  .text-color {
+    color: #002286 !important;
+  }
+  
+  .btn-icons {
+    display: flex;
+    justify-content: center;
+  }
+  .card-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .icon-size {
+    font-size: 1.3rem;
+  }
+  
+  .icon-size:hover {
+    color: #3163ad !important;
+  }
+  
+  .input-group > .input-group-left:not(input) {
+    border-color: rgba(0, 86, 179, 0.1);
+  }
+  
+  .width-full {
+    width: 100% !important;
+  }
+  
+  .sign-remember {
+    font-size: 0.8rem;
+  }
+  .sign-button:hover {
+    color: #3163ad !important;
+  }
+  
+  .sign-icon--between {
+    width: 0.7rem;
+  }
+  .text-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sign-account {
+    font-size: 1rem !important;
+    text-decoration: none;
+  }
+  
+  .sign-forgot {
+    margin-top: 5px;
+    text-decoration: none;
+
+  }
+  
+  .sign-link--black {
+    font-size: 1rem;
+    color: #000000;
+  }
+  .sign-link--black:visited,
+  .sign-link--black:link {
+    color: #002286;
+  }
+  .sign-link--black:hover {
+    color: #063c8d;
+  }
+  
+  .checkbox-label {
+    font-size: 0.8rem;
+    vertical-align: 0;
+  }
+  
+  .sign-input--name {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .sign-signin {
+    font-size: 0.9rem;
+    margin: 0.5rem;
+  }
+
+  .cta {
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .cta-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vertical-line {
+    position: relative;
+    border-left: .1vw solid gray;
+    height: 12vh;
+  }
+
+
+  .section-title{
+    text-align: center;
+    color: #002286;
+    font-weight: bolder;
+    font-size: calc(20px + 3vw);
+  }
+
+  footer {
+    border-top: 0.0625rem solid rgba(38, 40, 51, 0.096);
+  }

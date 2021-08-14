@@ -1,9 +1,12 @@
+import Hero from "../components/hero/hero";
 import Home from "./home";
 
 const Index = () => {
   return (
     
-    <Home />
+    <div>
+      <Home />
+    </div>
     
     
   );

@@ -2,10 +2,12 @@ import Amplify from "aws-amplify";
 import { ThemeProvider } from "styled-components";
 import Layout from "../components/layout/layout";
 import { Theme } from "../utils/theme";
-import awsExports from "../src/aws-exports";
+import config from "../src/aws-exports";
+import "neomo/css/neomo.css"
+import "../styles/globals.css"
 
 Amplify.configure({
-  ...awsExports,
+  ...config,
   ssr: true,
 });
 
@@ -14,7 +16,7 @@ function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={Theme}>
         <Layout>
           <Component {...pageProps} />
-        </Layout>
+          </Layout>
       </ThemeProvider>
   );
 }

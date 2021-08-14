@@ -9,7 +9,6 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center ;
-  flex-wrap: wrap;
   background: ${props => props.theme.primary};
   position: relative;
   width: 100%;
@@ -64,11 +63,11 @@ export const SearchBox = styled.div`
   border-radius: 5rem;
   transition: width 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   width: ${props => (props.barOpened ? "20rem" : "2rem")};
+
   @media (max-width: 490px) {
     width: ${props => (props.barOpened ? "10rem" : "2rem")};
   }
   cursor: ${props => (props.barOpened ? "auto" : "pointer")};
-  }
 `;
 
 export const SearchInput = styled.input`
