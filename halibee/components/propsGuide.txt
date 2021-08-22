@@ -1,0 +1,19 @@
+Section Props = {
+    title: Section title.
+    isStatic: If the section only contains static text and images or if it contains dynamic content.
+    text: Text for the section.
+    subText: Sub-text for section.
+    button: Function for buttons.
+    buttonText: Name of button.
+    image: Image source.
+    imageAlt: Text if image does not render.
+}
+
+Card Props = {
+    name: Freelacer's user name.
+    image: Freelancer's image.
+    skill: Freelancer's skill.
+    description: Freelancer's short description of skill.
+    clientsServed: Number of clients the freelancer has served.
+    rating: Freelancer's rating.
+}

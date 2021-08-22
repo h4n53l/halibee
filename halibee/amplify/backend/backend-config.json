@@ -40,5 +40,11 @@
         }
       ]
     }
+  },
+  "storage": {
+    "halibee": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

@@ -1,7 +1,15 @@
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
+}
+
 type Card @model {
   id: ID!
-  title: String!
+  name: String!
+  image: S3Object
   skill: String!
   description: String!
-  rating: Int!
+  rating: Int
+  clientsServed: Int
 }

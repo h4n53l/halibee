@@ -3,16 +3,20 @@ import styled from 'styled-components';
 
 export const HeroSection = styled.section`
   	display: flex;
+	flex-wrap: wrap;
 	font-family: Helvetica;
 	flex-direction: column;
 	justify-content: center;
 	padding: 10px;
 	align-items: center;
 	text-align: center;
-	height: 70vh;
-	width: 97vw;
+	height: 100vh;
+	width: 98vw;
 	color: white;
-	background: url('https://images.unsplash.com/photo-1500417148159-68083bd7333a') center center no-repeat;
+	background: url('https://images.unsplash.com/photo-1500417148159-68083bd7333a') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-size: cover;
 `;
 

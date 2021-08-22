@@ -7,6 +7,7 @@ export const Button = styled.button`
 `;
 
 export const Div = styled.div`
+color: #002286;
 `;
 
 export const Input = styled.input`

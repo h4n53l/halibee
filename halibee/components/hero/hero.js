@@ -11,7 +11,7 @@ const Hero = () => {
                     <br></br>
                     <span>― Dale Carnegie</span>
                     </HeroSubtitle>
-            </HeroSection>
+                </HeroSection>
     );
 }
 

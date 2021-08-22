@@ -1,6 +1,6 @@
 {
     "identityPoolName": "halibee0b90bb72_identitypool_0b90bb72",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "halibe0b90bb72",
     "userPoolName": "halibee0b90bb72_userpool_0b90bb72",
     "autoVerifiedAttributes": [

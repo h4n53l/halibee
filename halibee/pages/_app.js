@@ -6,10 +6,14 @@ import config from "../src/aws-exports";
 import "neomo/css/neomo.css"
 import "../styles/globals.css"
 
+
+
+
 Amplify.configure({
   ...config,
   ssr: true,
 });
+
 
 function MyApp({ Component, pageProps }) {
   return (

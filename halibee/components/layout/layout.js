@@ -4,6 +4,7 @@ import { HiUser } from "react-icons/hi";
 import { FaSmileBeam } from "react-icons/fa";
 import { Button, Div, Link } from "../tags";
 
+
 const Layout = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -20,6 +21,7 @@ const Layout = ({ children }) => {
     Auth.currentAuthenticatedUser()
       .then(() => {
         setLoggedIn(true);
+        
       })
       .catch(() => {
         setLoggedIn(false);
@@ -68,7 +70,7 @@ const Layout = ({ children }) => {
                     >Logout</Button>
                 </Div>
               ) : (
-                <Link href="/login" className="info">
+                <Link href="/login" className="success">
                   {" "}
                   Login{" "}
                 </Link>

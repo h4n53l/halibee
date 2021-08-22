@@ -1,6 +1,9 @@
+import Card from "../components/card";
+import CardWrapper from "../components/cardWrapper";
 import Hero from "../components/hero/hero";
 import { Link } from "../components/input/inputStyle";
 import { Button } from "../components/tags";
+import Wrapper from "../components/wrapper";
 
 const Home = () => {
   return (
@@ -11,7 +14,10 @@ const Home = () => {
         <h3 className="section-title">Special Invitation</h3>
         <div className="columns cta">
           <div className="p-1">
-            <img alt="Random Image" />
+            <img
+              alt="Random Image"
+              src="https://via.placeholder.com/500x350"
+            />
           </div>
           <div className="p-1">
             <p className="text-center">
@@ -44,63 +50,19 @@ const Home = () => {
       </div>
       <br></br>
       <h3 className="section-title">Featured HaLiBees</h3>
-      <div className="columns">
-        <div className="column p-2">
-            
-          <div className="card outset-neomo">
-            <div className="card-content text-center">
-              <img src="" alt="Freelancer Image" />
-            </div>
-            <div className="card-content">
-              <h4>Tristique senectus et netus et.</h4>
-              <p>
-                Purus semper eget duis at tellus at urna condimentum mattis. Non
-                blandit massa enim nec. Integer enim neque volutpat ac tincidunt
-                vitae semper quis. Accumsan tortor posuere ac ut consequat
-                semper viverra nam.
-              </p>
-              <p>Clients Served: 52 Rating: 5</p>
-            </div>
-          </div>
-          
-        </div>
+      <Wrapper>
+      <CardWrapper>
 
-        <div className="column p-2">
-          <div className="card outset-neomo">
-            <div className="card-content text-center">
-              <img src="" alt="Freelancer Image" />{" "}
-            </div>
-            <div className="card-content">
-              <h4>Tempor orci dapibus ultrices in.</h4>
-              <p>
-                Ut venenatis tellus in metus vulputate. Amet consectetur
-                adipiscing elit pellentesque. Sed arcu non odio euismod lacinia
-                at quis risus. Faucibus turpis in eu mi bibendum neque egestas
-                cmonsu songue. Phasellus vestibulum lorem sed risus.
-              </p>
-              <p>Clients Served: 52 Rating: 5</p>
-            </div>
-          </div>
-        </div>
+        <Card 
+        name="Bwatma" 
+        skill="Web Developer"
+        description="Test description"
+        clientsServed="6"
+        rating="3"
+        />
 
-        <div className="column p-2">
-          <div className="card outset-neomo">
-            <div className="card-content text-center">
-              <img src="" alt="Freelancer Image" />{" "}
-            </div>
-            <div className="card-content">
-              <h4>Leo integer malesuada nunc vel risus.</h4>
-              <p>
-                Imperdiet dui accumsan sit amet nulla facilisi morbi. Fusce ut
-                placerat orci nulla pellentesque dignissim enim. Libero id
-                faucibus nisl tincidunt eget nullam. Commodo viverra maecenas
-                accumsan lacus vel facilisis.
-              </p>
-              <p>Clients Served: 52 Rating: 5</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    </CardWrapper>
+    </Wrapper>
     </div>
   );
 };

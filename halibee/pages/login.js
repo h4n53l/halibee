@@ -11,19 +11,28 @@ const Login = () => {
   const [newUser, setNewUser] = useState(null);
   const router = useRouter();
 
-  const signIn = async (event) => {
+ 
+
+
+
+  const signIn =  async (event) => {
     event.preventDefault();
     try {
       const user = await Auth.signIn(email, password);
       setLoggedIn(user);
-      console.log(user);
     } catch (error) {
       console.log(error);
     }
-  };
+  }
+  
 
+
+  
   if (loggedIn) {
+    console.log(loggedIn.signInUserSession.accessToken.payload["cognito:groups"])
+    
     router.push("/");
+    
   }
 
   return (
