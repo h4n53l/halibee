@@ -1,0 +1,18 @@
+{
+    "sourceFile": "firebase/state/provider/authProvider.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1629923777217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1629923777217,
+            "name": "Commit-0",
+            "content": "import { useEffect, useState } from \"react\";\r\nimport { AuthContext } from \"../context/AuthContext\";\r\nimport firebase from \"firebase/app\";\r\nimport { auth } from \"../firebaseSetup\";\r\n\r\nexport const AuthProvider: React.FC = ({ children }) => {\r\n  const [user, setUser] = useState<firebase.User | null>(null);\r\n\r\n  useEffect(() => {\r\n    const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {\r\n      setUser(firebaseUser);\r\n    });\r\n\r\n    return unsubscribe;\r\n  }, []);\r\n\r\n  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;"
+        }
+    ]
+}
