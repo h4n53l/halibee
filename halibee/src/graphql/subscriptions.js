@@ -6,10 +6,15 @@ export const onCreateCard = /* GraphQL */ `
     onCreateCard {
       id
       name
-      username
+      image {
+        bucket
+        region
+        key
+      }
+      skill
       description
+      rating
       clientsServed
-      Review
       createdAt
       updatedAt
     }
@@ -20,10 +25,15 @@ export const onUpdateCard = /* GraphQL */ `
     onUpdateCard {
       id
       name
-      username
+      image {
+        bucket
+        region
+        key
+      }
+      skill
       description
+      rating
       clientsServed
-      Review
       createdAt
       updatedAt
     }
@@ -34,10 +44,15 @@ export const onDeleteCard = /* GraphQL */ `
     onDeleteCard {
       id
       name
-      username
+      image {
+        bucket
+        region
+        key
+      }
+      skill
       description
+      rating
       clientsServed
-      Review
       createdAt
       updatedAt
     }

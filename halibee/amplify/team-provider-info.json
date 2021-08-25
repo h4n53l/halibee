@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "halibee0b90bb72": {}
+      },
+      "function": {
+        "S3Trigger96d45d4b": {
+          "deploymentBucketName": "amplify-halibee-dev-85741-deployment",
+          "s3Key": "amplify-builds/S3Trigger96d45d4b-6c7867536a7234507836-build.zip"
+        }
       }
     }
   }

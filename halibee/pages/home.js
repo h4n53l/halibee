@@ -1,11 +1,25 @@
+import { withSSRContext } from "aws-amplify";
 import Card from "../components/card";
 import CardWrapper from "../components/cardWrapper";
 import Hero from "../components/hero/hero";
 import { Link } from "../components/input/inputStyle";
 import { Button } from "../components/tags";
 import Wrapper from "../components/wrapper";
+import { listCards } from "../src/graphql/queries";
 
-const Home = () => {
+export async function getServerSideProps () {
+  const SSR = withSSRContext()
+  const { data } = await SSR.API.graphql({ query: listCards })
+  
+  return {
+    props: {
+      cards: data.listCards.items
+    }
+  }
+}
+
+
+const Home = ({cards}) => {
   return (
     <div>
       <Hero />
@@ -50,19 +64,22 @@ const Home = () => {
       </div>
       <br></br>
       <h3 className="section-title">Featured HaLiBees</h3>
-      <Wrapper>
+      {/* <Wrapper>
+      {cards.map(cards => {
+            return (
       <CardWrapper>
-
         <Card 
-        name="Bwatma" 
-        skill="Web Developer"
-        description="Test description"
-        clientsServed="6"
-        rating="3"
+        name={cards.name}
+        skill={cards.skill}
+        description={cards.description}
+        clientsServed={cards.clientsServed}
+        rating={cards.rating}
         />
-
     </CardWrapper>
-    </Wrapper>
+              
+            )
+          })}
+    </Wrapper> */}
     </div>
   );
 };

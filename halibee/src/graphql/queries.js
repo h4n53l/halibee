@@ -6,10 +6,15 @@ export const getCard = /* GraphQL */ `
     getCard(id: $id) {
       id
       name
-      username
+      image {
+        bucket
+        region
+        key
+      }
+      skill
       description
+      rating
       clientsServed
-      Review
       createdAt
       updatedAt
     }
@@ -25,10 +30,15 @@ export const listCards = /* GraphQL */ `
       items {
         id
         name
-        username
+        image {
+          bucket
+          region
+          key
+        }
+        skill
         description
+        rating
         clientsServed
-        Review
         createdAt
         updatedAt
       }

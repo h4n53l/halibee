@@ -1,1 +1,14 @@
-{}
+{
+    "groupPermissionMap": {
+        "client": [
+            "create/update",
+            "read",
+            "delete"
+        ],
+        "freelancer": [
+            "create/update",
+            "read",
+            "delete"
+        ]
+    }
+}

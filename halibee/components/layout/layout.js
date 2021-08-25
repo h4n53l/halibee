@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
                 <Div>
                   <Link className="info"> Notifications </Link>
                   <Link className="info"> Dashboard </Link>
-                  <Link className="info"> Profile </Link>
+                  <Link className="info" href="/profile"> Profile </Link>
                   <Link className="info"> Settings </Link>
                   <hr className="navbar-divider" />
                   <Button
