@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 22,
+            "activePatchIndex": 24,
             "patches": [
                 {
                     "date": 1629924098335,
@@ -96,6 +96,14 @@
                 {
                     "date": 1629927388419,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import { useEffect, useState } from \"react\"\r\n+import firebase from \"firebase/app\"\r\n+import { auth } from \"../../firebase/initialiseFirebase\"\r\n+import { AuthContext } from \"../context/authContext\"\r\n+\r\n+export const AuthProvider: React.FC = ({ children }) => {\r\n+  const [user, setUser] = useState<firebase.User | null>(null)\r\n+\r\n+  useEffect(() => {\r\n+    const unsubscribe = auth.onAuthStateChanged((firebaseUser: any) => {\r\n+      setUser(firebaseUser)\r\n+    });\r\n+\r\n+    return unsubscribe \r\n+  }, []);\r\n+\r\n+  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629932036902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { useEffect, useState } from \"react\"\r\n import firebase from \"firebase/app\"\r\n-import { auth } from \"../../firebase/initialiseFirebase\"\r\n+import { auth } from \"../../firebase/firebaseClient\"\r\n import { AuthContext } from \"../context/authContext\"\r\n \r\n export const AuthProvider: React.FC = ({ children }) => {\r\n   const [user, setUser] = useState<firebase.User | null>(null)\r\n@@ -14,22 +14,5 @@\n     return unsubscribe \r\n   }, []);\r\n \r\n   return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>\r\n-}\n-import { useEffect, useState } from \"react\"\r\n-import firebase from \"firebase/app\"\r\n-import { auth } from \"../../firebase/initialiseFirebase\"\r\n-import { AuthContext } from \"../context/authContext\"\r\n-\r\n-export const AuthProvider: React.FC = ({ children }) => {\r\n-  const [user, setUser] = useState<firebase.user | null>(null)\r\n-\r\n-  useEffect(() => {\r\n-    const unsubscribe = auth.onAuthStateChanged((firebaseUser: any) => {\r\n-      setUser(firebaseUser)\r\n-    });\r\n-\r\n-    return unsubscribe \r\n-  }, []);\r\n-\r\n-  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>\n\\ No newline at end of file\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629932625637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { useEffect, useState } from \"react\"\r\n import firebase from \"firebase/app\"\r\n-import { auth } from \"../../firebase/firebaseClient\"\r\n+import { auth } from \"../../firebase/initialiseFirebase\"\r\n import { AuthContext } from \"../context/authContext\"\r\n \r\n export const AuthProvider: React.FC = ({ children }) => {\r\n   const [user, setUser] = useState<firebase.User | null>(null)\r\n"
                 }
             ],
             "date": 1629924098335,

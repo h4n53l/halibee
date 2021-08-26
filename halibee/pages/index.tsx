@@ -1,7 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { firebase } from '../firebase/initialiseFirebase'
 import styles from '../styles/Home.module.css'
+
+
+firebase()
 
 const Home: NextPage = () => {
   return (

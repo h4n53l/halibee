@@ -1,0 +1,46 @@
+{
+    "sourceFile": "firebase/firebaseAdmin.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1629932053333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1629932158151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,6 @@\n import * as firebaseAdmin from 'firebase-admin';\r\n \r\n-// get this JSON from the Firebase board\r\n-// you can also store the values in environment variables\r\n-import serviceAccount from './secret.json';\r\n-\r\n if (!firebaseAdmin.apps.length) {\r\n   firebaseAdmin.initializeApp({\r\n     credential: firebaseAdmin.credential.cert({\r\n       privateKey: serviceAccount.private_key,\r\n"
+                },
+                {
+                    "date": 1629959434157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n       privateKey: serviceAccount.private_key,\r\n       clientEmail: serviceAccount.client_email,\r\n       projectId: serviceAccount.project_id,\r\n     }),\r\n-    databaseURL: 'https://YOUR_PROJECT_ID.firebaseio.com',\r\n+    databaseURL: 'https://halibee.firebaseio.com',\r\n   });\r\n }\r\n \r\n export { firebaseAdmin };\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629959443258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n       privateKey: serviceAccount.private_key,\r\n       clientEmail: serviceAccount.client_email,\r\n       projectId: serviceAccount.project_id,\r\n     }),\r\n-    databaseURL: 'https://halibee.firebaseio.com',\r\n+    databaseURL: 'https://YOUR_PROJECT_ID.firebaseio.com',\r\n   });\r\n }\r\n \r\n export { firebaseAdmin };\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629959449372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n       privateKey: serviceAccount.private_key,\r\n       clientEmail: serviceAccount.client_email,\r\n       projectId: serviceAccount.project_id,\r\n     }),\r\n-    databaseURL: 'https://YOUR_PROJECT_ID.firebaseio.com',\r\n+    databaseURL: 'https://halibee.firebaseio.com',\r\n   });\r\n }\r\n \r\n export { firebaseAdmin };\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629959472739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   firebaseAdmin.initializeApp({\r\n     credential: firebaseAdmin.credential.cert({\r\n       privateKey: serviceAccount.private_key,\r\n       clientEmail: serviceAccount.client_email,\r\n-      projectId: serviceAccount.project_id,\r\n+      projectId: proc.project_id,\r\n     }),\r\n     databaseURL: 'https://halibee.firebaseio.com',\r\n   });\r\n }\r\n"
+                },
+                {
+                    "date": 1629959492026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import * as firebaseAdmin from 'firebase-admin';\r\n+\r\n+if (!firebaseAdmin.apps.length) {\r\n+  firebaseAdmin.initializeApp({\r\n+    credential: firebaseAdmin.credential.cert({\r\n+      privateKey: serviceAccount.private_key,\r\n+      clientEmail: serviceAccount.client_email,\r\n+      projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID.project_id,\r\n+    }),\r\n+    databaseURL: 'https://halibee.firebaseio.com',\r\n+  });\r\n+}\r\n+\r\n+export { firebaseAdmin };\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629959497898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import * as firebaseAdmin from 'firebase-admin';\r\n+\r\n+if (!firebaseAdmin.apps.length) {\r\n+  firebaseAdmin.initializeApp({\r\n+    credential: firebaseAdmin.credential.cert({\r\n+      privateKey: serviceAccount.private_key,\r\n+      clientEmail: serviceAccount.client_email,\r\n+      projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,\r\n+    }),\r\n+    databaseURL: 'https://halibee.firebaseio.com',\r\n+  });\r\n+}\r\n+\r\n+export { firebaseAdmin };\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1629932053333,
+            "name": "Commit-0",
+            "content": "import * as firebaseAdmin from 'firebase-admin';\r\n\r\n// get this JSON from the Firebase board\r\n// you can also store the values in environment variables\r\nimport serviceAccount from './secret.json';\r\n\r\nif (!firebaseAdmin.apps.length) {\r\n  firebaseAdmin.initializeApp({\r\n    credential: firebaseAdmin.credential.cert({\r\n      privateKey: serviceAccount.private_key,\r\n      clientEmail: serviceAccount.client_email,\r\n      projectId: serviceAccount.project_id,\r\n    }),\r\n    databaseURL: 'https://YOUR_PROJECT_ID.firebaseio.com',\r\n  });\r\n}\r\n\r\nexport { firebaseAdmin };"
+        }
+    ]
+}
