@@ -1,0 +1,210 @@
+{
+    "sourceFile": "modules/initialiseFirebase.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 48,
+            "patches": [
+                {
+                    "date": 1630095383286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630095388583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import firebase from \"firebase/app\";\r\n+import {firebase} from \"firebase/app\";\r\n import \"firebase/auth\";\r\n \r\n const firebaseConfig = {\r\n   apiKey: \"AIzaSyBfaWPf-67RgCEmF_tdqrjJZHEhzPzOI9U\",\r\n"
+                },
+                {
+                    "date": 1630095394915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initialize} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+  apiKey: \"AIzaSyBfaWPf-67RgCEmF_tdqrjJZHEhzPzOI9U\",\r\n+  authDomain: \"fir-auth-tut-622be.firebaseapp.com\",\r\n+  projectId: \"fir-auth-tut-622be\",\r\n+  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}; //this is where your firebase app values you copied will go\r\n+\r\n+firebase.initializeApp(firebaseConfig);\r\n+\r\n+export const auth = firebase.auth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095405958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = ({\r\n+  apiKey: \"AIzaSyBfaWPf-67RgCEmF_tdqrjJZHEhzPzOI9U\",\r\n+  authDomain: \"fir-auth-tut-622be.firebaseapp.com\",\r\n+  projectId: \"fir-auth-tut-622be\",\r\n+  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}); //this is where your firebase app values you copied will go\r\n+\r\n+firebase.initializeApp(firebaseConfig);\r\n+\r\n+export const auth = firebase.auth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095411500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = initializeApp({\r\n+  apiKey: \"AIzaSyBfaWPf-67RgCEmF_tdqrjJZHEhzPzOI9U\",\r\n+  authDomain: \"fir-auth-tut-622be.firebaseapp.com\",\r\n+  projectId: \"fir-auth-tut-622be\",\r\n+  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}); //this is where your firebase app values you copied will go\r\n+\r\n+firebase.initializeApp(firebaseConfig);\r\n+\r\n+export const auth = firebase.auth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095470459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = initializeApp({\r\n+  apiKey: \"AIzaSyBfaWPf-67RgCEmF_tdqrjJZHEhzPzOI9U\",\r\n+  authDomain: \"fir-auth-tut-622be.firebaseapp.com\",\r\n+  projectId: \"fir-auth-tut-622be\",\r\n+  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}); //this is where your firebase app values you copied will go\r\n+\r\n+firebase.initializeApp(firebaseConfig);\r\n+\r\n+export const auth = auth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095480100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = initializeApp({\r\n+  apiKey: \"AIzaSyBfaWPf-67RgCEmF_tdqrjJZHEhzPzOI9U\",\r\n+  authDomain: \"fir-auth-tut-622be.firebaseapp.com\",\r\n+  projectId: \"fir-auth-tut-622be\",\r\n+  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}); //this is where your firebase app values you copied will go\r\n+\r\n+firebase.initializeApp(firebaseConfig);\r\n+\r\n+export const auth = getAuth(fir);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095488268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = initializeApp({\r\n+  apiKey: \"AIzaSyBfaWPf-67RgCEmF_tdqrjJZHEhzPzOI9U\",\r\n+  authDomain: \"fir-auth-tut-622be.firebaseapp.com\",\r\n+  projectId: \"fir-auth-tut-622be\",\r\n+  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth(firebaseConfig);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095517030,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth(firebaseConfig);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095523248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095530529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const fire\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095536012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095544464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    pr\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095563992,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: \"AIzaSyBfaWPf-67RgCEmF_tdqrjJZHEhzPzOI9U\",\r\n+  authDomain: \"fir-auth-tut-622be.firebaseapp.com\",\r\n+  projectId: \"fir-auth-tut-622be\",\r\n+  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095569643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.,\r\n+  authDomain: \"fir-auth-tut-622be.firebaseapp.com\",\r\n+  projectId: \"fir-auth-tut-622be\",\r\n+  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095577289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.F,\r\n+  authDomain: \"fir-auth-tut-622be.firebaseapp.com\",\r\n+  projectId: \"fir-auth-tut-622be\",\r\n+  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095585173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+  authDomain: \"fir-auth-tut-622be.firebaseapp.com\",\r\n+  projectId: \"fir-auth-tut-622be\",\r\n+  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095600701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+  authDomain: process.env.,\r\n+  projectId: \"fir-auth-tut-622be\",\r\n+  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095606858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+  authDomain: process.env.,\r\n+  projectId: process.env.,\r\n+  storageBucket: process.env.,\r\n+  messagingSenderId: \"548365078338\",\r\n+  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095613406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+  authDomain: process.env.,\r\n+  projectId: process.env.,\r\n+  storageBucket: process.env.,\r\n+  messagingSenderId: process.env.,\r\n+  appId: process.env.,\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095622681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+  authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+  projectId: process.env.,\r\n+  storageBucket: process.env.,\r\n+  messagingSenderId: process.env.,\r\n+  appId: process.env.,\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095637738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+  authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+  projectId: process.env.FIREBASE_PROJECT_ID,\r\n+  storageBucket: process.env.,\r\n+  messagingSenderId: process.env.,\r\n+  appId: process.env.,\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095645500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+  authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+  projectId: process.env.FIREBASE_PROJECT_ID,\r\n+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+  messagingSenderId: process.env.,\r\n+  appId: process.env.,\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095651986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+  authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+  projectId: process.env.FIREBASE_PROJECT_ID,\r\n+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+  appId: process.env.,\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095661072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+  authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+  projectId: process.env.FIREBASE_PROJECT_ID,\r\n+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+  appId: process.env.FIREBASE_APP_ID,\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095668061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+  authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+  projectId: process.env.FIREBASE_PROJECT_ID,\r\n+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+  appId: process.env.FIREBASE_APP_ID,\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095686301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    DA\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095693344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095719599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: \r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId:\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095726783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId:\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095732303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId:\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095741955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: \r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095751252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095757816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); //this is where your firebase app values you copied will go\r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095764544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+\r\n+\r\n+export const auth = getAuth();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095770624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095776516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import \"firebase/auth\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095786749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095825028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+co\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095831265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+const ana\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095836622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+const analytics = \r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630095846143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+const analytics = getAnalytics()\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630096934783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+import \r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+const analytics = getAnalytics(firebaseApp)\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630096940787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+import {getAna}\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+const analytics = getAnalytics(firebaseApp)\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630097159142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+import {getAnana}\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+const analytics = getAnalytics(firebaseApp)\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630097164821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+import {getAnanalytics} \r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+const analytics = getAnalytics(firebaseApp)\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630097170611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+import {getAnanalytics} from \"fire\"\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+const analytics = getAnalytics(firebaseApp)\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630097182250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+import {getAnalytics} from \"firebase/analytics\"\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+const analytics = getAnalytics(firebaseApp)\r\n+\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630097199958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+import {getAnalytics} from \"firebase/analytics\"\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+const firebaseApp = initializeApp(firebaseConfig); \r\n+\r\n+const analytics = getAnalytics(firebaseApp)\r\n+export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1630095383286,
+            "name": "Commit-0",
+            "content": "import firebase from \"firebase/app\";\r\nimport \"firebase/auth\";\r\n\r\nconst firebaseConfig = {\r\n  apiKey: \"AIzaSyBfaWPf-67RgCEmF_tdqrjJZHEhzPzOI9U\",\r\n  authDomain: \"fir-auth-tut-622be.firebaseapp.com\",\r\n  projectId: \"fir-auth-tut-622be\",\r\n  storageBucket: \"fir-auth-tut-622be.appspot.com\",\r\n  messagingSenderId: \"548365078338\",\r\n  appId: \"1:548365078338:web:0dffb8e16a479c082a02db\",\r\n}; //this is where your firebase app values you copied will go\r\n\r\nfirebase.initializeApp(firebaseConfig);\r\n\r\nexport const auth = firebase.auth();"
+        }
+    ]
+}

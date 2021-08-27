@@ -1,0 +1,30 @@
+{
+    "sourceFile": "modules/providers/themeProvider.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1630104071822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630104096402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,29 @@\n+import { ThemeContext } from \"../contexts/themeContext\";\r\n+\r\n+export const ThemeProvider = ({ initialTheme, children }) => {\r\n+    const [theme, setTheme] = React.useState(getInitialTheme);\r\n+  \r\n+    const checkTheme = (existing) => {\r\n+      const root = window.document.documentElement;\r\n+      const isDark = existing === 'dark';\r\n+  \r\n+      root.classList.remove(isDark ? 'light' : 'dark');\r\n+      root.classList.add(existing);\r\n+  \r\n+      localStorage.setItem('current-theme', existing);\r\n+    };\r\n+  \r\n+    if (initialTheme) {\r\n+      checkTheme(initialTheme);\r\n+    }\r\n+  \r\n+    useEffect(() => {\r\n+      checkTheme(theme);\r\n+    }, [theme]);\r\n+  \r\n+    return (\r\n+      <ThemeContext.Provider value={{ theme, setTheme }}>\r\n+        {children}\r\n+      </ThemeContext.Provider>\r\n+    );\r\n+  };\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630104118295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,30 @@\n+import { useEffect } from \"react\";\r\n+import { ThemeContext } from \"../contexts/themeContext\";\r\n+\r\n+export const ThemeProvider = ({ initialTheme, children }) => {\r\n+    const [theme, setTheme] = useState(getInitialTheme);\r\n+  \r\n+    const checkTheme = (existing) => {\r\n+      const root = window.document.documentElement;\r\n+      const isDark = existing === 'dark';\r\n+  \r\n+      root.classList.remove(isDark ? 'light' : 'dark');\r\n+      root.classList.add(existing);\r\n+  \r\n+      localStorage.setItem('current-theme', existing);\r\n+    };\r\n+  \r\n+    if (initialTheme) {\r\n+      checkTheme(initialTheme);\r\n+    }\r\n+  \r\n+    useEffect(() => {\r\n+      checkTheme(theme);\r\n+    }, [theme]);\r\n+  \r\n+    return (\r\n+      <ThemeContext.Provider value={{ theme, setTheme }}>\r\n+        {children}\r\n+      </ThemeContext.Provider>\r\n+    );\r\n+  };\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630104124483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,30 @@\n+import { useEffect, useState } from \"react\";\r\n+import { ThemeContext } from \"../contexts/themeContext\";\r\n+\r\n+export const ThemeProvider = ({ initialTheme, children }) => {\r\n+    const [theme, setTheme] = useState(getInitialTheme);\r\n+  \r\n+    const checkTheme = (existing) => {\r\n+      const root = window.document.documentElement;\r\n+      const isDark = existing === 'dark';\r\n+  \r\n+      root.classList.remove(isDark ? 'light' : 'dark');\r\n+      root.classList.add(existing);\r\n+  \r\n+      localStorage.setItem('current-theme', existing);\r\n+    };\r\n+  \r\n+    if (initialTheme) {\r\n+      checkTheme(initialTheme);\r\n+    }\r\n+  \r\n+    useEffect(() => {\r\n+      checkTheme(theme);\r\n+    }, [theme]);\r\n+  \r\n+    return (\r\n+      <ThemeContext.Provider value={{ theme, setTheme }}>\r\n+        {children}\r\n+      </ThemeContext.Provider>\r\n+    );\r\n+  };\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1630104071822,
+            "name": "Commit-0",
+            "content": "export const ThemeProvider = ({ initialTheme, children }) => {\r\n    const [theme, setTheme] = React.useState(getInitialTheme);\r\n  \r\n    const checkTheme = (existing) => {\r\n      const root = window.document.documentElement;\r\n      const isDark = existing === 'dark';\r\n  \r\n      root.classList.remove(isDark ? 'light' : 'dark');\r\n      root.classList.add(existing);\r\n  \r\n      localStorage.setItem('current-theme', existing);\r\n    };\r\n  \r\n    if (initialTheme) {\r\n      checkTheme(initialTheme);\r\n    }\r\n  \r\n    React.useEffect(() => {\r\n      checkTheme(theme);\r\n    }, [theme]);\r\n  \r\n    return (\r\n      <ThemeContext.Provider value={{ theme, setTheme }}>\r\n        {children}\r\n      </ThemeContext.Provider>\r\n    );\r\n  };"
+        }
+    ]
+}

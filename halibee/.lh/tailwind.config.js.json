@@ -1,0 +1,38 @@
+{
+    "sourceFile": "tailwind.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1630082177543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630082183684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+module.exports = {\n+  mode: 'jit',\n+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],\n+  darkMode: false, // or 'media' or 'class'\n+  theme: {\n+    colors: {\n+      \n+    },\n+    extend: {},\n+  },\n+  variants: {\n+    extend: {},\n+  },\n+  plugins: [],\n+}\n"
+                },
+                {
+                    "date": 1630082189468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+module.exports = {\n+  mode: 'jit',\n+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],\n+  darkMode: false, // or 'media' or 'class'\n+  theme: {\n+    colors: {\n+      primary\n+    },\n+    extend: {},\n+  },\n+  variants: {\n+    extend: {},\n+  },\n+  plugins: [],\n+}\n"
+                },
+                {
+                    "date": 1630082230304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+module.exports = {\n+  mode: 'jit',\n+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],\n+  darkMode: false, // or 'media' or 'class'\n+  theme: {\n+    colors: {\n+      primary: #\n+    },\n+    extend: {},\n+  },\n+  variants: {\n+    extend: {},\n+  },\n+  plugins: [],\n+}\n"
+                },
+                {
+                    "date": 1630082236076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],\n   darkMode: false, // or 'media' or 'class'\n   theme: {\n     colors: {\n-      primary: '#'\n+      primary: '#162'\n     },\n     extend: {},\n   },\n   variants: {\n"
+                },
+                {
+                    "date": 1630082292215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+module.exports = {\n+  mode: 'jit',\n+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],\n+  darkMode: false, // or 'media' or 'class'\n+  theme: {\n+    colors: {\n+      primary: '#26'\n+    },\n+    extend: {},\n+  },\n+  variants: {\n+    extend: {},\n+  },\n+  plugins: [],\n+}\n"
+                }
+            ],
+            "date": 1630082177543,
+            "name": "Commit-0",
+            "content": "module.exports = {\n  mode: 'jit',\n  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],\n  darkMode: false, // or 'media' or 'class'\n  theme: {\n    \n    extend: {},\n  },\n  variants: {\n    extend: {},\n  },\n  plugins: [],\n}\n"
+        }
+    ]
+}

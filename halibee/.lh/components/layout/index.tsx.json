@@ -1,0 +1,98 @@
+{
+    "sourceFile": "components/layout/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1630081610939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630081624521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,1 @@\n+nafe\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081634142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,1 @@\n-nafe\n-nafe\n\\ No newline at end of file\n+naf\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081646320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default  () => {\r\n+    return (\r\n+        <div>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081663221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,1 @@\n+naf\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081677911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +0,0 @@\n-naf\n-export default  () => {\r\n-    return (\r\n-        <div>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-naf\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081760740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,1 @@\n+nf\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081768390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function Layout() {\r\n+    return (\r\n+        <div>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081774775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function Layout({childr}) {\r\n+    return (\r\n+        <div>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081785080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function Layout({children}) {\r\n+    return (\r\n+        <div>\r\n+            <N>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081790224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function Layout({children}) {\r\n+    return (\r\n+        <div>\r\n+            <Na>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081795337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function Layout({children}) {\r\n+    return (\r\n+        <div>\r\n+            <Navb>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081802147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({children}) {\r\n+    return (\r\n+        <div>\r\n+            <Navbar />\r\n+            \r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081809461,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({children}) {\r\n+    return (\r\n+        <div>\r\n+            <Navbar />\r\n+            {children}\r\n+            \r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630081817560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({children}) {\r\n+    return (\r\n+        <div>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer></footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630086037991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({children}) {\r\n+    return (\r\n+        <div cla>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer>\r\n+\r\n+            </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630086045881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({children}) {\r\n+    return (\r\n+        <div className='bg-'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer>\r\n+\r\n+            </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630086082062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({children}) {\r\n+    return (\r\n+        <div className='bg-back'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer>\r\n+\r\n+            </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630086775473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,21 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({children}) {\r\n+    return (\r\n+        <div className='bg-background'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer className=\"flex items-center justify-center w-full h-24 border-t\">\r\n+        <a\r\n+          className=\"flex items-center justify-center\"\r\n+          href=\"https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app\"\r\n+          target=\"_blank\"\r\n+          rel=\"noopener noreferrer\"\r\n+        >\r\n+          Powered by{' '}\r\n+          <img src=\"/vercel.svg\" alt=\"Vercel Logo\" className=\"h-4 ml-2\" />\r\n+        </a>\r\n+      </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630097902596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,128 +1,21 @@\n import Navbar from \"./navbar\";\r\n \r\n-export default function Layout({children}) {\r\n+export default function Layout({ children }) {\r\n     return (\r\n-        <div className='bg-background'>\r\n+        <div className='bg-tetiary'>\r\n             <Navbar />\r\n             {children}\r\n             <footer className=\"flex items-center justify-center w-full h-24 border-t\">\r\n-        <a\r\n-          className=\"flex items-center justify-center\"\r\n-          href=\"https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app\"\r\n-          target=\"_blank\"\r\n-          rel=\"noopener noreferrer\"\r\n-        >\r\n-          Powered by{' '}\r\n-          <img src=\"/vercel.svg\" alt=\"Vercel Logo\" className=\"h-4 ml-2\" />\r\n-        </a>\r\n-      </footer>\r\n-        </div>\r\n-    );\r\n-}\n-import Navbar from \"./navbar\";\r\n-\r\n-export default function Layout({children}) {\r\n-    return (\r\n-        <div className='bg-back'>\r\n-            <Navbar />\r\n-            {children}\r\n-            <footer>\r\n-\r\n+                <a\r\n+                    className=\"flex items-center justify-center\"\r\n+                    href=\"https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app\"\r\n+                    target=\"_blank\"\r\n+                    rel=\"noopener noreferrer\"\r\n+                >\r\n+                    Powered by{' '}\r\n+                    <img src=\"/vercel.svg\" alt=\"Vercel Logo\" className=\"h-4 ml-2\" />\r\n+                </a>\r\n             </footer>\r\n         </div>\r\n     );\r\n-}\n-import Navbar from \"./navbar\";\r\n-\r\n-export default function Layout({children}) {\r\n-    return (\r\n-        <div className='bg-'>\r\n-            <Navbar />\r\n-            {children}\r\n-            <footer>\r\n-\r\n-            </footer>\r\n-        </div>\r\n-    );\r\n-}\n-import Navbar from \"./navbar\";\r\n-\r\n-export default function Layout({children}) {\r\n-    return (\r\n-        <div cla>\r\n-            <Navbar />\r\n-            {children}\r\n-            <footer>\r\n-\r\n-            </footer>\r\n-        </div>\r\n-    );\r\n-}\n-import Navbar from \"./navbar\";\r\n-\r\n-export default function Layout({children}) {\r\n-    return (\r\n-        <div>\r\n-            <Navbar />\r\n-            {children}\r\n-            <footer></footer>\r\n-        </div>\r\n-    );\r\n-}\n-import Navbar from \"./navbar\";\r\n-\r\n-export default function Layout({children}) {\r\n-    return (\r\n-        <div>\r\n-            <Navbar />\r\n-            {children}\r\n-            \r\n-        </div>\r\n-    );\r\n-}\n-import Navbar from \"./navbar\";\r\n-\r\n-export default function Layout({children}) {\r\n-    return (\r\n-        <div>\r\n-            <Navbar />\r\n-            \r\n-        </div>\r\n-    );\r\n-}\n-export default function Layout({children}) {\r\n-    return (\r\n-        <div>\r\n-            <Navb>\r\n-        </div>\r\n-    );\r\n-}\n-export default function Layout({children}) {\r\n-    return (\r\n-        <div>\r\n-            <Na>\r\n-        </div>\r\n-    );\r\n-}\n-export default function Layout({children}) {\r\n-    return (\r\n-        <div>\r\n-            <N>\r\n-        </div>\r\n-    );\r\n-}\n-export default function Layout({childr}) {\r\n-    return (\r\n-        <div>\r\n-            Enter\r\n\\ No newline at end of file\n-        </div>\r\n-    );\r\n-}\n-export default function Layout() {\r\n-    return (\r\n-        <div>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-nf\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630097954805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,21 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({ children }) {\r\n+    return (\r\n+        <div className='bg-background'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer className=\"flex items-center justify-center w-full h-24 border-t\">\r\n+                <a\r\n+                    className=\"flex items-center justify-center\"\r\n+                    href=\"https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app\"\r\n+                    target=\"_blank\"\r\n+                    rel=\"noopener noreferrer\"\r\n+                >\r\n+                    Powered by{' '}\r\n+                    <img src=\"/vercel.svg\" alt=\"Vercel Logo\" className=\"h-4 ml-2\" />\r\n+                </a>\r\n+            </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1630081610939,
+            "name": "Commit-0",
+            "content": "nafe"
+        }
+    ]
+}

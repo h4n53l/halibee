@@ -3,56 +3,60 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 11,
             "patches": [
                 {
-                    "date": 1629926077738,
+                    "date": 1630081539865,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
                 },
                 {
-                    "date": 1629926082851,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import '../styles/globals.css'\n+import type { AppProps } from 'next/app'\n+\n+function MyApp({ Component, pageProps }: AppProps) {\n+  return \n+  <Auth\n+  <Component {...pageProps} />\n+}\n+export default MyApp\n"
+                    "date": 1630081547173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import 'tailwindcss/tailwind.css'\n+\n+function MyApp({ Component, pageProps }) {\n+  return \n+  <Navbar />\n+  <Component {...pageProps} />\n+}\n+\n+export default MyApp\n"
                 },
                 {
-                    "date": 1629926089192,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import '../styles/globals.css'\n+import type { AppProps } from 'next/app'\n+import { AuthProvider } from '../state/provider/authProvider'\n+\n+function MyApp({ Component, pageProps }: AppProps) {\n+  return \n+  <AuthProvider></AuthProvider>\n+  <Component {...pageProps} />\n+}\n+export default MyApp\n"
+                    "date": 1630081557392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import 'tailwindcss/tailwind.css'\n+\n+function MyApp({ Component, pageProps }) {\n+  return \n+  \n+  <Component {...pageProps} />\n+}\n+\n+export default MyApp\n"
                 },
                 {
-                    "date": 1629926095199,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+import '../styles/globals.css'\n+import type { AppProps } from 'next/app'\n+import { AuthProvider } from '../state/provider/authProvider'\n+\n+function MyApp({ Component, pageProps }: AppProps) {\n+  return \n+  <AuthProvider>\n+    <Component {...pageProps} />\n+\n+  </AuthProvider>\n+}\n+export default MyApp\n"
+                    "date": 1630081829408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import 'tailwindcss/tailwind.css'\n+\n+function MyApp({ Component, pageProps }) {\n+  return \n+  <Component {...pageProps} />\n+}\n+\n+export default MyApp\n"
                 },
                 {
-                    "date": 1629926135399,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+import '../styles/globals.css'\n+import type { AppProps } from 'next/app'\n+import { AuthProvider } from '../state/provider/authProvider'\n+\n+function MyApp({ Component, pageProps }: AppProps) {\n+  return \n+  (<AuthProvider>\n+    <Component {...pageProps} />\n+  </AuthProvider>)\n+}\n+export default MyApp\n"
+                    "date": 1630081835269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import 'tailwindcss/tailwind.css'\n+\n+function MyApp({ Component, pageProps }) {\n+  return \n+  <Nav\n+  <Component {...pageProps} />\n+}\n+\n+export default MyApp\n"
                 },
                 {
-                    "date": 1629927492946,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import '../styles/globals.css'\n+import type { AppProps } from 'next/app'\n+import { AuthProvider } from '../state/provider/authProvider'\n+\n+function MyApp({ Component, pageProps }: AppProps) {\n+  return \n+}\n+export default MyApp\n"
+                    "date": 1630081849244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import 'tailwindcss/tailwind.css'\n+\n+function MyApp({ Component, pageProps }) {\n+  return \n+  \n+  <Component {...pageProps} />\n+}\n+\n+export default MyApp\n"
                 },
                 {
-                    "date": 1629927512450,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,56 +3,9 @@\n import { AuthProvider } from '../state/provider/authProvider'\n \n function MyApp({ Component, pageProps }: AppProps) {\n   return \n+    <AuthProvider>\n+      <Component {...pageProps} />\n+    </AuthProvider>\n }\n export default MyApp\n-import '../styles/globals.css'\n-import type { AppProps } from 'next/app'\n-import { AuthProvider } from '../state/provider/authProvider'\n-\n-function MyApp({ Component, pageProps }: AppProps) {\n-  return \n-  (<AuthProvider>\n-    <Component {...pageProps} />\n-  </AuthProvider>)\n-}\n-export default MyApp\n-import '../styles/globals.css'\n-import type { AppProps } from 'next/app'\n-import { AuthProvider } from '../state/provider/authProvider'\n-\n-function MyApp({ Component, pageProps }: AppProps) {\n-  return \n-  <AuthProvider>\n-    <Component {...pageProps} />\n-\n-  </AuthProvider>\n-}\n-export default MyApp\n-import '../styles/globals.css'\n-import type { AppProps } from 'next/app'\n-import { AuthProvider } from '../state/provider/authProvider'\n-\n-function MyApp({ Component, pageProps }: AppProps) {\n-  return \n-  <AuthProvider></AuthProvider>\n-  <Component {...pageProps} />\n-}\n-export default MyApp\n-import '../styles/globals.css'\n-import type { AppProps } from 'next/app'\n-\n-function MyApp({ Component, pageProps }: AppProps) {\n-  return \n-  <Auth\n-  <Component {...pageProps} />\n-}\n-export default MyApp\n-import '../styles/globals.css'\n-import type { AppProps } from 'next/app'\n-\n-function MyApp({ Component, pageProps }: AppProps) {\n-  return \n-  <Component {...pageProps} />\n-}\n-export default MyApp\n"
+                    "date": 1630081855528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return \n+  <Layout></Layout>\n+  <Component {...pageProps} />\n+}\n+\n+export default MyApp\n"
                 },
                 {
-                    "date": 1629927549859,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { AuthProvider } from '../state/provider/authProvider'\n \n function MyApp({ Component, pageProps }: AppProps) {\n   return \n-    <AuthProvider>\n+    (<AuthProvider>\n       <Component {...pageProps} />\n-    </AuthProvider>\n+    </AuthProvider>)\n }\n export default MyApp\n"
+                    "date": 1630081863166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import 'tailwindcss/tailwind.css'\n+\n+function MyApp({ Component, pageProps }) {\n+  return \n+  <Component {...pageProps} />\n+}\n+\n+export default MyApp\n"
                 },
                 {
-                    "date": 1629927590744,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,10 @@\n import { AuthProvider } from '../state/provider/authProvider'\n \n function MyApp({ Component, pageProps }: AppProps) {\n   return \n-    (<AuthProvider>\n+    (\n+    <AuthProvider>\n       <Component {...pageProps} />\n     </AuthProvider>)\n }\n export default MyApp\n"
+                    "date": 1630081870554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,69 +2,8 @@\n \n function MyApp({ Component, pageProps }) {\n   return \n   <Component {...pageProps} />\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return \n-  <Layout></Layout>\n-  <Component {...pageProps} />\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-\n-function MyApp({ Component, pageProps }) {\n-  return \n   \n-  <Component {...pageProps} />\n }\n \n export default MyApp\n-import 'tailwindcss/tailwind.css'\n-\n-function MyApp({ Component, pageProps }) {\n-  return \n-  <Nav\n-  <Component {...pageProps} />\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-\n-function MyApp({ Component, pageProps }) {\n-  return \n-  <Component {...pageProps} />\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-\n-function MyApp({ Component, pageProps }) {\n-  return \n-  \n-  <Component {...pageProps} />\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-\n-function MyApp({ Component, pageProps }) {\n-  return \n-  <Navbar />\n-  <Component {...pageProps} />\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-\n-function MyApp({ Component, pageProps }) {\n-  return \n-  <Component {...pageProps} />\n-}\n-\n-export default MyApp\n"
                 },
                 {
-                    "date": 1629927765320,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+import '../styles/globals.css'\n+import type { AppProps } from 'next/app'\n+import { AuthProvider } from '../state/provider/authProvider'\n+\n+function MyApp({ Component, pageProps }: AppProps) {\n+  return \n+    <AuthProvider>\n+      <Component {...pageProps} />\n+    </AuthProvider>\n+}\n+export default MyApp\n"
+                    "date": 1630081878577,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return \n+  <Component {...pageProps} />\n+  <Layout>\n+    \n+  </Layout>\n+}\n+\n+export default MyApp\n"
                 },
                 {
-                    "date": 1629927804023,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+import '../styles/globals.css'\n+import type { AppProps } from 'next/app'\n+import { AuthProvider } from '../state/provider/authProvider'\n+\n+function MyApp({ Component, pageProps }: AppProps) {\n+  return \n+    <AuthProvider>\n+      <Component {...pageProps} />\n+    </AuthProvider>\n+    \n+}\n+export default MyApp\n"
+                    "date": 1630081885452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return \n+  <Layout>\n+    <Component {...pageProps} />\n+\n+  </Layout>\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630081895880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return \n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+  \n+}\n+\n+export default MyApp\n"
                 }
             ],
-            "date": 1629926077738,
+            "date": 1630081539865,
             "name": "Commit-0",
-            "content": "import '../styles/globals.css'\nimport type { AppProps } from 'next/app'\n\nfunction MyApp({ Component, pageProps }: AppProps) {\n  return \n  <Component {...pageProps} />\n}\nexport default MyApp\n"
+            "content": "import 'tailwindcss/tailwind.css'\n\nfunction MyApp({ Component, pageProps }) {\n  return \n  <Component {...pageProps} />\n}\n\nexport default MyApp\n"
         }
     ]
 }

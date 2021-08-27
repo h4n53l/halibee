@@ -1,0 +1,70 @@
+{
+    "sourceFile": "components/themeToggle.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1630099161905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630099168680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function () {\r\n+    return (\r\n+        <div>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630099181931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function ThemeToggle(propp) {\r\n+    return (\r\n+        <div>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630099210362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+export default function ThemeToggle(props) {\r\n+    return (\r\n+        <Switch\r\n+      checked={enabled}\r\n+      onChange={setEnabled}\r\n+      className={`${enabled ? 'bg-primary' : 'bg-secondary'} relative inline-flex items-center h-6 rounded-full w-11`}\r\n+    >\r\n+      <span className=\"sr-only\">Enable notifications</span>\r\n+      <span\r\n+        className={`${\r\n+          enabled ? 'translate-x-6' : 'translate-x-1'\r\n+        } inline-block w-4 h-4 transform bg-white rounded-full`}\r\n+      />\r\n+    </Switch>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630099215657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import { Switch } from \"@headlessui/react\";\r\n+\r\n export default function ThemeToggle(props) {\r\n     return (\r\n         <Switch\r\n       checked={enabled}\r\n@@ -12,20 +14,5 @@\n         } inline-block w-4 h-4 transform bg-white rounded-full`}\r\n       />\r\n     </Switch>\r\n     );\r\n-}\n-export default function ThemeToggle(propp) {\r\n-    return (\r\n-        <div>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function () {\r\n-    return (\r\n-        <div>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-nf\n\\ No newline at end of file\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630099222279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n export default function ThemeToggle(props) {\r\n     return (\r\n         <Switch\r\n-      checked={enabled}\r\n+      checked={props.enabled}\r\n       onChange={setEnabled}\r\n       className={`${enabled ? 'bg-primary' : 'bg-secondary'} relative inline-flex items-center h-6 rounded-full w-11`}\r\n     >\r\n       <span className=\"sr-only\">Enable notifications</span>\r\n"
+                },
+                {
+                    "date": 1630099227713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export default function ThemeToggle(props) {\r\n     return (\r\n         <Switch\r\n       checked={props.enabled}\r\n-      onChange={setEnabled}\r\n+      onChange={props.setEnabled}\r\n       className={`${enabled ? 'bg-primary' : 'bg-secondary'} relative inline-flex items-center h-6 rounded-full w-11`}\r\n     >\r\n       <span className=\"sr-only\">Enable notifications</span>\r\n       <span\r\n"
+                },
+                {
+                    "date": 1630099232932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     return (\r\n         <Switch\r\n       checked={props.enabled}\r\n       onChange={props.setEnabled}\r\n-      className={`${enabled ? 'bg-primary' : 'bg-secondary'} relative inline-flex items-center h-6 rounded-full w-11`}\r\n+      className={`${props.enabled ? 'bg-primary' : 'bg-secondary'} relative inline-flex items-center h-6 rounded-full w-11`}\r\n     >\r\n       <span className=\"sr-only\">Enable notifications</span>\r\n       <span\r\n         className={`${\r\n"
+                },
+                {
+                    "date": 1630099240400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import { Switch } from \"@headlessui/react\";\r\n+\r\n+export default function ThemeToggle(props) {\r\n+    return (\r\n+        <Switch\r\n+      checked={props.enabled}\r\n+      onChange={props.setEnabled}\r\n+      className={`${props.enabled ? 'bg-primary' : 'bg-secondary'} relative inline-flex items-center h-6 rounded-full w-11`}\r\n+    >\r\n+      <span className=\"sr-only\">Enable notifications</span>\r\n+      <span\r\n+        className={`${\r\n+          props.enabled ? 'translate-x-6' : 'translate-x-1'\r\n+        } inline-block w-4 h-4 transform bg-white rounded-full`}\r\n+      />\r\n+    </Switch>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630099336626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import { Switch } from \"@headlessui/react\";\r\n+\r\n+export default function ThemeToggle(props) {\r\n+    return (\r\n+        <Switch\r\n+      checked={props.on}\r\n+      onChange={props.setEnabled}\r\n+      className={`${props.enabled ? 'bg-primary' : 'bg-secondary'} relative inline-flex items-center h-6 rounded-full w-11`}\r\n+    >\r\n+      <span className=\"sr-only\">Enable notifications</span>\r\n+      <span\r\n+        className={`${\r\n+          props.enabled ? 'translate-x-6' : 'translate-x-1'\r\n+        } inline-block w-4 h-4 transform bg-white rounded-full`}\r\n+      />\r\n+    </Switch>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630099346586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import { Switch } from \"@headlessui/react\";\r\n+\r\n+export default function ThemeToggle(props) {\r\n+    return (\r\n+        <Switch\r\n+      checked={props.on}\r\n+      onChange={props.switch}\r\n+      className={`${props.enabled ? 'bg-primary' : 'bg-secondary'} relative inline-flex items-center h-6 rounded-full w-11`}\r\n+    >\r\n+      <span className=\"sr-only\">Enable notifications</span>\r\n+      <span\r\n+        className={`${\r\n+          props.enabled ? 'translate-x-6' : 'translate-x-1'\r\n+        } inline-block w-4 h-4 transform bg-white rounded-full`}\r\n+      />\r\n+    </Switch>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630099360565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import { Switch } from \"@headlessui/react\";\r\n+\r\n+export default function ThemeToggle(props) {\r\n+    return (\r\n+        <Switch\r\n+      checked={props.toggled}\r\n+      onChange={props.switch}\r\n+      className={`${props.enabled ? 'bg-primary' : 'bg-secondary'} relative inline-flex items-center h-6 rounded-full w-11`}\r\n+    >\r\n+      <span className=\"sr-only\">Enable notifications</span>\r\n+      <span\r\n+        className={`${\r\n+          props.enabled ? 'translate-x-6' : 'translate-x-1'\r\n+        } inline-block w-4 h-4 transform bg-white rounded-full`}\r\n+      />\r\n+    </Switch>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630099366182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import { Switch } from \"@headlessui/react\";\r\n+\r\n+export default function ThemeToggle(props) {\r\n+    return (\r\n+        <Switch\r\n+      checked={props.toggled}\r\n+      onChange={props.switch}\r\n+      className={`${props.toggled ? 'bg-primary' : 'bg-secondary'} relative inline-flex items-center h-6 rounded-full w-11`}\r\n+    >\r\n+      <span className=\"sr-only\">Enable notifications</span>\r\n+      <span\r\n+        className={`${\r\n+          props.enabled ? 'translate-x-6' : 'translate-x-1'\r\n+        } inline-block w-4 h-4 transform bg-white rounded-full`}\r\n+      />\r\n+    </Switch>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630099371982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import { Switch } from \"@headlessui/react\";\r\n+\r\n+export default function ThemeToggle(props) {\r\n+    return (\r\n+        <Switch\r\n+      checked={props.toggled}\r\n+      onChange={props.switch}\r\n+      className={`${props.toggled ? 'bg-primary' : 'bg-secondary'} relative inline-flex items-center h-6 rounded-full w-11`}\r\n+    >\r\n+      <span className=\"sr-only\">Enable notifications</span>\r\n+      <span\r\n+        className={`${\r\n+          props.toggled ? 'translate-x-6' : 'translate-x-1'\r\n+        } inline-block w-4 h-4 transform bg-white rounded-full`}\r\n+      />\r\n+    </Switch>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1630099161905,
+            "name": "Commit-0",
+            "content": "nf"
+        }
+    ]
+}

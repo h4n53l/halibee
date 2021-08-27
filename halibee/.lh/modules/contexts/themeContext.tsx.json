@@ -1,0 +1,82 @@
+{
+    "sourceFile": "modules/contexts/themeContext.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 16,
+            "patches": [
+                {
+                    "date": 1630103130441,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630103149613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,42 @@\n-export default function() {\r\n+export default functionconst getInitialTheme = () => {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n\\ No newline at end of file\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  export const ThemeContext = React.createContext();\r\n+  \r\n+  export const ThemeProvider = ({ initialTheme, children }) => {\r\n+    const [theme, setTheme] = React.useState(getInitialTheme);\r\n+  \r\n+    const checkTheme = (existing) => {\r\n+      const root = window.document.documentElement;\r\n+      const isDark = existing === 'dark';\r\n+  \r\n+      root.classList.remove(isDark ? 'light' : 'dark');\r\n+      root.classList.add(existing);\r\n+  \r\n+      localStorage.setItem('current-theme', existing);\r\n+    };\r\n+  \r\n+    if (initialTheme) {\r\n+      checkTheme(initialTheme);\r\n+    }\r\n+  \r\n+    React.useEffect(() => {\r\n+      checkTheme(theme);\r\n+    }, [theme]);\r\n+  \r\n     return (\r\n-        <div>\r\n-            Enter\r\n-        </div>\r\n+      <ThemeContext.Provider value={{ theme, setTheme }}>\r\n+        {children}\r\n+      </ThemeContext.Provider>\r\n     );\r\n-}\n+  };\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103162448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-export default functionconst getInitialTheme = () => {\r\n+export default function getInitialTheme = () => {\r\n     if (typeof window !== 'undefined' && window.localStorage) {\r\n       const storedPrefs = window.localStorage.getItem('current-theme');\r\n       if (typeof storedPrefs === 'string') {\r\n         return storedPrefs;\r\n"
+                },
+                {
+                    "date": 1630103169634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-export default function getInitialTheme = () => {\r\n+export default function getInitialTheme() => {\r\n     if (typeof window !== 'undefined' && window.localStorage) {\r\n       const storedPrefs = window.localStorage.getItem('current-theme');\r\n       if (typeof storedPrefs === 'string') {\r\n         return storedPrefs;\r\n"
+                },
+                {
+                    "date": 1630103174762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-export default function getInitialTheme() => {\r\n+export default function getInitialTheme() = {\r\n     if (typeof window !== 'undefined' && window.localStorage) {\r\n       const storedPrefs = window.localStorage.getItem('current-theme');\r\n       if (typeof storedPrefs === 'string') {\r\n         return storedPrefs;\r\n"
+                },
+                {
+                    "date": 1630103212260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+export default function getInitialTheme() {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103621591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+export default function getInitialTheme() {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103642484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import React from \"react\";\r\n+\r\n+export default function getInitialTheme() {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  export const AuthContext = React.createContext<firebase.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103652411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import React from \"react\";\r\n+\r\n+export default function getInitialTheme() {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  export const AuthContext = createContext<firebase.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103689635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import React from \"react\";\r\n+import { createContext } from \"vm\";\r\n+\r\n+export default function getInitialTheme() {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  export const AuthContext = createContext<firebase.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103702894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import React from \"react\";\r\n+\r\n+export default function getInitialTheme() {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  export const AuthContext = createContext<firebase.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103714183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import {React} from \"react\";\r\n+\r\n+export default function getInitialTheme() {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  export const AuthContext = createContext<firebase.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103755885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import {createContext} from \"react\";\r\n+\r\n+const getInitialTheme = () => {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  export const AuthContext = createContext<firebase.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103776694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import {createContext} from \"react\";\r\n+\r\n+const getInitialTheme = () => {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  export const getInitialTheme = createContext<firebase.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103797197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import {createContext} from \"react\";\r\n+\r\n+const getInitialTheme = () => {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  export const getInitialTheme = createContext<str | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103885466,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import {createContext} from \"react\";\r\n+\r\n+const getInitialTheme = () => {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  export const ThemeContext  = createContext<string | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630103994658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import {createContext} from \"react\";\r\n+\r\n+exconst getInitialTheme = () => {\r\n+    if (typeof window !== 'undefined' && window.localStorage) {\r\n+      const storedPrefs = window.localStorage.getItem('current-theme');\r\n+      if (typeof storedPrefs === 'string') {\r\n+        return storedPrefs;\r\n+      }\r\n+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\r\n+        return 'dark';\r\n+      }\r\n+    }\r\n+    return 'light';\r\n+  };\r\n+  \r\n+  export const ThemeContext  = createContext<string | null>(null);\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1630103130441,
+            "name": "Commit-0",
+            "content": "export default function() {\r\n    return (\r\n        <div>\r\n            Enter\r\n        </div>\r\n    );\r\n}"
+        }
+    ]
+}
