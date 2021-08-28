@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getInitialTheme, ThemeContext } from "../contexts/themeContext";
 
+
+
 export const ThemeProvider = ({ initialTheme, children }) => {
     const [theme, setTheme] = useState(getInitialTheme);
   

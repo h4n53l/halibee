@@ -19,8 +19,8 @@ export default function Home() {
 
         <div className=" max-w-full container mx-auto grid grid-cols-2 gap-8 md:grid-cols-4 py-8 text-center">
           <div>
-            <h5 className="text-5xl font-bold text-white">
-              <span className="inline text-white">
+            <h5 className="text-5xl font-bold text-primary">
+              <span className="inline text-primary">
                 2179
               </span>
               <span className="text-indigo-200">
@@ -32,8 +32,8 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <h5 className="text-5xl font-bold text-white">
-              <span className="inline text-white">
+            <h5 className="text-5xl font-bold text-primary">
+              <span className="inline text-primary">
                 13
               </span>
               <span className="text-indigo-200">
@@ -45,7 +45,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <h5 className="text-5xl font-bold text-white">
+            <h5 className="text-5xl font-bold text-primary">
               <span className="inline text-white">
                 31
               </span>
@@ -58,7 +58,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <h5 className="text-5xl font-bold text-white">
+            <h5 className="text-5xl font-bold text-primary">
               <span className="inline text-white">
                 3
               </span>

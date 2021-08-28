@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 11,
+            "activePatchIndex": 27,
             "patches": [
                 {
                     "date": 1630081539865,
@@ -52,6 +52,70 @@
                 {
                     "date": 1630081895880,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return \n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+  \n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630107745415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,45 +1,13 @@\n import 'tailwindcss/tailwind.css'\n import Layout from '../components/layout'\n \n function MyApp({ Component, pageProps }) {\n-  return \n+  return( \n+    \n   <Layout>\n     <Component {...pageProps} />\n   </Layout>\n-  \n+  )\n }\n \n export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return \n-  <Layout>\n-    <Component {...pageProps} />\n-\n-  </Layout>\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return \n-  <Component {...pageProps} />\n-  <Layout>\n-    \n-  </Layout>\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-\n-function MyApp({ Component, pageProps }) {\n-  return \n-  <Component {...pageProps} />\n-  \n-}\n-\n-export default MyApp\n"
+                },
+                {
+                    "date": 1630107752609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return( \n+    <ThemeProvider\n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630107760723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return( \n+    <ThemeProvider>\n+    </ThemeProvider>\n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630107768321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return( \n+    <ThemeProvider>\n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+    </ThemeProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630107778703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return( \n+    <ThemeProvide>\n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+    </ThemeProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630107785970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return( \n+    <ThemeProvid>\n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+    </ThemeProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630107809926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return( \n+    <ThemeProvide>\n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+    </ThemeProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630107822518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return( \n+    <Th>\n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+    </ThemeProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630107827941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return( \n+    <The>\n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+    </ThemeProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630107841692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return( \n+    <Theme>\n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630107847509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return( \n+    \n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630107855088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,149 +2,11 @@\n import Layout from '../components/layout'\n \n function MyApp({ Component, pageProps }) {\n   return( \n-    \n   <Layout>\n     <Component {...pageProps} />\n   </Layout>\n   )\n }\n \n export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return( \n-    <Theme>\n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return( \n-    <The>\n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n-    </ThemeProvider>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return( \n-    <Th>\n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n-    </ThemeProvider>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return( \n-    <ThemeProvide>\n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n-    </ThemeProvider>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return( \n-    <ThemeProvid>\n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n-    </ThemeProvider>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return( \n-    <ThemeProvide>\n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n-    </ThemeProvider>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return( \n-    <ThemeProvider>\n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n-    </ThemeProvider>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return( \n-    <ThemeProvider>\n-    </ThemeProvider>\n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return( \n-    <ThemeProvider\n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return( \n-    \n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n-  )\n-}\n-\n-export default MyApp\n"
+                },
+                {
+                    "date": 1630107862123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+\n+function MyApp({ Component, pageProps }) {\n+  return(\n+  <Layout>\n+    <Component {...pageProps} />\n+  </Layout>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630108100474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,13 @@\n import 'tailwindcss/tailwind.css'\n import Layout from '../components/layout'\n \n function MyApp({ Component, pageProps }) {\n-  return(\n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n+  return (\n+    <\n+    <Layout>\n+      <Component {...pageProps} />\n+    </Layout>\n   )\n }\n \n export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return( \n-  <Layout>\n-    <Component {...pageProps} />\n-  </Layout>\n-  )\n-}\n-\n-export default MyApp\n"
+                },
+                {
+                    "date": 1630108108857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+import { ThemeProvider } from '../modules/providers/themeProvider'\n+\n+function MyApp({ Component, pageProps }) {\n+  return (\n+    <ThemeProvider\n+    <Layout>\n+      <Component {...pageProps} />\n+    </Layout>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630108117192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+import { ThemeProvider } from '../modules/providers/themeProvider'\n+\n+function MyApp({ Component, pageProps }) {\n+  return (\n+    <ThemeProvider>\n+    <Layout>\n+      <Component {...pageProps} />\n+    </Layout></ThemeProvider>\n+  )\n+}\n+\n+export default MyApp\n"
                 }
             ],
             "date": 1630081539865,

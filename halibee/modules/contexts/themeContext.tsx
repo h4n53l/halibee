@@ -13,4 +13,4 @@ export const getInitialTheme = () => {
     return 'light';
   };
   
-  export const ThemeContext  = createContext<string | null>(null);
+  export const ThemeContext  = createContext<any>('');
