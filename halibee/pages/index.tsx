@@ -17,62 +17,59 @@ export default function Home() {
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
 
 
-        <div className=" max-w-full container mx-auto grid grid-cols-2 gap-8 md:grid-cols-4 py-8 text-center">
+        <div className="container mx-auto grid md:grid-cols-2 gap-8 lg:grid-cols-4 sm:grid-cols-1 py-8 text-center">
           <div>
-            <h5 className="text-5xl font-bold text-primary">
-              <span className="inline text-primary">
+            <h5 className="text-primary dark:text-secondary text-5xl font-bold ">
+              <span className="inline text-primary dark:text-secondary">
                 2179
               </span>
-              <span className="text-indigo-200">
+              <span className="text-primary dark:text-secondary">
                 +
               </span>
             </h5>
-            <p className="text-indigo-100 tracking-wide text-xs font-medium uppercase">
+            <p className="text-primary dark:text-secondary text-primary dark:text-secondary tracking-wide text-xs font-medium uppercase">
               Users
             </p>
           </div>
           <div>
-            <h5 className="text-5xl font-bold text-primary">
-              <span className="inline text-primary">
+            <h5 className="text-primary dark:text-secondary text-5xl font-bold text-primary">
+              <span className="inline text-primary dark:text-secondary">
                 13
               </span>
-              <span className="text-indigo-200">
+              <span className="text-primary dark:text-secondary">
                 +
               </span>
             </h5>
-            <p className="text-indigo-100 tracking-wide text-xs font-medium uppercase">
+            <p className="text-primary dark:text-secondary tracking-wide text-xs font-medium uppercase">
               Ongoing projects
             </p>
           </div>
           <div>
             <h5 className="text-5xl font-bold text-primary">
-              <span className="inline text-white">
+              <span className="inline text-primary dark:text-secondary">
                 31
               </span>
-              <span className="text-indigo-200">
+              <span className="text-primary dark:text-secondary">
                 +
               </span>
             </h5>
-            <p className="text-indigo-100 tracking-wide text-xs font-medium uppercase">
+            <p className="text-primary dark:text-secondary tracking-wide text-xs font-medium uppercase">
               Finished projects
             </p>
           </div>
           <div>
             <h5 className="text-5xl font-bold text-primary">
-              <span className="inline text-white">
+              <span className="inline text-primary dark:text-secondary">
                 3
               </span>
-              <span className="text-indigo-200">
+              <span className="text-primary dark:text-secondary">
                 +
               </span>
             </h5>
-            <p className="text-indigo-100 tracking-wide text-xs font-medium uppercase">
+            <p className="text-primary dark:text-secondary tracking-wide text-xs font-medium uppercase">
               Years in business
             </p>
           </div>
-        </div>
-        <div className="w-52 mx-auto mt-4 p-4 flex">
-          <Button text='Hi' />
         </div>
 
 

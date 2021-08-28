@@ -2,7 +2,7 @@ import Navbar from "./navbar";
 
 export default function Layout({ children }) {
     return (
-        <div className='bg-background'>
+        <div className='bg-background dark:bg-tertiary'>
             <Navbar />
             {children}
             <footer className="flex items-center justify-center w-full h-24 border-t">
@@ -12,8 +12,7 @@ export default function Layout({ children }) {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Powered by{' '}
-                    <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
+                    By HaLi
                 </a>
             </footer>
         </div>
