@@ -1,0 +1,58 @@
+{
+    "sourceFile": "next.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1630153700013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630153709021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-Database\n\\ No newline at end of file\n+\r\n"
+                },
+                {
+                    "date": 1630153716549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,5 @@\n-\r\n+module.exports = {\r\n+    env: {\r\n+      VARIABLE_X: process.env.VARIABLE_X,\r\n+    },\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630153791612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,12 @@\n module.exports = {\r\n     env: {\r\n-      VARIABLE_X: process.env.VARIABLE_X,\r\n+        FIREBASE_API_KEY = \"AIzaSyBz6hF0Tg8_0Cn1ZuzWpNGnaQOuV7bdQz8\"\r\n+        FIREBASE_AUTH_DOMATIN = \"halibee.firebaseapp.com\"\r\n+        FIREBASE_DATABASE_URL = \"https://halibee-default-rtdb.europe-west1.firebasedatabase.app\"\r\n+        FIREBASE_PROJECT_ID = \"halibee\"\r\n+        FIREBASE_STORAGE_BUCKET = \"halibee.appspot.com\"\r\n+        FIREBASE_MESSAGING_SENDER_ID = \"913940185470\"\r\n+        FIREBASE_APP_ID = \"1:913940185470:web:030b74299e47379a8e332f\"\r\n+        FIREBASE_MEASUREMENT_ID = \"G-52PXN5Q104\",\r\n     },\r\n   }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630153828294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n module.exports = {\r\n     env: {\r\n-        FIREBASE_API_KEY = \"AIzaSyBz6hF0Tg8_0Cn1ZuzWpNGnaQOuV7bdQz8\"\r\n-        FIREBASE_AUTH_DOMATIN = \"halibee.firebaseapp.com\"\r\n-        FIREBASE_DATABASE_URL = \"https://halibee-default-rtdb.europe-west1.firebasedatabase.app\"\r\n-        FIREBASE_PROJECT_ID = \"halibee\"\r\n-        FIREBASE_STORAGE_BUCKET = \"halibee.appspot.com\"\r\n-        FIREBASE_MESSAGING_SENDER_ID = \"913940185470\"\r\n-        FIREBASE_APP_ID = \"1:913940185470:web:030b74299e47379a8e332f\"\r\n-        FIREBASE_MEASUREMENT_ID = \"G-52PXN5Q104\",\r\n+        apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUR\r\n     },\r\n   }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630153842029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n module.exports = {\r\n     env: {\r\n-        apiKey: process.env.FIREBASE_API_KEY,\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n     authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n     databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n     projectId: process.env.FIREBASE_PROJECT_ID,\r\n     storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n"
+                },
+                {
+                    "date": 1630153880206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+module.exports = {\r\n+    env: {\r\n+        FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUR\r\n+    },\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630153885614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+module.exports = {\r\n+    env: {\r\n+        FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,\r\n+        FIREBASE_AUTH_DOMATIN: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUR\r\n+    },\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630153894543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+module.exports = {\r\n+    env: {\r\n+        FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,\r\n+        FIREBASE_AUTH_DOMATIN: process.env.FIREBASE_AUTH_DOMATIN,\r\n+        FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,\r\n+        FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUR\r\n+    },\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630153901933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+module.exports = {\r\n+    env: {\r\n+        FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,\r\n+        FIREBASE_AUTH_DOMATIN: process.env.FIREBASE_AUTH_DOMATIN,\r\n+        FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,\r\n+        FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,\r\n+        FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,\r\n+        FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUR\r\n+    },\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630153911554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+module.exports = {\r\n+    env: {\r\n+        FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,\r\n+        FIREBASE_AUTH_DOMATIN: process.env.FIREBASE_AUTH_DOMATIN,\r\n+        FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,\r\n+        FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,\r\n+        FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,\r\n+        FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+        FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,\r\n+        FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUR\r\n+    },\r\n+  }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1630153700013,
+            "name": "Commit-0",
+            "content": "Database"
+        }
+    ]
+}

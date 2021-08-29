@@ -1,0 +1,30 @@
+{
+    "sourceFile": "modules/firebase/initialiseFirebase.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1630137757540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630152747945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,6 +13,5 @@\n     measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n }\r\n export const firebaseApp = initializeApp(firebaseConfig); \r\n \r\n-export const analytics = getAnalytics(firebaseApp)\r\n export const auth = getAuth(firebaseApp);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630152766455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,5 @@\n }\r\n export const firebaseApp = initializeApp(firebaseConfig); \r\n \r\n export const auth = getAuth(firebaseApp);\r\n-export const data\n\\ No newline at end of file\n+export const database \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630152775657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import {initializeApp} from \"firebase/app\";\r\n+import { getAuth } from \"firebase/auth\";\r\n+import {getAnalytics} from \"firebase/analytics\"\r\n+\r\n+const firebaseConfig = {\r\n+    apiKey: process.env.FIREBASE_API_KEY,\r\n+    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n+    projectId: process.env.FIREBASE_PROJECT_ID,\r\n+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    appId: process.env.FIREBASE_APP_ID,\r\n+    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n+}\r\n+export const firebaseApp = initializeApp(firebaseConfig); \r\n+\r\n+export const auth = getAuth(firebaseApp);\r\n+export const database = gee\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1630137757540,
+            "name": "Commit-0",
+            "content": "import {initializeApp} from \"firebase/app\";\r\nimport { getAuth } from \"firebase/auth\";\r\nimport {getAnalytics} from \"firebase/analytics\"\r\n\r\nconst firebaseConfig = {\r\n    apiKey: process.env.FIREBASE_API_KEY,\r\n    authDomain: process.env.FIREBASE_AUTH_DOMATIN,\r\n    databaseURL: process.env.FIREBASE_DATABASE_URL,\r\n    projectId: process.env.FIREBASE_PROJECT_ID,\r\n    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,\r\n    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n    appId: process.env.FIREBASE_APP_ID,\r\n    measurementId: process.env.FIREBASE_MEASUREMENT_ID\r\n}\r\nexport const firebaseApp = initializeApp(firebaseConfig); \r\n\r\nexport const analytics = getAnalytics(firebaseApp)\r\nexport const auth = getAuth(firebaseApp);"
+        }
+    ]
+}

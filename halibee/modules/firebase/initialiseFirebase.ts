@@ -1,6 +1,7 @@
 import {initializeApp} from "firebase/app";
 import { getAuth } from "firebase/auth";
-import {getAnalytics} from "firebase/analytics"
+import {getStorage} from "firebase/storage"
+import {getDatabase} from "firebase/database"
 
 const firebaseConfig = {
     apiKey: process.env.FIREBASE_API_KEY,
@@ -12,7 +13,8 @@ const firebaseConfig = {
     appId: process.env.FIREBASE_APP_ID,
     measurementId: process.env.FIREBASE_MEASUREMENT_ID
 }
-const firebaseApp = initializeApp(firebaseConfig); 
+export const firebaseApp = initializeApp(firebaseConfig); 
 
-export const analytics = getAnalytics(firebaseApp)
-export const auth = getAuth(firebaseApp);
+export const auth = getAuth(firebaseApp)
+export const database = getDatabase(firebaseApp)
+export const storage = getStorage(firebaseApp)

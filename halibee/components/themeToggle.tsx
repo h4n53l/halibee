@@ -9,7 +9,7 @@ export default function ThemeToggle() {
       {theme === 'dark' ? (
         <button
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className="text-tetiary dark:text-secondary bg-none shadow-none p-2 focus:outline-none text-lg rounded-full outline-none ring-transparent cursor-pointer"
+          className="text-tetiary dark:text-primary bg-none shadow-none p-2 focus:outline-none text-lg rounded-full outline-none ring-transparent cursor-pointer"
         >
           <svg
             className="w-6 h-6"

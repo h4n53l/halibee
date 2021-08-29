@@ -1,0 +1,74 @@
+{
+    "sourceFile": "modules/contexts/authContext.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1630137119388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630137126518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-export const AuthContext = React.createContext<firebase.User | null>(null);\n\\ No newline at end of file\n+export const AuthContext = createContext<firebase.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137135065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,3 @@\n+import { createContext } from \"react\";\r\n+\r\n export const AuthContext = createContext<firebase.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137149248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n import { createContext } from \"react\";\r\n \r\n-export const AuthContext = createContext<firebase.User | null>(null);\n\\ No newline at end of file\n+export const AuthContext = createContext<au | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137157019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import { Auth } from \"firebase/auth\";\r\n+import { createContext } from \"react\";\r\n+\r\n+export const AuthContext = createContext<Auth | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137163707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import { Auth } from \"firebase/auth\";\r\n+import { createContext } from \"react\";\r\n+\r\n+export const AuthContext = createContext<Auth. | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137171850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import { Auth } from \"firebase/auth\";\r\n+import { createContext } from \"react\";\r\n+\r\n+export const AuthContext = createContext<Auth.Provider | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137190248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import { Auth } from \"firebase/auth\";\r\n+import { createContext } from \"react\";\r\n+\r\n+export const AuthContext = createContext<Auth | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137549307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,4 @@\n import { Auth } from \"firebase/auth\";\r\n import { createContext } from \"react\";\r\n \r\n-export const AuthContext = createContext<Auth | null>(null);\n-import { Auth } from \"firebase/auth\";\r\n-import { createContext } from \"react\";\r\n-\r\n-export const AuthContext = createContext<Auth.Provider | null>(null);\n-import { Auth } from \"firebase/auth\";\r\n-import { createContext } from \"react\";\r\n-\r\n-export const AuthContext = createContext<Auth. | null>(null);\n-import { Auth } from \"firebase/auth\";\r\n-import { createContext } from \"react\";\r\n-\r\n-export const AuthContext = createContext<Auth | null>(null);\n-import { createContext } from \"react\";\r\n-\r\n export const AuthContext = createContext<au | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137561649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import { Auth, TwitterAuthProvider } from \"firebase/auth\";\r\n+import { createContext } from \"react\";\r\n+\r\n+export const AuthContext = createContext<TwitterAuthProvider.U | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137570099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import { Auth, TwitterAuthProvider } from \"firebase/auth\";\r\n+import { createContext } from \"react\";\r\n+\r\n+export const AuthContext = createContext<Auth.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137581525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,3 @@\n+import import { createContext } from \"react\";\r\n+\r\n+export const AuthContext = createContext<auth.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137587483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,3 @@\n+import {auth}\r\n+\r\n+export const AuthContext = createContext<auth.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137624432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n-import { auth } from \"firebase-admin\";\r\n+import { auth\r\n \r\n export const AuthContext = createContext<auth.User | null>(null);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630137631415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,3 @@\n+import { auth } fr\r\n+\r\n+export const AuthContext = createContext<auth.User | null>(null);\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1630137119388,
+            "name": "Commit-0",
+            "content": "export const AuthContext = React.createContext<firebase.User | null>(null);"
+        }
+    ]
+}

@@ -1,12 +1,8 @@
 import Head from 'next/head'
-import { useState } from 'react'
-import { Switch } from '@headlessui/react'
-import Button from '../components/button'
 
 
 export default function Home() {
 
-  
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>

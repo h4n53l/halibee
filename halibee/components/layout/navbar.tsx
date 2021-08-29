@@ -1,69 +1,43 @@
-import { Fragment, useState } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Fragment } from 'react'
+import {Menu, Transition } from '@headlessui/react'
+import { BellIcon } from '@heroicons/react/outline'
 import ThemeToggle from '../themeToggle'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../../modules/firebase/initialiseFirebase'
+import { signOut } from 'firebase/auth'
 
-const navigation = [
-  { name: 'About  Us', href: '#', current: false },
-  { name: 'Login', href: '#', current: true },
-]
-
-const profile_image = "https://tinyurl.com/jtj66m5m"
-const logo = "/assets/images/halibee_logo.png"
 
 
 
 export default function Navbar() {
-
-  const [enabled, setEnabled] = useState(false)
-
+  
+  
+  
+  const profile_image = "https://tinyurl.com/jtj66m5m"
+  const logo = "/assets/images/halibee_logo.png"
+  
+  
+  const [user, loading, error] = useAuthState(auth)
+  
   return (
-    <Disclosure as="nav" className={`${enabled ? 'bg-secondary' : 'bg-primary'}`}>
-      {({ open }) => (
-        <>
+    <nav className='dark:bg-secondary bg-primary'>
+      
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                <Disclosure.Button className={`${enabled ? 'text-primary' : 'text-secondary'}inline-flex items-center justify-center p-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white`}>
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
+                
+                
               </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex-1 flex items-center justify-start">
                 <div className="flex-shrink-0 flex items-center">
                   <img
-                    className="block lg:hidden h-8 w-auto"
+                    className="block h-8 w-auto"
                     src={logo}
                     alt="HaLiBee"
                   />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src={logo}
-                    alt="HaLiBee"
-                  />
+                  
                 </div>
-                <div className="hidden sm:block sm:ml-6">
-                  <div className="flex space-x-4 font-bold uppercase text-sm px-6 py-3 rounded">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={`${
-                          enabled ? 'text-primary' : 'text-secondary'}
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        `}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
+                
               </div>
 
               <ThemeToggle />
@@ -75,11 +49,11 @@ export default function Navbar() {
                 >
                   <span className="sr-only">View notifications</span>
 
-                  <BellIcon className={`${enabled ? 'text-primary' : 'text-secondary'} h-6 w-6 text-secondary" aria-hidden="true`} />
+                  <BellIcon className='dark:text-primary text-secondary h-6 w-6 text-secondary" aria-hidden="true' />
                 </button>
 
                 {/* Profile dropdown */}
-                <Menu as="div" className="ml-3 relative">
+                {user ? (<Menu as="div" className="ml-3 relative">
                   <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
@@ -103,7 +77,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/profile"
                             className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}
                           >
                             Your Profile
@@ -122,40 +96,33 @@ export default function Navbar() {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <button
+                            onClick={() => signOut(auth)}
                             className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}
                           >
                             Sign out
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
-                </Menu>
+                </Menu>)
+              :
+              (
+                <div className="flex space-x-4 font-bold uppercase text-sm px-6 py-3 rounded">
+                <a
+                href='/authentication'
+                className='dark:text-primary text-secondary px-3 py-2 rounded-md text-sm font-medium'
+                >
+                  Login
+                </a>
+                </div>
+              )  
+              }
               </div>
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={`${
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}
-                    block px-3 py-2 rounded-md text-base font-medium
-                  `}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
+    </nav>
   )
 }

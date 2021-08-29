@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 27,
+            "activePatchIndex": 39,
             "patches": [
                 {
                     "date": 1630081539865,
@@ -116,6 +116,54 @@
                 {
                     "date": 1630108117192,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+import { ThemeProvider } from '../modules/providers/themeProvider'\n+\n+function MyApp({ Component, pageProps }) {\n+  return (\n+    <ThemeProvider>\n+    <Layout>\n+      <Component {...pageProps} />\n+    </Layout></ThemeProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630139102987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,39 +3,14 @@\n import { ThemeProvider } from '../modules/providers/themeProvider'\n \n function MyApp({ Component, pageProps }) {\n   return (\n+    <\n     <ThemeProvider>\n     <Layout>\n       <Component {...pageProps} />\n-    </Layout></ThemeProvider>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-import { ThemeProvider } from '../modules/providers/themeProvider'\n-\n-function MyApp({ Component, pageProps }) {\n-  return (\n-    <ThemeProvider\n-    <Layout>\n-      <Component {...pageProps} />\n     </Layout>\n+    </ThemeProvider>\n   )\n }\n \n export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-\n-function MyApp({ Component, pageProps }) {\n-  return (\n-    <\n-    <Layout>\n-      <Component {...pageProps} />\n-    </Layout>\n-  )\n-}\n-\n-export default MyApp\n"
+                },
+                {
+                    "date": 1630139110167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+import { AuthProvider } from '../modules/providers/authProvider'\n+import { ThemeProvider } from '../modules/providers/themeProvider'\n+\n+function MyApp({ Component, pageProps }) {\n+  return (\n+    <AuthProvider\n+    <ThemeProvider>\n+    <Layout>\n+      <Component {...pageProps} />\n+    </Layout>\n+    </ThemeProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630139116968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+import { AuthProvider } from '../modules/providers/authProvider'\n+import { ThemeProvider } from '../modules/providers/themeProvider'\n+\n+function MyApp({ Component, pageProps }) {\n+  return (\n+    <AuthProvider></AuthProvider>\n+    <ThemeProvider>\n+    <Layout>\n+      <Component {...pageProps} />\n+    </Layout>\n+    </ThemeProvider>\n+    \n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630172805981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,48 +4,15 @@\n import { ThemeProvider } from '../modules/providers/themeProvider'\n \n function MyApp({ Component, pageProps }) {\n   return (\n-    <AuthProvider></AuthProvider>\n+    <Au>\n     <ThemeProvider>\n     <Layout>\n       <Component {...pageProps} />\n     </Layout>\n     </ThemeProvider>\n-    \n+    </AuthProvider>\n   )\n }\n \n export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-import { AuthProvider } from '../modules/providers/authProvider'\n-import { ThemeProvider } from '../modules/providers/themeProvider'\n-\n-function MyApp({ Component, pageProps }) {\n-  return (\n-    <AuthProvider\n-    <ThemeProvider>\n-    <Layout>\n-      <Component {...pageProps} />\n-    </Layout>\n-    </ThemeProvider>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-import { ThemeProvider } from '../modules/providers/themeProvider'\n-\n-function MyApp({ Component, pageProps }) {\n-  return (\n-    <\n-    <ThemeProvider>\n-    <Layout>\n-      <Component {...pageProps} />\n-    </Layout>\n-    </ThemeProvider>\n-  )\n-}\n-\n-export default MyApp\n"
+                },
+                {
+                    "date": 1630172812988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+import { AuthProvider, AuthUserProvider } from '../modules/providers/authProvider'\n+import { ThemeProvider } from '../modules/providers/themeProvider'\n+\n+function MyApp({ Component, pageProps }) {\n+  return (\n+    <AuthUserProvider>\n+    <ThemeProvider>\n+    <Layout>\n+      <Component {...pageProps} />\n+    </Layout>\n+    </ThemeProvider>\n+    </AuthProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630172825325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+import { AuthUserProvider } from '../modules/providers/authProvider'\n+import { ThemeProvider } from '../modules/providers/themeProvider'\n+\n+function MyApp({ Component, pageProps }) {\n+  return (\n+    <AuthUserProvider>\n+    <ThemeProvider>\n+    <Layout>\n+      <Component {...pageProps} />\n+    </Layout>\n+    </ThemeProvider>\n+    </AuthUserProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630180167284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+import { AuthUserProvider } from '../modules/providers/authProvider'\n+import { ThemeProvider } from '../modules/providers/themeProvider'\n+\n+function MyApp({ Component, pageProps }) {\n+  return (\n+    <AuthProvider>\n+    <ThemeProvider>\n+    <Layout>\n+      <Component {...pageProps} />\n+    </Layout>\n+    </ThemeProvider>\n+    </AuthUserProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630180174168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+import { AuthProvider } from '../modules/providers/authProvider'\n+import { ThemeProvider } from '../modules/providers/themeProvider'\n+\n+function MyApp({ Component, pageProps }) {\n+  return (\n+    <AuthProvider>\n+    <ThemeProvider>\n+    <Layout>\n+      <Component {...pageProps} />\n+    </Layout>\n+    </ThemeProvider>\n+    </AuthProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630183379531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,6 @@\n import 'tailwindcss/tailwind.css'\n import Layout from '../components/layout'\n-import { AuthProvider } from '../modules/providers/authProvider'\n-import { ThemeProvider } from '../modules/providers/themeProvider'\n-\n-function MyApp({ Component, pageProps }) {\n-  return (\n-    <AuthProvider>\n-    <ThemeProvider>\n-    <Layout>\n-      <Component {...pageProps} />\n-    </Layout>\n-    </ThemeProvider>\n-    </AuthProvider>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n import { AuthUserProvider } from '../modules/providers/authProvider'\n import { ThemeProvider } from '../modules/providers/themeProvider'\n \n function MyApp({ Component, pageProps }) {\n@@ -28,63 +10,9 @@\n     <Layout>\n       <Component {...pageProps} />\n     </Layout>\n     </ThemeProvider>\n-    </AuthUserProvider>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-import { AuthUserProvider } from '../modules/providers/authProvider'\n-import { ThemeProvider } from '../modules/providers/themeProvider'\n-\n-function MyApp({ Component, pageProps }) {\n-  return (\n-    <AuthUserProvider>\n-    <ThemeProvider>\n-    <Layout>\n-      <Component {...pageProps} />\n-    </Layout>\n-    </ThemeProvider>\n-    </AuthUserProvider>\n-  )\n-}\n-\n-export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-import { AuthProvider, AuthUserProvider } from '../modules/providers/authProvider'\n-import { ThemeProvider } from '../modules/providers/themeProvider'\n-\n-function MyApp({ Component, pageProps }) {\n-  return (\n-    <AuthUserProvider>\n-    <ThemeProvider>\n-    <Layout>\n-      <Component {...pageProps} />\n-    </Layout>\n-    </ThemeProvider>\n     </AuthProvider>\n   )\n }\n \n export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-import { AuthProvider } from '../modules/providers/authProvider'\n-import { ThemeProvider } from '../modules/providers/themeProvider'\n-\n-function MyApp({ Component, pageProps }) {\n-  return (\n-    <Au>\n-    <ThemeProvider>\n-    <Layout>\n-      <Component {...pageProps} />\n-    </Layout>\n-    </ThemeProvider>\n-    </AuthProvider>\n-  )\n-}\n-\n-export default MyApp\n"
+                },
+                {
+                    "date": 1630183385864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import 'tailwindcss/tailwind.css'\n+import Layout from '../components/layout'\n+import { AuthUserProvider } from '../modules/providers/authProvider'\n+import { ThemeProvider } from '../modules/providers/themeProvider'\n+\n+function MyApp({ Component, pageProps }) {\n+  return (\n+    <AuthUserProvider>\n+    <ThemeProvider>\n+    <Layout>\n+      <Component {...pageProps} />\n+    </Layout>\n+    </ThemeProvider>\n+    </AuthUserProvider>\n+  )\n+}\n+\n+export default MyApp\n"
+                },
+                {
+                    "date": 1630261407811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { ThemeProvider } from '../modules/providers/themeProvider'\n \n function MyApp({ Component, pageProps }) {\n   return (\n-    <AuthUserProvider>\n+    \n     <ThemeProvider>\n     <Layout>\n       <Component {...pageProps} />\n     </Layout>\n@@ -15,22 +15,4 @@\n   )\n }\n \n export default MyApp\n-import 'tailwindcss/tailwind.css'\n-import Layout from '../components/layout'\n-import { AuthUserProvider } from '../modules/providers/authProvider'\n-import { ThemeProvider } from '../modules/providers/themeProvider'\n-\n-function MyApp({ Component, pageProps }) {\n-  return (\n-    <AuthProvider>\n-    <ThemeProvider>\n-    <Layout>\n-      <Component {...pageProps} />\n-    </Layout>\n-    </ThemeProvider>\n-    </AuthProvider>\n-  )\n-}\n-\n-export default MyApp\n"
+                },
+                {
+                    "date": 1630261417607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     <Layout>\n       <Component {...pageProps} />\n     </Layout>\n     </ThemeProvider>\n-    </AuthUserProvider>\n+    \n   )\n }\n \n export default MyApp\n"
                 }
             ],
             "date": 1630081539865,

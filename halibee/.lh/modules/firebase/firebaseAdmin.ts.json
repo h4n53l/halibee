@@ -1,0 +1,22 @@
+{
+    "sourceFile": "modules/firebase/firebaseAdmin.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1630176505751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630176578533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +0,0 @@\n-import admin from 'firebase-admin';\r\n-\r\n-if (!admin.apps.length) {\r\n-  admin.initializeApp({\r\n-    credential: admin.credential.cert({\r\n-      projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,\r\n-      privateKey: process.env.FIREBASE_PRIVATE_KEY,\r\n-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL\r\n-    }),\r\n-    databaseURL: process.env.FIREBASE_DATABASE_URL\r\n-  });\r\n-}\r\n-\r\n-const db = admin.firestore();\r\n-const auth = admin.auth();\r\n-\r\n-export { db, auth };\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1630176505751,
+            "name": "Commit-0",
+            "content": "import admin from 'firebase-admin';\r\n\r\nif (!admin.apps.length) {\r\n  admin.initializeApp({\r\n    credential: admin.credential.cert({\r\n      projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,\r\n      privateKey: process.env.FIREBASE_PRIVATE_KEY,\r\n      clientEmail: process.env.FIREBASE_CLIENT_EMAIL\r\n    }),\r\n    databaseURL: process.env.FIREBASE_DATABASE_URL\r\n  });\r\n}\r\n\r\nconst db = admin.firestore();\r\nconst auth = admin.auth();\r\n\r\nexport { db, auth };"
+        }
+    ]
+}

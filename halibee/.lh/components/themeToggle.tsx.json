@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 35,
+            "activePatchIndex": 36,
             "patches": [
                 {
                     "date": 1630099161905,
@@ -148,6 +148,10 @@
                 {
                     "date": 1630109197546,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     <div>\r\n       {theme === 'dark' ? (\r\n         <button\r\n           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}\r\n-          className=\"text-tetiary dark:text-secondary bg-white shadow-none p-2 focus:outline-none text-lg rounded-full outline-none ring-transparent cursor-pointer\"\r\n+          className=\"text-tetiary dark:text-secondary bg-none shadow-none p-2 focus:outline-none text-lg rounded-full outline-none ring-transparent cursor-pointer\"\r\n         >\r\n           <svg\r\n             className=\"w-6 h-6\"\r\n             fill=\"none\"\r\n"
+                },
+                {
+                    "date": 1630271150427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     <div>\r\n       {theme === 'dark' ? (\r\n         <button\r\n           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}\r\n-          className=\"text-tetiary dark:text-secondary bg-none shadow-none p-2 focus:outline-none text-lg rounded-full outline-none ring-transparent cursor-pointer\"\r\n+          className=\"text-tetiary dark:text-primary bg-none shadow-none p-2 focus:outline-none text-lg rounded-full outline-none ring-transparent cursor-pointer\"\r\n         >\r\n           <svg\r\n             className=\"w-6 h-6\"\r\n             fill=\"none\"\r\n"
                 }
             ],
             "date": 1630099161905,
