@@ -1,0 +1,42 @@
+{
+    "sourceFile": "components/featured.sx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1630521492318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630521499074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,2 @@\n nf\r\n+\r\n"
+                },
+                {
+                    "date": 1630521526472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +0,0 @@\n-nf\r\n-\r\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630521532982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +0,0 @@\n-\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630521552740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-\n+export default\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630521558135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-export default\n\\ No newline at end of file\n+export default \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630521564542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +0,0 @@\n-export default \n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1630521492317,
+            "name": "Commit-0",
+            "content": "nf\r\n"
+        }
+    ]
+}

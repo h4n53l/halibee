@@ -7,20 +7,13 @@ import { auth } from '../../modules/firebase/initialiseFirebase'
 import { signOut } from 'firebase/auth'
 
 
-
-
 export default function Navbar() {
-  
-  
-  
-  const profile_image = "https://tinyurl.com/jtj66m5m"
+
   const logo = "/assets/images/halibee_logo.png"
-  
-  
   const [user, loading, error] = useAuthState(auth)
   
   return (
-    <nav className='dark:bg-secondary bg-primary'>
+    <nav className='dark:bg-secondary bg-primary z-40 w-full fixed'>
       
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
@@ -40,12 +33,13 @@ export default function Navbar() {
                 
               </div>
 
-              <ThemeToggle />
+              
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <ThemeToggle />
                 <button
                   type="button"
-                  className="bg-none p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  className="bg-none p-1 rounded-full text-gray-400 "
                 >
                   <span className="sr-only">View notifications</span>
 
@@ -53,13 +47,13 @@ export default function Navbar() {
                 </button>
 
                 {/* Profile dropdown */}
-                {user ? (<Menu as="div" className="ml-3 relative">
+                {user ? (<Menu as="div" className="ml-3 z-50 relative">
                   <div>
-                    <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                    <Menu.Button className="flex text-sm rounded-full focus:outline-none">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src={profile_image}
+                        src={user.photoURL}
                         alt=""
                       />
                     </Menu.Button>
@@ -73,24 +67,24 @@ export default function Navbar() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-tetiary ring-1 ring-tetiary ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-tetiary">
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/profile"
+                            href="/settings"
                             className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}
                           >
-                            Your Profile
+                            Settings
                           </a>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/dashboard"
                             className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}
                           >
-                            Settings
+                            Dashboard
                           </a>
                         )}
                       </Menu.Item>

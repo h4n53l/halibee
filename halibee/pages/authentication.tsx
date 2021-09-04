@@ -13,10 +13,7 @@ export default function Authentication() {
     const [repeatPassword, setRepeatPassword] = useState("");
     const [user, loading, error] = useAuthState(auth)
     const router = useRouter()
-    const profileName = {
-        displayName: username,
-        photoURL: ""
-    }
+    
 
     useEffect(() => {
         if (loading) {
@@ -32,7 +29,15 @@ export default function Authentication() {
     const createAccount = async () => {
         try {
             if (password === repeatPassword) {
-                await createUserWithEmailAndPassword(auth, email, password)
+                await createUserWithEmailAndPassword(auth, email, password).then(function(result) {
+                    return updateProfile(result.user, {
+                      displayName: username,
+                      photoURL: '/assets/images/profile_placeholder.png'
+                    })
+                    
+                  }).catch(function(error) {
+                    console.log(error);
+                  })
             } else {
                 alert("Sorry, passwords do not match.")
             }
@@ -60,7 +65,7 @@ export default function Authentication() {
                 alert(error.message);
             }
         }
-
+        console.log(user)
         return (
 
             <div className="w-full h-screen font-sans bg-cover">
@@ -115,7 +120,7 @@ export default function Authentication() {
                                     </div>}
                                 {newUser ? (<div className="flex items-center justify-between mt-4">
                                     <button
-                                        className="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                                        className="py-2 px-4 text-secondary dark:text-primary bg-primary dark:bg-secondary w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                                         onClick={createAccount}
                                     >
                                         Create Account
@@ -124,7 +129,7 @@ export default function Authentication() {
                                     :
                                     (<div className="flex items-center justify-between mt-4">
                                         <button
-                                            className="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                                            className="py-2 px-4 text-secondary dark:text-primary bg-primary dark:bg-secondary w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                                             onClick={signIn}
                                         >
                                             Log In

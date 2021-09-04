@@ -1,0 +1,278 @@
+{
+    "sourceFile": "components/hero.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 65,
+            "patches": [
+                {
+                    "date": 1630275783899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1630275812810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n export default function() {\r\n     return (\r\n-        <div>\r\n+        <div sty>\r\n             Enter\r\n         </div>\r\n     );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630275822985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function() {\r\n+    return (\r\n+        <div style=\"{}\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630275828839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function() {\r\n+    return (\r\n+        <div style=\"bac\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630275835899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function() {\r\n+    return (\r\n+        <div style=\"background\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276064552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function() {\r\n+    return (\r\n+        <div style=\"background-image\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276070054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function() {\r\n+    return (\r\n+        <div style=\"background-image: \">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276076820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function() {\r\n+    return (\r\n+        <div style=\"background-image: url(\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276082158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function() {\r\n+    return (\r\n+        <div style=\"background-image: url('')\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276090185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function() {\r\n+    return (\r\n+        <div style=\"background-image: url('');\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276096094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function() {\r\n+    return (\r\n+        <div style=\"background-image: url('')\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276121253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,70 +1,7 @@\n export default function() {\r\n     return (\r\n-        <div style=\"background-image: url('')\">\r\n+        <div style=\"background-image: url('la')\">\r\n             Enter\r\n         </div>\r\n     );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div style=\"background-image: url('');\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div style=\"background-image: url('')\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div style=\"background-image: url(\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div style=\"background-image: \">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div style=\"background-image\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div style=\"background\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div style=\"bac\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div style=\"{}\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div sty>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276130930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export default function() {\r\n+    return (\r\n+        <div style=\"background-image: url('images/landscape.jp')\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276172354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        style=\"background-image: url('images/landscape.jpg')\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276178990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        cla\r\n+        style=\"background-image: url('images/landscape.jpg')\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276185851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        className=\"\"\r\n+        style=\"background-image: url('images/landscape.jpg')\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276191621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full \"\r\n+        style=\"background-image: url('images/landscape.jpg')\">\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276232297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276247920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276258644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import\r\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276265054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import landscape\r\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276275074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import landscape from images\r\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276282508,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import landscape from images/landscape.j\r\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276289749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import landscape from 'images/landscape.jpg'\r\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276296567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import landscape from 'images/landscape.jpg'\r\n+export default function() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('${l}')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276305453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import landscape from 'images/landscape.jpg'\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('${landscape}')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276359497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import landscape from '../images/landscape.jpg'\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('${landscape}')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276369284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import landscape from '../publiimages/landscape.jpg'\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('${landscape}')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276392105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import landscape from '../public/images/landscape.jpg'\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('/images/landscape.jpg')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276507131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `url('/assets/images/landscape.jpg')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276524817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: `('/assets/images/landscape.jpg')` }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630276530915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: '/assets/images/landscape.jpg' }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352074314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,195 +1,9 @@\n export default function Hero() {\r\n     return (\r\n         <div \r\n         className=\"w-full h-full\"\r\n-        style={{ backgroundImage: '/assets/images/landscape.jpg' }}>\r\n+        style={{ backgroundImage: 'https://wallpaperaccess.com/full/24243.jpg' }}>\r\n             Enter\r\n         </div>\r\n     );\r\n-}\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `('/assets/images/landscape.jpg')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('/assets/images/landscape.jpg')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-import landscape from '../public/images/landscape.jpg'\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('/images/landscape.jpg')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-import landscape from '../publiimages/landscape.jpg'\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('${landscape}')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-import landscape from '../images/landscape.jpg'\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('${landscape}')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-import landscape from 'images/landscape.jpg'\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('${landscape}')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-import landscape from 'images/landscape.jpg'\r\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('${l}')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-import landscape from 'images/landscape.jpg'\r\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-import landscape from images/landscape.j\r\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-import landscape from images\r\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-import landscape\r\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-import\r\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-\r\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: `url('${houseImg}')` }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full \"\r\n-        style=\"background-image: url('images/landscape.jpg')\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        className=\"\"\r\n-        style=\"background-image: url('images/landscape.jpg')\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        cla\r\n-        style=\"background-image: url('images/landscape.jpg')\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div \r\n-        style=\"background-image: url('images/landscape.jpg')\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div style=\"background-image: url('images/landscape.jp')\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function() {\r\n-    return (\r\n-        <div style=\"background-image: url('la')\">\r\n-            Enter\r\n-        </div>\r\n-    );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352081476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n export default function Hero() {\r\n     return (\r\n         <div \r\n         className=\"w-full h-full\"\r\n-        style={{ backgroundImage: 'https://wallpaperaccess.com/full/24243.jpg' }}>\r\n+        style={{ backgroundImage: '(https://wallpaperaccess.com/full/24243.jpg)' }}>\r\n             Enter\r\n         </div>\r\n     );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352134597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: url('https://wallpaperaccess.com/full/24243.jpg)' }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352149738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: '(https://wallpaperaccess.com/full/24243.jpg)' }}>\r\n+            Enter\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352251727,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: 'https://wallpaperaccess.com/full/24243.jpg' }}>\r\n+            \r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352669654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: ('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n+            \r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352676309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+import { url } from \"inspector\";\r\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: url('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n+            \r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352715140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: url('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n+            \r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352738406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: URL('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n+            \r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352759012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: url('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n+            \r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352766374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,85 +2,9 @@\n export default function Hero() {\r\n     return (\r\n         <div \r\n         className=\"w-full h-full\"\r\n-        style={{ backgroundImage: url('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n+        style={{ backgroundImage: url'https://wallpaperaccess.com/full/24243.jpg') }}>\r\n             \r\n         </div>\r\n     );\r\n-}\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: URL('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n-            \r\n-        </div>\r\n-    );\r\n-}\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: url('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n-            \r\n-        </div>\r\n-    );\r\n-}\n-import { url } from \"inspector\";\r\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: url('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n-            \r\n-        </div>\r\n-    );\r\n-}\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: ('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n-            \r\n-        </div>\r\n-    );\r\n-}\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: 'https://wallpaperaccess.com/full/24243.jpg' }}>\r\n-            \r\n-        </div>\r\n-    );\r\n-}\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: '(https://wallpaperaccess.com/full/24243.jpg)' }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: url('https://wallpaperaccess.com/full/24243.jpg)' }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n-}\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: '(https://wallpaperaccess.com/full/24243.jpg)' }}>\r\n-            Enter\r\n-        </div>\r\n-    );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352774096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-full\"\r\n+        style={{ backgroundImage: URL('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n+            \r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352786188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,19 +2,9 @@\n export default function Hero() {\r\n     return (\r\n         <div \r\n         className=\"w-full h-full\"\r\n-        style={{ backgroundImage: URL('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n+        style={{ backgroundImage: ('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n             \r\n         </div>\r\n     );\r\n-}\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-full\"\r\n-        style={{ backgroundImage: url'https://wallpaperaccess.com/full/24243.jpg') }}>\r\n-            \r\n-        </div>\r\n-    );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352951519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n export default function Hero() {\r\n     return (\r\n         <div \r\n         className=\"w-full h-full\"\r\n-        style={{ backgroundImage: ('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n+        style={{ backgroundImage: url('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n             \r\n         </div>\r\n     );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352957874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n export default function Hero() {\r\n     return (\r\n         <div \r\n         className=\"w-full h-full\"\r\n-        style={{ backgroundImage: url('https://wallpaperaccess.com/full/24243.jpg') }}>\r\n+        style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n             \r\n         </div>\r\n     );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630352976300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,8 @@\n     return (\r\n         <div \r\n         className=\"w-full h-full\"\r\n         style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n-            \r\n+            Hi\r\n         </div>\r\n     );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630353110144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n export default function Hero() {\r\n     return (\r\n         <div \r\n-        className=\"w-full h-full\"\r\n+        className=\"w-full h-50\"\r\n         style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n             Hi\r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1630353123552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n export default function Hero() {\r\n     return (\r\n         <div \r\n-        className=\"w-full h-50\"\r\n+        className=\"w-full h-scree\"\r\n         style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n             Hi\r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1630353244630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-screen\"\r\n+        style={{ backgroundImage: \"url('asse.jpg')\" }}>\r\n+            Hi\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630353255296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-screen\"\r\n+        style={{ backgroundImage: \"url('assets/images.landscape.jpg')\" }}>\r\n+            Hi\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630353265483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-screen\"\r\n+        style={{ backgroundImage: \"url('/assets/images.landscape.jpg')\" }}>\r\n+            Hi\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630353275964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-screen\"\r\n+        style={{ backgroundImage: \"('/assets/images.landscape.jpg')\" }}>\r\n+            Hi\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630353282951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-screen\"\r\n+        style={{ backgroundImage: \"url('assets/images.landscape.jpg')\" }}>\r\n+            Hi\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630353620095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,59 +1,9 @@\n \r\n export default function Hero() {\r\n     return (\r\n         <div \r\n-        className=\"w-full h-screen\"\r\n-        style={{ backgroundImage: \"url('assets/images.landscape.jpg')\" }}>\r\n-            Hi\r\n-        </div>\r\n-    );\r\n-}\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-screen\"\r\n-        style={{ backgroundImage: \"('/assets/images.landscape.jpg')\" }}>\r\n-            Hi\r\n-        </div>\r\n-    );\r\n-}\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-screen\"\r\n-        style={{ backgroundImage: \"url('/assets/images.landscape.jpg')\" }}>\r\n-            Hi\r\n-        </div>\r\n-    );\r\n-}\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-screen\"\r\n-        style={{ backgroundImage: \"url('assets/images.landscape.jpg')\" }}>\r\n-            Hi\r\n-        </div>\r\n-    );\r\n-}\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-screen\"\r\n-        style={{ backgroundImage: \"url('asse.jpg')\" }}>\r\n-            Hi\r\n-        </div>\r\n-    );\r\n-}\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-scree\"\r\n+        className=\"w-full h-1/2\"\r\n         style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n             Hi\r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1630353672155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n export default function Hero() {\r\n     return (\r\n         <div \r\n-        className=\"w-full h-1/2\"\r\n+        className=\"w-full h-full\"\r\n         style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n             Hi\r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1630353682071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n export default function Hero() {\r\n     return (\r\n         <div \r\n-        className=\"w-full h-full\"\r\n+        className=\"w-full h-screen\"\r\n         style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n             Hi\r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1630353688378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-screen\"\r\n+        style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n+            Hi\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630353776869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-3\"\r\n+        style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n+            Hi\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630353788042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"w-full h-screen\"\r\n+        style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n+            Hi\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630353825629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,40 +1,10 @@\n \r\n export default function Hero() {\r\n     return (\r\n         <div \r\n-        className=\"w-full h-screen\"\r\n+        className=\"absolute top-0 w-full h-full bg-center bg-cover\"\r\n         style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n             Hi\r\n         </div>\r\n     );\r\n-}\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-3\"\r\n-        style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n-            Hi\r\n-        </div>\r\n-    );\r\n-}\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-screen\"\r\n-        style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n-            Hi\r\n-        </div>\r\n-    );\r\n-}\n-\r\n-export default function Hero() {\r\n-    return (\r\n-        <div \r\n-        className=\"w-full h-screen\"\r\n-        style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n-            Hi\r\n-        </div>\r\n-    );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630353844837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n export default function Hero() {\r\n     return (\r\n         <div \r\n-        className=\"absolute top-0 w-full h-full bg-center bg-cover\"\r\n+        className=\"absolute top-0 w-full h-1/2 bg-center bg-cover\"\r\n         style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n             Hi\r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1630353865268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n export default function Hero() {\r\n     return (\r\n         <div \r\n-        className=\"absolute top-0 w-full h-1/2 bg-center bg-cover\"\r\n+        className=\"absolute  w-full h-1/2 bg-center bg-cover\"\r\n         style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n             Hi\r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1630353870388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \r\n export default function Hero() {\r\n     return (\r\n         <div \r\n-        className=\"re top-0 w-full h-1/2 bg-center bg-cover\"\r\n+        className=\"rel top-0 w-full h-1/2 bg-center bg-cover\"\r\n         style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n             Hi\r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1630353891833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+\r\n+export default function Hero() {\r\n+    return (\r\n+        <div \r\n+        className=\"relative  w-full h-1/2 bg-center bg-cover\"\r\n+        style={{ backgroundImage: \"url('https://wallpaperaccess.com/full/24243.jpg')\" }}>\r\n+            Hi\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1630275783899,
+            "name": "Commit-0",
+            "content": "export default function() {\r\n    return (\r\n        <div>\r\n            Enter\r\n        </div>\r\n    );\r\n}"
+        }
+    ]
+}
