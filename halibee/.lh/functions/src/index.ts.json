@@ -1,0 +1,42 @@
+{
+    "sourceFile": "functions/src/index.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1631041709834,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1631041717332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,3 @@\n import * as functions from \"firebase-functions\";\n \n+const\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631041723552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,3 @@\n+import * as functions from \"firebase-functions\";\n+\n+const admin = \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631041729945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,3 @@\n+import * as functions from \"firebase-functions\";\n+\n+const admin = require(\"./admin\");\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631041737649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,3 @@\n+import * as functions from \"firebase-functions\";\n+\n+const admin = require(\"firebaseadmin\");\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631041746428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,4 @@\n import * as functions from \"firebase-functions\";\n \n-const admin = require(\"firebase-admin\");\n\\ No newline at end of file\n+const admin = require(\"firebase-admin\")\n+\n"
+                },
+                {
+                    "date": 1631041752417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+import * as functions from \"firebase-functions\";\n+\n+const admin = require(\"firebase-admin\")\n+\n+admin.ini\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1631041709834,
+            "name": "Commit-0",
+            "content": "import * as functions from \"firebase-functions\";\n\n"
+        }
+    ]
+}

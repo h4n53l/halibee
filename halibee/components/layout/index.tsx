@@ -5,7 +5,7 @@ export default function Layout({ children }) {
         <div className='bg-background dark:bg-tertiary'>
             <Navbar />
             {children}
-            <footer className="flex items-center justify-center w-full h-24 border-t">
+            <footer className="flex items-center justify-center w-full h-24 bottom-0 mb-0 border-t">
                 <a>
                     By HaLi
                 </a>

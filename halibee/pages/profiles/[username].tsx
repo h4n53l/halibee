@@ -1,14 +1,12 @@
-import { useState } from "react";
+import { useRouter } from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
-import Button from "../components/button";
-import { auth } from "../modules/firebase/initialiseFirebase";
+import Button from "../../components/button";
+import { auth } from "../../modules/firebase/initialiseFirebase";
 
-export default function Dashboard() {
+export default function() {
     const [user, loading, error] = useAuthState(auth)
-    const [username, setUsername] = useState("")
-
-    
-
+    const router = useRouter()
+    const { username } = router.query
     return (
         <div>
             <div
@@ -20,10 +18,10 @@ export default function Dashboard() {
             <div className="flex flex-wrap justify-center align-center">
 
 
-                <div className="overflow-hidden -mt-40 z-10 shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
+                <div className="overflow-hidden -mt-20 z-10 shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
 
                     <img alt="Profile photo"
-                        src="assets/images/image_1.jpg"
+                        src="/assets/images/image_1.jpg"
                         className="max-h-60 w-full object-cover" />
                     <div className="bg-white dark:bg-gray-800 w-full p-4">
                         <p className="text-indigo-500 text-md font-medium">

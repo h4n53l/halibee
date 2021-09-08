@@ -1,17 +1,15 @@
 import { updateProfile } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { useRouter } from "next/dist/client/router";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, database, storage } from "../modules/firebase/initialiseFirebase";
-import { Button } from "../components/button"
 
 export default function Settings() {
     const [user, loading, error] = useAuthState(auth)
     const [image, setImage] = useState<Blob>(null)
     const [banner, setBanner] = useState<Blob>(null)
     const [profileEdit, setProfileEdit] = useState(null)
-    const [dashboardEdit, setDashboardEdit] = useState(null)
+    const [AccountSettingsEdit, setAccountSettingsEdit] = useState(null)
 
     if (user === null || loading) {
         return (
@@ -31,8 +29,6 @@ export default function Settings() {
         const storageRef = ref(storage, 'images/' + image.name)
         const uploadTask = uploadBytesResumable(storageRef, image, metadata);
         await uploadBytesResumable(storageRef, image, metadata)
-        console.log('got here 1')
-        console.log(image)
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             console.log(downloadURL)
             updateProfile(user, {
@@ -43,7 +39,7 @@ export default function Settings() {
     }
 
     const updateDashboard = async () => {
-        setDashboardEdit(null)
+        setAccountSettingsEdit(null)
         const storageRef = ref(storage, 'dashboard/' + banner.name)
         const uploadTask = uploadBytesResumable(storageRef, banner, metadata)
         await uploadBytesResumable(storageRef, banner, metadata)
@@ -65,9 +61,9 @@ export default function Settings() {
                     Edit Profile
                 </button>
                 <button
-                    onClick={() => setDashboardEdit(true)}
+                    onClick={() => setAccountSettingsEdit(true)}
                     className="py-2 px-4  mx-3 bg-primary dark:bg-secondary text-secondary dark:text-primary w-full text-center text-base font-semibold rounded-lg ">
-                    Edit Dashboard
+                    Account Settings
                 </button>
             </div>
 
@@ -116,7 +112,7 @@ export default function Settings() {
                 </div>
             </div>}
 
-            {dashboardEdit &&
+            {AccountSettingsEdit &&
                 <div>
                     <div className="w-full">
                         <div className=" relative ">

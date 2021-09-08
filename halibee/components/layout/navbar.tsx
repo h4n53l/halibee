@@ -23,12 +23,13 @@ export default function Navbar() {
               </div>
               <div className="flex-1 flex items-center justify-start">
                 <div className="flex-shrink-0 flex items-center">
+                  <a href='/'>
                   <img
                     className="block h-8 w-auto"
                     src={logo}
                     alt="HaLiBee"
                   />
-                  
+                  </a>
                 </div>
                 
               </div>

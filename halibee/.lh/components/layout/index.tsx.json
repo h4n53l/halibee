@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 29,
+            "activePatchIndex": 38,
             "patches": [
                 {
                     "date": 1630081610939,
@@ -124,6 +124,42 @@
                 {
                     "date": 1630110662741,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({ children }) {\r\n+    return (\r\n+        <div className='bg-background dark:bg-tertiary'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer className=\"flex items-center justify-center w-full h-24 border-t\">\r\n+                <a>\r\n+                    By HaLi\r\n+                </a>\r\n+            </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631130781233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,29 +4,12 @@\n     return (\r\n         <div className='bg-background dark:bg-tertiary'>\r\n             <Navbar />\r\n             {children}\r\n-            <footer className=\"flex items-center justify-center w-full h-24 border-t\">\r\n+            <footer className=\"flex items-center justify-center w-full h-24 po border-t\">\r\n                 <a>\r\n                     By HaLi\r\n                 </a>\r\n             </footer>\r\n         </div>\r\n     );\r\n-}\n-import Navbar from \"./navbar\";\r\n-\r\n-export default function Layout({ children }) {\r\n-    return (\r\n-        <div className='bg-background dark:bg-tertiary'>\r\n-            <Navbar />\r\n-            {children}\r\n-            <footer className=\"flex items-center justify-center w-full h-24 border-t\">\r\n-                <a\r\n-                \r\n-                >\r\n-                    By HaLi\r\n-                </a>\r\n-            </footer>\r\n-        </div>\r\n-    );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631130958634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({ children }) {\r\n+    return (\r\n+        <div className='bg-background dark:bg-tertiary'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer className=\"flex items-center justify-center w-full h-24 bottom- border-t\">\r\n+                <a>\r\n+                    By HaLi\r\n+                </a>\r\n+            </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631130978992,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({ children }) {\r\n+    return (\r\n+        <div className='bg-background dark:bg-tertiary'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer className=\"flex items-center justify-center w-full h-24 bottom-0 fixed border-t\">\r\n+                <a>\r\n+                    By HaLi\r\n+                </a>\r\n+            </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631131001611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({ children }) {\r\n+    return (\r\n+        <div className='bg-background dark:bg-tertiary'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer className=\"flex items-center justify-center w-full h-24 bottom-0 border-t\">\r\n+                <a>\r\n+                    By HaLi\r\n+                </a>\r\n+            </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631131029238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,57 +4,12 @@\n     return (\r\n         <div className='bg-background dark:bg-tertiary'>\r\n             <Navbar />\r\n             {children}\r\n-            <footer className=\"flex items-center justify-center w-full h-24 bottom-0 border-t\">\r\n+            <footer className=\"flex items-center justify-center w-full h-24 bottom-0 absolute border-t\">\r\n                 <a>\r\n                     By HaLi\r\n                 </a>\r\n             </footer>\r\n         </div>\r\n     );\r\n-}\n-import Navbar from \"./navbar\";\r\n-\r\n-export default function Layout({ children }) {\r\n-    return (\r\n-        <div className='bg-background dark:bg-tertiary'>\r\n-            <Navbar />\r\n-            {children}\r\n-            <footer className=\"flex items-center justify-center w-full h-24 bottom-0 fixed border-t\">\r\n-                <a>\r\n-                    By HaLi\r\n-                </a>\r\n-            </footer>\r\n-        </div>\r\n-    );\r\n-}\n-import Navbar from \"./navbar\";\r\n-\r\n-export default function Layout({ children }) {\r\n-    return (\r\n-        <div className='bg-background dark:bg-tertiary'>\r\n-            <Navbar />\r\n-            {children}\r\n-            <footer className=\"flex items-center justify-center w-full h-24 bottom- border-t\">\r\n-                <a>\r\n-                    By HaLi\r\n-                </a>\r\n-            </footer>\r\n-        </div>\r\n-    );\r\n-}\n-import Navbar from \"./navbar\";\r\n-\r\n-export default function Layout({ children }) {\r\n-    return (\r\n-        <div className='bg-background dark:bg-tertiary'>\r\n-            <Navbar />\r\n-            {children}\r\n-            <footer className=\"flex items-center justify-center w-full h-24 po border-t\">\r\n-                <a>\r\n-                    By HaLi\r\n-                </a>\r\n-            </footer>\r\n-        </div>\r\n-    );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631131062452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({ children }) {\r\n+    return (\r\n+        <div className='bg-background dark:bg-tertiary'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer className=\"flex items-center justify-center w-full h-24 bottom-0 rel border-t\">\r\n+                <a>\r\n+                    By HaLi\r\n+                </a>\r\n+            </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631131083462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({ children }) {\r\n+    return (\r\n+        <div className='bg-background dark:bg-tertiary'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer className=\"flex items-center justify-center w-full h-24 bottom-0 mb border-t\">\r\n+                <a>\r\n+                    By HaLi\r\n+                </a>\r\n+            </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631131122018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({ children }) {\r\n+    return (\r\n+        <div className='bg-background dark:bg-tertiary'>\r\n+            <Navbar />\r\n+            {children}\r\n+        </div>\r\n+            <footer className=\"flex items-center justify-center w-full h-24 bottom-0 mb-0 border-t\">\r\n+                <a>\r\n+                    By HaLi\r\n+                </a>\r\n+            </footer>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631131131943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({ children }) {\r\n+    return (\r\n+        <div className='bg-background dark:bg-tertiary'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <footer className=\"flex items-center justify-center w-full h-24 bottom-0 mb-0 border-t\">\r\n+                <a>\r\n+                    By HaLi\r\n+                </a>\r\n+            </footer>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1630081610939,

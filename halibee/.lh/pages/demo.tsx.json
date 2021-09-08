@@ -1,0 +1,46 @@
+{
+    "sourceFile": "pages/demo.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1631128442561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1631128450731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,5 +8,5 @@\n     </div>\r\n   )\r\n }\r\n \r\n-export default withAuthUser()(DemoPage)\n\\ No newline at end of file\n+export default withAuthUser()(Demo)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631128509770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { useAuthUser, withAuthUser } from 'next-firebase-auth'\r\n \r\n const Demo = () => {\r\n   const AuthUser = useAuthUser()\r\n+  console.log\r\n   return (\r\n     <div>\r\n       <p>Your email is {AuthUser.email ? AuthUser.email : \"unknown\"}.</p>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1631128874250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import { useAuthUser, withAuthUser } from 'next-firebase-auth'\r\n+\r\n+const Demo = () => {\r\n+  const AuthUser = useAuthUser()\r\n+  console.log(AuthUser)\r\n+  return (\r\n+    <div>\r\n+      <p>Your email is {AuthUser.email ? AuthUser.email : \"unknown\"}.</p>\r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default withAuthUser(Demo)()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631128882365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import { useAuthUser, withAuthUser } from 'next-firebase-auth'\r\n+\r\n+const Demo = () => {\r\n+  const AuthUser = useAuthUser()\r\n+  console.log(AuthUser)\r\n+  return (\r\n+    <div>\r\n+      <p>Your email is {AuthUser.email ? AuthUser.email : \"unknown\"}.</p>\r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default withAuthUser()(Demo)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631128929483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+import { withAuthUser, AuthAction } from 'next-firebase-auth'\r\n+\r\n+const DemoPage = ({ thing }) => <div>The thing is: {thing}</div>\r\n+\r\n+export const getServerSideProps = withAuthUserTokenSSR({\r\n+  whenUnauthed: AuthAction.REDIRECT_TO_LOGIN,\r\n+})(async ({ AuthUser }) => {\r\n+  // Optionally, get other props.\r\n+  const token = await AuthUser.getIdToken()\r\n+  const response = await fetch('/api/my-endpoint', {\r\n+    method: 'GET',\r\n+    headers: {\r\n+      Authorization: token,\r\n+    },\r\n+  })\r\n+  const data = await response.json()\r\n+  return {\r\n+    props: {\r\n+      thing: data.thing\r\n+    }\r\n+  }\r\n+})\r\n+\r\n+export default withAuthUser()(DemoPage)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631128940231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+import { withAuthUser, AuthAction } from 'next-firebase-auth'\r\n+\r\n+const DemoPage = ({ thing }) => <div>The thing is: {thing}</div>\r\n+\r\n+export const getServerSideProps = withAuthUserTokenSS({\r\n+  whenUnauthed: AuthAction.REDIRECT_TO_LOGIN,\r\n+})(async ({ AuthUser }) => {\r\n+  // Optionally, get other props.\r\n+  const token = await AuthUser.getIdToken()\r\n+  const response = await fetch('/api/my-endpoint', {\r\n+    method: 'GET',\r\n+    headers: {\r\n+      Authorization: token,\r\n+    },\r\n+  })\r\n+  const data = await response.json()\r\n+  return {\r\n+    props: {\r\n+      thing: data.thing\r\n+    }\r\n+  }\r\n+})\r\n+\r\n+export default withAuthUser()(DemoPage)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631128950040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+import { withAuthUser, AuthAction, withAuthUserTokenSSR } from 'next-firebase-auth'\r\n+\r\n+const Demo = ({ thing }) => <div>The thing is: {thing}</div>\r\n+\r\n+export const getServerSideProps = withAuthUserTokenSSR({\r\n+  whenUnauthed: AuthAction.REDIRECT_TO_LOGIN,\r\n+})(async ({ AuthUser }) => {\r\n+  // Optionally, get other props.\r\n+  const token = await AuthUser.getIdToken()\r\n+  const response = await fetch('/api/my-endpoint', {\r\n+    method: 'GET',\r\n+    headers: {\r\n+      Authorization: token,\r\n+    },\r\n+  })\r\n+  const data = await response.json()\r\n+  return {\r\n+    props: {\r\n+      thing: data.thing\r\n+    }\r\n+  }\r\n+})\r\n+\r\n+export default withAuthUser()(DemoPage)\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1631128442561,
+            "name": "Commit-0",
+            "content": "import { useAuthUser, withAuthUser } from 'next-firebase-auth'\r\n\r\nconst Demo = () => {\r\n  const AuthUser = useAuthUser()\r\n  return (\r\n    <div>\r\n      <p>Your email is {AuthUser.email ? AuthUser.email : \"unknown\"}.</p>\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default withAuthUser()(DemoPage)"
+        }
+    ]
+}

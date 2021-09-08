@@ -1,0 +1,22 @@
+{
+    "sourceFile": "pages/api/logout.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1631127478695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1631127484794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import { unsetAuthCookies } from 'next-firebase-auth'\r\n+\r\n+\r\n+initAuth()\r\n+\r\n+const handler = async (req, res) => {\r\n+  try {\r\n+    await unsetAuthCookies(req, res)\r\n+  } catch (e) {\r\n+    // eslint-disable-next-line no-console\r\n+    console.error(e)\r\n+    return res.status(500).json({ error: 'Unexpected error.' })\r\n+  }\r\n+  return res.status(200).json({ status: true })\r\n+}\r\n+\r\n+export default handler\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1631127478695,
+            "name": "Commit-0",
+            "content": "import { unsetAuthCookies } from 'next-firebase-auth'\r\nimport initAuth from '../../utils/initAuth'\r\n\r\ninitAuth()\r\n\r\nconst handler = async (req, res) => {\r\n  try {\r\n    await unsetAuthCookies(req, res)\r\n  } catch (e) {\r\n    // eslint-disable-next-line no-console\r\n    console.error(e)\r\n    return res.status(500).json({ error: 'Unexpected error.' })\r\n  }\r\n  return res.status(200).json({ status: true })\r\n}\r\n\r\nexport default handler"
+        }
+    ]
+}
