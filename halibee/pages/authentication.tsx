@@ -32,7 +32,7 @@ export default function Authentication() {
                 await createUserWithEmailAndPassword(auth, email, password).then(function(result) {
                     return updateProfile(result.user, {
                       displayName: username,
-                      photoURL: '/assets/images/profile_placeholder.png'
+                      photoURL: "https://firebasestorage.googleapis.com/v0/b/halibee.appspot.com/o/images%2FdefaultImagesprofile_placeholder.png?alt=media&token=3b7f26fb-916f-4b28-b7fc-f6a6645fe387"
                     })
                     
                   }).catch(function(error) {

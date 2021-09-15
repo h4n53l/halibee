@@ -1,9 +1,28 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import CallToAction from '../components/callToAction'
 import Hero from '../components/hero'
+import { collection, getDocs } from '@firebase/firestore'
+import { firestore } from '../modules/firebase/initialiseFirebase'
+import Featured from '../components/featured'
+
+export const getStaticProps: GetStaticProps = async () =>  {
+  const response = await getDocs(collection(firestore, "freelancers"))
+
+  const userData = []
+  response.forEach((doc: any) => {
+    userData.push(doc._document.data.value.mapValue.fields)
+  })
+
+  return {
+    props: {userData }
+  }
+  
+}
 
 
-export default function Home() {
+
+export default function Home({userData}) {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen ">
@@ -15,6 +34,7 @@ export default function Home() {
       <Hero />
       <CallToAction />
 
+      <Featured featured={userData}/>
 
       <div className="w-full bg-primary dark:bg-secondary mx-auto grid md:grid-cols-2 gap-8 lg:grid-cols-4 sm:grid-cols-1 py-8 text-center">
         <div className="w-full">

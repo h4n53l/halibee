@@ -12,6 +12,9 @@ module.exports = {
         tetiary: '#E0F4FF',
         background: '#C9D6EA',
       },
+      screens: {
+        xs: '300px'
+      },
     },
   },
   variants: {

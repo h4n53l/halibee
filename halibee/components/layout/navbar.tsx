@@ -5,7 +5,7 @@ import ThemeToggle from '../themeToggle'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../modules/firebase/initialiseFirebase'
 import { signOut } from 'firebase/auth'
-
+import Link from 'next/link'
 
 export default function Navbar() {
 
@@ -82,10 +82,12 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/dashboard"
-                            className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}
+                          className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}
                           >
+                          <Link href={'/profiles/'+user.displayName} key={user.displayName}>
                             Dashboard
+                            
+                          </Link>
                           </a>
                         )}
                       </Menu.Item>
