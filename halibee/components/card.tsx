@@ -2,7 +2,7 @@ import { StarIcon } from "@heroicons/react/solid";
 
 export default function Card(props) {
     return (
-        <div className="overflow-hidden shadow-lg rounded-lg h-90 w-60 lg:w-80 cursor-pointer m-auto">
+        <div className="overflow-hidden shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105 rounded-lg h-90 w-60 lg:w-80 cursor-pointer m-auto">
             <a href={props.link} className="w-full block h-full">
                 {props.image ? 
                 <img alt="card image" src={props.image} className="max-h-40 w-full object-cover" />

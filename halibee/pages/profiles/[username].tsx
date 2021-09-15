@@ -35,42 +35,60 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 
 export default function () {
-    const [userInfo, setUserInfo] = useState(null)
+    const [userData, setUserData] = useState(null)
     const router = useRouter()
     const { username } = router.query
 
-    (async () => {
-        const details = await getDocs(
-            query(collection
-                (firestore, "freelancers"),
-                where("displayName", "==", username),
-                limit(1)))
-            .then((detail) => {
-                // userInfo = detail.docs[0]['_document'].data.value.mapValue.fields
-                setUserInfo(detail.docs[0]['_document'].data.value.mapValue.fields)
-            }
-            )
-    })()
-    const getUserDetails = async () => {
-         const details = await getDocs(
-            query(collection
-                (firestore, "freelancers"),
-                where("displayName", "==", username),
-                limit(1)))
-            .then((detail) => {
-                // userInfo = detail.docs[0]['_document'].data.value.mapValue.fields
-                setUserInfo(detail.docs[0]['_document'].data.value.mapValue.fields)
-            }
-            )
-    }
+    // (async () => {
+    //     const details = await getDocs(
+    //         query(collection
+    //             (firestore, "freelancers"),
+    //             where("displayName", "==", username),
+    //             limit(1)))
+    //         .then((detail) => {
+    //             // userInfo = detail.docs[0]['_document'].data.value.mapValue.fields
+    //             setUserInfo(detail.docs[0]['_document'].data.value.mapValue.fields)
+    //         }
+    //         )
+    // })()
+    // const getUserDetails = async () => {
+    //      const details = await getDocs(
+    //         query(collection
+    //             (firestore, "freelancers"),
+    //             where("displayName", "==", username),
+    //             limit(1)))
+    //         .then((detail) => {
+    //             // userInfo = detail.docs[0]['_document'].data.value.mapValue.fields
+    //             setUserInfo(detail.docs[0]['_document'].data.value.mapValue.fields)
+    //         }
+    //         )
+
+    // }
+
     useEffect(() => {
-    })
-    console.log(userInfo)
+        async function fetchUserData() {
+            const response = await getDocs(
+                query(collection
+                    (firestore, "freelancers"),
+                    where("displayName", "==", username),
+                    limit(1)))
+            setUserData(response.docs[0]['_document'].data.value.mapValue.fields)
+        }
+
+        fetchUserData()
+    }, [])
+
+    if (userData === null) {
+        return (
+            <div>Loading</div>
+        )
+    }
+    console.log(userData)
 
     return (
         <div>
             <div
-                style={{ backgroundImage: "url('/assets/images/bamboo_craft.jpeg')" }}
+                style={{ backgroundImage: "url(" + userData.bannerImageURL.stringValue + ")" }}
                 className="relative md:pt-32 bg-center z-0 pb-32 pt-12">
 
 
@@ -78,15 +96,12 @@ export default function () {
             <div className="flex flex-wrap justify-center align-center">
 
 
-                <div className="overflow-hidden -mt-20 sm:-mt-10 z-10 shadow-lg rounded-lg h-90 w-40 lg:w-60  cursor-pointer">
-
-                    <img alt={"Profile photo"}
-                        src="/assets/images/image_1.jpg"
-                        className="max-h-60 sm:max-h-40 w-full object-cover" />
-                    <div className="bg-white dark:bg-primary w-full p-4">
-                        <p className="text-primary dark:text-secondary text-center text-xl font-medium">
-                            HB0001
-                        </p>
+                <div className="overflow-hidden -mt-40 z-10 shadow-lg h-90 w-60 md:w-80 cursor-pointer m-auto  bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
+                    <img className="w-full max-h-60 object-cover" src={userData.cardImageURL.stringValue} alt="" />
+                    <div className="text-center relative py-14">
+                        
+                        <h1 className="mb-1 text-2xl font-sans font-semibold text-primary hover:text-secondary cursor-pointer">{userData.hiveName.stringValue}</h1>
+                        <span className="text-lg text-secondary hover:text-primary">{userData.skill.stringValue}</span>
                     </div>
                 </div>
             </div>
@@ -98,8 +113,8 @@ export default function () {
                             <div className="px-4 py-5 flex-auto">
                                 <h6 className="text-xl font-bold">Ratings</h6>
                             </div>
-                            <h4 className=" mt-4 mb-4 text-primary text-5xl font-bold">
-                                5
+                            <h4 className=" mt-4 mb-4 text-primary text-5xl font-bolder">
+                                {userData.rating.integerValue}
                             </h4>
                         </div>
                     </div>
@@ -117,31 +132,34 @@ export default function () {
                             <div className="px-4 py-5 flex-auto">
                                 <h6 className="text-xl font-bold">Projects Completed</h6>
                             </div>
-                            <h4 className=" mt-4 mb-4 text-primary text-5xl font-bold">
-                                256
+                            <h4 className=" mt-4 mb-4 text-primary text-5xl font-bolder">
+                                {userData.projects.integerValue}
                             </h4>
                         </div>
                     </div>
                 </div>
             </div>
-            <section className="m-5 text-primary">
-                <div className=" border-black">
-                    <h4 className="text-center font-bolder text-3xl">
-                        About {username}
+            <section className="mx-20 text-primary">
+                <div className=" flex flex-col w-full items-center">
+                    <h4 className="text-center font-bold text-3xl">
+                        About {userData.displayName.stringValue}
                     </h4>
+                    <p className="text-center">
+                        {userData.description.stringValue}
+                    </p>
                 </div>
             </section>
 
             <section className="m-5 text-primary">
-                <div className=" border-black w-full h-20">
-                    <h4 className="text-center font-bolder text-3xl">
+                <div className=" flex flex-col w-full items-center">
+                    <h4 className="text-center font-bold text-3xl">
                         Portfolio
                     </h4>
                 </div>
             </section>
             <section className="m-5 text-primary">
-                <div className=" border-black">
-                    <h4 className="text-center font-bolder text-3xl">
+                <div className="flex flex-col w-full items-center">
+                    <h4 className="text-center font-bold text-3xl">
                         Reviews
                     </h4>
                 </div>

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 33,
+            "activePatchIndex": 34,
             "patches": [
                 {
                     "date": 1631301838076,
@@ -140,6 +140,10 @@
                 {
                     "date": 1631498351655,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,36 @@\n+import { StarIcon } from \"@heroicons/react/solid\";\r\n+\r\n+export default function Card(props) {\r\n+    return (\r\n+        <div className=\"overflow-hidden shadow-lg rounded-lg h-90 w-60 lg:w-80 cursor-pointer m-auto\">\r\n+            <a href={\"#\"} className=\"w-full block h-full\">\r\n+                {props.image ? \r\n+                <img alt=\"card image\" src={props.image} className=\"max-h-40 w-full object-cover\" />\r\n+                :\r\n+                <img alt=\"card image\" src=\"props.image\" className=\"max-h-40 w-full object-cover\" />\r\n+            }\r\n+                <div className=\"bg-yellow-300 dark:bg-gray-800 w-full p-4\">\r\n+                    <p className=\"text-primary text-center text-md font-medium\">\r\n+                        {props.skill}\r\n+                    </p>\r\n+                    <p className=\"text-dark text-center dark:text-white text-lg font-bold mb-2\">\r\n+                        {props.hiveName}\r\n+                    </p>\r\n+                    <p className=\"text-dark text-sm\">\r\n+                        {props.description}\r\n+                    </p>\r\n+                    <div className=\"flex flex-row justify-between text-sm\">\r\n+                                <p className=\"text-dark flex flex-row font-black\">\r\n+                                    Rating: &nbsp;\r\n+                                    {props.rating}<StarIcon className=\"h-4 text-primary mt-1 w-4\"/>\r\n+                                </p>\r\n+\r\n+                                <p className=\"text-dark font-black\">\r\n+                                    Projects: {props.projects}\r\n+                                </p>\r\n+                            </div>\r\n+                </div>\r\n+            </a>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631748252387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { StarIcon } from \"@heroicons/react/solid\";\r\n \r\n export default function Card(props) {\r\n     return (\r\n-        <div className=\"overflow-hidden shadow-lg  rounded-lg h-90 w-60 lg:w-80 cursor-pointer m-auto\">\r\n+        <div className=\"overflow-hidden shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105 rounded-lg h-90 w-60 lg:w-80 cursor-pointer m-auto\">\r\n             <a href={props.link} className=\"w-full block h-full\">\r\n                 {props.image ? \r\n                 <img alt=\"card image\" src={props.image} className=\"max-h-40 w-full object-cover\" />\r\n                 :\r\n"
                 }
             ],
             "date": 1631301838076,
