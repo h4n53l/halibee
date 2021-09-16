@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 44,
+            "activePatchIndex": 45,
             "patches": [
                 {
                     "date": 1630081610939,
@@ -184,6 +184,10 @@
                 {
                     "date": 1631746713920,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+import Footer from \"./footer\";\r\n+import Navbar from \"./navbar\";\r\n+\r\n+export default function Layout({ children }) {\r\n+    return (\r\n+        <div className='bg-background dark:bg-tertiary'>\r\n+            <Navbar />\r\n+            {children}\r\n+            <Footer />\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1631802738078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,22 +2,11 @@\n import Navbar from \"./navbar\";\r\n \r\n export default function Layout({ children }) {\r\n     return (\r\n-        <div className='bg-background dark:bg-tertiary'>\r\n+        <div className='bg-background min-h-screen dark:bg-tertiary'>\r\n             <Navbar />\r\n             {children}\r\n             <Footer />\r\n         </div>\r\n     );\r\n-}\n-import Navbar from \"./navbar\";\r\n-\r\n-export default function Layout({ children }) {\r\n-    return (\r\n-        <div className='bg-background dark:bg-tertiary'>\r\n-            <Navbar />\r\n-            {children}\r\n-            <F\r\n-        </div>\r\n-    );\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1630081610939,

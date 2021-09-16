@@ -96,6 +96,7 @@ export default function Authentication() {
                                             />
                                     </div>
                                 </div>
+                                
                                 <div className="mb-2">
                                     <div className=" relative ">
                                         <input type="password"
