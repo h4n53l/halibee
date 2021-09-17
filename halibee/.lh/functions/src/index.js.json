@@ -1,0 +1,22 @@
+{
+    "sourceFile": "functions/src/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1631912899673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1631913366679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,19 @@\n-const { https } = require('firebase-functions');\n-const { default: next } = require('next');\n+import * as functions from \"firebase-functions\";\n \n-const isDev = process.env.NODE_ENV !== 'production';\n+const admin = require(\"firebase-admin\")\n \n-const server = next({\n-  dev: isDev,\n-  //location of .next generated after running -> yarn build\n-  conf: { distDir: 'out' },\n-});\n+admin.initializeApp()\n \n-const nextjsHandle = server.getRequestHandler();\n\\ No newline at end of file\n-exports.nextServer = https.onRequest((req, res) => {\n-  return server.prepare().then(() => nextjsHandle(req, res));\n-});\n+exports.addFreelancerRole = functions.https.onCall((data, context) => {\n+    return admin.auth().getUserByEmail(data.email).then((user: { uid: string; }) => {\n+        return admin.auth().setCustomUserClaims(user.uid, {\n+            freelancer: true\n+        })\n+    }).then(() => {\n+        return{\n+            message: `Success! ${data.email} is now a Freelancer on HaLiBee`\n+        }\n+    }).catch((error: any) => {\n+        return error\n+    })\n+})\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1631912899673,
+            "name": "Commit-0",
+            "content": "const { https } = require('firebase-functions');\nconst { default: next } = require('next');\n\nconst isDev = process.env.NODE_ENV !== 'production';\n\nconst server = next({\n  dev: isDev,\n  //location of .next generated after running -> yarn build\n  conf: { distDir: 'out' },\n});\n\nconst nextjsHandle = server.getRequestHandler();\nexports.nextServer = https.onRequest((req, res) => {\n  return server.prepare().then(() => nextjsHandle(req, res));\n});"
+        }
+    ]
+}

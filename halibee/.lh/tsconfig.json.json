@@ -1,0 +1,26 @@
+{
+    "sourceFile": "tsconfig.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1631901880967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1631912884185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   \"include\": [\n     \"next-env.d.ts\",\n     \"**/*.ts\",\n     \"**/*.tsx\"\n-, \"functions.js\"  ],\n+, \"functions.js\", \"functions/src/index.js\"  ],\n   \"exclude\": [\n     \"node_modules\"\n   ]\n }\n"
+                },
+                {
+                    "date": 1631913372574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   \"include\": [\n     \"next-env.d.ts\",\n     \"**/*.ts\",\n     \"**/*.tsx\"\n-, \"functions.js\", \"functions/src/index.js\"  ],\n+, \"functions.js\", \"functions/src/index.ts\"  ],\n   \"exclude\": [\n     \"node_modules\"\n   ]\n }\n"
+                }
+            ],
+            "date": 1631901880967,
+            "name": "Commit-0",
+            "content": "{\n  \"compilerOptions\": {\n    \"target\": \"es5\",\n    \"lib\": [\n      \"dom\",\n      \"dom.iterable\",\n      \"esnext\"\n    ],\n    \"allowJs\": true,\n    \"skipLibCheck\": true,\n    \"strict\": false,\n    \"forceConsistentCasingInFileNames\": true,\n    \"noEmit\": true,\n    \"esModuleInterop\": true,\n    \"module\": \"esnext\",\n    \"moduleResolution\": \"node\",\n    \"resolveJsonModule\": true,\n    \"isolatedModules\": true,\n    \"jsx\": \"preserve\"\n  },\n  \"include\": [\n    \"next-env.d.ts\",\n    \"**/*.ts\",\n    \"**/*.tsx\"\n, \"functions.js\"  ],\n  \"exclude\": [\n    \"node_modules\"\n  ]\n}\n"
+        }
+    ]
+}

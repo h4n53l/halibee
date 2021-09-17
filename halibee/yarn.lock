@@ -1230,11 +1230,6 @@ detective@^5.2.0:
     defined "^1.0.0"
     minimist "^1.1.1"
 
-dialog-polyfill@^0.4.7:
-  version "0.4.10"
-  resolved "https://registry.yarnpkg.com/dialog-polyfill/-/dialog-polyfill-0.4.10.tgz#c4ea68a0deed4abb59a6a2a025c548b278cd532e"
-  integrity sha512-j5yGMkP8T00UFgyO+78OxiN5vC5dzRQF3BEio+LhNvDbyfxWBsi3sfPArDm54VloaJwy2hm3erEiDWqHRC8rzw==
-
 didyoumean@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/didyoumean/-/didyoumean-1.2.2.tgz#989346ffe9e839b4555ecf5666edea0d3e8ad037"
@@ -1451,14 +1446,6 @@ firebase@^9.0.0:
     "@firebase/storage" "0.8.0"
     "@firebase/storage-compat" "0.1.0"
     "@firebase/util" "1.3.0"
-
-firebaseui@^4.8.0:
-  version "4.8.1"
-  resolved "https://registry.yarnpkg.com/firebaseui/-/firebaseui-4.8.1.tgz#29ccbc9dfd579c4453725f88e9cf81c8ea62c580"
-  integrity sha512-Qh8kfqGjMIiVJ2X8MUFsmlf43QFcVc8ungD+kw5T8ACuhQ68IAyUHExlItAfumrcLlqEgyo1MjH0O9fZZAMOKw==
-  dependencies:
-    dialog-polyfill "^0.4.7"
-    material-design-lite "^1.2.0"
 
 foreach@^2.0.5:
   version "2.0.5"
@@ -2008,11 +1995,6 @@ make-dir@^3.0.2:
   integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
   dependencies:
     semver "^6.0.0"
-
-material-design-lite@^1.2.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/material-design-lite/-/material-design-lite-1.3.0.tgz#d004ce3fee99a1eeb74a78b8a325134a5f1171d3"
-  integrity sha1-0ATOP+6Zoe63Sni4oyUTSl8RcdM=
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -2600,13 +2582,6 @@ react-firebase-hooks@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-firebase-hooks/-/react-firebase-hooks-3.0.4.tgz#2185357d2bd6f7292552bc65f2459bbf9364e673"
   integrity sha512-eqhj8O5t/9nzGS/DfCGQX9goqbxTP2T/qrY2B13s4rx/VIJ4Bx3WnZgqxEVA0Y/mWZBh7gOlXSPdRGbxBq5d8g==
-
-react-firebaseui@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/react-firebaseui/-/react-firebaseui-5.0.2.tgz#7496bc595454abdd3e1c10612bb3446cb125181a"
-  integrity sha512-ZfIWfRKlKAkMwEI+41rMPkwdNEQEfBLXV6TVaN5er3cdwMD0vQecWt6YOE4/v1ELziaj10NNRB8yB42V56QBMQ==
-  dependencies:
-    firebaseui "^4.8.0"
 
 react-is@17.0.2:
   version "17.0.2"

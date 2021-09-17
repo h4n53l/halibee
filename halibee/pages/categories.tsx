@@ -10,29 +10,15 @@ export const getStaticProps: GetStaticProps = async () => {
     categories.push(doc._document.data.value.mapValue.fields)
   })
 
-
   return {
     props: { categories }
   }
 
 }
 
-const checking = async () => {
-  const response = await getDocs(collection(firestore, "categories"))
-  const categories = []
-  
-  response.forEach((doc: any) => {
-    categories.push(doc._document.data.value.mapValue.fields)
-  })
-
-  console.log(categories)
-}
-
-checking()
 
 export default function Categories({ categories }) {
 
-  console.log(categories)
 
   return (
     <div className="p-10">

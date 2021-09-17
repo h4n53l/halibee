@@ -1,0 +1,66 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1631898299913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1631898305048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n   \"scripts\": {\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n     \"start\": \"next start\"\n-    export\n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n"
+                },
+                {
+                    "date": 1631898316867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,10 @@\n   \"private\": true,\n   \"scripts\": {\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n-    \"start\": \"next start\"\n+    \"start\": \"next start\",\n+    \"\"\n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n"
+                },
+                {
+                    "date": 1631898322601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"scripts\": {\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n     \"start\": \"next start\",\n-    \"\"\n+    \"export\": \n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n"
+                },
+                {
+                    "date": 1631898329367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"scripts\": {\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n     \"start\": \"next start\",\n-    \"export\": \n+    \"export\": \"next export\"\n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n"
+                },
+                {
+                    "date": 1631902798024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n     \"start\": \"next start\",\n     \"export\": \"next export\"\n+    \n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n@@ -13,10 +14,9 @@\n     \"next\": \"latest\",\n     \"next-firebase-auth\": \"^1.0.0-canary.1\",\n     \"react\": \"^17.0.2\",\n     \"react-dom\": \"^17.0.2\",\n-    \"react-firebase-hooks\": \"^3.0.4\",\n-    \"react-firebaseui\": \"^5.0.2\"\n+    \"react-firebase-hooks\": \"^3.0.4\"\n   },\n   \"devDependencies\": {\n     \"@types/node\": \"^16.7.3\",\n     \"@types/react\": \"^17.0.19\",\n"
+                },
+                {
+                    "date": 1631902804794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n     \"start\": \"next start\",\n     \"export\": \"next export\"\n-    \n+    \"deploy\"\n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n"
+                },
+                {
+                    "date": 1631902811174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n     \"start\": \"next start\",\n     \"export\": \"next export\"\n-    \"deploy\"\n+    \"deploy\": \"\"\n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n"
+                },
+                {
+                    "date": 1631902818179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n   \"scripts\": {\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n     \"start\": \"next start\",\n-    \"export\": \"next export\"\n-    \"deploy\": \"\"\n+    \"export\": \"next export\",\n+    \"deploy\": \"cross-env NODE_ENV=production firebase deploy — only functions,hosting\"\n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n"
+                },
+                {
+                    "date": 1631912351801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n+    \n     \"firebase\": \"^9.0.0\",\n     \"next\": \"latest\",\n     \"next-firebase-auth\": \"^1.0.0-canary.1\",\n     \"react\": \"^17.0.2\",\n"
+                },
+                {
+                    "date": 1631912505741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,14 +4,14 @@\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n     \"start\": \"next start\",\n     \"export\": \"next export\",\n-    \"deploy\": \"cross-env NODE_ENV=production firebase deploy — only functions,hosting\"\n+    \"deploy\": \"cross-env NODE_ENV=production firebase deploy —- only functions,hosting\"\n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n-    \n+    \"cross-env\": \"^7.0.3\",\n     \"firebase\": \"^9.0.0\",\n     \"next\": \"latest\",\n     \"next-firebase-auth\": \"^1.0.0-canary.1\",\n     \"react\": \"^17.0.2\",\n"
+                },
+                {
+                    "date": 1631912511472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n     \"start\": \"next start\",\n     \"export\": \"next export\",\n-    \"deploy\": \"cross-env NODE_ENV=production firebase deploy —- only functions,hosting\"\n+    \"deploy\": \"cross-env NODE_ENV=production firebase deploy -- only functions,hosting\"\n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n"
+                },
+                {
+                    "date": 1631912767513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,9 @@\n   \"scripts\": {\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n     \"start\": \"next start\",\n-    \"export\": \"next export\",\n-    \"deploy\": \"cross-env NODE_ENV=production firebase deploy -- only functions,hosting\"\n+    \"export\": \"next export\"\n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n"
+                }
+            ],
+            "date": 1631898299913,
+            "name": "Commit-0",
+            "content": "{\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"next build\",\n    \"start\": \"next start\"\n    export\n  },\n  \"dependencies\": {\n    \"@headlessui/react\": \"^1.4.0\",\n    \"@heroicons/react\": \"^1.0.4\",\n    \"firebase\": \"^9.0.0\",\n    \"next\": \"latest\",\n    \"next-firebase-auth\": \"^1.0.0-canary.1\",\n    \"react\": \"^17.0.2\",\n    \"react-dom\": \"^17.0.2\",\n    \"react-firebase-hooks\": \"^3.0.4\",\n    \"react-firebaseui\": \"^5.0.2\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^16.7.3\",\n    \"@types/react\": \"^17.0.19\",\n    \"autoprefixer\": \"^10.2.6\",\n    \"postcss\": \"^8.3.5\",\n    \"tailwindcss\": \"^2.2.4\",\n    \"typescript\": \"^4.4.2\"\n  }\n}\n"
+        }
+    ]
+}

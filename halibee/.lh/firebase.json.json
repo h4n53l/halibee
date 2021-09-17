@@ -1,0 +1,42 @@
+{
+    "sourceFile": "firebase.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1631897557944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1631897961107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,6 @@\n {\n-  \"hosting\": {\n-    \"public\": \"public\",\n-    \"rewrites\": [\n-      {\n-        \"source\": \"**/**\",\n-        \"function\": \"nextjs-server\"\n-      }\n-    ]\n-  },\n   \"functions\": {\n-    \"source\": \".\",\n-    \"ignore\": [\n-      \".firebase/**\",\n-      \".firebaserc\",\n-      \"firebase.json\",\n-      \"**/node_modules/**\",\n-      \"**/public/**\"\n-    ]\n+    \"source\": \"functions\",\n+    \"predeploy\": \"npm --prefix \\\"$RESOURCE_DIR\\\" run build\"\n   }\n }\n"
+                },
+                {
+                    "date": 1631901488346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,25 @@\n {\n   \"functions\": {\n     \"source\": \"functions\",\n     \"predeploy\": \"npm --prefix \\\"$RESOURCE_DIR\\\" run build\"\n+  },\n+  \"hosting\": {\n+    \"public\": \"out\",\n+    \"ignore\": [\n+      \"firebase.json\",\n+      \"**/.*\",\n+      \"**/node_modules/**\"\n+    ],\n+    \n+  },\n+  \"database\": {\n+    \"rules\": \"database.rules.json\"\n+  },\n+  \"firestore\": {\n+    \"rules\": \"firestore.rules\",\n+    \"indexes\": \"firestore.indexes.json\"\n+  },\n+  \"storage\": {\n+    \"rules\": \"storage.rules\"\n   }\n }\n"
+                },
+                {
+                    "date": 1631902268603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,30 @@\n+{\n+  \"functions\": {\n+    \"source\": \".\",\n+    \"predeploy\": \"npm --prefix \\\"$RESOURCE_DIR\\\" run build\"\n+  },\n+  \"hosting\": {\n+    \"public\": \"out\",\n+    \"ignore\": [\n+      \"firebase.json\",\n+      \"**/.*\",\n+      \"**/node_modules/**\"\n+    ],\n+    \"rewrites\": [\n+      {\n+        \"source\": \"**\",\n+        \"function\": \"nextServer\"\n+      }\n+    ]\n+  },\n+  \"database\": {\n+    \"rules\": \"database.rules.json\"\n+  },\n+  \"firestore\": {\n+    \"rules\": \"firestore.rules\",\n+    \"indexes\": \"firestore.indexes.json\"\n+  },\n+  \"storage\": {\n+    \"rules\": \"storage.rules\"\n+  }\n+}\n"
+                },
+                {
+                    "date": 1631912619090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,31 @@\n+{\n+  \"functions\": {\n+    \"source\": \".\",\n+    \n+    \"predeploy\": \"npm --prefix \\\"$RESOURCE_DIR\\\" run build\"\n+  },\n+  \"hosting\": {\n+    \"public\": \"out\",\n+    \"ignore\": [\n+      \"firebase.json\",\n+      \"**/.*\",\n+      \"**/node_modules/**\"\n+    ],\n+    \"rewrites\": [\n+      {\n+        \"source\": \"**\",\n+        \"function\": \"nextServer\"\n+      }\n+    ]\n+  },\n+  \"database\": {\n+    \"rules\": \"database.rules.json\"\n+  },\n+  \"firestore\": {\n+    \"rules\": \"firestore.rules\",\n+    \"indexes\": \"firestore.indexes.json\"\n+  },\n+  \"storage\": {\n+    \"rules\": \"storage.rules\"\n+  }\n+}\n"
+                },
+                {
+                    "date": 1631912958462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,31 @@\n+{\n+  \"functions\": {\n+    \"source\": \"functions\",\n+    \"runtime\": \"nodejs10\",\n+    \"predeploy\": \"npm --prefix \\\"$RESOURCE_DIR\\\" run build\"\n+  },\n+  \"hosting\": {\n+    \"public\": \"out\",\n+    \"ignore\": [\n+      \"firebase.json\",\n+      \"**/.*\",\n+      \"**/node_modules/**\"\n+    ],\n+    \"rewrites\": [\n+      {\n+        \"source\": \"**\",\n+        \"function\": \"nextServer\"\n+      }\n+    ]\n+  },\n+  \"database\": {\n+    \"rules\": \"database.rules.json\"\n+  },\n+  \"firestore\": {\n+    \"rules\": \"firestore.rules\",\n+    \"indexes\": \"firestore.indexes.json\"\n+  },\n+  \"storage\": {\n+    \"rules\": \"storage.rules\"\n+  }\n+}\n"
+                },
+                {
+                    "date": 1631913001899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,31 @@\n+{\n+  \"functions\": {\n+    \"source\": \".\",\n+    \"runtime\": \"nodejs10\"\n+    \"predeploy\": \"npm --prefix \\\"$RESOURCE_DIR\\\" run build\"\n+  },\n+  \"hosting\": {\n+    \"public\": \"out\",\n+    \"ignore\": [\n+      \"firebase.json\",\n+      \"**/.*\",\n+      \"**/node_modules/**\"\n+    ],\n+    \"rewrites\": [\n+      {\n+        \"source\": \"**\",\n+        \"function\": \"nextServer\"\n+      }\n+    ]\n+  },\n+  \"database\": {\n+    \"rules\": \"database.rules.json\"\n+  },\n+  \"firestore\": {\n+    \"rules\": \"firestore.rules\",\n+    \"indexes\": \"firestore.indexes.json\"\n+  },\n+  \"storage\": {\n+    \"rules\": \"storage.rules\"\n+  }\n+}\n"
+                }
+            ],
+            "date": 1631897557943,
+            "name": "Commit-0",
+            "content": "{\n  \"hosting\": {\n    \"public\": \"public\",\n    \"rewrites\": [\n      {\n        \"source\": \"**/**\",\n        \"function\": \"nextjs-server\"\n      }\n    ]\n  },\n  \"functions\": {\n    \"source\": \".\",\n    \"ignore\": [\n      \".firebase/**\",\n      \".firebaserc\",\n      \"firebase.json\",\n      \"**/node_modules/**\",\n      \"**/public/**\"\n    ]\n  }\n}\n"
+        }
+    ]
+}

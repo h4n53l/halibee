@@ -23,12 +23,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const response: any = await getDocs(collection(firestore, "categories"))
-    const paths = []
+    const more_paths = []
     response.forEach((doc: any) => {
-        paths.push('/categories/' + doc._document.data.value.mapValue.fields.skill.stringValue)
+        more_paths.push('/categories/' + doc._document.data.value.mapValue.fields.skill.stringValue)
     })
     return {
-        paths: paths,
+        paths: more_paths,
         fallback: false
     }
 }
