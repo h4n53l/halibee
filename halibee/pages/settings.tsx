@@ -3,7 +3,7 @@ import { updateProfile } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, database, firestore, storage } from "../modules/firebase/initialiseFirebase";
+import { auth, firestore, storage } from "../modules/firebase/initialiseFirebase";
 
 export default function Settings() {
     const [user, loading, error] = useAuthState(auth)

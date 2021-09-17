@@ -34,7 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 
-export default function () {
+export default function Username() {
     const [userData, setUserData] = useState(null)
     const router = useRouter()
     const { username } = router.query

@@ -4,7 +4,7 @@ import CallToAction from '../components/callToAction'
 import Hero from '../components/hero'
 import { collection, getDocs } from '@firebase/firestore'
 import { firestore } from '../modules/firebase/initialiseFirebase'
-import Featured from '../components/featured'
+import Listings from '../components/listings'
 
 export const getStaticProps: GetStaticProps = async () =>  {
   const response = await getDocs(collection(firestore, "freelancers"))
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async () =>  {
 
 
 export default function Home({userData}) {
-
+console.log(userData)
   return (
     <div className="flex flex-col items-center justify-center min-h-screen ">
       <Head>
@@ -34,7 +34,7 @@ export default function Home({userData}) {
       <Hero />
       <CallToAction />
 
-      <Featured featured={userData}/>
+      <Listings title="Featured Halibees" featured={userData}/>
 
       <div className="w-full bg-primary dark:bg-secondary mx-auto grid md:grid-cols-2 gap-8 lg:grid-cols-4 sm:grid-cols-1 py-8 text-center">
         <div className="w-full">

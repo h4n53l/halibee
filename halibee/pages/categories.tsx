@@ -1,23 +1,70 @@
+import { collection, getDocs } from "@firebase/firestore";
+import { GetStaticProps } from "next";
+import { firestore } from "../modules/firebase/initialiseFirebase";
 
-export default function Dashboard() {
-
-    
-
-    return (
-<div className="bg-gray-100 min-h-screen py-32 px-10 ">
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 "> 
-
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await getDocs(collection(firestore, "categories"))
+  const categories = []
   
+  response.forEach((doc: any) => {
+    categories.push(doc._document.data.value.mapValue.fields)
+  })
+
+
+  return {
+    props: { categories }
+  }
+
+}
+
+const checking = async () => {
+  const response = await getDocs(collection(firestore, "categories"))
+  const categories = []
   
-  <div className="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-    <img src="https://images.unsplash.com/photo-1544473244-f6895e69ad8b" alt="" className="rounded-t-lg w-full"/>
-  <div className="p-6">
-    <h1 className="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-gray-900 ">This is Amazing for people to visit.</h1>
-  <p className="text-gray-700 my-2 hover-text-900 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis.</p>
-  </div>
-    </div>
+  response.forEach((doc: any) => {
+    categories.push(doc._document.data.value.mapValue.fields)
+  })
+
+  console.log(categories)
+}
+
+checking()
+
+export default function Categories({ categories }) {
+
+  console.log(categories)
+
+  return (
+    <div className="p-10">
+      <div className="bg-transparent min-h-screen py-12 px-10 ">
+        <h3 className="text-primary text-center uppercase mb-5 text-3xl font-bold">
+          Categories
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 ">
+        {categories.map (category => (
+          <div className="container bg-secondary mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
+        <a href={'/categories/'+ category.skill.stringValue} className="w-full  h-full">
+            <img src={category.image.stringValue}
+              alt={category.skill.stringValue}
+              className="rounded-t-lg w-full" />
+            <div className="p-6">
+              <h1 className="md:text-1xl  text-xl hover:text-white transition duration-200  font-bold text-primary ">
+                {category.skill.stringValue}
+                </h1>
+            </div>
+            </a>
+          </div>
+
+        ))
+        }
+        </div>
+
+
+      </div>
+
 
     </div>
-</div>
+       
     );
 }
