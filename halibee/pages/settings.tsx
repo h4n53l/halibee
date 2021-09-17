@@ -49,7 +49,13 @@ export default function Settings() {
         if (userDocument.exists()) {
             await updateDoc(doc(firestore, collection, document), data)
         } else {
-            setDoc(doc(firestore, collection, document), data)
+            setDoc(doc(firestore, collection, document), {
+                ...data,
+                prolects: 0,
+                rating: 0,
+                category: "",
+                skill: ""
+            })
         }
 
     }
@@ -212,7 +218,7 @@ export default function Settings() {
                 </div>
                 <div className="px-4 py-6 border-t-2 border-gray-200 bg-gray-50 sm:px-10">
                     <p className="text-xs leading-5 text-gray-500">
-                        This change is reversible.
+                        You can change this at any time in the future.
                     </p>
                 </div>
             </div>}
