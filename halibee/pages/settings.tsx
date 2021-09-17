@@ -7,9 +7,9 @@ import { auth, firestore, storage } from "../modules/firebase/initialiseFirebase
 
 export default function Settings() {
     const [user, loading, error] = useAuthState(auth)
-    const [profileImage, setProfileImage] = useState<Blob>(null)
-    const [cardImage, setCardImage] = useState<Blob>(null)
-    const [bannerImage, setBannerImage] = useState<Blob>(null)
+    const [profileImage, setProfileImage] = useState(null)
+    const [cardImage, setCardImage] = useState(null)
+    const [bannerImage, setBannerImage] = useState(null)
     const [profileEdit, setProfileEdit] = useState(null)
     const [AccountSettingsEdit, setAccountSettingsEdit] = useState(null)
     const [about, setAbout] = useState(null)
