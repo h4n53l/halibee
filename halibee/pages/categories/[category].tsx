@@ -28,6 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         more_paths.push('/categories/' + doc._document.data.value.mapValue.fields.skill.stringValue)
     })
     return {
+        
         paths: more_paths,
         fallback: false
     }
