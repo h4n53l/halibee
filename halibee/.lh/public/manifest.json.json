@@ -1,0 +1,58 @@
+{
+    "sourceFile": "public/manifest.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1632316925818,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1632316937364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n {\r\n-    \"name\": \"Next PWA demo\",\r\n+    \"name\": \"HaL\",\r\n     \"short_name\": \"Mext PWA\",\r\n     \"icons\": [\r\n       {\r\n         \"src\": \"/icon.png\",\r\n"
+                },
+                {
+                    "date": 1632316946776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\r\n+    \"name\": \"HaLiBee\",\r\n+    \"short_name\": \"HaLiBee\",\r\n+    \"icons\": [\r\n+      {\r\n+        \"src\": \"/icon.png\",\r\n+        \"sizes\": \"192x192\",\r\n+        \"type\": \"image/png\"\r\n+      },\r\n+  \r\n+      {\r\n+        \"src\": \"/icon-512x512.png\",\r\n+        \"sizes\": \"512x512\",\r\n+        \"type\": \"image/png\"\r\n+      }\r\n+    ],\r\n+    \"theme_color\": \"#FFFFFF\",\r\n+    \"background_color\": \"#FFFFFF\",\r\n+    \"start_url\": \"/\",\r\n+    \"display\": \"standalone\",\r\n+    \"orientation\": \"portrait\"\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632316977561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\r\n+    \"name\": \"HaLiBee\",\r\n+    \"short_name\": \"HaLiBee\",\r\n+    \"icons\": [\r\n+      {\r\n+        \"src\": \"/asseticon.png\",\r\n+        \"sizes\": \"192x192\",\r\n+        \"type\": \"image/png\"\r\n+      },\r\n+  \r\n+      {\r\n+        \"src\": \"/icon-512x512.png\",\r\n+        \"sizes\": \"512x512\",\r\n+        \"type\": \"image/png\"\r\n+      }\r\n+    ],\r\n+    \"theme_color\": \"#FFFFFF\",\r\n+    \"background_color\": \"#FFFFFF\",\r\n+    \"start_url\": \"/\",\r\n+    \"display\": \"standalone\",\r\n+    \"orientation\": \"portrait\"\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632317002007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\r\n+    \"name\": \"HaLiBee\",\r\n+    \"short_name\": \"HaLiBee\",\r\n+    \"icons\": [\r\n+      {\r\n+        \"src\": \"/assets/images.png\",\r\n+        \"sizes\": \"192x192\",\r\n+        \"type\": \"image/png\"\r\n+      },\r\n+  \r\n+      {\r\n+        \"src\": \"/icon-512x512.png\",\r\n+        \"sizes\": \"512x512\",\r\n+        \"type\": \"image/png\"\r\n+      }\r\n+    ],\r\n+    \"theme_color\": \"#FFFFFF\",\r\n+    \"background_color\": \"#FFFFFF\",\r\n+    \"start_url\": \"/\",\r\n+    \"display\": \"standalone\",\r\n+    \"orientation\": \"portrait\"\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632317011543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\r\n+    \"name\": \"HaLiBee\",\r\n+    \"short_name\": \"HaLiBee\",\r\n+    \"icons\": [\r\n+      {\r\n+        \"src\": \"/assets/images/halibe.png\",\r\n+        \"sizes\": \"192x192\",\r\n+        \"type\": \"image/png\"\r\n+      },\r\n+  \r\n+      {\r\n+        \"src\": \"/icon-512x512.png\",\r\n+        \"sizes\": \"512x512\",\r\n+        \"type\": \"image/png\"\r\n+      }\r\n+    ],\r\n+    \"theme_color\": \"#FFFFFF\",\r\n+    \"background_color\": \"#FFFFFF\",\r\n+    \"start_url\": \"/\",\r\n+    \"display\": \"standalone\",\r\n+    \"orientation\": \"portrait\"\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632317017542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\r\n+    \"name\": \"HaLiBee\",\r\n+    \"short_name\": \"HaLiBee\",\r\n+    \"icons\": [\r\n+      {\r\n+        \"src\": \"/assets/images/halibee_logo.png\",\r\n+        \"sizes\": \"192x192\",\r\n+        \"type\": \"image/png\"\r\n+      },\r\n+  \r\n+      {\r\n+        \"src\": \"/icon-512x512.png\",\r\n+        \"sizes\": \"512x512\",\r\n+        \"type\": \"image/png\"\r\n+      }\r\n+    ],\r\n+    \"theme_color\": \"#FFFFFF\",\r\n+    \"background_color\": \"#FFFFFF\",\r\n+    \"start_url\": \"/\",\r\n+    \"display\": \"standalone\",\r\n+    \"orientation\": \"portrait\"\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632317038313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\r\n+    \"name\": \"HaLiBee\",\r\n+    \"short_name\": \"HaLiBee\",\r\n+    \"icons\": [\r\n+      {\r\n+        \"src\": \"/assets/images/halibee_logo.png\",\r\n+        \"sizes\": \"192x192\",\r\n+        \"type\": \"image/png\"\r\n+      },\r\n+  \r\n+      {\r\n+        \"src\": \"/assets/images/halibee_logo.png\",\r\n+        \"sizes\": \"512x512\",\r\n+        \"type\": \"image/png\"\r\n+      }\r\n+    ],\r\n+    \"theme_color\": \"#FFFFFF\",\r\n+    \"background_color\": \"#FFFFFF\",\r\n+    \"start_url\": \"/\",\r\n+    \"display\": \"standalone\",\r\n+    \"orientation\": \"portrait\"\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632317058610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\r\n+    \"name\": \"HaLiBee\",\r\n+    \"short_name\": \"HaLiBee\",\r\n+    \"icons\": [\r\n+      {\r\n+        \"src\": \"/assets/images/halibee_logo.png\",\r\n+        \"sizes\": \"192x192\",\r\n+        \"type\": \"image/png\"\r\n+      },\r\n+  \r\n+      {\r\n+        \"src\": \"/assets/images/halibee_logo.png\",\r\n+        \"sizes\": \"512x512\",\r\n+        \"type\": \"image/png\"\r\n+      }\r\n+    ],\r\n+    \"theme_color\": \"#FAAA20\",\r\n+    \"background_color\": \"#FFFFFF\",\r\n+    \"start_url\": \"/\",\r\n+    \"display\": \"standalone\",\r\n+    \"orientation\": \"portrait\"\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632317078486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\r\n+    \"name\": \"HaLiBee\",\r\n+    \"short_name\": \"HaLiBee\",\r\n+    \"icons\": [\r\n+      {\r\n+        \"src\": \"/assets/images/halibee_logo.png\",\r\n+        \"sizes\": \"192x192\",\r\n+        \"type\": \"image/png\"\r\n+      },\r\n+  \r\n+      {\r\n+        \"src\": \"/assets/images/halibee_logo.png\",\r\n+        \"sizes\": \"512x512\",\r\n+        \"type\": \"image/png\"\r\n+      }\r\n+    ],\r\n+    \"theme_color\": \"#FAAA20\",\r\n+    \"background_color\": \"#C9D6EA\",\r\n+    \"start_url\": \"/\",\r\n+    \"display\": \"standalone\",\r\n+    \"orientation\": \"portrait\"\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632317087314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\r\n+    \"name\": \"HaLiBee\",\r\n+    \"short_name\": \"HaLiBee\",\r\n+    \"icons\": [\r\n+      {\r\n+        \"src\": \"/assets/images/halibee_logo.png\",\r\n+        \"sizes\": \"192x192\",\r\n+        \"type\": \"image/png\"\r\n+      },\r\n+  \r\n+      {\r\n+        \"src\": \"/assets/images/halibee_logo.png\",\r\n+        \"sizes\": \"512x512\",\r\n+        \"type\": \"image/png\"\r\n+      }\r\n+    ],\r\n+    \"theme_color\": \"#FAAA20\",\r\n+    \"background_color\": \"#C9D6EA\",\r\n+    \"start_url\": \"/\",\r\n+    \"display\": \"standalone\",\r\n+    \"orientation\": \"portrait\"\r\n+  }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1632316925818,
+            "name": "Commit-0",
+            "content": "{\r\n    \"name\": \"Next PWA demo\",\r\n    \"short_name\": \"Mext PWA\",\r\n    \"icons\": [\r\n      {\r\n        \"src\": \"/icon.png\",\r\n        \"sizes\": \"192x192\",\r\n        \"type\": \"image/png\"\r\n      },\r\n  \r\n      {\r\n        \"src\": \"/icon-512x512.png\",\r\n        \"sizes\": \"512x512\",\r\n        \"type\": \"image/png\"\r\n      }\r\n    ],\r\n    \"theme_color\": \"#FFFFFF\",\r\n    \"background_color\": \"#FFFFFF\",\r\n    \"start_url\": \"/\",\r\n    \"display\": \"standalone\",\r\n    \"orientation\": \"portrait\"\r\n  }"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "sourceFile": "pages/_document.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1632317167886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1632317181275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n       <Html>\r\n         <Head>\r\n           <link rel=\"manifest\" href=\"/manifest.json\" />\r\n           <link rel=\"apple-touch-icon\" href=\"/icon.png\"></link>\r\n-          <meta name=\"theme-color\" content=\"#fff\" />\r\n+          <meta name=\"theme-color\" content=\"\" />\r\n         </Head>\r\n         <body>\r\n           <Main />\r\n           <NextScript />\r\n"
+                },
+                {
+                    "date": 1632317207687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n       <Html>\r\n         <Head>\r\n           <link rel=\"manifest\" href=\"/manifest.json\" />\r\n           <link rel=\"apple-touch-icon\" href=\"/icon.png\"></link>\r\n-          <meta name=\"theme-color\" content=\"\" />\r\n+          <meta name=\"theme-color\" content=\"#FAAA20\" />\r\n         </Head>\r\n         <body>\r\n           <Main />\r\n           <NextScript />\r\n"
+                },
+                {
+                    "date": 1632317231427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     return (\r\n       <Html>\r\n         <Head>\r\n           <link rel=\"manifest\" href=\"/manifest.json\" />\r\n-          <link rel=\"apple-touch-icon\" href=\"/icon.png\"></link>\r\n+          <link rel=\"apple-touch-icon\" href=\"/assets/images/halibee_logo.png\"></link>\r\n           <meta name=\"theme-color\" content=\"#FAAA20\" />\r\n         </Head>\r\n         <body>\r\n           <Main />\r\n"
+                }
+            ],
+            "date": 1632317167886,
+            "name": "Commit-0",
+            "content": "import Document, { Html, Head, Main, NextScript } from 'next/document'\r\n\r\nclass MyDocument extends Document {\r\n  static async getInitialProps(ctx) {\r\n    const initialProps = await Document.getInitialProps(ctx)\r\n    return { ...initialProps }\r\n  }\r\n\r\n  render() {\r\n    return (\r\n      <Html>\r\n        <Head>\r\n          <link rel=\"manifest\" href=\"/manifest.json\" />\r\n          <link rel=\"apple-touch-icon\" href=\"/icon.png\"></link>\r\n          <meta name=\"theme-color\" content=\"#fff\" />\r\n        </Head>\r\n        <body>\r\n          <Main />\r\n          <NextScript />\r\n        </body>\r\n      </Html>\r\n    )\r\n  }\r\n}\r\n\r\nexport default MyDocument"
+        }
+    ]
+}
