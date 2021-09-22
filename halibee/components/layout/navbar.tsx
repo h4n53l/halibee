@@ -67,7 +67,7 @@ export default function Navbar() {
             </button>
 
             {/* Profile dropdown */}
-            {user ? (<Menu as="div" className="ml-3 z-50 relative">
+            {user ? (<Menu as="div" className="ml-0 z-50 relative">
               <div>
                 <Menu.Button className="flex text-sm rounded-full focus:outline-none">
                   <span className="sr-only">Open user menu</span>

@@ -1,6 +1,6 @@
 export default function CallToAction() {
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto my-10 px-auto">
       <div className="items-center align-center justify-center flex flex-wrap">
         
         <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
@@ -9,6 +9,7 @@ export default function CallToAction() {
             <h3 className="text-primary text-center text-3xl font-bold">
               A Very Special Announcement
             </h3>
+            <div className="flex flex-col justify-center">
             <p 
             className="mt-4 text-lg text-center leading-relaxed text-gray-700"
             >
@@ -25,11 +26,12 @@ export default function CallToAction() {
               Are you a highly skilled freelancer looking to expand your reach?
             </p>
             <button 
-            className="bg-primary dark:bg-secondary mt-3 text-secondary dark:text-primary font-bold uppercase text-base px-8 py-3 rounded ml-12 mb-1 ease-linear" 
+            className="bg-primary dark:bg-secondary mt-3 text-secondary dark:text-primary font-bold uppercase text-base px-8 py-3 rounded ease-linear" 
             type="button"
             >
               Take the First Step
             </button>
+          </div>
           </div>
         </div>
         <div className="w-full md:w-4/12 ml-auto mr-auto px-2">

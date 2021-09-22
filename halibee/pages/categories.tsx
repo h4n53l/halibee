@@ -22,14 +22,14 @@ export default function Categories({ categories }) {
 
   return (
     <div className="p-10">
-      <div className="bg-transparent min-h-screen py-12 px-10 ">
+      <div className="bg-transparent min-h-screen py-12 smx:py-20  px-auto ">
         <h3 className="text-primary text-center uppercase mb-5 text-3xl font-bold">
           Categories
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 ">
         {categories.map (category => (
-          <div className="container bg-secondary mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
+          <div className="container bg-secondary smx:w-40 px-auto mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
         <a href={'/categories/'+ category.skill.stringValue} className="w-full  h-full">
             <img src={category.image.stringValue}
               alt={category.skill.stringValue}

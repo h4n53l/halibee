@@ -61,7 +61,7 @@ export default function Username() {
     console.log(userData)
 
     return (
-        <div>
+        <div className="">
             <div
                 style={{ backgroundImage: "url(" + userData.bannerImageURL.stringValue + ")" }}
                 className="relative md:pt-32 bg-center z-0 pb-52 pt-12">
@@ -69,14 +69,14 @@ export default function Username() {
 
             </div>
 
-            <div className="flex flex-wrap justify-center align-center">
-                <div className="z-10 -mt-10 sm:-mt-20 z-10 h-90 w-40 lg:w-60  cursor-pointer m-auto  bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
+            <div className="flex flex-wrap justify-center mb-16 align-center">
+                <div className="z-10 -mt-10 sm:-mt-20 z-10 smx:h-60 h-90 w-40 lg:w-60  cursor-pointer m-auto  bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
                     <img
                         className="w-full max-h-60 object-cover"
                         src={userData.cardImageURL.stringValue}
                         alt="Photo"
                     />
-                    <div className="text-center relative py-14">
+                    <div className="text-center relative py-5">
 
                         <h1 className="mb-1 text-2xl font-sans font-semibold text-primary hover:text-secondary cursor-pointer">{userData.hiveName.stringValue}</h1>
                         <span className="text-lg text-secondary hover:text-primary">{userData.skill.stringValue}</span>
@@ -87,7 +87,7 @@ export default function Username() {
             <div className="container mx-auto px-4">
                 <div className="flex flex-wrap ">
                     <div className=" pt-10 md:-mt-40 lg:-mt-40 sm:mt-20  w-full md:w-4/12 px-4 text-center">
-                        <div className="relative flex flex-col min-w-0 break-words bg-white text-primary w-full mb-8 shadow-lg rounded-lg">
+                        <div className="relative flex smx:mb-40 flex-col min-w-0 break-words bg-white text-primary w-full mb-8 shadow-lg rounded-lg">
                             <div className="px-4 py-5 flex-auto">
                                 <h6 className="text-xl font-bold">Ratings</h6>
                             </div>
@@ -97,7 +97,7 @@ export default function Username() {
                         </div>
                     </div>
 
-                    <div className="w-full lg:mt-7 md:mt-7 sm:-mt-64 md:w-4/12 px-4  text-center">
+                    <div className="w-full smx:-mt-96 z-50 lg:mt-7 md:mt-7 sm:-mt-64 md:w-4/12 px-4 text-center">
                         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                             <Button>
                                 Hire Me

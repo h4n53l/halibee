@@ -3,7 +3,7 @@ import Card from "./card";
 export default function Listings(props) {
 
     return (
-        <div className="bg-transparent min-h-screen py-12 px-10 ">
+        <div className="bg-transparent min-h-screen py-12 mx-auto px-auto ">
             {props.title && <h3 className="text-primary text-center mb-5 text-3xl font-bold">
                 {props.title}
             </h3>}
