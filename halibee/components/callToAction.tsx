@@ -1,4 +1,11 @@
+import { useRouter } from "next/router";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../modules/firebase/initialiseFirebase";
+
 export default function CallToAction() {
+  const router = useRouter()
+  const[user, loading, error] = useAuthState(auth)
+
   return (
     <div className="container mx-auto my-10 px-auto">
       <div className="items-center align-center justify-center flex flex-wrap">
@@ -25,12 +32,21 @@ export default function CallToAction() {
             >
               Are you a highly skilled freelancer looking to expand your reach?
             </p>
+            {user ?
             <button 
             className="bg-primary dark:bg-secondary mt-3 text-secondary dark:text-primary font-bold uppercase text-base px-8 py-3 rounded ease-linear" 
-            type="button"
+            onClick={() => router.push('/settings')}
+            >
+              Take the Next Step
+            </button>
+            :
+            <button 
+            className="bg-primary dark:bg-secondary mt-3 text-secondary dark:text-primary font-bold uppercase text-base px-8 py-3 rounded ease-linear" 
+            onClick={() => router.push('/authentication')}
             >
               Take the First Step
             </button>
+            }
           </div>
           </div>
         </div>
