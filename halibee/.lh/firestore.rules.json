@@ -1,0 +1,18 @@
+{
+    "sourceFile": "firestore.rules",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1632326785422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1632326785422,
+            "name": "Commit-0",
+            "content": "rules_version = '2';\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n    match /freelancers/{freelancer} {\r\n      allow read: if true; \r\n      allow write: if request.auth != null && request.auth.uid == freelancer;\r\n    }\r\n    match /categories/{skill} {\r\n      allow read: if true; \r\n      allow write: if false;\r\n    }\r\n  }\r\n}"
+        }
+    ]
+}
