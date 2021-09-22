@@ -13,7 +13,7 @@ export default function Listings(props) {
                 {props.featured.map(data => (
 
                     <Card
-                        link={'profiles/' + data.displayName.stringValue}
+                        link={'/profiles/' + data.displayName.stringValue}
                         image={data.cardImageURL.stringValue}
                         skill={data.skill.stringValue}
                         hiveName={data.hiveName.stringValue}

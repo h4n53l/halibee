@@ -6,7 +6,6 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../modules/firebase/initialiseFirebase'
 import { signOut } from 'firebase/auth'
 import Link from 'next/link'
-import { SearchIcon } from '@heroicons/react/solid'
 
 export default function Navbar() {
 
@@ -21,22 +20,21 @@ export default function Navbar() {
 
           <div className=" flex items-center justify-start">
             <div className="flex-shrink-0 flex items-center">
-              <a href='/'>
+              <Link href='/'>
                 <img
                   className="block h-8 w-auto"
                   src={logo}
                   alt="HaLiBee"
                 />
-              </a>
+              </Link>
             </div>
 
             <div className="font-bold mx-auto  uppercase text-sm py-3 rounded">
-              <a
-                href='/categories'
-                className='dark:text-primary text-secondary px-2 py-2 rounded-md text-sm font-medium'
-              >
+              <Link href='/categories'>
+              <a className='dark:text-primary text-secondary px-2 py-2 rounded-md text-sm font-medium'>
                 Categories
               </a>
+              </Link>
             </div>
           </div>
 
@@ -90,24 +88,20 @@ export default function Navbar() {
                 <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-tetiary">
                   <Menu.Item>
                     {({ active }) => (
-                      <a
-                        href="/settings"
-                        className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}
-                      >
+                      <Link href="/settings">
+                      <a className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}>
                         Settings
                       </a>
+                      </Link>
                     )}
                   </Menu.Item>
                   <Menu.Item>
                     {({ active }) => (
-                      <a
-                        className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}
-                      >
-                        <Link href={'/profiles/' + user.displayName} key={user.displayName}>
+                      <Link href={'/profiles/' + user.displayName} key={user.displayName}>
+                          <a className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}>
                           Dashboard
-
-                        </Link>
                       </a>
+                        </Link>
                     )}
                   </Menu.Item>
                   <Menu.Item>
@@ -126,12 +120,11 @@ export default function Navbar() {
               :
               (
                 <div className="flex font-bold uppercase text-sm px-auto py-3 rounded">
-                  <a
-                    href='/authentication'
-                    className='dark:text-primary text-secondary px-auot py-2 rounded-md text-sm font-medium'
-                  >
+                  <Link href='/authentication'>
+                  <a className='dark:text-primary text-secondary px-auot py-2 rounded-md text-sm font-medium'>
                     Login
                   </a>
+                  </Link>
                 </div>
               )
             }

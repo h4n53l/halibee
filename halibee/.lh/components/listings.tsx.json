@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 19,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1631877850005,
@@ -84,6 +84,10 @@
                 {
                     "date": 1632302846062,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,35 @@\n+import Card from \"./card\";\r\n+\r\n+export default function Listings(props) {\r\n+\r\n+    return (\r\n+        <div className=\"bg-transparent min-h-screen py-12 mx-auto px-auto \">\r\n+            {props.title && <h3 className=\"text-primary text-center mb-5 text-3xl font-bold\">\r\n+                {props.title}\r\n+            </h3>}\r\n+            {props.featured && <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 \">\r\n+\r\n+\r\n+                {props.featured.map(data => (\r\n+\r\n+                    <Card\r\n+                        link={'profiles/' + data.displayName.stringValue}\r\n+                        image={data.cardImageURL.stringValue}\r\n+                        skill={data.skill.stringValue}\r\n+                        hiveName={data.hiveName.stringValue}\r\n+                        description={data.description.stringValue}\r\n+                        rating={data.rating.stringValue}\r\n+                        projects={data.projects.integerValue}\r\n+                    />\r\n+                ))\r\n+                }\r\n+\r\n+\r\n+            </div>}\r\n+\r\n+\r\n+            </div>\r\n+       \r\n+    );\r\n+}\r\n+\r\n"
+                },
+                {
+                    "date": 1632345431776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \r\n                 {props.featured.map(data => (\r\n \r\n                     <Card\r\n-                        link={'profiles/' + data.displayName.stringValue}\r\n+                        link={'/profiles/' + data.displayName.stringValue}\r\n                         image={data.cardImageURL.stringValue}\r\n                         skill={data.skill.stringValue}\r\n                         hiveName={data.hiveName.stringValue}\r\n                         description={data.description.stringValue}\r\n@@ -32,39 +32,4 @@\n        \r\n     );\r\n }\r\n \r\n-import Card from \"./card\";\r\n-\r\n-export default function Listings(props) {\r\n-\r\n-    return (\r\n-        <div className=\"bg-transparent min-h-screen py-12 mx- \">\r\n-            {props.title && <h3 className=\"text-primary text-center mb-5 text-3xl font-bold\">\r\n-                {props.title}\r\n-            </h3>}\r\n-            {props.featured && <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 \">\r\n-\r\n-\r\n-                {props.featured.map(data => (\r\n-\r\n-                    <Card\r\n-                        link={'profiles/' + data.displayName.stringValue}\r\n-                        image={data.cardImageURL.stringValue}\r\n-                        skill={data.skill.stringValue}\r\n-                        hiveName={data.hiveName.stringValue}\r\n-                        description={data.description.stringValue}\r\n-                        rating={data.rating.stringValue}\r\n-                        projects={data.projects.integerValue}\r\n-                    />\r\n-                ))\r\n-                }\r\n-\r\n-\r\n-            </div>}\r\n-\r\n-\r\n-            </div>\r\n-       \r\n-    );\r\n-}\r\n-\r\n"
                 }
             ],
             "date": 1631877850005,

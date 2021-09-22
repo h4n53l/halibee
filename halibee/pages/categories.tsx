@@ -1,6 +1,7 @@
 import { collection, getDocs } from "@firebase/firestore";
 import { GetStaticProps } from "next";
 import { firestore } from "../modules/firebase/initialiseFirebase";
+import Link from "next/link";
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await getDocs(collection(firestore, "categories"))
@@ -30,7 +31,8 @@ export default function Categories({ categories }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 ">
         {categories.map (category => (
           <div className="container bg-secondary smx:w-40 px-auto mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-        <a href={'/categories/'+ category.skill.stringValue} className="w-full  h-full">
+        <Link href={'/categories/'+ category.skill.stringValue}>
+          <a>
             <img src={category.image.stringValue}
               alt={category.skill.stringValue}
               className="rounded-t-lg w-full" />
@@ -40,6 +42,7 @@ export default function Categories({ categories }) {
                 </h1>
             </div>
             </a>
+            </Link>
           </div>
 
         ))

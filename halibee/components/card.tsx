@@ -1,10 +1,13 @@
 import { StarIcon } from "@heroicons/react/solid";
+import { useRouter } from "next/router";
 
 export default function Card(props) {
+    const router = useRouter()
+
     return (
 
         <div className="container mx-auto w-60 h-80 flex flex-col justify-between shadow-lg overflow-hidden rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-            <a href={props.link} className="w-full  h-full">
+            <button onClick={() => router.push(props.link)} >
                 {props.image &&
                     <img src={props.image} alt={props.hiveName} className="max-h-40 w-full object-cover" />
                 }
@@ -24,8 +27,7 @@ export default function Card(props) {
                         </p>
                     </div>
                 </div>
-
-            </a>
+            </button>
         </div>
 
     );
