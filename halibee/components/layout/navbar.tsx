@@ -125,10 +125,10 @@ export default function Navbar() {
             </Menu>)
               :
               (
-                <div className="flex space-x-4 font-bold uppercase text-sm px-6 py-3 rounded">
+                <div className="flex font-bold uppercase text-sm px-auto py-3 rounded">
                   <a
                     href='/authentication'
-                    className='dark:text-primary text-secondary px-3 py-2 rounded-md text-sm font-medium'
+                    className='dark:text-primary text-secondary px-auot py-2 rounded-md text-sm font-medium'
                   >
                     Login
                   </a>
