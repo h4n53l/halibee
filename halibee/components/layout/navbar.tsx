@@ -13,7 +13,7 @@ export default function Navbar() {
   const [user, loading, error] = useAuthState(auth)
 
   return (
-    <nav className='dark:bg-secondary bg-primary z-40 w-full fixed'>
+    <nav className='dark:bg-secondary bg-primary z-30 w-full fixed'>
 
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">

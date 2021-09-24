@@ -97,7 +97,7 @@ export default function Username() {
                         </div>
                     </div>
 
-                    <div className="w-full smx:-mt-96 z-50 lg:mt-7 md:mt-7 sm:-mt-64 md:w-4/12 px-4 text-center">
+                    <div className="w-full smx:-mt-96 z-10 lg:mt-7 md:mt-7 sm:-mt-64 md:w-4/12 px-4 text-center">
                         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                             <Button>
                                 Hire Me
