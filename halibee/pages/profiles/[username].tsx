@@ -35,7 +35,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 
 export default function Username() {
-    const [userData, setUserData] = useState(null)
+    const [userInfo, setUserInfo] = useState(null)
     const router = useRouter()
     const { username } = router.query
 
@@ -47,23 +47,22 @@ export default function Username() {
                     (firestore, "freelancers"),
                     where("displayName", "==", username),
                     limit(1)))
-            setUserData(response.docs[0]['_document'].data.value.mapValue.fields)
+            setUserInfo(response.docs[0]['_document'].data.value.mapValue.fields)
         }
 
         fetchUserData()
     }, [])
 
-    if (userData === null) {
+    if (userInfo === null) {
         return (
             <div>Loading</div>
         )
     }
-    console.log(userData)
 
     return (
         <div className="">
             <div
-                style={{ backgroundImage: "url(" + userData.bannerImageURL.stringValue + ")" }}
+                style={{ backgroundImage: "url(" + userInfo.bannerImageURL.stringValue + ")" }}
                 className="relative md:pt-32 bg-center z-0 pb-52 pt-12">
 
 
@@ -73,13 +72,13 @@ export default function Username() {
                 <div className="z-10 -mt-10 sm:-mt-20 z-10 smx:h-60 h-90 w-40 lg:w-60  cursor-pointer m-auto  bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
                     <img
                         className="w-full max-h-60 object-cover"
-                        src={userData.cardImageURL.stringValue}
+                        src={userInfo.cardImageURL.stringValue}
                         alt="Photo"
                     />
                     <div className="text-center relative py-5">
 
-                        <h1 className="mb-1 text-2xl font-sans font-semibold text-primary hover:text-secondary cursor-pointer">{userData.hiveName.stringValue}</h1>
-                        <span className="text-lg text-secondary hover:text-primary">{userData.skill.stringValue}</span>
+                        <h1 className="mb-1 text-2xl font-sans font-semibold text-primary hover:text-secondary cursor-pointer">{userInfo.hiveName.stringValue}</h1>
+                        <span className="text-lg text-secondary hover:text-primary">{userInfo.skill.stringValue}</span>
                     </div>
                 </div>
             </div>
@@ -92,7 +91,7 @@ export default function Username() {
                                 <h6 className="text-xl font-bold">Ratings</h6>
                             </div>
                             <h4 className=" mt-4 mb-4 text-primary text-5xl font-bolder">
-                                {userData.rating.integerValue}
+                                {userInfo.rating.integerValue}
                             </h4>
                         </div>
                     </div>
@@ -111,7 +110,7 @@ export default function Username() {
                                 <h6 className="text-xl font-bold">Projects Completed</h6>
                             </div>
                             <h4 className=" mt-4 mb-4 text-primary text-5xl font-bolder">
-                                {userData.projects.integerValue}
+                                {userInfo.projects.integerValue}
                             </h4>
                         </div>
                     </div>
@@ -120,10 +119,10 @@ export default function Username() {
             <section className="mx-20 text-primary">
                 <div className=" flex flex-col w-full items-center">
                     <h4 className="text-center font-bold text-3xl">
-                        About {userData.displayName.stringValue}
+                        About {userInfo.displayName.stringValue}
                     </h4>
                     <p className="text-center">
-                        {userData.about.stringValue}
+                        {userInfo.about.stringValue}
                     </p>
                 </div>
             </section>
