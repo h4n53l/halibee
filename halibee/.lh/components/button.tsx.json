@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 29,
+            "activePatchIndex": 31,
             "patches": [
                 {
                     "date": 1630100498433,
@@ -124,6 +124,14 @@
                 {
                     "date": 1630532100502,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+export default function Button({children}) {\r\n+    return (\r\n+        <button type=\"button\" \r\n+        className=\"py-2 px-4  bg-primary dark:bg-secondary text-secondary dark:text-primary w-full text-center text-base font-semibold rounded-lg\">\r\n+          {children}\r\n+          </button>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632682193525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,8 @@\n export default function Button({children}) {\r\n     return (\r\n         <button type=\"button\" \r\n-        className=\"py-2 px-4  bg-primary dark:bg-secondary text-secondary dark:text-primary w-full text-center text-base font-semibold rounded-lg\">\r\n+        className=\"py-2 px-4  bg-primary dark:bg-darkMode text-secondary dark:text-primary w-full text-center text-base font-semibold rounded-lg\">\r\n           {children}\r\n           </button>\r\n     );\r\n-}\n-export default function Button() {\r\n-    return (\r\n-        <button type=\"button\" \r\n-        className=\"py-2 px-4  bg-primary dark:bg-secondary text-secondary dark:text-primary w-full text-center text-base font-semibold rounded-lg\">\r\n-          {children}\r\n-          </button>\r\n-    );\r\n-}\n-export default function Button() {\r\n-    return (\r\n-        <button type=\"button\" \r\n-        className=\"py-2 px-4  bg-primary dark:bg-secondary text-secondary dark:text-primary w-full text-center text-base font-semibold rounded-lg\">\r\n-          {}\r\n-          </button>\r\n-    );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632682198747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n export default function Button({children}) {\r\n     return (\r\n         <button type=\"button\" \r\n-        className=\"py-2 px-4  bg-primary dark:bg-darkMode text-secondary dark:text-primary w-full text-center text-base font-semibold rounded-lg\">\r\n+        className=\"py-2 px-4  bg-primary dark:bg-darkMode text-secondary w-full text-center text-base font-semibold rounded-lg\">\r\n           {children}\r\n           </button>\r\n     );\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1630100498433,

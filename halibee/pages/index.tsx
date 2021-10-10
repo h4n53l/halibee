@@ -36,56 +36,56 @@ export default function Home({userData}) {
 
       <Listings title="Featured Halibees" featured={userData}/>
 
-      <div className="w-full bg-primary dark:bg-secondary mx-auto grid md:grid-cols-2 gap-8 lg:grid-cols-4 sm:grid-cols-1 py-8 text-center">
+      <div className="w-full bg-primary dark:bg-darkMode mx-auto grid md:grid-cols-2 gap-8 lg:grid-cols-4 sm:grid-cols-1 py-8 text-center">
         <div className="w-full">
-          <h5 className="text-secondary dark:text-primary text-5xl font-bold ">
-            <span className="inline text-secondary dark:text-primary">
+          <h5 className="text-secondary text-5xl font-bold ">
+            <span className="inline text-secondary ">
               2179
             </span>
-            <span className="text-secondary dark:text-primary">
+            <span className="text-secondary ">
               +
             </span>
           </h5>
-          <p className="text-secondary dark:text-primary tracking-wide text-xs font-medium uppercase">
+          <p className="text-secondary  tracking-wide text-xs font-medium uppercase">
             Users
           </p>
         </div>
         <div>
-          <h5 className="text-secondary dark:text-primary text-5xl font-bold text-primary">
-            <span className="inline text-secondary dark:text-primary">
+          <h5 className="text-secondary  text-5xl font-bold text-primary">
+            <span className="inline text-secondary ">
               13
             </span>
-            <span className="text-secondary dark:text-primary">
+            <span className="text-secondary ">
               +
             </span>
           </h5>
-          <p className="text-secondary dark:text-primary tracking-wide text-xs font-medium uppercase">
+          <p className="text-secondary  tracking-wide text-xs font-medium uppercase">
             Ongoing projects
           </p>
         </div>
         <div>
           <h5 className="text-5xl font-bold text-primary">
-            <span className="inline text-secondary dark:text-primary">
+            <span className="inline text-secondary ">
               31
             </span>
-            <span className="text-secondary dark:text-primary">
+            <span className="text-secondary ">
               +
             </span>
           </h5>
-          <p className="text-secondary dark:text-primary tracking-wide text-xs font-medium uppercase">
+          <p className="text-secondary  tracking-wide text-xs font-medium uppercase">
             Finished projects
           </p>
         </div>
         <div>
           <h5 className="text-5xl font-bold text-primary">
-            <span className="inline text-secondary dark:text-primary">
+            <span className="inline text-secondary ">
               3
             </span>
-            <span className="text-secondary dark:text-primary">
+            <span className="text-secondary ">
               +
             </span>
           </h5>
-          <p className="text-secondary dark:text-primary tracking-wide text-xs font-medium uppercase">
+          <p className="text-secondary  tracking-wide text-xs font-medium uppercase">
             Years in business
           </p>
         </div>

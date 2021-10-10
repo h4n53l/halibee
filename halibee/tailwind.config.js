@@ -10,6 +10,7 @@ module.exports = {
         primary: '#0000FF',
         secondary: '#FAAA20',
         tetiary: '#E0F4FF',
+        darkMode: '#162C9A',
         background: '#C9D6EA',
       },
       screens: {

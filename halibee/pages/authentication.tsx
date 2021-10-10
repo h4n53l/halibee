@@ -3,6 +3,7 @@ import { useRouter } from "next/dist/client/router";
 import {useEffect, useState } from "react";
 import { auth } from "../modules/firebase/initialiseFirebase";
 import { useAuthState } from "react-firebase-hooks/auth"
+import axios from "axios";
 
 export default function Authentication() {
 
@@ -12,6 +13,7 @@ export default function Authentication() {
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
     const [user, loading, error] = useAuthState(auth)
+    const header = { 'private-key': process.env.CHAT_ENGINE_PRIVATE_KEY }
     const router = useRouter()
     
 
@@ -20,7 +22,7 @@ export default function Authentication() {
           // maybe trigger a loading screen
           return;
         }
-
+        
     if (user) 
         router.push('/')
     }, 
@@ -29,6 +31,7 @@ export default function Authentication() {
     const createAccount = async () => {
         try {
             if (password === repeatPassword) {
+                
                 await createUserWithEmailAndPassword(auth, email, password).then(function(result) {
                     return updateProfile(result.user, {
                       displayName: username,
