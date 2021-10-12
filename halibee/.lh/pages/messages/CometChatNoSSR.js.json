@@ -1,0 +1,18 @@
+{
+    "sourceFile": "pages/messages/CometChatNoSSR.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1634068427763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1634068427762,
+            "name": "Commit-0",
+            "content": "import { Component } from \"react\"\r\nimport consts from './consts'\r\nimport Link from 'next/link'\r\nimport { CometChatUI } from \"../pages/cometchat-pro-react-ui-kit/CometChatWorkspace/src/components/index\"\r\n\r\nexport default class CometChatNoSSR extends Component {\r\n    constructor(props) {\r\n      super(props)\r\n      this.state = {\r\n        user: undefined\r\n      }\r\n    }\r\n    componentDidMount() {\r\n      /**\r\n      Initialize CometChat\r\n      */\r\n      let appSetting = new CometChat.AppSettingsBuilder().subscribePresenceForFriends().setRegion(consts.REGION).build()\r\n      \r\n      CometChat.init(consts.APP_ID, appSetting).then(\r\n        () => {\r\n          /**\r\n          *Log in user\r\n          */\r\n         const getUser = JSON.parse(localStorage.getItem('user'))\r\n          const UID = getUser.uid\r\n          const authKey = consts.AUTH_KEY\r\n          CometChat.login(UID, authKey).then(\r\n            user => {\r\n              this.setState({ user })\r\n            },\r\n            error => {\r\n              console.log(\"Login failed with exception:\", {\r\n                error\r\n              })\r\n            }\r\n          )\r\n        },\r\n        error => {\r\n          console.log(\"Initialization failed with error:\", error)\r\n          // Check the reason for error and take appropriate action.\r\n        }\r\n      )\r\n    }\r\n    render() {\r\n        /**\r\n        Rendering CometChatUI  component of React UIKit\r\n        **/\r\n        if (this.state.user) {\r\n            return (\r\n              <div style={{ width: \"100vw\", height: \"100vh\" }}>\r\n                <link\r\n                  rel=\"stylesheet\"\r\n                  href=\"https://pro.fontawesome.com/releases/v5.10.0/css/all.css\"\r\n                  integrity=\"sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p\"\r\n                  crossOrigin=\"anonymous\"\r\n                />\r\n                  \r\n                <CometChatUI />\r\n\r\n                <Link href=\"add-friend\" passHref>\r\n                  <button className=\"add-button\">\r\n                    <i className=\"fas fa-plus\"></i>\r\n                  </button>\r\n                </Link>\r\n              </div>\r\n            )\r\n        } else {\r\n            return (<div>Laoding...</div>)\r\n        }\r\n    }\r\n}"
+        }
+    ]
+}

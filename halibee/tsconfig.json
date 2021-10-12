@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "functions.js", "functions/src/index.ts", "function.js"  ],
+, "functions.js", "functions/src/index.ts", "function.js", "pages/messages/CometChatNoSSR.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "pages/messages/cometChatNoSSR.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1634067964610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1634068045228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,55 +0,0 @@\n-import { Component } from \"react\";\r\n-import consts from './consts';\r\n-import { CometChatUI } from \"./cometchat-pro-react-ui-kit/CometChatWorkspace/src/components/index\"\r\n-\r\n-export default class CometChatNoSSR extends Component {\r\n-    constructor(props) {\r\n-        super(props);\r\n-        this.state = {\r\n-            user: undefined\r\n-        }\r\n-    }\r\n-    componentDidMount() {\r\n-      \r\n-      /**\r\n-      Initialize CometChat\r\n-      */\r\n-      let appSetting = new CometChat.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(consts.REGION).build();\r\n-      CometChat.init(consts.APP_ID, appSetting).then(\r\n-        () => {\r\n-          \r\n-          /**\r\n-          *Log in user\r\n-          */\r\n-          const UID = \"SUPERHERO1\";\r\n-          const authKey = consts.AUTH_KEY;\r\n-          CometChat.login(UID, authKey).then(\r\n-            user => {\r\n-              this.setState({ user })\r\n-            },\r\n-            error => {\r\n-              console.log(\"Login failed with exception:\", {\r\n-                error\r\n-              });\r\n-            }\r\n-          );\r\n-        },\r\n-        error => {\r\n-          console.log(\"Initialization failed with error:\", error);\r\n-          // Check the reason for error and take appropriate action.\r\n-        }\r\n-      );\r\n-    }\r\n-    render() {\r\n-        /**\r\n-        Rendering CometChatUI  component of React UIKit\r\n-        **/\r\n-        if (this.state.user) {\r\n-            return (\r\n-                <div style={{ width: \"100vw\", height: \"100vh\" }}><CometChatUI /></div>\r\n-            );\r\n-        } else {\r\n-            return (<div>Laoding...</div>);\r\n-        }\r\n-    }\r\n-}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1634067964610,
+            "name": "Commit-0",
+            "content": "import { Component } from \"react\";\r\nimport consts from './consts';\r\nimport { CometChatUI } from \"./cometchat-pro-react-ui-kit/CometChatWorkspace/src/components/index\"\r\n\r\nexport default class CometChatNoSSR extends Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            user: undefined\r\n        }\r\n    }\r\n    componentDidMount() {\r\n      \r\n      /**\r\n      Initialize CometChat\r\n      */\r\n      let appSetting = new CometChat.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(consts.REGION).build();\r\n      CometChat.init(consts.APP_ID, appSetting).then(\r\n        () => {\r\n          \r\n          /**\r\n          *Log in user\r\n          */\r\n          const UID = \"SUPERHERO1\";\r\n          const authKey = consts.AUTH_KEY;\r\n          CometChat.login(UID, authKey).then(\r\n            user => {\r\n              this.setState({ user })\r\n            },\r\n            error => {\r\n              console.log(\"Login failed with exception:\", {\r\n                error\r\n              });\r\n            }\r\n          );\r\n        },\r\n        error => {\r\n          console.log(\"Initialization failed with error:\", error);\r\n          // Check the reason for error and take appropriate action.\r\n        }\r\n      );\r\n    }\r\n    render() {\r\n        /**\r\n        Rendering CometChatUI  component of React UIKit\r\n        **/\r\n        if (this.state.user) {\r\n            return (\r\n                <div style={{ width: \"100vw\", height: \"100vh\" }}><CometChatUI /></div>\r\n            );\r\n        } else {\r\n            return (<div>Laoding...</div>);\r\n        }\r\n    }\r\n}"
+        }
+    ]
+}

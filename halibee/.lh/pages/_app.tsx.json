@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 136,
+            "activePatchIndex": 148,
             "patches": [
                 {
                     "date": 1630081539865,
@@ -552,6 +552,54 @@
                 {
                     "date": 1632318564296,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   return (\r\n     \r\n     <ThemeProvider initialTheme={undefined}>\r\n     <Layout>\r\n-    {/* <NextNProgress height={6} color=\"#FAAA20\" /> */}\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n       <Component {...pageProps} />\r\n     </Layout>\r\n     </ThemeProvider>\r\n     \r\n"
+                },
+                {
+                    "date": 1633900238489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n function MyApp({ Component, pageProps }) {\r\n   return (\r\n     \r\n     <ThemeProvider initialTheme={undefined}>\r\n+      \r\n     <Layout>\r\n     <NextNProgress height={6} color=\"#FAAA20\" />\r\n       <Component {...pageProps} />\r\n     </Layout>\r\n"
+                },
+                {
+                    "date": 1633900248595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,27 @@\n+import 'tailwindcss/tailwind.css'\r\n+import NextNProgress from \"nextjs-progressbar\"\r\n+import Layout from '../components/layout'\r\n+import { ThemeProvider } from '../modules/providers/themeProvider'\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    \r\n+    <ThemeProvider initialTheme={undefined}>\r\n+      <PubNubProvider client={pubnub}>\r\n+    <Layout>\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n+      <Component {...pageProps} />\r\n+    </Layout>\r\n+    </\r\n+    </ThemeProvider>\r\n+    \r\n+  )\r\n+}\r\n+\r\n+export default MyApp\r\n"
+                },
+                {
+                    "date": 1633900254519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,27 @@\n+import 'tailwindcss/tailwind.css'\r\n+import NextNProgress from \"nextjs-progressbar\"\r\n+import Layout from '../components/layout'\r\n+import { ThemeProvider } from '../modules/providers/themeProvider'\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    \r\n+    <ThemeProvider initialTheme={undefined}>\r\n+      <PubNubProvider client={pubnub}>\r\n+    <Layout>\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n+      <Component {...pageProps} />\r\n+    </Layout>\r\n+    </PubNubProvider>\r\n+    </ThemeProvider>\r\n+    \r\n+  )\r\n+}\r\n+\r\n+export default MyApp\r\n"
+                },
+                {
+                    "date": 1633900260005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,27 @@\n+import 'tailwindcss/tailwind.css'\r\n+import NextNProgress from \"nextjs-progressbar\"\r\n+import Layout from '../components/layout'\r\n+import { ThemeProvider } from '../modules/providers/themeProvider'\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    \r\n+    <ThemeProvider initialTheme={undefined}>\r\n+      <PubNubProvide client={pubnub}>\r\n+    <Layout>\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n+      <Component {...pageProps} />\r\n+    </Layout>\r\n+    </PubNubProvider>\r\n+    </ThemeProvider>\r\n+    \r\n+  )\r\n+}\r\n+\r\n+export default MyApp\r\n"
+                },
+                {
+                    "date": 1633900280188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,27 @@\n+import 'tailwindcss/tailwind.css'\r\n+import NextNProgress from \"nextjs-progressbar\"\r\n+import Layout from '../components/layout'\r\n+import { ThemeProvider } from '../modules/providers/themeProvider'\r\n+import { PubNubProvider } from \"pubnub-react\";\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    \r\n+    <ThemeProvider initialTheme={undefined}>\r\n+      <PubNubProvider client={pubnub}>\r\n+    <Layout>\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n+      <Component {...pageProps} />\r\n+    </Layout>\r\n+    </PubNubProvider>\r\n+    </ThemeProvider>\r\n+    \r\n+  )\r\n+}\r\n+\r\n+export default MyApp\r\n"
+                },
+                {
+                    "date": 1633900285891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+import 'tailwindcss/tailwind.css'\r\n+import NextNProgress from \"nextjs-progressbar\"\r\n+import Layout from '../components/layout'\r\n+import { ThemeProvider } from '../modules/providers/themeProvider'\r\n+import { PubNubProvider } from \"pubnub-react\";\r\n+\r\n+\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    \r\n+    <ThemeProvider initialTheme={undefined}>\r\n+      <PubNubProvider client={pubnub}>\r\n+    <Layout>\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n+      <Component {...pageProps} />\r\n+    </Layout>\r\n+    </PubNubProvider>\r\n+    </ThemeProvider>\r\n+    \r\n+  )\r\n+}\r\n+\r\n+export default MyApp\r\n"
+                },
+                {
+                    "date": 1633900314185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,30 @@\n+import 'tailwindcss/tailwind.css'\r\n+import NextNProgress from \"nextjs-progressbar\"\r\n+import Layout from '../components/layout'\r\n+import { ThemeProvider } from '../modules/providers/themeProvider'\r\n+import { PubNubProvider } from \"pubnub-react\";\r\n+\r\n+const pubnub = new PubNub({\r\n+  publishKey: process.env.PUBNUB_PUBLISH_KEY,\r\n+  subscribeKey: process.env.PUBNUB_SUBSCRIBE_KEY,\r\n+});\r\n+const currentChannel = \"myCurrentChannel\";\r\n+const theme = \"light\";\r\n+\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    \r\n+    <ThemeProvider initialTheme={undefined}>\r\n+      <PubNubProvider client={pubnub}>\r\n+    <Layout>\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n+      <Component {...pageProps} />\r\n+    </Layout>\r\n+    </PubNubProvider>\r\n+    </ThemeProvider>\r\n+    \r\n+  )\r\n+}\r\n+\r\n+export default MyApp\r\n"
+                },
+                {
+                    "date": 1633900319848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,30 @@\n+import 'tailwindcss/tailwind.css'\r\n+import NextNProgress from \"nextjs-progressbar\"\r\n+import Layout from '../components/layout'\r\n+import { ThemeProvider } from '../modules/providers/themeProvider'\r\n+import { PubNubProvider } from \"pubnub-react\";\r\n+\r\n+const pubnub = new PubNub({\r\n+  publishKey: process.env.PUBNUB_PUBLISH_KEY,\r\n+  subscribeKey: process.env.PUBNUB_SUBSCRIBE_KEY,\r\n+});\r\n+const currentChannel = \"myCurrentChannel\";\r\n+const theme = \"light\";\r\n+\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    \r\n+    <ThemeProvider initialTheme={undefined}>\r\n+      <PubNubProvider client={pubnub}>\r\n+    <Layout>\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n+      <Component {...pageProps} />\r\n+    </Layout>\r\n+    </PubNubProvider>\r\n+    </ThemeProvider>\r\n+    \r\n+  )\r\n+}\r\n+\r\n+export default MyApp\r\n"
+                },
+                {
+                    "date": 1633900326292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,30 @@\n+import 'tailwindcss/tailwind.css'\r\n+import NextNProgress from \"nextjs-progressbar\"\r\n+import Layout from '../components/layout'\r\n+import { ThemeProvider } from '../modules/providers/themeProvider'\r\n+import { PubNubProvider } from \"pubnub-react\";\r\n+\r\n+const pubnub = new PubNub({\r\n+  publishKey: process.env.PUBNUB_PUBLISH_KEY,\r\n+  subscribeKey: process.env.PUBNUB_SUBSCRIBE_KEY,\r\n+});\r\n+const currentChannel = \"myCurrentChannel\";\r\n+const theme = \"light\";\r\n+\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    \r\n+    <ThemeProvider initialTheme={undefined}>\r\n+      <PubNubProvider client={pubnub}>\r\n+    <Layout>\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n+      <Component {...pageProps} />\r\n+    </Layout>\r\n+    </PubNubProvider>\r\n+    </ThemeProvider>\r\n+    \r\n+  )\r\n+}\r\n+\r\n+export default MyApp\r\n"
+                },
+                {
+                    "date": 1633900343290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,31 @@\n+import 'tailwindcss/tailwind.css'\r\n+import NextNProgress from \"nextjs-progressbar\"\r\n+import Layout from '../components/layout'\r\n+import { ThemeProvider } from '../modules/providers/themeProvider'\r\n+import { PubNubProvider } from \"pubnub-react\";\r\n+\r\n+\r\n+const pubnub = new PubNub({\r\n+  publishKey: process.env.PUBNUB_PUBLISH_KEY,\r\n+  subscribeKey: process.env.PUBNUB_SUBSCRIBE_KEY,\r\n+});\r\n+const currentChannel = \"myCurrentChannel\";\r\n+const theme = \"light\";\r\n+\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    \r\n+    <ThemeProvider initialTheme={undefined}>\r\n+      <PubNubProvider client={pubnub}>\r\n+    <Layout>\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n+      <Component {...pageProps} />\r\n+    </Layout>\r\n+    </PubNubProvider>\r\n+    </ThemeProvider>\r\n+    \r\n+  )\r\n+}\r\n+\r\n+export default MyApp\r\n"
+                },
+                {
+                    "date": 1633900356343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,30 @@\n+import 'tailwindcss/tailwind.css'\r\n+import NextNProgress from \"nextjs-progressbar\"\r\n+import Layout from '../components/layout'\r\n+import { ThemeProvider } from '../modules/providers/themeProvider'\r\n+import { PubNubProvider } from \"pubnub-react\";\r\n+import  PubNub from \"pubnub\";\r\n+\r\n+const pubnub = new PubNub({\r\n+  publishKey: process.env.PUBNUB_PUBLISH_KEY,\r\n+  subscribeKey: process.env.PUBNUB_SUBSCRIBE_KEY,\r\n+});\r\n+\r\n+\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    \r\n+    <ThemeProvider initialTheme={undefined}>\r\n+      <PubNubProvider client={pubnub}>\r\n+    <Layout>\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n+      <Component {...pageProps} />\r\n+    </Layout>\r\n+    </PubNubProvider>\r\n+    </ThemeProvider>\r\n+    \r\n+  )\r\n+}\r\n+\r\n+export default MyApp\r\n"
+                },
+                {
+                    "date": 1633900379002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,25 @@\n+import 'tailwindcss/tailwind.css'\r\n+import NextNProgress from \"nextjs-progressbar\"\r\n+import Layout from '../components/layout'\r\n+import { ThemeProvider } from '../modules/providers/themeProvider'\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    \r\n+    <ThemeProvider initialTheme={undefined}>\r\n+    <Layout>\r\n+    <NextNProgress height={6} color=\"#FAAA20\" />\r\n+      <Component {...pageProps} />\r\n+    </Layout>\r\n+    </ThemeProvider>\r\n+    \r\n+  )\r\n+}\r\n+\r\n+export default MyApp\r\n"
                 }
             ],
             "date": 1630081539865,
