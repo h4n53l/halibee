@@ -7,10 +7,9 @@
     "export": "next export"
   },
   "dependencies": {
-    "@cometchat-pro/chat": "^3.0.1",
     "@headlessui/react": "^1.4.0",
     "@heroicons/react": "^1.0.4",
-    "@pubnub/react-chat-components": "^0.5.0",
+    "@windmill/react-ui": "^0.6.0",
     "axios": "^0.21.4",
     "file-loader": "^6.2.0",
     "firebase": "^9.0.0",
@@ -19,13 +18,11 @@
     "next-pwa": "^5.3.1",
     "nextjs-progressbar": "^0.0.11",
     "prop-types": "^15.7.2",
-    "pubnub": "^4.33.0",
-    "pubnub-react": "^2.1.0",
-    "pusher-js": "^7.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-firebase-hooks": "^3.0.4",
-    "validator": "^13.6.0"
+    "validator": "^13.6.0",
+    "valtio": "^1.2.4"
   },
   "devDependencies": {
     "@types/node": "^16.7.3",

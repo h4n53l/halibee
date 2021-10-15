@@ -1,8 +1,13 @@
+import dynamic from 'next/dynamic'
 import {initializeApp} from "firebase/app";
 import { getAuth } from "firebase/auth";
 import {getStorage} from "firebase/storage"
 import {getDatabase} from "firebase/database"
 import { getFirestore } from "@firebase/firestore";
+import {getMessaging} from 'firebase/messaging'
+import { getAnalytics } from "firebase/analytics";
+import { getPerformance } from "firebase/performance";
+
 
 const firebaseConfig = {
     apiKey: process.env.FIREBASE_API_KEY,
@@ -20,3 +25,6 @@ export const auth = getAuth(firebaseApp)
 export const database = getDatabase(firebaseApp)
 export const firestore = getFirestore(firebaseApp)
 export const storage = getStorage(firebaseApp)
+export const messaging = dynamic(() => getMessaging(firebaseApp) , {ssr: false} )
+export const analytics = dynamic(() => getAnalytics(firebaseApp) , {ssr: false} )
+export const performance = dynamic(() => getPerformance(firebaseApp) , {ssr: false} )

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 31,
+            "activePatchIndex": 32,
             "patches": [
                 {
                     "date": 1630100498433,
@@ -132,6 +132,10 @@
                 {
                     "date": 1632682198747,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n export default function Button({children}) {\r\n     return (\r\n         <button type=\"button\" \r\n-        className=\"py-2 px-4  bg-primary dark:bg-darkMode text-secondary dark:text-primary w-full text-center text-base font-semibold rounded-lg\">\r\n+        className=\"py-2 px-4  bg-primary dark:bg-darkMode text-secondary w-full text-center text-base font-semibold rounded-lg\">\r\n           {children}\r\n           </button>\r\n     );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634155630345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,6 @@\n         className=\"py-2 px-4  bg-primary dark:bg-darkMode text-secondary w-full text-center text-base font-semibold rounded-lg\">\r\n           {children}\r\n           </button>\r\n     );\r\n-}\n\\ No newline at end of file\n+}\r\n+\r\n"
                 }
             ],
             "date": 1630100498433,

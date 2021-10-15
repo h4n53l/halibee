@@ -1,0 +1,117 @@
+[debug] [2021-10-14T18:38:37.483Z] ----------------------------------------------------------------------
+[debug] [2021-10-14T18:38:37.485Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2021-10-14T18:38:37.486Z] CLI Version:   9.16.6
+[debug] [2021-10-14T18:38:37.486Z] Platform:      win32
+[debug] [2021-10-14T18:38:37.486Z] Node Version:  v14.15.0
+[debug] [2021-10-14T18:38:37.487Z] Time:          Thu Oct 14 2021 19:38:37 GMT+0100 (British Summer Time)
+[debug] [2021-10-14T18:38:37.487Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-10-14T18:38:37.500Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-10-14T18:38:37.603Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-10-14T18:38:37.603Z] > authorizing via signed-in user (halibeemail@gmail.com)
+[info] i  emulators: Starting emulators: functions, firestore, database, hosting, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, database, hosting, storage"}}
+[debug] [2021-10-14T18:38:37.650Z] [hub] writing locator at C:\Users\theJonathansFamily\AppData\Local\Temp\hub-halibee.json
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, pubsub {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, pubsub\u001b[22m"}}
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  functions: Stopping Functions Emulator {"metadata":{"emulator":{"name":"functions"},"message":"Stopping Functions Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[debug] [2021-10-14T18:38:37.751Z] Error: Cannot find module 'C:\Users\theJonathansFamily\Documents\Halibee_Website\halibee\functions\package.json'
+Require stack:
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\controller.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\commandUtils.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\database-get.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\index.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\index.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:880:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:725:27)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at FunctionsEmulator.askInstallNodeVersion (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:447:21)
+    at FunctionsEmulator.start (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:158:32)
+    at Function.start (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\registry.js:16:24)
+    at startEmulator (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\controller.js:90:39)
+    at Object.startAll (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\controller.js:273:15)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Command.actionFn (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\emulators-start.js:26:9)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2021-10-14T18:39:50.905Z] ----------------------------------------------------------------------
+[debug] [2021-10-14T18:39:50.907Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2021-10-14T18:39:50.907Z] CLI Version:   9.16.6
+[debug] [2021-10-14T18:39:50.907Z] Platform:      win32
+[debug] [2021-10-14T18:39:50.908Z] Node Version:  v14.15.0
+[debug] [2021-10-14T18:39:50.908Z] Time:          Thu Oct 14 2021 19:39:50 GMT+0100 (British Summer Time)
+[debug] [2021-10-14T18:39:50.909Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-10-14T18:39:50.911Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-10-14T18:39:50.993Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-10-14T18:39:50.993Z] > authorizing via signed-in user (halibeemail@gmail.com)
+[info] i  emulators: Starting emulators: functions, firestore, database, hosting, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, database, hosting, storage"}}
+[debug] [2021-10-14T18:39:51.008Z] [hub] writing locator at C:\Users\theJonathansFamily\AppData\Local\Temp\hub-halibee.json
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, pubsub {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, pubsub\u001b[22m"}}
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  functions: Stopping Functions Emulator {"metadata":{"emulator":{"name":"functions"},"message":"Stopping Functions Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[debug] [2021-10-14T18:39:51.133Z] Error: Cannot find module 'C:\Users\theJonathansFamily\Documents\Halibee_Website\halibee\functions\package.json'
+Require stack:
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\controller.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\commandUtils.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\database-get.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\index.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\index.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:880:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:725:27)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at FunctionsEmulator.askInstallNodeVersion (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:447:21)
+    at FunctionsEmulator.start (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:158:32)
+    at Function.start (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\registry.js:16:24)
+    at startEmulator (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\controller.js:90:39)
+    at Object.startAll (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\controller.js:273:15)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Command.actionFn (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\emulators-start.js:26:9)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2021-10-14T18:40:17.177Z] ----------------------------------------------------------------------
+[debug] [2021-10-14T18:40:17.180Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2021-10-14T18:40:17.180Z] CLI Version:   9.16.6
+[debug] [2021-10-14T18:40:17.180Z] Platform:      win32
+[debug] [2021-10-14T18:40:17.180Z] Node Version:  v14.15.0
+[debug] [2021-10-14T18:40:17.181Z] Time:          Thu Oct 14 2021 19:40:17 GMT+0100 (British Summer Time)
+[debug] [2021-10-14T18:40:17.181Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-10-14T18:40:17.183Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-10-14T18:40:17.256Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-10-14T18:40:17.256Z] > authorizing via signed-in user (halibeemail@gmail.com)
+[info] i  emulators: Starting emulators: functions, firestore, database, hosting, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, database, hosting, storage"}}
+[debug] [2021-10-14T18:40:17.271Z] [hub] writing locator at C:\Users\theJonathansFamily\AppData\Local\Temp\hub-halibee.json
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, pubsub {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, pubsub\u001b[22m"}}
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  functions: Stopping Functions Emulator {"metadata":{"emulator":{"name":"functions"},"message":"Stopping Functions Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[debug] [2021-10-14T18:40:17.358Z] Error: Cannot find module 'C:\Users\theJonathansFamily\Documents\Halibee_Website\halibee\functions\package.json'
+Require stack:
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\controller.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\commandUtils.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\database-get.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\index.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\index.js
+- C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:880:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:725:27)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at FunctionsEmulator.askInstallNodeVersion (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:447:21)
+    at FunctionsEmulator.start (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:158:32)
+    at Function.start (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\registry.js:16:24)
+    at startEmulator (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\controller.js:90:39)
+    at Object.startAll (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\controller.js:273:15)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Command.actionFn (C:\Users\theJonathansFamily\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\emulators-start.js:26:9)
+[error] 
+[error] Error: An unexpected error has occurred.

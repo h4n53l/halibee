@@ -13,6 +13,8 @@ export default function Navbar() {
   const logo = "/assets/images/halibee_logo.png"
   const [user, loading, error] = useAuthState(auth)
 
+  
+
   return (
     <nav className='dark:bg-darkMode bg-primary z-30 w-full fixed'>
 
@@ -103,7 +105,7 @@ export default function Navbar() {
                     {({ active }) => (
                       <Link href={'/profiles/' + user.displayName} key={user.displayName}>
                           <a className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}>
-                          Dashboard
+                          Profile
                       </a>
                         </Link>
                     )}

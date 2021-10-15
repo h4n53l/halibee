@@ -1,0 +1,102 @@
+{
+    "sourceFile": "modules/valtio/state.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 21,
+            "patches": [
+                {
+                    "date": 1634252406681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1634252412731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import {proxy } from \"valtio\"\r\n+\r\n+\r\n+e\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634252418906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import {proxy } from \"valtio\"\r\n+\r\n+\r\n+export const st\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634252426108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import  {proxy } from \"valtio\"\r\n+\r\n+\r\n+export const state = \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634252436854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import { proxy } from \"valtio\"\r\n+\r\n+\r\n+export const state = pro\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634252442102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import { proxy } from \"valtio\"\r\n+\r\n+\r\n+export const state = proxy({})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634252452023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+import { proxy } from \"valtio\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    cu\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634252458586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+import { proxy } from \"valtio\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    c\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634252465647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+import { proxy } from \"valtio\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    log\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634252471794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+import { proxy } from \"valtio\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser: \r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634252513957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+import { proxy } from \"valtio\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser: null\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634252632287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+import { proxy } from \"valtio\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser: auth\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634252640378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+import { proxy } from \"valtio\"\r\n+import { auth } from \"../firebase/initialiseFirebase\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser: auth.cu\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634253118069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+import { proxy } from \"valtio\"\r\n+import { auth } from \"../firebase/initialiseFirebase\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser: 'auth.currentUser'\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634253167240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+import { proxy } from \"valtio\"\r\n+import { auth } from \"../firebase/initialiseFirebase\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser: null\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634253176138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import { proxy } from \"valtio\"\r\n+import { auth } from \"../firebase/initialiseFirebase\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser: null\r\n+})\r\n+\r\n"
+                },
+                {
+                    "date": 1634253182217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import { proxy } from \"valtio\"\r\n+import { auth } from \"../firebase/initialiseFirebase\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser: null\r\n+})\r\n+\r\n+state.\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634253189517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import { proxy } from \"valtio\"\r\n+import { auth } from \"../firebase/initialiseFirebase\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser: null\r\n+})\r\n+\r\n+state.loggedInUser = auth\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634253196841,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import { proxy } from \"valtio\"\r\n+import { auth } from \"../firebase/initialiseFirebase\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser: null\r\n+})\r\n+\r\n+state.loggedInUser = auth.currentUser\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634253202824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import { proxy } from \"valtio\"\r\n+import { auth } from \"../firebase/initialiseFirebase\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser<>: null\r\n+})\r\n+\r\n+state.loggedInUser = auth.currentUser\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634253214311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import { proxy } from \"valtio\"\r\n+import { auth } from \"../firebase/initialiseFirebase\"\r\n+\r\n+\r\n+export const state = proxy({\r\n+    loggedInUser: null\r\n+})\r\n+\r\n+state.loggedInUser = auth.currentUser\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634253306788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,127 +5,4 @@\n export const state = proxy({\r\n     loggedInUser: null\r\n })\r\n \r\n-state.loggedInUser = auth.currentUser\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser<>: null\r\n-})\r\n-\r\n-state.loggedInUser = auth.currentUser\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\r\n-\r\n-state.loggedInUser = auth.currentUser\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\r\n-\r\n-state.loggedInUser = auth\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\r\n-\r\n-state.\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\r\n-\r\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: 'auth.currentUser'\r\n-})\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: auth.cu\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: auth\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: \r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    log\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    c\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    cu\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = pro\n-import  {proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = \n-import {proxy } from \"valtio\"\r\n-\r\n-\r\n-export const st\n-import {proxy } from \"valtio\"\r\n-\r\n-\r\n-e\n-import {proxy } from \"valtio\"\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1634252406681,
+            "name": "Commit-0",
+            "content": "import {proxy } from \"valtio\""
+        }
+    ]
+}

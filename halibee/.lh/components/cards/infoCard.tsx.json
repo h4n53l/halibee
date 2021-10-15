@@ -1,0 +1,74 @@
+{
+    "sourceFile": "components/cards/infoCard.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1634254147981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1634254197549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { Card, CardBody } from '@windmill/react-ui'\r\n \r\n-function InfoCard({ title, value, children: icon }) {\r\n+export default function InfoCard({ title, value, children: icon }) {\r\n   return (\r\n     <Card>\r\n       <CardBody className=\"flex items-center\">\r\n         {icon}\r\n"
+                },
+                {
+                    "date": 1634254224219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     <Card>\r\n       <CardBody className=\"flex items-center\">\r\n         {icon}\r\n         <div>\r\n-          <p className=\"mb-2 text-sm font-medium text-gray-600 dark:text-gray-400\">{title}</p>\r\n+          <p className=\"mb-2 text-sm font-medium text-pri dark:text-gray-400\">{title}</p>\r\n           <p className=\"text-lg font-semibold text-gray-700 dark:text-gray-200\">{value}</p>\r\n         </div>\r\n       </CardBody>\r\n     </Card>\r\n"
+                },
+                {
+                    "date": 1634254233144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import { Card, CardBody } from '@windmill/react-ui'\r\n+\r\n+export default function InfoCard({ title, value, children: icon }) {\r\n+  return (\r\n+    <Card>\r\n+      <CardBody className=\"flex items-center\">\r\n+        {icon}\r\n+        <div>\r\n+          <p className=\"mb-2 text-sm font-medium text-primary dark:text-gray-400\">{title}</p>\r\n+          <p className=\"text-lg font-semibold text-primary dark:text-gray-200\">{value}</p>\r\n+        </div>\r\n+      </CardBody>\r\n+    </Card>\r\n+  )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634254238484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import { Card, CardBody } from '@windmill/react-ui'\r\n+\r\n+export default function InfoCard({ title, value, children: icon }) {\r\n+  return (\r\n+    <Card>\r\n+      <CardBody className=\"flex items-center\">\r\n+        {icon}\r\n+        <div>\r\n+          <p className=\"mb-2 text-sm font-medium text-primary dark:text-dar\">{title}</p>\r\n+          <p className=\"text-lg font-semibold text-primary dark:text-gray-200\">{value}</p>\r\n+        </div>\r\n+      </CardBody>\r\n+    </Card>\r\n+  )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634254248532,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import { Card, CardBody } from '@windmill/react-ui'\r\n+\r\n+export default function InfoCard({ title, value, children: icon }) {\r\n+  return (\r\n+    <Card>\r\n+      <CardBody className=\"flex items-center\">\r\n+        {icon}\r\n+        <div>\r\n+          <p className=\"mb-2 text-sm font-medium text-primary dark:text-darkMode\">{title}</p>\r\n+          <p className=\"text-lg font-semibold text-primary dark:text-darkM\">{value}</p>\r\n+        </div>\r\n+      </CardBody>\r\n+    </Card>\r\n+  )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634254301675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import { Card, CardBody } from '@windmill/react-ui'\r\n+\r\n+export default function InfoCard({ title, value, children: icon }) {\r\n+  return (\r\n+    <Card>\r\n+      <CardBody className=\"flex items-center\">\r\n+        <div>\r\n+          <p className=\"mb-2 text-sm font-medium text-primary dark:text-darkMode\">{title}</p>\r\n+          <p className=\"text-lg font-semibold text-primary dark:text-darkMode\">{value}</p>\r\n+        </div>\r\n+      </CardBody>\r\n+    </Card>\r\n+  )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634254308428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import { Card, CardBody } from '@windmill/react-ui'\r\n+\r\n+export default function InfoCard({ title, value,  }) {\r\n+  return (\r\n+    <Card>\r\n+      <CardBody className=\"flex items-center\">\r\n+        <div>\r\n+          <p className=\"mb-2 text-sm font-medium text-primary dark:text-darkMode\">{title}</p>\r\n+          <p className=\"text-lg font-semibold text-primary dark:text-darkMode\">{value}</p>\r\n+        </div>\r\n+      </CardBody>\r\n+    </Card>\r\n+  )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634254481765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+\r\n+export default function InfoCard({ title, value }) {\r\n+  return (\r\n+    <Card>\r\n+      <CardBody className=\"flex items-center\">\r\n+        <div>\r\n+          <p className=\"mb-2 text-sm font-medium text-primary dark:text-darkMode\">{title}</p>\r\n+          <p className=\"text-lg font-semibold text-primary dark:text-darkMode\">{value}</p>\r\n+        </div>\r\n+      </CardBody>\r\n+    </Card>\r\n+  )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634254496697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+\r\n+export default function InfoCard({ title, value }) {\r\n+  return (\r\n+    <div className=\"relative flex smx:mb-40 flex-col min-w-0 break-words bg-white dark:text-darkMode  text-primary w-full mb-8 shadow-lg rounded-lg\">\r\n+                                    <div className=\"px-4 py-5 flex-auto\">\r\n+                                        <h6 className=\"text-xl font-bold\">Average Rating</h6>\r\n+                                    </div>\r\n+                                    <h4 className=\" mt-4 mb-4 text-5xl font-bolder\">\r\n+                                        {value}\r\n+                                    </h4>\r\n+                                </div>\r\n+  )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634254504748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+\r\n+export default function InfoCard({ title, value }) {\r\n+  return (\r\n+    <div className=\"relative flex smx:mb-40 flex-col min-w-0 break-words bg-white dark:text-darkMode  text-primary w-full mb-8 shadow-lg rounded-lg\">\r\n+                                    <div className=\"px-4 py-5 flex-auto\">\r\n+                                        <h6 className=\"text-xl font-bold\">{tit}</h6>\r\n+                                    </div>\r\n+                                    <h4 className=\" mt-4 mb-4 text-5xl font-bolder\">\r\n+                                        {value}\r\n+                                    </h4>\r\n+                                </div>\r\n+  )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634254514529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+\r\n+export default function InfoCard({ title, value }) {\r\n+    return (\r\n+        <div className=\"relative flex smx:mb-40 flex-col min-w-0 break-words bg-white dark:text-darkMode  text-primary w-full mb-8 shadow-lg rounded-lg\">\r\n+            <div className=\"px-4 py-5 flex-auto\">\r\n+                <h6 className=\"text-xl font-bold\">{title}</h6>\r\n+            </div>\r\n+            <h4 className=\" mt-4 mb-4 text-5xl font-bolder\">\r\n+                {value}\r\n+            </h4>\r\n+        </div>\r\n+    )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634255573672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+\r\n+export default function InfoCard({ title, value }) {\r\n+    return (\r\n+        <div className=\"relative flex smx:mb-40 flex-col  text-center min-w-0 break-words bg-white dark:text-darkMode  text-primary w-full mb-8 shadow-lg rounded-lg\">\r\n+            <div className=\"px-4 py-5 flex-auto\">\r\n+                <h6 className=\"text-xl font-bold\">{title}</h6>\r\n+            </div>\r\n+            <h4 className=\" mt-4 mb-4 text-5xl font-bolder\">\r\n+                {value}\r\n+            </h4>\r\n+        </div>\r\n+    )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634255592190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+\r\n+export default function InfoCard({ title, value }) {\r\n+    return (\r\n+        <div className=\"relative flex smx:mb-40 flex-col  text-center min-w-0 break-words bg-white dark:text-darkMode  text-primary w-full mb-8 shadow-lg rounded-lg\">\r\n+            <div className=\"px-4 py-5 flex-auto\">\r\n+                <h6 className=\"text-xl font-bold\">{title}</h6>\r\n+            </div>\r\n+            <h4 className=\" mt-4 mb-4 text-5xl font-semibold\">\r\n+                {value}\r\n+            </h4>\r\n+        </div>\r\n+    )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634255608602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+\r\n+export default function InfoCard({ title, value }) {\r\n+    return (\r\n+        <div className=\"relative flex smx:mb-40 flex-col  text-center min-w-0 break-words bg-white dark:text-darkMode  text-primary w-full mb-8 shadow-lg rounded-lg\">\r\n+            <div className=\"px-4 py-5 flex-auto\">\r\n+                <h6 className=\"text-xl font-bold\">{title}</h6>\r\n+            </div>\r\n+            <h4 className=\" mt-4 mb-4 text-3xl font-semibold\">\r\n+                {value}\r\n+            </h4>\r\n+        </div>\r\n+    )\r\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1634254147981,
+            "name": "Commit-0",
+            "content": "import { Card, CardBody } from '@windmill/react-ui'\r\n\r\nfunction InfoCard({ title, value, children: icon }) {\r\n  return (\r\n    <Card>\r\n      <CardBody className=\"flex items-center\">\r\n        {icon}\r\n        <div>\r\n          <p className=\"mb-2 text-sm font-medium text-gray-600 dark:text-gray-400\">{title}</p>\r\n          <p className=\"text-lg font-semibold text-gray-700 dark:text-gray-200\">{value}</p>\r\n        </div>\r\n      </CardBody>\r\n    </Card>\r\n  )\r\n}"
+        }
+    ]
+}

@@ -5,8 +5,7 @@ import Hero from '../components/hero'
 import { collection, getDocs } from '@firebase/firestore'
 import { firestore } from '../modules/firebase/initialiseFirebase'
 import Listings from '../components/listings'
-import { useEffect } from 'react'
-import dynamic from 'next/dynamic'
+
 
 export const getStaticProps: GetStaticProps = async () =>  {
   const response = await getDocs(collection(firestore, "freelancers"))
@@ -22,29 +21,7 @@ export const getStaticProps: GetStaticProps = async () =>  {
   
 }
 
-const appID = process.env.COMETCHAT_APP_ID;
-const region = process.env.COMETCHAT_REGION;
 
-const CometChat = dynamic(
-  () => import('@cometchat-pro/chat'),
-  { ssr: false }
-)
-
-const appSetting = new CometChat.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region).build();
-
-useEffect(() => {
-  
-  CometChat.init(appID, appSetting).then(
-    () => {
-      console.log("Initialization completed successfully");
-      // You can now call login function.
-    },
-    error => {
-      console.log("Initialization failed with error:", error);
-      // Check the reason for error and take appropriate action.
-    }
-  );
-}, [])
 
 export default function Home({userData}) {
   

@@ -1,0 +1,30 @@
+{
+    "sourceFile": "pages/dashboards/[dashboard].tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1634255354869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1634255452495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import InfoCard from \"../../components/cards/infoCard\";\r\n \r\n export default function() {\r\n     return (\r\n-        <div>\r\n+        <divclassName=\"p-10\">\r\n           <div className=\"grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4\">\r\n <InfoCard \r\n title=\"Total clients\" \r\n value=\"6389\"\r\n"
+                },
+                {
+                    "date": 1634255477186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,29 @@\n+import InfoCard from \"../../components/cards/infoCard\";\r\n+\r\n+export default function() {\r\n+    return (\r\n+        <div className=\"p-20\">\r\n+          <div className=\"grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4\">\r\n+<InfoCard \r\n+title=\"Total clients\" \r\n+value=\"6389\"\r\n+/>\r\n+\r\n+<InfoCard \r\n+title=\"Total Income\" \r\n+value=\"$ 46,760.89\" \r\n+/>\r\n+\r\n+<InfoCard \r\n+title=\"Average Monthly Income\" \r\n+value=\"$ 46,760.89\" \r\n+/>\r\n+\r\n+<InfoCard \r\n+title=\"Average Monthly Clients\" \r\n+value=\"89\" \r\n+/>\r\n+            </div>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634255642167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,29 @@\n+import InfoCard from \"../../components/cards/infoCard\";\r\n+\r\n+export default function() {\r\n+    return (\r\n+        <div className=\"p-20\">\r\n+          <div className=\"grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4\">\r\n+<InfoCard \r\n+title=\"Total clients\" \r\n+value=\"6389\"\r\n+/>\r\n+\r\n+<InfoCard \r\n+title=\"Total Income\" \r\n+value=\"$ 46,760.89\" \r\n+/>\r\n+\r\n+<InfoCard \r\n+title=\"Average Monthly Income\" \r\n+value=\"$ 760.89\" \r\n+/>\r\n+\r\n+<InfoCard \r\n+title=\"Average Monthly Clients\" \r\n+value=\"89\" \r\n+/>\r\n+            </div>\r\n+        </div>\r\n+    );\r\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1634255354869,
+            "name": "Commit-0",
+            "content": "import InfoCard from \"../../components/cards/infoCard\";\r\n\r\nexport default function() {\r\n    return (\r\n        <div>\r\n          <div className=\"grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4\">\r\n<InfoCard \r\ntitle=\"Total clients\" \r\nvalue=\"6389\"\r\n/>\r\n\r\n<InfoCard \r\ntitle=\"Total Income\" \r\nvalue=\"$ 46,760.89\" \r\n/>\r\n\r\n<InfoCard \r\ntitle=\"Average Monthly Income\" \r\nvalue=\"$ 46,760.89\" \r\n/>\r\n\r\n<InfoCard \r\ntitle=\"Average Monthly Clients\" \r\nvalue=\"89\" \r\n/>\r\n            </div>\r\n        </div>\r\n    );\r\n}"
+        }
+    ]
+}

@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
-import { useAuthState } from "react-firebase-hooks/auth";
-import Button from "../../components/button";
-import { auth, firestore } from "../../modules/firebase/initialiseFirebase";
+import { auth, database, firestore } from "../../modules/firebase/initialiseFirebase";
 import { collection, getDocs, query, where, limit } from '@firebase/firestore'
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths } from "next";
 import { useEffect, useState } from "react";
+import { ref, set } from "@firebase/database";
+import InfoCard from "../../components/cards/infoCard";
 
 export const getStaticProps = async () => {
 
@@ -33,11 +33,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 }
 
+    const today = new Date();
+    const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    export const dateTime = date + ' ' + time;
 
 export default function Username() {
     const [userInfo, setUserInfo] = useState(null)
     const router = useRouter()
     const { username } = router.query
+    const [hireForm, setHireForm] = useState(null)
+    const [projectDescription, setProjectDescription] = useState(null)
+    const [projectTitle, setProjectTitle] = useState(null)
+    const [agreement, setAgreement] = useState(null)
+    const currentUser = auth.currentUser
+    const hiveOwner = userInfo
+
+    
 
 
     useEffect(() => {
@@ -53,11 +65,43 @@ export default function Username() {
         fetchUserData()
     }, [])
 
+
+    const hireRequest = (collection, data) => {
+
+        set(ref(database, collection), {
+            ...data,
+            time: dateTime,
+            username: currentUser.displayName,
+            displayPhoto: currentUser.photoURL,
+        })
+
+    }
+
+    const hireButton = () => {
+        if (currentUser){
+            setHireForm(true)
+        }
+        else{
+            router.push('/authentication')
+        }
+    }
+
+    const requestHire = () => {
+        hireRequest(
+            'projectRequests/' + hiveOwner.uniqueID.stringValue + '/' + auth.currentUser.uid, 
+            { 
+                title: projectTitle,
+                details: projectDescription,
+             })
+        setHireForm(null)
+    }
+
     if (userInfo === null) {
         return (
             <div>Loading</div>
         )
     }
+
 
     return (
         <div className="">
@@ -77,46 +121,102 @@ export default function Username() {
                     />
                     <div className="text-center relative py-5">
 
-                        <h1 className="mb-1 text-2xl font-sans font-semibold text-primary hover:text-secondary cursor-pointer">{userInfo.hiveName.stringValue}</h1>
+                        <h1 className="mb-1 text-2xl font-sans font-semibold text-primary dark:text-darkMode hover:text-secondary cursor-pointer">
+                            {userInfo.hiveName.stringValue}
+                        </h1>
                         <span className="text-lg text-secondary hover:text-primary">{userInfo.skill.stringValue}</span>
                     </div>
                 </div>
             </div>
+            {!hireForm &&
+                <div>
+                    <div className="container mx-auto px-4">
+                        <div className="flex flex-wrap ">
+                            <div className=" pt-10 md:-mt-40 lg:-mt-40 sm:mt-20  w-full md:w-4/12 px-4">
+                                
+                                <InfoCard 
+                                title='Average Rating' 
+                                value ={userInfo.rating.integerValue} 
+                                />
 
-            <div className="container mx-auto px-4">
-                <div className="flex flex-wrap ">
-                    <div className=" pt-10 md:-mt-40 lg:-mt-40 sm:mt-20  w-full md:w-4/12 px-4 text-center">
-                        <div className="relative flex smx:mb-40 flex-col min-w-0 break-words bg-white text-primary w-full mb-8 shadow-lg rounded-lg">
-                            <div className="px-4 py-5 flex-auto">
-                                <h6 className="text-xl font-bold">Ratings</h6>
                             </div>
-                            <h4 className=" mt-4 mb-4 text-primary text-5xl font-bolder">
-                                {userInfo.rating.integerValue}
-                            </h4>
-                        </div>
-                    </div>
 
-                    <div className="w-full smx:-mt-96 z-10 lg:mt-7 md:mt-7 sm:-mt-64 md:w-4/12 px-4 text-center">
-                        <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                            <Button>
-                                Hire Me
-                            </Button>
-                        </div>
-                    </div>
 
-                    <div className=" pt-10 lg:-mt-40 md:-mt-40 -mt-40 sm:-mt-10  w-full md:w-4/12 px-4 text-center">
-                        <div className="relative flex flex-col min-w-0 break-words bg-white text-primary w-full mb-8 shadow-lg rounded-lg">
-                            <div className="px-4 py-5 flex-auto">
-                                <h6 className="text-xl font-bold">Projects Completed</h6>
+                                <div className="w-full smx:-mt-96 z-10 lg:mt-7 md:mt-7 sm:-mt-64 md:w-4/12 px-4 text-center">
+
+                                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                            { hiveOwner.uniqueID.stringValue != currentUser.uid &&
+                                    <button
+                                        className="py-2 px-4  bg-primary dark:bg-darkMode text-secondary w-full text-center text-base font-semibold rounded-lg"
+                                        onClick={() => hireButton()}
+                                    >
+                                        Hire Me
+                                    </button>
+                                }
+                                </div>
                             </div>
-                            <h4 className=" mt-4 mb-4 text-primary text-5xl font-bolder">
-                                {userInfo.projects.integerValue}
-                            </h4>
+
+                            <div className=" pt-10 lg:-mt-40 md:-mt-40 -mt-40 sm:-mt-10  w-full md:w-4/12 px-4">
+                                
+                                <InfoCard 
+                                title='Projects Completed' 
+                                value ={userInfo.projects.integerValue} 
+                                />
+                            
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <section className="mx-20 text-primary">
+            }
+            {hireForm &&
+                <div className="mx-12">
+                    <form className="form bg-white rounded-lg p-6 my-10 relative">
+
+                        <h3 className="text-2xl text-primary text-center dark:text-darkMode font-bold">
+                            Project Details
+                        </h3>
+
+                        <input
+                                        type="text"
+                                        maxLength={91}
+                                        value={projectTitle}
+                                        onChange={(e) => setProjectTitle(e.target.value)}
+                                        className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        placeholder="Short description"
+                                    />
+
+                        <textarea
+                            name="projectDescription"
+                            value={projectDescription}
+                            onChange={(e) => setProjectDescription(e.target.value)}
+                            placeholder="Dedcribe your project here..."
+                            className="border p-2 mt-3 w-full" />
+                        <a className="font-bold text-sm mt-3 text-primary">Terms and Conditions</a>
+                        <div className="flex items-baseline space-x-2 mt-2">
+                            <input
+                                name="agreement"
+                                type="checkbox"
+                                value="agreed"
+                                onChange={(e) => setAgreement(e.target.value)}
+                                className="inline-block"
+                            />
+                            <p className="text-gray-900 text-sm">I consent to having this website store my submitted information so they can respond to my inquiry.</p>
+                        </div>
+                        <div className="relative flex flex-row items-center justify-center min-w-40 break-words w-full mb-8 ">
+                            <button
+                                className="py-2 px-4 mt-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg"
+                                onClick={() => requestHire()}
+                            >
+                                Submit
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+
+            }
+
+            <section className="mx-20 text-primary dark:text-darkMode ">
                 <div className=" flex flex-col w-full items-center">
                     <h4 className="text-center font-bold text-3xl">
                         About {userInfo.displayName.stringValue}
@@ -127,20 +227,20 @@ export default function Username() {
                 </div>
             </section>
 
-            <section className="m-5 text-primary">
+            <section className="m-5 text-primary dark:text-darkMode ">
                 <div className=" flex flex-col w-full items-center">
                     <h4 className="text-center font-bold text-3xl">
                         Portfolio
                     </h4>
                 </div>
             </section>
-            <section className="m-5 text-primary">
+            <section className="m-5 text-primary dark:text-darkMode ">
                 <div className="flex flex-col w-full items-center">
                     <h4 className="text-center font-bold text-3xl">
                         Reviews
                     </h4>
                 </div>
             </section>
-        </div>
+        </div >
     );
 }

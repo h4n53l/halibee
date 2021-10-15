@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1631901880967,
@@ -24,6 +24,10 @@
                 {
                     "date": 1634068424757,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   \"include\": [\r\n     \"next-env.d.ts\",\r\n     \"**/*.ts\",\r\n     \"**/*.tsx\"\r\n-, \"functions.js\", \"functions/src/index.ts\", \"function.js\"  ],\r\n+, \"functions.js\", \"functions/src/index.ts\", \"function.js\", \"pages/messages/CometChatNoSSR.js\"  ],\r\n   \"exclude\": [\r\n     \"node_modules\"\r\n   ]\r\n }\r\n"
+                },
+                {
+                    "date": 1634234522087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   \"include\": [\r\n     \"next-env.d.ts\",\r\n     \"**/*.ts\",\r\n     \"**/*.tsx\"\r\n-, \"functions.js\", \"functions/src/index.ts\", \"function.js\", \"pages/messages/CometChatNoSSR.js\"  ],\r\n+, \"functions.js\", \"functions/src/index.ts\", \"function.js\", \"pages/messages/CometChatNoSSR.js\", \"modules/firebase/initialiseFirebase.js\"  ],\r\n   \"exclude\": [\r\n     \"node_modules\"\r\n   ]\r\n }\r\n"
                 }
             ],
             "date": 1631901880967,
