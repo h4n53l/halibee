@@ -1,4 +1,4 @@
-import { onValue, ref, serverTimestamp, update } from "@firebase/database";
+import { onChildAdded, onValue, ref, serverTimestamp, update } from "@firebase/database";
 import { useState } from "react";
 import { auth, database } from "../../modules/firebase/initialiseFirebase";
 import { dateTime } from "../profiles/[username]";
@@ -21,19 +21,24 @@ export default function () {
 
   }
 
+  var times = new Date().getTime();
+
+
   const submit = () => {
     sendMessage(
-      'chats',
+      'chats/' + times,
       {
         text: message
       })
   }
 
 
-  // onValue(ref(database, 'chats/'), (snapshot) => {
-  //   setFeedback(snapshot.val())
-  //   console.log('typing')
-  // });
+  onValue(ref(database, 'chats/' + times + '/text'), (snapshot) => {
+    if (snapshot.val())
+      setFeedback(snapshot.val())
+    console.log(snapshot.val())
+  
+  });
 
   return (
     <div className="p-24">
