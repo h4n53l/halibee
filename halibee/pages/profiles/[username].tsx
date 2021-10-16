@@ -5,6 +5,7 @@ import { GetStaticPaths } from "next";
 import { useEffect, useState } from "react";
 import { ref, set } from "@firebase/database";
 import InfoCard from "../../components/cards/infoCard";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export const getStaticProps = async () => {
 
@@ -46,7 +47,7 @@ export default function Username() {
     const [projectDescription, setProjectDescription] = useState(null)
     const [projectTitle, setProjectTitle] = useState(null)
     const [agreement, setAgreement] = useState(null)
-    const currentUser = auth.currentUser
+    const [currentUser, loading, error] = useAuthState(auth)
     const hiveOwner = userInfo
 
     
@@ -96,11 +97,23 @@ export default function Username() {
         setHireForm(null)
     }
 
-    if (userInfo === null) {
+    if (loading) {
         return (
-            <div>Loading</div>
+          <div className="flex items-center justify-center w-full h-full">
+            <div className="flex justify-center items-center space-x-1 text-sm text-gray-700">
+    
+              <svg fill='none' className="w-6 h-6 animate-spin" viewBox="0 0 32 32" xmlns='http://www.w3.org/2000/svg'>
+                <path clip-rule='evenodd'
+                  d='M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z'
+                  fill='currentColor' fill-rule='evenodd' />
+              </svg>
+    
+              <div>Loading ...</div>
+              
+            </div>
+          </div>
         )
-    }
+      }
 
 
     return (
@@ -177,19 +190,20 @@ export default function Username() {
                         </h3>
 
                         <input
+                                        name="projectTitle"
                                         type="text"
                                         maxLength={91}
                                         value={projectTitle}
                                         onChange={(e) => setProjectTitle(e.target.value)}
                                         className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                        placeholder="Short description"
+                                        placeholder="Project Title"
                                     />
 
                         <textarea
                             name="projectDescription"
                             value={projectDescription}
                             onChange={(e) => setProjectDescription(e.target.value)}
-                            placeholder="Dedcribe your project here..."
+                            placeholder="Short description of project"
                             className="border p-2 mt-3 w-full" />
                         <a className="font-bold text-sm mt-3 text-primary">Terms and Conditions</a>
                         <div className="flex items-baseline space-x-2 mt-2">

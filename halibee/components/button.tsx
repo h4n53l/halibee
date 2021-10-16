@@ -24,4 +24,41 @@ export default function Button({children}) {
                 //                     Submit
                 //                 </button>
                 //             </div>
-                // </div> */}
+                // </div> 
+            
+            <ul>
+        {messages.map((message) => (
+          <li key={message.id} className={message.sender === currentUser.displayName ? "sent" : "received"}>
+            <section>
+              {/* display user image */}
+    //           {message.avatar ? (
+    //             <img
+    //               src={message.avatar}
+    //               alt="Avatar"
+    //               className="w-20 h-20"
+    //             />
+    //           ) : null}
+    //         </section>
+
+    //         <section>
+    //           {/* display message text */}
+    //           <p>{message.text}</p>
+
+    //           {/* display user name */}
+    //           {message.sender ? <span>{message.sender}</span> : null}
+    //           <br />
+    //           {/* display message date and time */}
+    //           {message.time ? (
+    //             <span>
+    //               {formatRelative(
+    //                 new Date(message.time),
+    //                 new Date()
+    //               )}
+    //             </span>
+    //           ) : null}
+    //         </section>
+    //       </li>
+    //     ))}
+    //   </ul>
+
+            */}

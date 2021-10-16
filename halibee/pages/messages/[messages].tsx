@@ -1,62 +1,125 @@
-import { onChildAdded, onValue, ref, serverTimestamp, update } from "@firebase/database";
-import { useState } from "react";
+import { onChildAdded, onValue, push, ref, serverTimestamp, update } from "@firebase/database";
+import { useEffect, useRef, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, database } from "../../modules/firebase/initialiseFirebase";
-import { dateTime } from "../profiles/[username]";
+import { formatRelative } from "date-fns"
 
-export default function () {
+export default function Messages() {
+  const dummySpace = useRef();
+  const [newMessage, setNewMessage] = useState("")
+  const [currentUser, loading, error] = useAuthState(auth)
+  const [messages, setMessages] = useState([]);
 
-  const [message, setMessage] = useState(null)
-  const [feedback, setFeedback] = useState(null)
-  const currentUser = auth.currentUser
-
-  const sendMessage = (collection, data) => {
-
-    update(ref(database, collection), {
-      ...data,
-      time: dateTime,
-      username: currentUser.displayName,
-      displayPhoto: currentUser.photoURL,
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    push(ref(database, 'messages/'), {
+      text: newMessage,
+      sender: currentUser.displayName,
+      avatar: currentUser.photoURL,
       timeStamp: serverTimestamp()
     })
 
+    setNewMessage("");
+
+    if (dummySpace) 
+    dummySpace.current.scrollIntoView({ behavor: "smooth" });
+
   }
 
-  var times = new Date().getTime();
+  useEffect(() => {
+    onValue(ref(database, 'messages'), (snapshot) => {
+      if (snapshot.val())
+      
+        for(var p in snapshot.val()){
+          setMessages(snapshot.val()[p]);
+          
+        }
+
+    });
+
+  }, [database]);
+
+  console.log(messages)
 
 
-  const submit = () => {
-    sendMessage(
-      'chats/' + times,
-      {
-        text: message
-      })
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center w-full h-full">
+        <div className="flex justify-center items-center space-x-1 text-sm text-gray-700">
+
+          <svg fill='none' className="w-6 h-6 animate-spin" viewBox="0 0 32 32" xmlns='http://www.w3.org/2000/svg'>
+            <path clip-rule='evenodd'
+              d='M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z'
+              fill='currentColor' fill-rule='evenodd' />
+          </svg>
+
+          <div>Loading ...</div>
+
+        </div>
+      </div>
+    )
   }
 
 
-  onValue(ref(database, 'chats/' + times + '/text'), (snapshot) => {
-    if (snapshot.val())
-      setFeedback(snapshot.val())
-    console.log(snapshot.val())
-  
-  });
 
   return (
     <div className="p-24">
-      <div className=" bg-white rounded-lg p-6 my-10 relative">
+
+
+<ul>
+        {messages.map((message) => (
+          <li key={message.id} className={message.sender === currentUser.displayName ? "sent" : "received"}>
+            <section>
+              {/* display user image */}
+               {message.avatar ? (
+                <img
+                  src={message.avatar}
+                  alt="Avatar"
+                  className="w-20 h-20"
+                />
+              ) : null}
+            </section>
+
+            <section>
+              {/* display message text */}
+              <p>{message.text}</p>
+
+              {/* display user name */}
+              {message.sender ? <span>{message.sender}</span> : null}
+              <br />
+              {/* display message date and time */}
+              {message.time ? (
+                <span>
+                  {formatRelative(
+                    new Date(message.time),
+                    new Date()
+                  )}
+                </span>
+              ) : null}
+            </section>
+          </li>
+        ))}
+      </ul>
+
+      <section ref={dummySpace}></section>
+
+      <form 
+      onSubmit={handleSubmit}
+      className=" bg-white rounded-lg p-6 my-10 relative"
+      >
 
         <h3 className="text-2xl text-primary text-center dark:text-darkMode font-bold">
           Messaging
         </h3>
 
-        <p className="p-10 text-xl">
-            {feedback}
-        </p>
+
 
         <input
           type="text"
           maxLength={91}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
           className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           placeholder="Short description"
         />
@@ -64,13 +127,14 @@ export default function () {
         <div className="relative flex flex-row items-center justify-center min-w-40 break-words w-full mb-8 ">
           <button
             className="py-2 px-4 mt-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg"
-            onClick={() => submit()}
+            type="submit"
+            disabled={!newMessage}
           >
             Send
           </button>
 
         </div>
-      </div>
+      </form>
     </div>
   );
 }
