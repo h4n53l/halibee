@@ -3,7 +3,7 @@ import { auth, database, firestore } from "../../modules/firebase/initialiseFire
 import { collection, getDocs, query, where, limit } from '@firebase/firestore'
 import { GetStaticPaths } from "next";
 import { useEffect, useState } from "react";
-import { ref, set } from "@firebase/database";
+import { push, ref, set } from "@firebase/database";
 import InfoCard from "../../components/cards/infoCard";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -34,12 +34,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 }
 
-    const today = new Date();
-    const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    export const dateTime = date + ' ' + time;
+export const dateTime = new Date().getTime()
 
-export default function Username() {
+export default function ProfilePage() {
     const [userInfo, setUserInfo] = useState(null)
     const router = useRouter()
     const { username } = router.query
@@ -50,70 +47,80 @@ export default function Username() {
     const [currentUser, loading, error] = useAuthState(auth)
     const hiveOwner = userInfo
 
-    
 
+
+    async function fetchUserData() {
+        const response = await getDocs(
+            query(collection
+                (firestore, "freelancers"),
+                where("displayName", "==", username),
+                limit(1)))
+        setUserInfo(response.docs[0]['_document'].data.value.mapValue.fields)
+    }
 
     useEffect(() => {
-        async function fetchUserData() {
-            const response = await getDocs(
-                query(collection
-                    (firestore, "freelancers"),
-                    where("displayName", "==", username),
-                    limit(1)))
-            setUserInfo(response.docs[0]['_document'].data.value.mapValue.fields)
-        }
 
         fetchUserData()
     }, [])
 
 
-    const hireRequest = (collection, data) => {
 
-        set(ref(database, collection), {
-            ...data,
-            time: dateTime,
-            username: currentUser.displayName,
-            displayPhoto: currentUser.photoURL,
-        })
-
-    }
-
-    const hireButton = () => {
-        if (currentUser){
+    const toggleHireButton = () => {
+        if (currentUser) {
             setHireForm(true)
         }
-        else{
+        else {
             router.push('/authentication')
         }
     }
 
     const requestHire = () => {
-        hireRequest(
-            'projectRequests/' + hiveOwner.uniqueID.stringValue + '/' + auth.currentUser.uid, 
-            { 
-                title: projectTitle,
-                details: projectDescription,
-             })
+        const hireRequestData = {
+            title: projectTitle,
+            description: projectDescription,
+            clientUID: currentUser.uid,
+            client: currentUser.displayName,
+            freelancerUID: hiveOwner.uniqueID.stringValue,
+            freelancer: hiveOwner.displayName.stringValue,
+            requestStatus: 'Awaiting Reply',
+            time: dateTime,
+            clientAvatar: currentUser.photoURL
+        }
+
+        push(ref(database,
+            currentUser.uid + '/projectOut'),
+            hireRequestData
+        )
+            .then((snap) => {
+                push(ref(database,
+                    hiveOwner.uniqueID.stringValue + '/hireRequests'),
+                    {
+                        ...hireRequestData,
+                        requestReference: snap.key
+                    }
+                )
+            })
+
         setHireForm(null)
     }
 
-    if (loading) {
+    if (!userInfo || loading) {
         return (
-          <div className="flex items-center justify-center w-full h-full">
-            <div className="flex justify-center items-center space-x-1 text-sm text-gray-700">
-    
-              <svg fill='none' className="w-6 h-6 animate-spin" viewBox="0 0 32 32" xmlns='http://www.w3.org/2000/svg'>
-                <path clip-rule='evenodd'
-                  d='M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z'
-                  fill='currentColor' fill-rule='evenodd' />
-              </svg>
-    
-              <div>Loading ...</div>
-              
+            <div className="flex items-center justify-center w-full h-full">
+                <div className="flex justify-center items-center space-x-1 text-sm text-gray-700">
+
+                    <svg fill='none' className="w-6 h-6 animate-spin" viewBox="0 0 32 32" xmlns='http://www.w3.org/2000/svg'>
+                        <path clip-rule='evenodd'
+                            d='M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z'
+                            fill='currentColor' fill-rule='evenodd' />
+                    </svg>
+
+                    <div>Loading ...</div>
+
+                </div>
             </div>
-          </div>
         )
-      }
+    }
 
 
     return (
@@ -146,36 +153,36 @@ export default function Username() {
                     <div className="container mx-auto px-4">
                         <div className="flex flex-wrap ">
                             <div className=" pt-10 md:-mt-40 lg:-mt-40 sm:mt-20  w-full md:w-4/12 px-4">
-                                
-                                <InfoCard 
-                                title='Average Rating' 
-                                value ={userInfo.rating.integerValue} 
+
+                                <InfoCard
+                                    title='Average Rating'
+                                    value={userInfo.rating.integerValue}
                                 />
 
                             </div>
 
 
-                                <div className="w-full smx:-mt-96 z-10 lg:mt-7 md:mt-7 sm:-mt-64 md:w-4/12 px-4 text-center">
+                            <div className="w-full smx:-mt-96 z-10 lg:mt-7 md:mt-7 sm:-mt-64 md:w-4/12 px-4 text-center">
 
                                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                            { hiveOwner.uniqueID.stringValue != currentUser.uid &&
-                                    <button
-                                        className="py-2 px-4  bg-primary dark:bg-darkMode text-secondary w-full text-center text-base font-semibold rounded-lg"
-                                        onClick={() => hireButton()}
-                                    >
-                                        Hire Me
-                                    </button>
-                                }
+                                    {hiveOwner.uniqueID.stringValue != currentUser.uid &&
+                                        <button
+                                            className="py-2 px-4  bg-primary dark:bg-darkMode text-secondary w-full text-center text-base font-semibold rounded-lg"
+                                            onClick={() => toggleHireButton()}
+                                        >
+                                            Hire Me
+                                        </button>
+                                    }
                                 </div>
                             </div>
 
                             <div className=" pt-10 lg:-mt-40 md:-mt-40 -mt-40 sm:-mt-10  w-full md:w-4/12 px-4">
-                                
-                                <InfoCard 
-                                title='Projects Completed' 
-                                value ={userInfo.projects.integerValue} 
+
+                                <InfoCard
+                                    title='Projects Completed'
+                                    value={userInfo.projects.integerValue}
                                 />
-                            
+
                             </div>
                         </div>
                     </div>
@@ -190,14 +197,14 @@ export default function Username() {
                         </h3>
 
                         <input
-                                        name="projectTitle"
-                                        type="text"
-                                        maxLength={91}
-                                        value={projectTitle}
-                                        onChange={(e) => setProjectTitle(e.target.value)}
-                                        className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                        placeholder="Project Title"
-                                    />
+                            name="projectTitle"
+                            type="text"
+                            maxLength={91}
+                            value={projectTitle}
+                            onChange={(e) => setProjectTitle(e.target.value)}
+                            className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            placeholder="Project Title"
+                        />
 
                         <textarea
                             name="projectDescription"

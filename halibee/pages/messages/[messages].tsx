@@ -9,6 +9,7 @@ export default function Messages() {
   const [newMessage, setNewMessage] = useState("")
   const [currentUser, loading, error] = useAuthState(auth)
   const [messages, setMessages] = useState([]);
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -17,7 +18,9 @@ export default function Messages() {
       sender: currentUser.displayName,
       avatar: currentUser.photoURL,
       timeStamp: serverTimestamp()
-    })
+    }).then((snap) => {
+      console.log(snap.root)
+   })
 
     setNewMessage("");
 
@@ -27,20 +30,19 @@ export default function Messages() {
   }
 
   useEffect(() => {
+    const messageList = []
     onValue(ref(database, 'messages'), (snapshot) => {
       if (snapshot.val())
-      
-        for(var p in snapshot.val()){
-          setMessages(snapshot.val()[p]);
-          
+
+      for(var p in snapshot.val()){
+          messageList.push(snapshot.val()[p]);
         }
+
+        setMessages(messageList)
 
     });
 
   }, [database]);
-
-  console.log(messages)
-
 
 
   if (loading) {
@@ -66,33 +68,36 @@ export default function Messages() {
   return (
     <div className="p-24">
 
-
-<ul>
-        {messages.map((message) => (
-          <li key={message.id} className={message.sender === currentUser.displayName ? "sent" : "received"}>
+{messages.length > 0 && <ul >
+        {messages.map(message => (
+          <li 
+          className=" bg-white rounded-lg p-6 my-10 relative"
+          >
             <section>
-              {/* display user image */}
+              
                {message.avatar ? (
                 <img
                   src={message.avatar}
                   alt="Avatar"
-                  className="w-20 h-20"
+                  className="w-12 h-12 display-block"
                 />
               ) : null}
             </section>
 
             <section>
-              {/* display message text */}
-              <p>{message.text}</p>
 
-              {/* display user name */}
-              {message.sender ? <span>{message.sender}</span> : null}
+              <p >{message.text}
+              {message.id}
+              </p>
+
+
+              {message.sender ? <span className="text-primary">{message.sender}</span> : null}
               <br />
-              {/* display message date and time */}
-              {message.time ? (
-                <span>
+
+              {message.timeStamp ? (
+                <span className="text-gray-600">
                   {formatRelative(
-                    new Date(message.time),
+                    new Date(message.timeStamp),
                     new Date()
                   )}
                 </span>
@@ -100,13 +105,14 @@ export default function Messages() {
             </section>
           </li>
         ))}
-      </ul>
+      
+      </ul>}
 
       <section ref={dummySpace}></section>
 
       <form 
       onSubmit={handleSubmit}
-      className=" bg-white rounded-lg p-6 my-10 relative"
+      className=" bg-white rounded-lg p-6 my-10 mt-24 relative"
       >
 
         <h3 className="text-2xl text-primary text-center dark:text-darkMode font-bold">
@@ -114,7 +120,7 @@ export default function Messages() {
         </h3>
 
 
-
+        
         <input
           type="text"
           maxLength={91}
@@ -135,6 +141,7 @@ export default function Messages() {
 
         </div>
       </form>
+      
     </div>
   );
 }

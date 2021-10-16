@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 21,
+            "activePatchIndex": 22,
             "patches": [
                 {
                     "date": 1634252406681,
@@ -92,6 +92,10 @@
                 {
                     "date": 1634253306788,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,127 +5,4 @@\n export const state = proxy({\r\n     loggedInUser: null\r\n })\r\n \r\n-state.loggedInUser = auth.currentUser\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser<>: null\r\n-})\r\n-\r\n-state.loggedInUser = auth.currentUser\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\r\n-\r\n-state.loggedInUser = auth.currentUser\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\r\n-\r\n-state.loggedInUser = auth\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\r\n-\r\n-state.\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\r\n-\r\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: 'auth.currentUser'\r\n-})\n-import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: auth.cu\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: auth\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: null\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    loggedInUser: \r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    log\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    c\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({\r\n-    cu\r\n-})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = proxy({})\n-import { proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = pro\n-import  {proxy } from \"valtio\"\r\n-\r\n-\r\n-export const state = \n-import {proxy } from \"valtio\"\r\n-\r\n-\r\n-export const st\n-import {proxy } from \"valtio\"\r\n-\r\n-\r\n-e\n-import {proxy } from \"valtio\"\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1634418616980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import { proxy } from \"valtio\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n \r\n \r\n export const state = proxy({\r\n     loggedInUser: null\r\n"
                 }
             ],
             "date": 1634252406681,

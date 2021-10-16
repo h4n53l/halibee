@@ -7,13 +7,18 @@ import { auth } from '../../modules/firebase/initialiseFirebase'
 import { signOut } from 'firebase/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { state } from '../../modules/valtio/state'
 
 export default function Navbar() {
   const router = useRouter()
   const logo = "/assets/images/halibee_logo.png"
   const [user, loading, error] = useAuthState(auth)
 
-  
+ 
+
+  if(user){
+    state.loggedInUser = user
+  }
 
   return (
     <nav className='dark:bg-darkMode bg-primary z-30 w-full fixed'>
