@@ -75,7 +75,7 @@ export default function Authentication() {
                 <div className="container flex items-center justify-center flex-1 h-full mx-auto">
                     <div className="w-full max-w-lg">
                         <div className="leading-loose">
-                            <div className="max-w-sm p-10 m-auto bg-primary dark:bg-secondary bg-opacity-25 rounded shadow-xl">
+                            <div className="max-w-sm p-10 m-auto bg-primary dark:bg-darkMode bg-opacity-25 rounded shadow-xl">
                                 <p className="mb-8 text-2xl font-light text-center text-white">
                                     Welcome!
                                 </p>

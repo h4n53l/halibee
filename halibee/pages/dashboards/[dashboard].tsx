@@ -3,11 +3,12 @@ import InfoCard from "../../components/cards/infoCard";
 import { useRouter } from "next/router";
 import { auth, database, firestore } from "../../modules/firebase/initialiseFirebase";
 import { collection, getDocs, query, where, limit } from '@firebase/firestore'
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { query as realQuery, ref } from "@firebase/database";
+import { onValue, query as realQuery, ref } from "@firebase/database";
 import { snapshot, useSnapshot } from "valtio";
 import { state } from "../../modules/valtio/state";
+import { onAuthStateChanged } from "@firebase/auth";
 
 
 export const getStaticProps = async () => {
@@ -56,49 +57,32 @@ export default function () {
         setUserInfo(response.docs[0]['_document'].data.value.mapValue.fields)
     }
 
-    function fetchStuff(){
+
+
+    useEffect(() => {
+
         const hireRequestsList = []
-        if(currentUser) {
-          const snapshot = realQuery(ref(database, currentUser.uid + '/hireRequests')) 
+        onAuthStateChanged(auth, user => {
+          onValue(ref(database, user.uid  + '/hireRequests'), (snapshot) => {
 
-          console.log(snapshot)
+          console.log(snapshot.val())
+          console.log(user.uid + '/hireRequests')
           
-        //   if (snapshot.val())
+          if (snapshot.val())
 
-        //   for(var p in snapshot.val()){
-        //     hireRequestsList.push(snapshot.val()[p]);
-        //     }
+          for(var p in snapshot.val()){
+            hireRequestsList.push(snapshot.val()[p]);
+            }
 
             setHireRequests(hireRequestsList)
             console.log(hireRequestsList)
+            console.log(user)
 
+        })} )
         
-        console.log(currentUser)
-    }
-
-    }
+        }, [database]);
 
 
-
-
-
-    if (loading ) {
-        return (
-            <div className="flex items-center justify-center w-full h-full">
-                <div className="flex justify-center items-center space-x-1 text-sm text-gray-700">
-
-                    <svg fill='none' className="w-6 h-6 animate-spin" viewBox="0 0 32 32" xmlns='http://www.w3.org/2000/svg'>
-                        <path clip-rule='evenodd'
-                            d='M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z'
-                            fill='currentColor' fill-rule='evenodd' />
-                    </svg>
-
-                    <div>Loading ...</div>
-
-                </div>
-            </div>
-        )
-    }
 
 
     return (

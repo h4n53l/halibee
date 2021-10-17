@@ -18,9 +18,7 @@ export default function Messages() {
       sender: currentUser.displayName,
       avatar: currentUser.photoURL,
       timeStamp: serverTimestamp()
-    }).then((snap) => {
-      console.log(snap.root)
-   })
+    })
 
     setNewMessage("");
 

@@ -4955,6 +4955,11 @@ use-callback-ref@^1.2.1:
   resolved "https://registry.yarnpkg.com/use-callback-ref/-/use-callback-ref-1.2.5.tgz#6115ed242cfbaed5915499c0a9842ca2912f38a5"
   integrity sha512-gN3vgMISAgacF7sqsLPByqoePooY3n2emTH59Ur5d/M8eg4WTWu1xp8i8DHjohftIyEx0S08RiYxbffr4j8Peg==
 
+use-effect-x@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/use-effect-x/-/use-effect-x-0.1.5.tgz#421b7bb37ace4616a0f5a2318837efad37de93a7"
+  integrity sha512-VmV7iBN8ZQEBcJ/AMtcHJIih2ko7+vbeRd+FFy+TBt49tCyDStnxeq1N0MK60faQexOTnrOIHGDO+qa3p5o6Hw==
+
 use-sidecar@^1.0.1:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/use-sidecar/-/use-sidecar-1.0.5.tgz#ffff2a17c1df42e348624b699ba6e5c220527f2b"

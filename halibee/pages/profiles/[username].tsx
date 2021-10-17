@@ -48,17 +48,17 @@ export default function ProfilePage() {
     const hiveOwner = userInfo
 
 
-
-    async function fetchUserData() {
-        const response = await getDocs(
-            query(collection
-                (firestore, "freelancers"),
-                where("displayName", "==", username),
-                limit(1)))
-        setUserInfo(response.docs[0]['_document'].data.value.mapValue.fields)
-    }
-
+    
     useEffect(() => {
+        
+            async function fetchUserData() {
+                const response = await getDocs(
+                    query(collection
+                        (firestore, "freelancers"),
+                        where("displayName", "==", username),
+                        limit(1)))
+                setUserInfo(response.docs[0]['_document'].data.value.mapValue.fields)
+            }
 
         fetchUserData()
     }, [])
@@ -86,6 +86,7 @@ export default function ProfilePage() {
             time: dateTime,
             clientAvatar: currentUser.photoURL
         }
+        if(ref(database, currentUser.uid)) 
 
         push(ref(database,
             currentUser.uid + '/projectOut'),
@@ -110,9 +111,9 @@ export default function ProfilePage() {
                 <div className="flex justify-center items-center space-x-1 text-sm text-gray-700">
 
                     <svg fill='none' className="w-6 h-6 animate-spin" viewBox="0 0 32 32" xmlns='http://www.w3.org/2000/svg'>
-                        <path clip-rule='evenodd'
+                        <path clipRule='evenodd'
                             d='M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z'
-                            fill='currentColor' fill-rule='evenodd' />
+                            fill='currentColor' fillRule='evenodd' />
                     </svg>
 
                     <div>Loading ...</div>
@@ -165,7 +166,7 @@ export default function ProfilePage() {
                             <div className="w-full smx:-mt-96 z-10 lg:mt-7 md:mt-7 sm:-mt-64 md:w-4/12 px-4 text-center">
 
                                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                                    {hiveOwner.uniqueID.stringValue != currentUser.uid &&
+                                    {currentUser && hiveOwner.uniqueID.stringValue != currentUser.uid &&
                                         <button
                                             className="py-2 px-4  bg-primary dark:bg-darkMode text-secondary w-full text-center text-base font-semibold rounded-lg"
                                             onClick={() => toggleHireButton()}
