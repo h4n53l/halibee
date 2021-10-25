@@ -77,7 +77,7 @@ export default function Messages() {
                 <img
                   src={message.avatar}
                   alt="Avatar"
-                  className="w-12 h-12 display-block"
+                  className="w-12 h-12 rounded-lg display-block"
                 />
               ) : null}
             </section>

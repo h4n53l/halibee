@@ -9,6 +9,7 @@ import { onValue, query as realQuery, ref } from "@firebase/database";
 import { snapshot, useSnapshot } from "valtio";
 import { state } from "../../modules/valtio/state";
 import { onAuthStateChanged } from "@firebase/auth";
+import Projects from "../../components/projects";
 
 
 export const getStaticProps = async () => {
@@ -108,7 +109,9 @@ export default function () {
                     value="89"
                 />
 
-                <h1 className="uppercase mt-12">Client Projects</h1>
+                </div>
+
+<Projects />
 
                 {hireRequests.length > 0 &&
                     <div >
@@ -141,6 +144,5 @@ export default function () {
                     </div>
                 }
             </div>
-        </div>
     );
 }

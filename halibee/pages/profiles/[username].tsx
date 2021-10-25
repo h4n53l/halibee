@@ -3,7 +3,7 @@ import { auth, database, firestore } from "../../modules/firebase/initialiseFire
 import { collection, getDocs, query, where, limit } from '@firebase/firestore'
 import { GetStaticPaths } from "next";
 import { useEffect, useState } from "react";
-import { push, ref, set } from "@firebase/database";
+import { child, get, push, ref, set } from "@firebase/database";
 import InfoCard from "../../components/cards/infoCard";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -34,7 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 }
 
-export const dateTime = new Date().getTime()
+
 
 export default function ProfilePage() {
     const [userInfo, setUserInfo] = useState(null)
@@ -61,6 +61,8 @@ export default function ProfilePage() {
             }
 
         fetchUserData()
+
+        
     }, [])
 
 
@@ -75,6 +77,8 @@ export default function ProfilePage() {
     }
 
     const requestHire = () => {
+
+        
         const hireRequestData = {
             title: projectTitle,
             description: projectDescription,
@@ -83,10 +87,10 @@ export default function ProfilePage() {
             freelancerUID: hiveOwner.uniqueID.stringValue,
             freelancer: hiveOwner.displayName.stringValue,
             requestStatus: 'Awaiting Reply',
-            time: dateTime,
+            time: new Date().getTime(),
             clientAvatar: currentUser.photoURL
         }
-        if(ref(database, currentUser.uid)) 
+
 
         push(ref(database,
             currentUser.uid + '/projectOut'),
@@ -103,7 +107,9 @@ export default function ProfilePage() {
             })
 
         setHireForm(null)
+    
     }
+
 
     if (!userInfo || loading) {
         return (
