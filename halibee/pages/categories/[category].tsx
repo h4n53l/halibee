@@ -67,7 +67,7 @@ export default function () {
     }
 
     return (
-        <div className="p-10">
+        <div className="pt-10 px-3">
             <Listings title={category} featured={userData} />
         </div>
     );

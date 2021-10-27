@@ -22,9 +22,6 @@ export default function Messages() {
 
     setNewMessage("");
 
-    if (dummySpace) 
-    dummySpace.current.scrollIntoView({ behavor: "smooth" });
-
   }
 
   useEffect(() => {
@@ -64,7 +61,7 @@ export default function Messages() {
 
 
   return (
-    <div className="p-24">
+    <div className="pt-10 px-3">
 
 {messages.length > 0 && <ul >
         {messages.map(message => (
@@ -106,7 +103,6 @@ export default function Messages() {
       
       </ul>}
 
-      <section ref={dummySpace}></section>
 
       <form 
       onSubmit={handleSubmit}

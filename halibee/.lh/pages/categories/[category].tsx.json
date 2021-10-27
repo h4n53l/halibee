@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 152,
+            "activePatchIndex": 154,
             "patches": [
                 {
                     "date": 1631882326955,
@@ -616,6 +616,14 @@
                 {
                     "date": 1632345389882,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n export const getStaticPaths: GetStaticPaths = async () => {\r\n     const response: any = await getDocs(collection(firestore, \"categories\"))\r\n     const more_paths = []\r\n     response.forEach((doc: any) => {\r\n-        more_paths.push('categories/' + doc._document.data.value.mapValue.fields.skill.stringValue)\r\n+        more_paths.push('/categories/' + doc._document.data.value.mapValue.fields.skill.stringValue)\r\n     })\r\n     return {\r\n         \r\n         paths: more_paths,\r\n"
+                },
+                {
+                    "date": 1635284189849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,9 +66,9 @@\n         )\r\n     }\r\n \r\n     return (\r\n-        <div className=\"p-10\">\r\n+        <div className=\"pt-10\">\r\n             <Listings title={category} featured={userData} />\r\n         </div>\r\n     );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635284273548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,9 +66,9 @@\n         )\r\n     }\r\n \r\n     return (\r\n-        <div className=\"pt-10\">\r\n+        <div className=\"pt-10 px\">\r\n             <Listings title={category} featured={userData} />\r\n         </div>\r\n     );\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1631882326955,

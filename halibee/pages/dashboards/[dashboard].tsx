@@ -87,7 +87,7 @@ export default function () {
 
 
     return (
-        <div className="p-24">
+        <div className="pt-10 px-3">
             <div className="grid gap-6 my-8 md:grid-cols-2 xl:grid-cols-4">
                 <InfoCard
                     title="Total clients"

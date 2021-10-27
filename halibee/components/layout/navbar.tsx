@@ -39,9 +39,11 @@ export default function Navbar() {
 
             <div className="font-bold mx-auto  uppercase text-sm py-3 rounded">
               <Link href='/categories'>
-              <a className='text-secondary px-2 py-2 rounded-md text-sm font-medium'>
+             <p 
+             className='text-secondary px-2 py-2 rounded-md text-sm font-medium'>
+                
                 Categories
-              </a>
+                </p>
               </Link>
             </div>
           </div>
