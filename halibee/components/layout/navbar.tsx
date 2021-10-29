@@ -30,20 +30,20 @@ export default function Navbar() {
             <div className="flex-shrink-0 flex items-center">
               <Link href='/'>
                 <img
-                  className="block h-8 w-auto"
+                  className="block h-8 w-auto cursor-pointer"
                   src={logo}
                   alt="HaLiBee"
                 />
               </Link>
             </div>
 
-            <div className="font-bold mx-auto  uppercase text-sm py-3 rounded">
+            <div className="font-bold mx-auto   text-sm py-3 rounded">
               <Link href='/categories'>
-             <p 
-             className='text-secondary px-2 py-2 rounded-md text-sm font-medium'>
+             <button 
+             className='text-secondary uppercase px-2 py-2 rounded-md text-sm font-medium'>
                 
                 Categories
-                </p>
+                </button>
               </Link>
             </div>
           </div>

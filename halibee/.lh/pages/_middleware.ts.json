@@ -1,0 +1,26 @@
+{
+    "sourceFile": "pages/_middleware.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1635459241637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1635459301661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n import type { NextFetchEvent, NextRequest } from 'next/server'\r\n \r\n export function middleware(req: NextRequest, ev: NextFetchEvent) {\r\n-  return new Response('Hello, world!')\r\n+  return au\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635459309998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+import type { NextFetchEvent, NextRequest } from 'next/server'\r\n+import { auth } from '../modules/firebase/initialiseFirebase'\r\n+\r\n+export function middleware(req: NextRequest, ev: NextFetchEvent) {\r\n+  return auth.currentUser\r\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1635459241637,
+            "name": "Commit-0",
+            "content": "import type { NextFetchEvent, NextRequest } from 'next/server'\r\n\r\nexport function middleware(req: NextRequest, ev: NextFetchEvent) {\r\n  return new Response('Hello, world!')\r\n}"
+        }
+    ]
+}

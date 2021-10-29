@@ -10,6 +10,7 @@ import { snapshot, useSnapshot } from "valtio";
 import { state } from "../../modules/valtio/state";
 import { onAuthStateChanged } from "@firebase/auth";
 import Projects from "../../components/projects";
+import { useSelector } from "react-redux";
 
 
 export const getStaticProps = async () => {
@@ -64,7 +65,7 @@ export default function () {
 
         const hireRequestsList = []
         onAuthStateChanged(auth, user => {
-          onValue(ref(database, user.uid  + '/hireRequests'), (snapshot) => {
+          onValue(ref(database, user.uid  + '/hireRequests/'), (snapshot) => {
 
           console.log(snapshot.val())
           console.log(user.uid + '/hireRequests')
@@ -111,38 +112,9 @@ export default function () {
 
                 </div>
 
-<Projects />
+<Projects hireRequests={hireRequests} />
 
-                {hireRequests.length > 0 &&
-                    <div >
-                        {hireRequests.map(hireRequest => (
-                            <div className="w-40 h-60">
-                                <h3 className="my-6">{hireRequest.title}</h3>
-                                <p className="my-6">{hireRequest.description}</p>
-                                <p>{hireRequest.requestStatus}</p>
-
-                                <div className="relative flex flex-row items-center justify-center min-w-40 break-words w-full mb-8 ">
-                                    <button
-                                        className="py-2 px-4 mt-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg"
-                                    >
-                                        Accept
-                                    </button>
-
-                                </div>
-                                <div className="relative flex flex-row items-center justify-center min-w-40 break-words w-full mb-8 ">
-                                    <button
-                                        className="py-2 px-4 mt-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg"
-                                    >
-                                        Reject
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        ))
-                        }
-                    </div>
-                }
+                
             </div>
     );
 }
