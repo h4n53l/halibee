@@ -10,7 +10,6 @@ import { snapshot, useSnapshot } from "valtio";
 import { state } from "../../modules/valtio/state";
 import { onAuthStateChanged } from "@firebase/auth";
 import Projects from "../../components/projects";
-import { useSelector } from "react-redux";
 
 
 export const getStaticProps = async () => {
