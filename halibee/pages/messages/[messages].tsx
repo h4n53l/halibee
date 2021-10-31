@@ -6,22 +6,22 @@ import { formatRelative } from "date-fns"
 import { GetStaticPaths } from "next";
 
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = []
-  onValue(ref(database, auth.currentUser.uid), (snapshot) => {
-    if (snapshot.val())
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const paths = []
+//   onValue(ref(database, auth.currentUser.uid), (snapshot) => {
+//     if (snapshot.val())
 
-    for(var p in snapshot.val()){
-      paths.push(snapshot.val()[p]);
-      }
+//     for(var p in snapshot.val()){
+//       paths.push(snapshot.val()[p]);
+//       }
 
 
-  });
-  return {
-      paths: paths,
-      fallback: false
-  }
-}
+//   });
+//   return {
+//       paths: paths,
+//       fallback: false
+//   }
+// }
 
 
 export default function Messages() {
