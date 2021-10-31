@@ -1,5 +1,4 @@
-import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
+import { Menu } from '@headlessui/react'
 import { BellIcon } from '@heroicons/react/outline'
 import ThemeToggle from '../themeToggle'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -14,7 +13,10 @@ export default function Navbar() {
   const logo = "/assets/images/halibee_logo.png"
   const [user, loading, error] = useAuthState(auth)
 
- 
+  const logout = () => {
+    signOut(auth)
+    router.push('/')
+  }
 
   if(user){
     state.loggedInUser = user
@@ -89,15 +91,6 @@ export default function Navbar() {
                   />
                 </Menu.Button>
               </div>
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
-              >
                 <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-tetiary">
                   <Menu.Item>
                     {({ active }) => (
@@ -120,7 +113,7 @@ export default function Navbar() {
                   <Menu.Item>
                     {({ active }) => (
                       <button
-                        onClick={() => signOut(auth)}
+                        onClick={() => logout()}
                         className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}
                       >
                         Sign out
@@ -128,7 +121,6 @@ export default function Navbar() {
                     )}
                   </Menu.Item>
                 </Menu.Items>
-              </Transition>
             </Menu>
             </div>
             )

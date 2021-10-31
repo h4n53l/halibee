@@ -1,7 +1,47 @@
 import { formatRelative } from "date-fns";
+import { Menu, Transition } from '@headlessui/react'
+import { push, ref, update } from "@firebase/database";
+import { auth, database } from "../modules/firebase/initialiseFirebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 
 export default function Projects(props) {
     const hireRequests = props.hireRequests
+    const [currentUser, loading, error] = useAuthState(auth)
+
+    const parseDate = (date) => {
+        return formatRelative(
+            new Date(date),
+            new Date()
+        )
+    }
+
+    const createProjectIn = (projectDetails) => {
+        push(ref(database,
+            currentUser.uid + '/projectIn'),
+            {
+                ...projectDetails,
+                startDate: new Date().getTime(),
+                endDate: new Date().getTime() + 7884000,
+                messages: {
+                    sender: projectDetails.client,
+                    text: projectDetails.description,
+                    time: new Date().getTime(),
+                    avatar: projectDetails.clientAvatar
+                }
+            }
+        )
+            .then((snap) => {
+                update(ref(database,
+                    projectDetails.clientUID + '/projectOut/' + projectDetails.requestReference),
+                    {
+                        requestStatus: 'Accepted',
+                        projectReference: snap.key
+                    }
+                )
+            }
+            )
+    }
 
     return (
         <div>
@@ -39,12 +79,40 @@ export default function Projects(props) {
                                                 <p className="text-sm">
                                                     {hireRequest.title}
                                                 </p>
-                                                <button
-                                                    type="button"
-                                                    className="uppercase h-auto px-2  bg-primary dark:bg-darkMode text-secondary w-full text-center font-semibold rounded-lg"
-                                                >
-                                                    Details
-                                                </button>
+                                                <Menu as="div" className="ml-0 z-50 relative">
+                                                    <Menu.Button>
+                                                        <button className="uppercase h-auto px-2 mt-3 bg-primary dark:bg-darkMode text-secondary w-max text-center font-semibold rounded-lg">
+                                                            Details
+                                                        </button>
+                                                    </Menu.Button>
+                                                    <Menu.Items>
+                                                        <Menu.Item>
+                                                            {({ active }) => (
+                                                                <div className="bg-white rounded-lg relative">
+
+                                                                    <div className="flex items-baseline space-x-2 mt-2">
+
+                                                                        <p className="text-sm">{hireRequest.description}</p>
+                                                                    </div>
+                                                                    <div className="relative flex flex-row items-center justify-between min-w-40 break-words w-full mb-8 ">
+                                                                        <button
+                                                                            className="uppercase h-auto px-2 mt-3 mr-6 bg-primary dark:bg-darkMode text-secondary w-max text-center font-semibold rounded-lg"
+                                                                            onClick={() => createProjectIn(hireRequest)}
+                                                                        >
+                                                                            Accept
+                                                                        </button>
+                                                                        <button 
+                                                                        className="uppercase h-auto px-2 mt-3 ml-6 bg-primary dark:bg-darkMode text-secondary w-max text-center font-semibold rounded-lg"
+                                                                        onClick={() => console.log(hireRequest)}
+                                                                        >
+                                                                            Decline
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            )}
+                                                        </Menu.Item>
+                                                    </Menu.Items>
+                                                </Menu>
                                             </div>
 
                                             <div className="relative p-2  flex flex-col w-auto ">
@@ -52,42 +120,10 @@ export default function Projects(props) {
                                                     Date
                                                 </h5>
                                                 <p className="text-sm">
-                                                    {formatRelative(
-                                                        new Date(hireRequest.time),
-                                                        new Date()
-                                                    )}
+                                                    {parseDate(hireRequest.time)}
                                                 </p>
                                             </div>
                                         </div>
-
-
-                                        <div className="bg-white hidden rounded-lg relative">
-
-                                            <h3 className="text-2xl text-primary text-center dark:text-darkMode font-bold">
-                                                Project Details
-                                            </h3>
-
-                                            <div className="flex items-baseline space-x-2 mt-2">
-
-                                                <p className="text-gray-900 text-sm">Project details.</p>
-                                            </div>
-                                            <div className="relative flex flex-row items-center justify-center min-w-40 break-words w-full mb-8 ">
-                                                <button
-                                                    className="py-2 px-4 m-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg"
-
-                                                >
-                                                    Accept
-                                                </button>
-                                                <button
-                                                    className="py-2 px-4 m-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg"
-
-                                                >
-                                                    Decline
-                                                </button>
-
-                                            </div>
-                                        </div>
-
                                     </div>
                                 ))}
                             </div>

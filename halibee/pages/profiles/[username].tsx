@@ -3,7 +3,7 @@ import { auth, database, firestore } from "../../modules/firebase/initialiseFire
 import { collection, getDocs, query, where, limit } from '@firebase/firestore'
 import { GetStaticPaths } from "next";
 import { useEffect, useState } from "react";
-import { child, get, push, ref, set } from "@firebase/database";
+import { child, get, push, ref, set, update } from "@firebase/database";
 import InfoCard from "../../components/cards/infoCard";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -48,21 +48,21 @@ export default function ProfilePage() {
     const hiveOwner = userInfo
 
 
-    
+
     useEffect(() => {
-        
-            async function fetchUserData() {
-                const response = await getDocs(
-                    query(collection
-                        (firestore, "freelancers"),
-                        where("displayName", "==", username),
-                        limit(1)))
-                setUserInfo(response.docs[0]['_document'].data.value.mapValue.fields)
-            }
+
+        async function fetchUserData() {
+            const response = await getDocs(
+                query(collection
+                    (firestore, "freelancers"),
+                    where("displayName", "==", username),
+                    limit(1)))
+            setUserInfo(response.docs[0]['_document'].data.value.mapValue.fields)
+        }
 
         fetchUserData()
 
-        
+
     }, [])
 
 
@@ -78,7 +78,6 @@ export default function ProfilePage() {
 
     const requestHire = () => {
 
-        
         const hireRequestData = {
             title: projectTitle,
             description: projectDescription,
@@ -86,28 +85,36 @@ export default function ProfilePage() {
             client: currentUser.displayName,
             freelancerUID: hiveOwner.uniqueID.stringValue,
             freelancer: hiveOwner.displayName.stringValue,
-            requestStatus: 'Awaiting Reply',
-            time: new Date().getTime(),
+            requestStatus: 'Pending',
+            requestDate: new Date().getTime(),
             clientAvatar: currentUser.photoURL
         }
 
 
         push(ref(database,
-            currentUser.uid + '/projectOut'),
+            currentUser.uid + '/myProjects'),
             hireRequestData
         )
-            .then((snap) => {
+            .then((clientProjectReference) => {
                 push(ref(database,
                     hiveOwner.uniqueID.stringValue + '/hireRequests'),
                     {
                         ...hireRequestData,
-                        requestReference: snap.key
+                        clientProjectReference: clientProjectReference.key
                     }
                 )
+                    .then((hireRequestReference) => {
+                        update(ref(database,
+                            hiveOwner.uniqueID.stringValue + '/hireRequests'),
+                            {
+                                hireRequestReference: hireRequestReference.key
+                            }
+                        )
+                    })
             })
 
+
         setHireForm(null)
-    
     }
 
 

@@ -3,6 +3,26 @@ import { useEffect, useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, database } from "../../modules/firebase/initialiseFirebase";
 import { formatRelative } from "date-fns"
+import { GetStaticPaths } from "next";
+
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = []
+  onValue(ref(database, auth.currentUser.uid), (snapshot) => {
+    if (snapshot.val())
+
+    for(var p in snapshot.val()){
+      paths.push(snapshot.val()[p]);
+      }
+
+
+  });
+  return {
+      paths: paths,
+      fallback: false
+  }
+}
+
 
 export default function Messages() {
   const dummySpace = useRef();
