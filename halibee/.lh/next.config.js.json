@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 78,
+            "activePatchIndex": 101,
             "patches": [
                 {
                     "date": 1630153700013,
@@ -320,6 +320,98 @@
                 {
                     "date": 1634491402295,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,48 @@\n+const withPWA = require(\"next-pwa\");\r\n+\r\n+module.exports = withPWA({\r\n+  pwa: {\r\n+    dest: \"public\",\r\n+    register: true,\r\n+    skipWaiting: true,\r\n+  },\r\n+  webpack: (config, options) => {\r\n+    const { isServer } = options\r\n+    config.module.rules.push({\r\n+      test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n+      exclude: config.exclude,\r\n+      use: [\r\n+        {\r\n+          loader: require.resolve('file-loader'),\r\n+          options: {\r\n+            limit: config.inlineImageLimit,\r\n+            publicPath: `_next/static/images/`,\r\n+            outputPath: `${isServer ? '../' : ''}static/images/`,\r\n+            name: '[name]-[hash].[ext]',\r\n+            esModule: config.esModule || false,\r\n+          },\r\n+        },\r\n+      ],\r\n+    })\r\n+    return config\r\n+  },\r\n+ reactStrictMode: false,\r\n+  env: {\r\n+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,\r\n+    FIREBASE_AUTH_DOMATIN: process.env.FIREBASE_AUTH_DOMATIN,\r\n+    FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,\r\n+    FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,\r\n+    FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,\r\n+    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n+    FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,\r\n+    FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,\r\n+    FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY,\r\n+    COOKIE_SECRET_CURRENT: process.env.COOKIE_SECRET_CURRENT,\r\n+    COOKIE_SECRET_PREVIOUS: process.env.COOKIE_SECRET_PREVIOUS,\r\n+    FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,\r\n+    COMETCHAT_APP_ID: process.env.COMETCHAT_APP_ID,\r\n+    COMETCHAT_REGION: process.env.COMETCHAT_REGION,\r\n+    COMETCHAT_AUTH_KEY: process.env.COMETCHAT_AUTH_KEY,\r\n+    COMETCHAT_REST_API_KEY: process.env.COMETCHAT_REST_API_KEY,\r\n+  },\r\n+});\r\n"
+                },
+                {
+                    "date": 1635886361894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,157 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    const { isServer } = options\r\n-    config.module.rules.push({\r\n-      test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n-      exclude: config.exclude,\r\n-      use: [\r\n-        {\r\n-          loader: require.resolve('file-loader'),\r\n-          options: {\r\n-            limit: config.inlineImageLimit,\r\n-            publicPath: `_next/static/images/`,\r\n-            outputPath: `${isServer ? '../' : ''}static/images/`,\r\n-            name: '[name]-[hash].[ext]',\r\n-            esModule: config.esModule || false,\r\n-          },\r\n-        },\r\n-      ],\r\n-    })\r\n-    return config\r\n-  },\r\n- reactStrictMode: false,\r\n-  env: {\r\n-    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,\r\n-    FIREBASE_AUTH_DOMATIN: process.env.FIREBASE_AUTH_DOMATIN,\r\n-    FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,\r\n-    FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,\r\n-    FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,\r\n-    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n-    FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,\r\n-    FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,\r\n-    FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY,\r\n-    COOKIE_SECRET_CURRENT: process.env.COOKIE_SECRET_CURRENT,\r\n-    COOKIE_SECRET_PREVIOUS: process.env.COOKIE_SECRET_PREVIOUS,\r\n-    FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,\r\n-    COMETCHAT_APP_ID: process.env.COMETCHAT_APP_ID,\r\n-    COMETCHAT_REGION: process.env.COMETCHAT_REGION,\r\n-    COMETCHAT_AUTH_KEY: process.env.COMETCHAT_AUTH_KEY,\r\n-    COMETCHAT_REST_API_KEY: process.env.COMETCHAT_REST_API_KEY,\r\n-  },\r\n-});\r\n-const withPWA = require(\"next-pwa\");\r\n-\r\n-module.exports = withPWA({\r\n-  pwa: {\r\n-    dest: \"public\",\r\n-    disable: process.env.NODE_ENV === 'development',\r\n-    register: true,\r\n-    skipWaiting: true,\r\n-    sw: 'service-worker.js'\r\n-  },\r\n-  webpack: (config, options) => {\r\n-    const { isServer } = options\r\n-    config.module.rules.push({\r\n-      test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n-      exclude: config.exclude,\r\n-      use: [\r\n-        {\r\n-          loader: require.resolve('file-loader'),\r\n-          options: {\r\n-            limit: config.inlineImageLimit,\r\n-            publicPath: `_next/static/images/`,\r\n-            outputPath: `${isServer ? '../' : ''}static/images/`,\r\n-            name: '[name]-[hash].[ext]',\r\n-            esModule: config.esModule || false,\r\n-          },\r\n-        },\r\n-      ],\r\n-    })\r\n-    return config\r\n-  },\r\n- reactStrictMode: false,\r\n-  env: {\r\n-    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,\r\n-    FIREBASE_AUTH_DOMATIN: process.env.FIREBASE_AUTH_DOMATIN,\r\n-    FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,\r\n-    FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,\r\n-    FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,\r\n-    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n-    FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,\r\n-    FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,\r\n-    FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY,\r\n-    COOKIE_SECRET_CURRENT: process.env.COOKIE_SECRET_CURRENT,\r\n-    COOKIE_SECRET_PREVIOUS: process.env.COOKIE_SECRET_PREVIOUS,\r\n-    FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,\r\n-    COMETCHAT_APP_ID: process.env.COMETCHAT_APP_ID,\r\n-    COMETCHAT_REGION: process.env.COMETCHAT_REGION,\r\n-    COMETCHAT_AUTH_KEY: process.env.COMETCHAT_AUTH_KEY,\r\n-    COMETCHAT_REST_API_KEY: process.env.COMETCHAT_REST_API_KEY,\r\n-  },\r\n-});\r\n-const withPWA = require(\"next-pwa\");\r\n-\r\n-module.exports = withPWA({\r\n-  pwa: {\r\n-    dest: \"public\",\r\n-    disable: process.env.NODE_ENV === 'development',\r\n-    register: true,\r\n-    skipWaiting: true,\r\n-  },\r\n-  webpack: (config, options) => {\r\n-    const { isServer } = options\r\n-    config.module.rules.push({\r\n-      test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n-      exclude: config.exclude,\r\n-      use: [\r\n-        {\r\n-          loader: require.resolve('file-loader'),\r\n-          options: {\r\n-            limit: config.inlineImageLimit,\r\n-            publicPath: `_next/static/images/`,\r\n-            outputPath: `${isServer ? '../' : ''}static/images/`,\r\n-            name: '[name]-[hash].[ext]',\r\n-            esModule: config.esModule || false,\r\n-          },\r\n-        },\r\n-      ],\r\n-    })\r\n-    return config\r\n-  },\r\n- reactStrictMode: false,\r\n-  env: {\r\n-    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,\r\n-    FIREBASE_AUTH_DOMATIN: process.env.FIREBASE_AUTH_DOMATIN,\r\n-    FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,\r\n-    FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,\r\n-    FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,\r\n-    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,\r\n-    FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,\r\n-    FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,\r\n-    FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY,\r\n-    COOKIE_SECRET_CURRENT: process.env.COOKIE_SECRET_CURRENT,\r\n-    COOKIE_SECRET_PREVIOUS: process.env.COOKIE_SECRET_PREVIOUS,\r\n-    FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,\r\n-    COMETCHAT_APP_ID: process.env.COMETCHAT_APP_ID,\r\n-    COMETCHAT_REGION: process.env.COMETCHAT_REGION,\r\n-    COMETCHAT_AUTH_KEY: process.env.COMETCHAT_AUTH_KEY,\r\n-    COMETCHAT_REST_API_KEY: process.env.COMETCHAT_REST_API_KEY,\r\n-  },\r\n-});\r\n-const withPWA = require(\"next-pwa\");\r\n-\r\n-module.exports = withPWA({\r\n-  pwa: {\r\n-    dest: \"public\",\r\n     \r\n-    register: true,\r\n-    skipWaiting: true,\r\n-    sw: 'service-worker.js'\r\n-  },\r\n-  webpack: (config, options) => {\r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886390606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    \r\n+    config.experiments = { experimentstopLevelAwait: true };\r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886410070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    config.experiments = { experimentstopLevelAwait: true };\r\n+    experiments.topLevelAwait: true };\r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886423278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    experiments.topLevelAwait: true };\r\n+    experiments.topLevelAwait = true ;\r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886430024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    experiments.topLevelAwait = true ;\r\n+    experiments.topLevelAwait = true \r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886542693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    experiments.topLevelAwait = true \r\n+    config.experiments.topLevelAwait = true \r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886611985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    config.experiments.topLevelAwait = true \r\n+    topLevelAwait = true \r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886704603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    topLevelAwait = true \r\n+    exptopLevelAwait = true \r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886715814,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    exptopLevelAwait = true \r\n+    experimentstopLevelAwait = true \r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886744262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    experimentstopLevelAwait = true \r\n+    configexperiments.topLevelAwait = true \r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886778188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    configexperiments.topLevelAwait = true \r\n+    config.experiments.topLevelAwait: true \r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886786681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    config.experiments.topLevelAwait: true \r\n+    config.experiments =topLevelAwait: true \r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635886795080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    config.experiments =topLevelAwait: true \r\n+    config.experiments = {topLevelAwait: true} \r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635887036099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n   },\r\n   webpack: (config, options) => {\r\n     config.experiments = {topLevelAwait: true} \r\n     const { isServer } = options\r\n+    \r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n       use: [\r\n"
+                },
+                {
+                    "date": 1635887047674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   },\r\n   webpack: (config, options) => {\r\n     config.experiments = {topLevelAwait: true} \r\n     const { isServer } = options\r\n-    \r\n+    target = \r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n       use: [\r\n"
+                },
+                {
+                    "date": 1635887052804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   },\r\n   webpack: (config, options) => {\r\n     config.experiments = {topLevelAwait: true} \r\n     const { isServer } = options\r\n-    target = \r\n+    target = esnext\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n       use: [\r\n"
+                },
+                {
+                    "date": 1635887094332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   },\r\n   webpack: (config, options) => {\r\n     config.experiments = {topLevelAwait: true} \r\n     const { isServer } = options\r\n-    target = esnext\r\n+    target = \r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n       use: [\r\n"
+                },
+                {
+                    "date": 1635887119708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n   },\r\n   webpack: (config, options) => {\r\n     config.experiments = {topLevelAwait: true} \r\n     const { isServer } = options\r\n-    target = \r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n       use: [\r\n"
+                },
+                {
+                    "date": 1635887135738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n     config.experiments = {topLevelAwait: true} \r\n+    config.\r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635887141904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n     config.experiments = {topLevelAwait: true} \r\n-    config.\r\n+    config.target\r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635887147535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n     config.experiments = {topLevelAwait: true} \r\n-    config.target\r\n+    config.target = e\r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635887166600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,8 @@\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n     config.experiments = {topLevelAwait: true} \r\n-    config.target = e\r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1635887945997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    config.experiments = {topLevelAwait: true} \r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
                 }
             ],
             "date": 1630153700013,

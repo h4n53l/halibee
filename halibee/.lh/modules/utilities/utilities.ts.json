@@ -1,0 +1,50 @@
+{
+    "sourceFile": "modules/utilities/utilities.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1635792741617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1635792748411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,6 @@\n-export \n\\ No newline at end of file\n+export const parseDate = (date) => {\r\n+    return formatRelative(\r\n+        new Date(date),\r\n+        new Date()\r\n+    )\r\n+}\r\n"
+                },
+                {
+                    "date": 1635792756844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import { formatRelative } from \"date-fns\"\r\n+\r\n export const parseDate = (date) => {\r\n     return formatRelative(\r\n         new Date(date),\r\n         new Date()\r\n"
+                },
+                {
+                    "date": 1635889539998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,4 +5,10 @@\n         new Date(date),\r\n         new Date()\r\n     )\r\n }\r\n+\r\n+\r\n+export const logout = () => {\r\n+    signOut(auth)\r\n+    useRouter().push('/')\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635889553622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+import { signOut } from \"@firebase/auth\"\r\n import { formatRelative } from \"date-fns\"\r\n \r\n export const parseDate = (date) => {\r\n     return formatRelative(\r\n"
+                },
+                {
+                    "date": 1635889560555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import { signOut } from \"@firebase/auth\"\r\n import { formatRelative } from \"date-fns\"\r\n+import { auth } from \"../firebase/initialiseFirebase\"\r\n \r\n export const parseDate = (date) => {\r\n     return formatRelative(\r\n         new Date(date),\r\n"
+                },
+                {
+                    "date": 1635890142675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import { signOut } from \"@firebase/auth\"\r\n import { formatRelative } from \"date-fns\"\r\n+import { useRouter } from \"next/router\"\r\n import { auth } from \"../firebase/initialiseFirebase\"\r\n \r\n export const parseDate = (date) => {\r\n     return formatRelative(\r\n@@ -9,8 +10,5 @@\n     )\r\n }\r\n \r\n \r\n-export const logout = () => {\r\n-    signOut(auth)\r\n-    useRouter().push('/')\r\n-  }\n\\ No newline at end of file\n+export \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635890162331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import { signOut } from \"@firebase/auth\"\r\n import { formatRelative } from \"date-fns\"\r\n import { useRouter } from \"next/router\"\r\n import { auth } from \"../firebase/initialiseFirebase\"\r\n \r\n@@ -9,6 +8,4 @@\n         new Date()\r\n     )\r\n }\r\n \r\n-\r\n-export \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635890236961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,5 @@\n import { formatRelative } from \"date-fns\"\r\n-import { useRouter } from \"next/router\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n \r\n export const parseDate = (date) => {\r\n     return formatRelative(\r\n         new Date(date),\r\n"
+                }
+            ],
+            "date": 1635792741617,
+            "name": "Commit-0",
+            "content": "export "
+        }
+    ]
+}

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1631901880967,
@@ -32,6 +32,10 @@
                 {
                     "date": 1635531273889,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   \"include\": [\r\n     \"next-env.d.ts\",\r\n     \"**/*.ts\",\r\n     \"**/*.tsx\"\r\n-, \"functions.js\", \"functions/src/index.ts\", \"function.js\", \"pages/messages/CometChatNoSSR.js\", \"modules/firebase/initialiseFirebase.js\"  ],\r\n+, \"functions.js\", \"functions/src/index.ts\", \"function.js\", \"pages/messages/CometChatNoSSR.js\", \"modules/firebase/initialiseFirebase.js\", \"modules/redux/reducers/reducers.js\"  ],\r\n   \"exclude\": [\r\n     \"node_modules\"\r\n   ]\r\n }\r\n"
+                },
+                {
+                    "date": 1635887027735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {\r\n   \"compilerOptions\": {\r\n-    \"target\": \"es5\",\r\n+    \"target\": \"es2017\",\r\n     \"lib\": [\r\n       \"dom\",\r\n       \"dom.iterable\",\r\n       \"esnext\"\r\n"
                 }
             ],
             "date": 1631901880967,

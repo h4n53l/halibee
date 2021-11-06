@@ -1,0 +1,330 @@
+{
+    "sourceFile": "modules/chatModule/chat.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 78,
+            "patches": [
+                {
+                    "date": 1635792041234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1635792154683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import { formatRelative } from \"date-fns\"\r\n \r\n \r\n \r\n-export default function Messages() {\r\n+export default function Messages({}) {\r\n   const dummySpace = useRef();\r\n   const [newMessage, setNewMessage] = useState(\"\")\r\n   const currentUser = auth.currentUser\r\n   const [messages, setMessages] = useState([]);\r\n"
+                },
+                {
+                    "date": 1635792163708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import { formatRelative } from \"date-fns\"\r\n \r\n \r\n \r\n-export default function Messages({}) {\r\n+export default function Messages({reference}) {\r\n   const dummySpace = useRef();\r\n   const [newMessage, setNewMessage] = useState(\"\")\r\n   const currentUser = auth.currentUser\r\n   const [messages, setMessages] = useState([]);\r\n"
+                },
+                {
+                    "date": 1635792189456,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n  \r\n \r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n-    push(ref(database, 'messages/'), {\r\n+    push(ref(database, re), {\r\n       text: newMessage,\r\n       sender: currentUser.displayName,\r\n       avatar: currentUser.photoURL,\r\n       timeStamp: serverTimestamp()\r\n"
+                },
+                {
+                    "date": 1635792282524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n  \r\n \r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n-    push(ref(database, re), {\r\n+    push(ref(database, reference), {\r\n       text: newMessage,\r\n       sender: currentUser.displayName,\r\n       avatar: currentUser.photoURL,\r\n       timeStamp: serverTimestamp()\r\n@@ -27,9 +27,9 @@\n   }\r\n \r\n   useEffect(() => {\r\n     const messageList = []\r\n-    onValue(ref(database, 'messages'), (snapshot) => {\r\n+    onValue(ref(database, reference), (snapshot) => {\r\n       if (snapshot.val())\r\n \r\n       for(var p in snapshot.val()){\r\n           messageList.push(snapshot.val()[p]);\r\n"
+                },
+                {
+                    "date": 1635792802299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,11 +74,9 @@\n \r\n               {message.timeStamp ? (\r\n                 <span className=\"text-gray-600\">\r\n                   {formatRelative(\r\n-                    new Date(message.timeStamp),\r\n-                    new Date()\r\n-                  )}\r\n+                    new Date(message.timeStamp)}\r\n                 </span>\r\n               ) : null}\r\n             </section>\r\n           </li>\r\n"
+                },
+                {
+                    "date": 1635792809035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,10 +73,9 @@\n               <br />\r\n \r\n               {message.timeStamp ? (\r\n                 <span className=\"text-gray-600\">\r\n-                  {formatRelative(\r\n-                    new Date(message.timeStamp)}\r\n+                  {pa(message.timeStamp)}\r\n                 </span>\r\n               ) : null}\r\n             </section>\r\n           </li>\r\n"
+                },
+                {
+                    "date": 1635792815390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,9 +73,9 @@\n               <br />\r\n \r\n               {message.timeStamp ? (\r\n                 <span className=\"text-gray-600\">\r\n-                  {pa(message.timeStamp)}\r\n+                  {parse(message.timeStamp)}\r\n                 </span>\r\n               ) : null}\r\n             </section>\r\n           </li>\r\n"
+                },
+                {
+                    "date": 1635792822233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,9 +73,9 @@\n               <br />\r\n \r\n               {message.timeStamp ? (\r\n                 <span className=\"text-gray-600\">\r\n-                  {parse(message.timeStamp)}\r\n+                  {parseD(message.timeStamp)}\r\n                 </span>\r\n               ) : null}\r\n             </section>\r\n           </li>\r\n"
+                },
+                {
+                    "date": 1635792828333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import { useEffect, useRef, useState } from \"react\";\r\n import { useAuthState } from \"react-firebase-hooks/auth\";\r\n import { auth, database } from \"../firebase/initialiseFirebase\";\r\n import { formatRelative } from \"date-fns\"\r\n+import { parseDate } from \"../utilities/utilities\";\r\n \r\n \r\n \r\n export default function Messages({reference}) {\r\n@@ -73,9 +74,9 @@\n               <br />\r\n \r\n               {message.timeStamp ? (\r\n                 <span className=\"text-gray-600\">\r\n-                  {parseD(message.timeStamp)}\r\n+                  {parseDate(message.timeStamp)}\r\n                 </span>\r\n               ) : null}\r\n             </section>\r\n           </li>\r\n"
+                },
+                {
+                    "date": 1635792836765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import { onChildAdded, onValue, push, ref, serverTimestamp, update } from \"@firebase/database\";\r\n import { useEffect, useRef, useState } from \"react\";\r\n import { useAuthState } from \"react-firebase-hooks/auth\";\r\n import { auth, database } from \"../firebase/initialiseFirebase\";\r\n-import { formatRelative } from \"date-fns\"\r\n import { parseDate } from \"../utilities/utilities\";\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1635792846917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n-import { onChildAdded, onValue, push, ref, serverTimestamp, update } from \"@firebase/database\";\r\n+import { onValue, push, ref, serverTimestamp, update } from \"@firebase/database\";\r\n import { useEffect, useRef, useState } from \"react\";\r\n-import { useAuthState } from \"react-firebase-hooks/auth\";\r\n import { auth, database } from \"../firebase/initialiseFirebase\";\r\n import { parseDate } from \"../utilities/utilities\";\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1635795852257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { parseDate } from \"../utilities/utilities\";\r\n \r\n \r\n \r\n-export default function Messages({reference}) {\r\n+export default function Messages({reference, chat}) {\r\n   const dummySpace = useRef();\r\n   const [newMessage, setNewMessage] = useState(\"\")\r\n   const currentUser = auth.currentUser\r\n   const [messages, setMessages] = useState([]);\r\n"
+                },
+                {
+                    "date": 1635795875580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { parseDate } from \"../utilities/utilities\";\r\n \r\n \r\n \r\n-export default function Messages({reference, chat}) {\r\n+export default function Messages({reference, chatMode}) {\r\n   const dummySpace = useRef();\r\n   const [newMessage, setNewMessage] = useState(\"\")\r\n   const currentUser = auth.currentUser\r\n   const [messages, setMessages] = useState([]);\r\n@@ -42,9 +42,9 @@\n \r\n \r\n \r\n   return (\r\n-    <div className=\"pt-10 px-3\">\r\n+    (<div className=\"pt-10 px-3\">\r\n \r\n {messages.length > 0 && <ul >\r\n         {messages.map(message => (\r\n           <li \r\n@@ -114,7 +114,7 @@\n \r\n         </div>\r\n       </form>\r\n       \r\n-    </div>\r\n+    </div>)\r\n   );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635795881537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,6 +115,7 @@\n         </div>\r\n       </form>\r\n       \r\n     </div>)\r\n+    \r\n   );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635795887195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,7 +115,8 @@\n         </div>\r\n       </form>\r\n       \r\n     </div>)\r\n-    \r\n+    :\r\n+    null\r\n   );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635795894417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n \r\n \r\n \r\n   return (\r\n-    (<div className=\"pt-10 px-3\">\r\n+  {  (<div className=\"pt-10 px-3\">\r\n \r\n {messages.length > 0 && <ul >\r\n         {messages.map(message => (\r\n           <li \r\n@@ -116,7 +116,7 @@\n       </form>\r\n       \r\n     </div>)\r\n     :\r\n-    null\r\n+    null}\r\n   );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635795907063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,10 @@\n \r\n \r\n \r\n   return (\r\n-  {  (<div className=\"pt-10 px-3\">\r\n+  {\r\n+      (<div className=\"pt-10 px-3\">\r\n \r\n {messages.length > 0 && <ul >\r\n         {messages.map(message => (\r\n           <li \r\n"
+                },
+                {
+                    "date": 1635795917016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,11 @@\n \r\n \r\n \r\n   return (\r\n-  {\r\n-      (<div className=\"pt-10 px-3\">\r\n+  { chat\r\n+      (\r\n+        <div className=\"pt-10 px-3\">\r\n \r\n {messages.length > 0 && <ul >\r\n         {messages.map(message => (\r\n           <li \r\n@@ -115,9 +116,10 @@\n \r\n         </div>\r\n       </form>\r\n       \r\n-    </div>)\r\n+    </div>\r\n+    )\r\n     :\r\n     null}\r\n   );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635795955809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,15 +4,15 @@\n import { parseDate } from \"../utilities/utilities\";\r\n \r\n \r\n \r\n-export default function Messages({reference, chatMode}) {\r\n+export default function Messages({ reference, chatMode }) {\r\n   const dummySpace = useRef();\r\n   const [newMessage, setNewMessage] = useState(\"\")\r\n   const currentUser = auth.currentUser\r\n   const [messages, setMessages] = useState([]);\r\n- \r\n \r\n+\r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n     push(ref(database, reference), {\r\n       text: newMessage,\r\n@@ -29,68 +29,71 @@\n     const messageList = []\r\n     onValue(ref(database, reference), (snapshot) => {\r\n       if (snapshot.val())\r\n \r\n-      for(var p in snapshot.val()){\r\n+        for (var p in snapshot.val()) {\r\n           messageList.push(snapshot.val()[p]);\r\n         }\r\n \r\n-        setMessages(messageList)\r\n+      setMessages(messageList)\r\n \r\n     });\r\n \r\n   }, [database]);\r\n \r\n \r\n \r\n   return (\r\n-  { chat\r\n-      (\r\n-        <div className=\"pt-10 px-3\">\r\n+    {\r\n+      chatMode?\r\n+        (\r\n+        <div className = \"pt-10 px-3\" >\r\n \r\n-{messages.length > 0 && <ul >\r\n-        {messages.map(message => (\r\n-          <li \r\n-          className=\" bg-white rounded-lg p-6 my-10 relative\"\r\n-          >\r\n-            <section>\r\n-              \r\n-               {message.avatar ? (\r\n-                <img\r\n-                  src={message.avatar}\r\n-                  alt=\"Avatar\"\r\n-                  className=\"w-12 h-12 rounded-lg display-block\"\r\n-                />\r\n-              ) : null}\r\n-            </section>\r\n+          {\r\n+            messages.length > 0 && <ul >\r\n+              {messages.map(message => (\r\n+                <li\r\n+                  className=\" bg-white rounded-lg p-6 my-10 relative\"\r\n+                >\r\n+                  <section>\r\n \r\n-            <section>\r\n+                    {message.avatar ? (\r\n+                      <img\r\n+                        src={message.avatar}\r\n+                        alt=\"Avatar\"\r\n+                        className=\"w-12 h-12 rounded-lg display-block\"\r\n+                      />\r\n+                    ) : null}\r\n+                  </section>\r\n \r\n-              <p >{message.text}\r\n-              {message.id}\r\n-              </p>\r\n+                  <section>\r\n \r\n+                    <p >{message.text}\r\n+                      {message.id}\r\n+                    </p>\r\n \r\n-              {message.sender ? <span className=\"text-primary\">{message.sender}</span> : null}\r\n-              <br />\r\n \r\n-              {message.timeStamp ? (\r\n-                <span className=\"text-gray-600\">\r\n-                  {parseDate(message.timeStamp)}\r\n-                </span>\r\n-              ) : null}\r\n-            </section>\r\n-          </li>\r\n-        ))}\r\n-      \r\n-      </ul>}\r\n+                    {message.sender ? <span className=\"text-primary\">{message.sender}</span> : null}\r\n+                    <br />\r\n \r\n+                    {message.timeStamp ? (\r\n+                      <span className=\"text-gray-600\">\r\n+                        {parseDate(message.timeStamp)}\r\n+                      </span>\r\n+                    ) : null}\r\n+                  </section>\r\n+                </li>\r\n+              ))}\r\n \r\n-      <form \r\n-      onSubmit={handleSubmit}\r\n-      className=\" bg-white rounded-lg p-6 my-10 mt-24 relative\"\r\n-      >\r\n+            </ul>\r\n+          }\r\n \r\n+\r\n+            < form \r\n+      onSubmit = { handleSubmit }\r\n+      className = \" bg-white rounded-lg p-6 my-10 mt-24 relative\"\r\n+            >\r\n+\r\n         <h3 className=\"text-2xl text-primary text-center dark:text-darkMode font-bold\">\r\n           Messaging\r\n         </h3>\r\n \r\n@@ -116,10 +119,11 @@\n \r\n         </div>\r\n       </form>\r\n       \r\n-    </div>\r\n+    </div >\r\n     )\r\n     :\r\n-    null}\r\n+  null\r\n+}\r\n   );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635795995283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -124,6 +124,7 @@\n     )\r\n     :\r\n   null\r\n }\r\n+</>\r\n   );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635796003792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n \r\n \r\n \r\n   return (\r\n+    <>\r\n     {\r\n       chatMode?\r\n         (\r\n         <div className = \"pt-10 px-3\" >\r\n"
+                },
+                {
+                    "date": 1635796032512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n     {\r\n       chatMode?\r\n         (\r\n         <div className = \"pt-10 px-3\" >\r\n-\r\n+<butt\r\n           {\r\n             messages.length > 0 && <ul >\r\n               {messages.map(message => (\r\n                 <li\r\n"
+                },
+                {
+                    "date": 1635796038190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n     {\r\n       chatMode?\r\n         (\r\n         <div className = \"pt-10 px-3\" >\r\n-<butt\r\n+<button>\r\n           {\r\n             messages.length > 0 && <ul >\r\n               {messages.map(message => (\r\n                 <li\r\n"
+                },
+                {
+                    "date": 1635796044458,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n     {\r\n       chatMode?\r\n         (\r\n         <div className = \"pt-10 px-3\" >\r\n-<button>\r\n+<button> Close\r\n           {\r\n             messages.length > 0 && <ul >\r\n               {messages.map(message => (\r\n                 <li\r\n"
+                },
+                {
+                    "date": 1635796057653,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,10 @@\n     {\r\n       chatMode?\r\n         (\r\n         <div className = \"pt-10 px-3\" >\r\n-<button> Close\r\n+<button\r\n+> Close </button>\r\n           {\r\n             messages.length > 0 && <ul >\r\n               {messages.map(message => (\r\n                 <li\r\n"
+                },
+                {
+                    "date": 1635796063393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,11 @@\n       chatMode?\r\n         (\r\n         <div className = \"pt-10 px-3\" >\r\n <button\r\n-> Close </button>\r\n+\r\n+> Close \r\n+</button>\r\n           {\r\n             messages.length > 0 && <ul >\r\n               {messages.map(message => (\r\n                 <li\r\n"
+                },
+                {
+                    "date": 1635796072807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,92 +43,93 @@\n \r\n \r\n   return (\r\n     <>\r\n-    {\r\n-      chatMode?\r\n-        (\r\n-        <div className = \"pt-10 px-3\" >\r\n-<button\r\n+      {\r\n+        chatMode ?\r\n+          (\r\n+            <div className=\"pt-10 px-3\" >\r\n+              <button\r\n+onCli\r\n+              >\r\n+                Close\r\n+              </button>\r\n+              {\r\n+                messages.length > 0 && <ul >\r\n+                  {messages.map(message => (\r\n+                    <li\r\n+                      className=\" bg-white rounded-lg p-6 my-10 relative\"\r\n+                    >\r\n+                      <section>\r\n \r\n-> Close \r\n-</button>\r\n-          {\r\n-            messages.length > 0 && <ul >\r\n-              {messages.map(message => (\r\n-                <li\r\n-                  className=\" bg-white rounded-lg p-6 my-10 relative\"\r\n-                >\r\n-                  <section>\r\n+                        {message.avatar ? (\r\n+                          <img\r\n+                            src={message.avatar}\r\n+                            alt=\"Avatar\"\r\n+                            className=\"w-12 h-12 rounded-lg display-block\"\r\n+                          />\r\n+                        ) : null}\r\n+                      </section>\r\n \r\n-                    {message.avatar ? (\r\n-                      <img\r\n-                        src={message.avatar}\r\n-                        alt=\"Avatar\"\r\n-                        className=\"w-12 h-12 rounded-lg display-block\"\r\n-                      />\r\n-                    ) : null}\r\n-                  </section>\r\n+                      <section>\r\n \r\n-                  <section>\r\n+                        <p >{message.text}\r\n+                          {message.id}\r\n+                        </p>\r\n \r\n-                    <p >{message.text}\r\n-                      {message.id}\r\n-                    </p>\r\n \r\n+                        {message.sender ? <span className=\"text-primary\">{message.sender}</span> : null}\r\n+                        <br />\r\n \r\n-                    {message.sender ? <span className=\"text-primary\">{message.sender}</span> : null}\r\n-                    <br />\r\n+                        {message.timeStamp ? (\r\n+                          <span className=\"text-gray-600\">\r\n+                            {parseDate(message.timeStamp)}\r\n+                          </span>\r\n+                        ) : null}\r\n+                      </section>\r\n+                    </li>\r\n+                  ))}\r\n \r\n-                    {message.timeStamp ? (\r\n-                      <span className=\"text-gray-600\">\r\n-                        {parseDate(message.timeStamp)}\r\n-                      </span>\r\n-                    ) : null}\r\n-                  </section>\r\n-                </li>\r\n-              ))}\r\n+                </ul>\r\n+              }\r\n \r\n-            </ul>\r\n-          }\r\n \r\n+              < form\r\n+                onSubmit={handleSubmit}\r\n+                className=\" bg-white rounded-lg p-6 my-10 mt-24 relative\"\r\n+              >\r\n \r\n-            < form \r\n-      onSubmit = { handleSubmit }\r\n-      className = \" bg-white rounded-lg p-6 my-10 mt-24 relative\"\r\n-            >\r\n+                <h3 className=\"text-2xl text-primary text-center dark:text-darkMode font-bold\">\r\n+                  Messaging\r\n+                </h3>\r\n \r\n-        <h3 className=\"text-2xl text-primary text-center dark:text-darkMode font-bold\">\r\n-          Messaging\r\n-        </h3>\r\n \r\n \r\n-        \r\n-        <input\r\n-          type=\"text\"\r\n-          maxLength={91}\r\n-          value={newMessage}\r\n-          onChange={(e) => setNewMessage(e.target.value)}\r\n-          className=\" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent\"\r\n-          placeholder=\"Short description\"\r\n-        />\r\n+                <input\r\n+                  type=\"text\"\r\n+                  maxLength={91}\r\n+                  value={newMessage}\r\n+                  onChange={(e) => setNewMessage(e.target.value)}\r\n+                  className=\" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent\"\r\n+                  placeholder=\"Short description\"\r\n+                />\r\n \r\n-        <div className=\"relative flex flex-row items-center justify-center min-w-40 break-words w-full mb-8 \">\r\n-          <button\r\n-            className=\"py-2 px-4 mt-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg\"\r\n-            type=\"submit\"\r\n-            disabled={!newMessage}\r\n-          >\r\n-            Send\r\n-          </button>\r\n+                <div className=\"relative flex flex-row items-center justify-center min-w-40 break-words w-full mb-8 \">\r\n+                  <button\r\n+                    className=\"py-2 px-4 mt-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg\"\r\n+                    type=\"submit\"\r\n+                    disabled={!newMessage}\r\n+                  >\r\n+                    Send\r\n+                  </button>\r\n \r\n-        </div>\r\n-      </form>\r\n-      \r\n-    </div >\r\n-    )\r\n-    :\r\n-  null\r\n-}\r\n-</>\r\n+                </div>\r\n+              </form>\r\n+\r\n+            </div >\r\n+          )\r\n+          :\r\n+          null\r\n+      }\r\n+    </>\r\n   );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1635796078974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         chatMode ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onCli\r\n+onClick=\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635796086671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         chatMode ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick=\r\n+onClick={()}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635796115387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         chatMode ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick={()}\r\n+onClick={() => ch}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635796120860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         chatMode ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick={() => ch}\r\n+onClick={() => chatMode=}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635797109622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n       setMessages(messageList)\r\n \r\n     });\r\n \r\n-  }, [database]);\r\n+  }, [chatdatabase]);\r\n \r\n \r\n \r\n   return (\r\n@@ -48,9 +48,9 @@\n         chatMode ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick={() => chatMode=}\r\n+onClick={() => chatMode=false}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635797151366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n       setMessages(messageList)\r\n \r\n     });\r\n \r\n-  }, [chatdatabase]);\r\n+  }, [chatMode, database]);\r\n \r\n \r\n \r\n   return (\r\n@@ -48,9 +48,9 @@\n         chatMode ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick={() => chatMode=false}\r\n+onClick={() => chatMode={false}}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635797158745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         chatMode ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick={() => chatMode={false}}\r\n+onClick={() => chatMode}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635797167476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         chatMode ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick={() => chatMode}\r\n+onClick={() => chatMode=}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635797173953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         chatMode ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick={() => chatMode=}\r\n+onClick={() => chatMode=!chatMode}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635797214424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \r\n       setMessages(messageList)\r\n \r\n     });\r\n-\r\n+conso\r\n   }, [chatMode, database]);\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1635797221189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \r\n       setMessages(messageList)\r\n \r\n     });\r\n-conso\r\n+console.log(chatMode)\r\n   }, [chatMode, database]);\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1635797268842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n   const dummySpace = useRef();\r\n   const [newMessage, setNewMessage] = useState(\"\")\r\n   const currentUser = auth.currentUser\r\n   const [messages, setMessages] = useState([]);\r\n+  \r\n \r\n \r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n"
+                },
+                {
+                    "date": 1635797274844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   const dummySpace = useRef();\r\n   const [newMessage, setNewMessage] = useState(\"\")\r\n   const currentUser = auth.currentUser\r\n   const [messages, setMessages] = useState([]);\r\n-  \r\n+  const []\r\n \r\n \r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n"
+                },
+                {
+                    "date": 1635797282688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   const dummySpace = useRef();\r\n   const [newMessage, setNewMessage] = useState(\"\")\r\n   const currentUser = auth.currentUser\r\n   const [messages, setMessages] = useState([]);\r\n-  const []\r\n+  const [open, set]\r\n \r\n \r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n"
+                },
+                {
+                    "date": 1635797288782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   const dummySpace = useRef();\r\n   const [newMessage, setNewMessage] = useState(\"\")\r\n   const currentUser = auth.currentUser\r\n   const [messages, setMessages] = useState([]);\r\n-  const [open, set]\r\n+  const [open, setOpen] = \r\n \r\n \r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n"
+                },
+                {
+                    "date": 1635797294954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   const dummySpace = useRef();\r\n   const [newMessage, setNewMessage] = useState(\"\")\r\n   const currentUser = auth.currentUser\r\n   const [messages, setMessages] = useState([]);\r\n-  const [open, setOpen] = \r\n+  const [open, setOpen] = useState(ch)\r\n \r\n \r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n"
+                },
+                {
+                    "date": 1635797310161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   const dummySpace = useRef();\r\n   const [newMessage, setNewMessage] = useState(\"\")\r\n   const currentUser = auth.currentUser\r\n   const [messages, setMessages] = useState([]);\r\n-  const [open, setOpen] = useState(ch)\r\n+  const [open, setOpen] = useState(chatMode)\r\n \r\n \r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n@@ -45,9 +45,9 @@\n \r\n   return (\r\n     <>\r\n       {\r\n-        chatMode ?\r\n+        open ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n onClick={() => chatMode=!chatMode}\r\n"
+                },
+                {
+                    "date": 1635797318527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n         open ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick={() => chatMode=!chatMode}\r\n+onClick={() => set}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635797324287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n         open ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick={() => set}\r\n+onClick={() => setOpen()}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635797339646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n       setMessages(messageList)\r\n \r\n     });\r\n console.log(chatMode)\r\n-  }, [chatMode, database]);\r\n+  }, [open, database]);\r\n \r\n \r\n \r\n   return (\r\n@@ -49,9 +49,9 @@\n         open ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick={() => setOpen()}\r\n+onClick={() => setOpen(!open)}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635797453210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,8 @@\n \r\n       setMessages(messageList)\r\n \r\n     });\r\n-console.log(chatMode)\r\n   }, [open, database]);\r\n \r\n \r\n \r\n@@ -47,9 +46,9 @@\n     <>\r\n       {\r\n         open ?\r\n           (\r\n-            <div className=\"pt-10 px-3\" >\r\n+            <div className=\"pt-10 px-3 \" >\r\n               <button\r\n onClick={() => setOpen(!open)}\r\n               >\r\n                 Close\r\n"
+                },
+                {
+                    "date": 1635797458281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n     <>\r\n       {\r\n         open ?\r\n           (\r\n-            <div className=\"pt-10 px-3 \" >\r\n+            <div className=\"pt-10 px-3 absolute\" >\r\n               <button\r\n onClick={() => setOpen(!open)}\r\n               >\r\n                 Close\r\n"
+                },
+                {
+                    "date": 1635797779716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n     <>\r\n       {\r\n         open ?\r\n           (\r\n-            <div className=\"pt-10 px-3 absolute\" >\r\n+            <div className=\"pt-10 px-3\" >\r\n               <button\r\n onClick={() => setOpen(!open)}\r\n               >\r\n                 Close\r\n"
+                },
+                {
+                    "date": 1635797885956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \r\n       setMessages(messageList)\r\n \r\n     });\r\n-  }, [open, database]);\r\n+  }, [open, messageList]);\r\n \r\n \r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1635797900785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \r\n       setMessages(messageList)\r\n \r\n     });\r\n-  }, [open, messageList]);\r\n+  }, [open, messagest]);\r\n \r\n \r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1635797983357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \r\n       setMessages(messageList)\r\n \r\n     });\r\n-  }, [open, messagest]);\r\n+  }, [open, da]);\r\n \r\n \r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1635798041709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \r\n       setMessages(messageList)\r\n \r\n     });\r\n-  }, [open, da]);\r\n+  }, [open, newMessage]);\r\n \r\n \r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1635798267015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n         for (var p in snapshot.val()) {\r\n           messageList.push(snapshot.val()[p]);\r\n         }\r\n \r\n-      setMessages(messageList)\r\n+      // setMessages(messageList)\r\n \r\n     });\r\n   }, [open, newMessage]);\r\n \r\n"
+                },
+                {
+                    "date": 1635798314856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n         for (var p in snapshot.val()) {\r\n           messageList.push(snapshot.val()[p]);\r\n         }\r\n \r\n-      // setMessages(messageList)\r\n+      setMessages(messageList)\r\n \r\n     });\r\n   }, [open, newMessage]);\r\n \r\n"
+                },
+                {
+                    "date": 1635798358886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n           messageList.push(snapshot.val()[p]);\r\n         }\r\n \r\n       setMessages(messageList)\r\n-\r\n+cons\r\n     });\r\n   }, [open, newMessage]);\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1635798370758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n           messageList.push(snapshot.val()[p]);\r\n         }\r\n \r\n       setMessages(messageList)\r\n-cons\r\n+\r\n     });\r\n   }, [open, newMessage]);\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1635798378344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n   }\r\n \r\n   useEffect(() => {\r\n     const messageList = []\r\n+    \r\n     onValue(ref(database, reference), (snapshot) => {\r\n       if (snapshot.val())\r\n \r\n         for (var p in snapshot.val()) {\r\n"
+                },
+                {
+                    "date": 1635798385034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   }\r\n \r\n   useEffect(() => {\r\n     const messageList = []\r\n-    \r\n+    conso\r\n     onValue(ref(database, reference), (snapshot) => {\r\n       if (snapshot.val())\r\n \r\n         for (var p in snapshot.val()) {\r\n"
+                },
+                {
+                    "date": 1635798391519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   }\r\n \r\n   useEffect(() => {\r\n     const messageList = []\r\n-    conso\r\n+    console.log(message)\r\n     onValue(ref(database, reference), (snapshot) => {\r\n       if (snapshot.val())\r\n \r\n         for (var p in snapshot.val()) {\r\n"
+                },
+                {
+                    "date": 1635798457400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,17 +27,18 @@\n   }\r\n \r\n   useEffect(() => {\r\n     const messageList = []\r\n-    console.log(message)\r\n+    console.log(messageList)\r\n     onValue(ref(database, reference), (snapshot) => {\r\n       if (snapshot.val())\r\n \r\n         for (var p in snapshot.val()) {\r\n           messageList.push(snapshot.val()[p]);\r\n         }\r\n \r\n       setMessages(messageList)\r\n+      \r\n \r\n     });\r\n   }, [open, newMessage]);\r\n \r\n"
+                },
+                {
+                    "date": 1635798464645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n           messageList.push(snapshot.val()[p]);\r\n         }\r\n \r\n       setMessages(messageList)\r\n-      \r\n+      messageList = \r\n \r\n     });\r\n   }, [open, newMessage]);\r\n \r\n"
+                },
+                {
+                    "date": 1635798470647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n           messageList.push(snapshot.val()[p]);\r\n         }\r\n \r\n       setMessages(messageList)\r\n-      messageList = \r\n+      messageList = []\r\n \r\n     });\r\n   }, [open, newMessage]);\r\n \r\n"
+                },
+                {
+                    "date": 1635798481401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n           messageList.push(snapshot.val()[p]);\r\n         }\r\n \r\n       setMessages(messageList)\r\n-      messageList = []\r\n+      messageList = \r\n \r\n     });\r\n   }, [open, newMessage]);\r\n \r\n"
+                },
+                {
+                    "date": 1635798488173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,8 @@\n           messageList.push(snapshot.val()[p]);\r\n         }\r\n \r\n       setMessages(messageList)\r\n-      messageList = \r\n \r\n     });\r\n   }, [open, newMessage]);\r\n \r\n"
+                },
+                {
+                    "date": 1635798711879,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n         }\r\n \r\n       setMessages(messageList)\r\n \r\n-    });\r\n+    }, );\r\n   }, [open, newMessage]);\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1635798717060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,11 @@\n         }\r\n \r\n       setMessages(messageList)\r\n \r\n-    }, );\r\n+    }, {\r\n+      on\r\n+    });\r\n   }, [open, newMessage]);\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1635798722427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n \r\n       setMessages(messageList)\r\n \r\n     }, {\r\n-      on\r\n+      onlyOnce = \r\n     });\r\n   }, [open, newMessage]);\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1635798730901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n \r\n       setMessages(messageList)\r\n \r\n     }, {\r\n-      onlyOnce = \r\n+      onlyOnce true\r\n     });\r\n   }, [open, newMessage]);\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1635798930533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n \r\n       setMessages(messageList)\r\n \r\n     }, {\r\n-      onlyOnce true\r\n+      onlyOnce: true\r\n     });\r\n   }, [open, newMessage]);\r\n \r\n \r\n@@ -51,9 +51,9 @@\n         open ?\r\n           (\r\n             <div className=\"pt-10 px-3\" >\r\n               <button\r\n-onClick={() => setOpen(!open)}\r\n+                onClick={() => setOpen(!open)}\r\n               >\r\n                 Close\r\n               </button>\r\n               {\r\n"
+                },
+                {
+                    "date": 1635799002127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,8 +60,9 @@\n                 messages.length > 0 && <ul >\r\n                   {messages.map(message => (\r\n                     <li\r\n                       className=\" bg-white rounded-lg p-6 my-10 relative\"\r\n+                      +\r\n                     >\r\n                       <section>\r\n \r\n                         {message.avatar ? (\r\n"
+                },
+                {
+                    "date": 1635799008691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,8 +61,9 @@\n                   {messages.map(message => (\r\n                     <li\r\n                       className=\" bg-white rounded-lg p-6 my-10 relative\"\r\n                       +\r\n+                      \r\n                     >\r\n                       <section>\r\n \r\n                         {message.avatar ? (\r\n"
+                },
+                {
+                    "date": 1635799019992,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,10 +60,8 @@\n                 messages.length > 0 && <ul >\r\n                   {messages.map(message => (\r\n                     <li\r\n                       className=\" bg-white rounded-lg p-6 my-10 relative\"\r\n-                      +\r\n-                      \r\n                     >\r\n                       <section>\r\n \r\n                         {message.avatar ? (\r\n"
+                },
+                {
+                    "date": 1635799097110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,8 +60,9 @@\n                 messages.length > 0 && <ul >\r\n                   {messages.map(message => (\r\n                     <li\r\n                       className=\" bg-white rounded-lg p-6 my-10 relative\"\r\n+                      \r\n                     >\r\n                       <section>\r\n \r\n                         {message.avatar ? (\r\n"
+                },
+                {
+                    "date": 1635799103495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,10 +59,10 @@\n               {\r\n                 messages.length > 0 && <ul >\r\n                   {messages.map(message => (\r\n                     <li\r\n-                      className=\" bg-white rounded-lg p-6 my-10 relative\"\r\n-                      \r\n+                      className={\" bg-white rounded-lg p-6 my-10 relative\"\r\n+                      }\r\n                     >\r\n                       <section>\r\n \r\n                         {message.avatar ? (\r\n"
+                },
+                {
+                    "date": 1635799117465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n                 messages.length > 0 && <ul >\r\n                   {messages.map(message => (\r\n                     <li\r\n                       className={\" bg-white rounded-lg p-6 my-10 relative\"\r\n-                      =\r\n+                      \r\n                       }\r\n                     >\r\n                       <section>\r\n \r\n"
+                },
+                {
+                    "date": 1635799173832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,141 @@\n+import { onValue, push, ref, serverTimestamp, update } from \"@firebase/database\";\r\n+import { useEffect, useRef, useState } from \"react\";\r\n+import { auth, database } from \"../firebase/initialiseFirebase\";\r\n+import { parseDate } from \"../utilities/utilities\";\r\n+\r\n+\r\n+\r\n+export default function Messages({ reference, chatMode }) {\r\n+  const dummySpace = useRef();\r\n+  const [newMessage, setNewMessage] = useState(\"\")\r\n+  const currentUser = auth.currentUser\r\n+  const [messages, setMessages] = useState([]);\r\n+  const [open, setOpen] = useState(chatMode)\r\n+\r\n+\r\n+  const handleSubmit = (e) => {\r\n+    e.preventDefault()\r\n+    push(ref(database, reference), {\r\n+      text: newMessage,\r\n+      sender: currentUser.displayName,\r\n+      avatar: currentUser.photoURL,\r\n+      timeStamp: serverTimestamp()\r\n+    })\r\n+\r\n+    setNewMessage(\"\");\r\n+\r\n+  }\r\n+\r\n+  useEffect(() => {\r\n+    const messageList = []\r\n+    console.log(messageList)\r\n+    onValue(ref(database, reference), (snapshot) => {\r\n+      if (snapshot.val())\r\n+\r\n+        for (var p in snapshot.val()) {\r\n+          messageList.push(snapshot.val()[p]);\r\n+        }\r\n+\r\n+      setMessages(messageList)\r\n+\r\n+    }, {\r\n+      onlyOnce: true\r\n+    });\r\n+  }, [open, newMessage]);\r\n+\r\n+\r\n+\r\n+  return (\r\n+    <>\r\n+      {\r\n+        open ?\r\n+          (\r\n+            <div className=\"pt-10 px-3\" >\r\n+              <button\r\n+                onClick={() => setOpen(!open)}\r\n+              >\r\n+                Close\r\n+              </button>\r\n+              {\r\n+                messages.length > 0 && <ul >\r\n+                  {messages.map(message => (\r\n+                    <li\r\n+                      className={\" bg-white rounded-lg p-6 my-10 relative\"\r\n+                      +\r\n+                      (message.sender === cu)\r\n+                      }\r\n+                    >\r\n+                      <section>\r\n+\r\n+                        {message.avatar ? (\r\n+                          <img\r\n+                            src={message.avatar}\r\n+                            alt=\"Avatar\"\r\n+                            className=\"w-12 h-12 rounded-lg display-block\"\r\n+                          />\r\n+                        ) : null}\r\n+                      </section>\r\n+\r\n+                      <section>\r\n+\r\n+                        <p >{message.text}\r\n+                          {message.id}\r\n+                        </p>\r\n+\r\n+\r\n+                        {message.sender ? <span className=\"text-primary\">{message.sender}</span> : null}\r\n+                        <br />\r\n+\r\n+                        {message.timeStamp ? (\r\n+                          <span className=\"text-gray-600\">\r\n+                            {parseDate(message.timeStamp)}\r\n+                          </span>\r\n+                        ) : null}\r\n+                      </section>\r\n+                    </li>\r\n+                  ))}\r\n+\r\n+                </ul>\r\n+              }\r\n+\r\n+\r\n+              < form\r\n+                onSubmit={handleSubmit}\r\n+                className=\" bg-white rounded-lg p-6 my-10 mt-24 relative\"\r\n+              >\r\n+\r\n+                <h3 className=\"text-2xl text-primary text-center dark:text-darkMode font-bold\">\r\n+                  Messaging\r\n+                </h3>\r\n+\r\n+\r\n+\r\n+                <input\r\n+                  type=\"text\"\r\n+                  maxLength={91}\r\n+                  value={newMessage}\r\n+                  onChange={(e) => setNewMessage(e.target.value)}\r\n+                  className=\" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent\"\r\n+                  placeholder=\"Short description\"\r\n+                />\r\n+\r\n+                <div className=\"relative flex flex-row items-center justify-center min-w-40 break-words w-full mb-8 \">\r\n+                  <button\r\n+                    className=\"py-2 px-4 mt-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg\"\r\n+                    type=\"submit\"\r\n+                    disabled={!newMessage}\r\n+                  >\r\n+                    Send\r\n+                  </button>\r\n+\r\n+                </div>\r\n+              </form>\r\n+\r\n+            </div >\r\n+          )\r\n+          :\r\n+          null\r\n+      }\r\n+    </>\r\n+  );\r\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1635792041234,
+            "name": "Commit-0",
+            "content": "import { onChildAdded, onValue, push, ref, serverTimestamp, update } from \"@firebase/database\";\r\nimport { useEffect, useRef, useState } from \"react\";\r\nimport { useAuthState } from \"react-firebase-hooks/auth\";\r\nimport { auth, database } from \"../firebase/initialiseFirebase\";\r\nimport { formatRelative } from \"date-fns\"\r\n\r\n\r\n\r\nexport default function Messages() {\r\n  const dummySpace = useRef();\r\n  const [newMessage, setNewMessage] = useState(\"\")\r\n  const currentUser = auth.currentUser\r\n  const [messages, setMessages] = useState([]);\r\n \r\n\r\n  const handleSubmit = (e) => {\r\n    e.preventDefault()\r\n    push(ref(database, 'messages/'), {\r\n      text: newMessage,\r\n      sender: currentUser.displayName,\r\n      avatar: currentUser.photoURL,\r\n      timeStamp: serverTimestamp()\r\n    })\r\n\r\n    setNewMessage(\"\");\r\n\r\n  }\r\n\r\n  useEffect(() => {\r\n    const messageList = []\r\n    onValue(ref(database, 'messages'), (snapshot) => {\r\n      if (snapshot.val())\r\n\r\n      for(var p in snapshot.val()){\r\n          messageList.push(snapshot.val()[p]);\r\n        }\r\n\r\n        setMessages(messageList)\r\n\r\n    });\r\n\r\n  }, [database]);\r\n\r\n\r\n\r\n  return (\r\n    <div className=\"pt-10 px-3\">\r\n\r\n{messages.length > 0 && <ul >\r\n        {messages.map(message => (\r\n          <li \r\n          className=\" bg-white rounded-lg p-6 my-10 relative\"\r\n          >\r\n            <section>\r\n              \r\n               {message.avatar ? (\r\n                <img\r\n                  src={message.avatar}\r\n                  alt=\"Avatar\"\r\n                  className=\"w-12 h-12 rounded-lg display-block\"\r\n                />\r\n              ) : null}\r\n            </section>\r\n\r\n            <section>\r\n\r\n              <p >{message.text}\r\n              {message.id}\r\n              </p>\r\n\r\n\r\n              {message.sender ? <span className=\"text-primary\">{message.sender}</span> : null}\r\n              <br />\r\n\r\n              {message.timeStamp ? (\r\n                <span className=\"text-gray-600\">\r\n                  {formatRelative(\r\n                    new Date(message.timeStamp),\r\n                    new Date()\r\n                  )}\r\n                </span>\r\n              ) : null}\r\n            </section>\r\n          </li>\r\n        ))}\r\n      \r\n      </ul>}\r\n\r\n\r\n      <form \r\n      onSubmit={handleSubmit}\r\n      className=\" bg-white rounded-lg p-6 my-10 mt-24 relative\"\r\n      >\r\n\r\n        <h3 className=\"text-2xl text-primary text-center dark:text-darkMode font-bold\">\r\n          Messaging\r\n        </h3>\r\n\r\n\r\n        \r\n        <input\r\n          type=\"text\"\r\n          maxLength={91}\r\n          value={newMessage}\r\n          onChange={(e) => setNewMessage(e.target.value)}\r\n          className=\" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent\"\r\n          placeholder=\"Short description\"\r\n        />\r\n\r\n        <div className=\"relative flex flex-row items-center justify-center min-w-40 break-words w-full mb-8 \">\r\n          <button\r\n            className=\"py-2 px-4 mt-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg\"\r\n            type=\"submit\"\r\n            disabled={!newMessage}\r\n          >\r\n            Send\r\n          </button>\r\n\r\n        </div>\r\n      </form>\r\n      \r\n    </div>\r\n  );\r\n}"
+        }
+    ]
+}

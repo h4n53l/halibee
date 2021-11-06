@@ -62,7 +62,6 @@ export default function ProfilePage() {
 
         fetchUserData()
 
-
     }, [])
 
 
@@ -85,8 +84,9 @@ export default function ProfilePage() {
             client: currentUser.displayName,
             freelancerUID: hiveOwner.uniqueID.stringValue,
             freelancer: hiveOwner.displayName.stringValue,
+            freelancerAvatar: hiveOwner.avatar.stringValue,
             requestStatus: 'Pending',
-            requestDate: new Date().getTime(),
+            requestTime: new Date().getTime(),
             clientAvatar: currentUser.photoURL
         }
 
@@ -105,7 +105,7 @@ export default function ProfilePage() {
                 )
                     .then((hireRequestReference) => {
                         update(ref(database,
-                            hiveOwner.uniqueID.stringValue + '/hireRequests'),
+                            hiveOwner.uniqueID.stringValue + '/hireRequests/' + hireRequestReference.key),
                             {
                                 hireRequestReference: hireRequestReference.key
                             }
@@ -142,8 +142,6 @@ export default function ProfilePage() {
             <div
                 style={{ backgroundImage: "url(" + userInfo.bannerImageURL.stringValue + ")" }}
                 className="relative md:pt-32 bg-center z-0 pb-52 pt-12">
-
-
             </div>
 
             <div className="flex flex-wrap justify-center mb-16 align-center">

@@ -1,26 +1,23 @@
 import { Menu } from '@headlessui/react'
 import { BellIcon } from '@heroicons/react/outline'
-import ThemeToggle from '../themeToggle'
-import { useAuthState } from 'react-firebase-hooks/auth'
+import ThemeToggle from '../../modules/themeModule/themeToggle'
 import { auth } from '../../modules/firebase/initialiseFirebase'
 import { signOut } from 'firebase/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { state } from '../../modules/valtio/state'
+
 
 export default function Navbar() {
   const router = useRouter()
   const logo = "/assets/images/halibee_logo.png"
-  const [user, loading, error] = useAuthState(auth)
+  const user = auth.currentUser
 
   const logout = () => {
     signOut(auth)
     router.push('/')
   }
 
-  if(user){
-    state.loggedInUser = user
-  }
+
 
   return (
     <nav className='dark:bg-darkMode bg-primary z-30 w-full fixed'>
@@ -106,6 +103,15 @@ export default function Navbar() {
                       <Link href={'/profiles/' + user.displayName} key={user.displayName}>
                           <a className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}>
                           Profile
+                      </a>
+                        </Link>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <Link href={'/dashboards/' + user.displayName} key={user.displayName}>
+                          <a className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}>
+                          Dashboard
                       </a>
                         </Link>
                     )}
