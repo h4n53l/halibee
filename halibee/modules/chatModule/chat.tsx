@@ -10,8 +10,18 @@ const Picker = dynamic(() => {
 }, {ssr: false}
 )
 
+export const GetSortOrder = (key) => {    
+  return function(a, b) {    
+      if (a[key] > b[key]) {    
+          return 1;    
+      } else if (a[key] < b[key]) {    
+          return -1;    
+      }    
+      return 0;    
+  }    
+}    
+
 export default function Messages({ reference, closeFunction }) {
-  const dummySpace = useRef();
   const [newMessage, setNewMessage] = useState("")
   const currentUser = auth.currentUser
   const [messages, setMessages] = useState([]);
@@ -24,13 +34,15 @@ export default function Messages({ reference, closeFunction }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(newMessage)
+    {
     push(ref(database, reference), {
       text: newMessage,
       sender: currentUser.displayName,
       avatar: currentUser.photoURL,
       timeStamp: serverTimestamp()
     })
-
+}
     setNewMessage("");
 
   }
@@ -44,7 +56,7 @@ export default function Messages({ reference, closeFunction }) {
           messageList.push(snapshot.val()[p]);
         }
 
-      setMessages(messageList)
+      setMessages(messageList.sort(GetSortOrder("timeStamp")))
 
     }, {
       onlyOnce: true
@@ -63,7 +75,8 @@ export default function Messages({ reference, closeFunction }) {
                 Close
               </button>
               {
-                messages.length > 0 && <div >
+                messages.length > 0 && 
+                <div className="">
                   {messages.map(message => (
                     <div
                       className={"flex flex-row w-max bg-white rounded-lg justify-items-center p-2 my-10 relative"

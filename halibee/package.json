@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.0",
@@ -15,6 +16,7 @@
     "emoji-picker-react": "^3.4.8",
     "file-loader": "^6.2.0",
     "firebase": "^9.0.0",
+    "firebase-tools": "^9.22.0",
     "next": "^11.1.0",
     "next-firebase-auth": "^0.13.4-alpha.0",
     "next-pwa": "^5.3.1",

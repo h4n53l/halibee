@@ -111,7 +111,6 @@ export default function () {
         const clientProjectsList = []
         const myProjectsList = []
         const completedProjectList = []
-
         onAuthStateChanged(auth, user => {
             onValue(ref(database, user.uid + '/hireRequests/'), (snapshot) => {
 
@@ -157,8 +156,8 @@ export default function () {
                 setCompletedProjects(completedProjectList)
 
             }, { onlyOnce: true })
+        
         })
-
 
     }, [renderToggle, chatMode, database]);
 

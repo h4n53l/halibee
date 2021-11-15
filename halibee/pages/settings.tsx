@@ -44,11 +44,9 @@ export default function Settings() {
     }
 
     const updateDatabase = async (collection, document, data) => {
-        const userDocument = await getDoc(doc(firestore, collection, document))
-
+        const userDocument = await getDoc(doc(firestore, 'users', document))
+        console.log(userDocument)
         if (userDocument.exists()) {
-            await updateDoc(doc(firestore, collection, document), data)
-        } else {
             setDoc(doc(firestore, collection, document), {
                 ...data,
                 prolects: 0,

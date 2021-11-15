@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 12,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1631898299913,
@@ -56,6 +56,18 @@
                 {
                     "date": 1631912767513,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,9 @@\n   \"scripts\": {\n     \"dev\": \"next dev\",\n     \"build\": \"next build\",\n     \"start\": \"next start\",\n-    \"export\": \"next export\",\n-    \"deploy\": \"cross-env NODE_ENV=production firebase deploy -- only functions,hosting\"\n+    \"export\": \"next export\"\n   },\n   \"dependencies\": {\n     \"@headlessui/react\": \"^1.4.0\",\n     \"@heroicons/react\": \"^1.0.4\",\n"
+                },
+                {
+                    "date": 1636917388171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,28 +1,40 @@\n-{\n-  \"private\": true,\n-  \"scripts\": {\n-    \"dev\": \"next dev\",\n-    \"build\": \"next build\",\n-    \"start\": \"next start\",\n-    \"export\": \"next export\"\n-  },\n-  \"dependencies\": {\n-    \"@headlessui/react\": \"^1.4.0\",\n-    \"@heroicons/react\": \"^1.0.4\",\n-    \"cross-env\": \"^7.0.3\",\n-    \"firebase\": \"^9.0.0\",\n-    \"next\": \"latest\",\n-    \"next-firebase-auth\": \"^1.0.0-canary.1\",\n-    \"react\": \"^17.0.2\",\n-    \"react-dom\": \"^17.0.2\",\n-    \"react-firebase-hooks\": \"^3.0.4\"\n-  },\n-  \"devDependencies\": {\n-    \"@types/node\": \"^16.7.3\",\n-    \"@types/react\": \"^17.0.19\",\n-    \"autoprefixer\": \"^10.2.6\",\n-    \"postcss\": \"^8.3.5\",\n-    \"tailwindcss\": \"^2.2.4\",\n-    \"typescript\": \"^4.4.2\"\n-  }\n-}\n+{\r\n+  \"private\": true,\r\n+  \"scripts\": {\r\n+    \"dev\": \"next dev\",\r\n+    \"build\": \"next build\",\r\n+    \"start\": \"next start\",\r\n+    \"export\": \"next export\"\r\n+    \r\n+  },\r\n+  \"dependencies\": {\r\n+    \"@headlessui/react\": \"^1.4.0\",\r\n+    \"@heroicons/react\": \"^1.0.4\",\r\n+    \"@windmill/react-ui\": \"^0.6.0\",\r\n+    \"axios\": \"^0.21.4\",\r\n+    \"date-fns\": \"^2.25.0\",\r\n+    \"emoji-picker-react\": \"^3.4.8\",\r\n+    \"file-loader\": \"^6.2.0\",\r\n+    \"firebase\": \"^9.0.0\",\r\n+    \"firebase-tools\": \"^9.22.0\",\r\n+    \"next\": \"^11.1.0\",\r\n+    \"next-firebase-auth\": \"^0.13.4-alpha.0\",\r\n+    \"next-pwa\": \"^5.3.1\",\r\n+    \"nextjs-progressbar\": \"^0.0.11\",\r\n+    \"prop-types\": \"^15.7.2\",\r\n+    \"react\": \"^17.0.2\",\r\n+    \"react-dom\": \"^17.0.2\",\r\n+    \"react-firebase-hooks\": \"^3.0.4\",\r\n+    \"sweetalert2\": \"^11.1.9\",\r\n+    \"validator\": \"^13.6.0\",\r\n+    \"valtio\": \"^1.2.4\"\r\n+  },\r\n+  \"devDependencies\": {\r\n+    \"@types/node\": \"^16.7.3\",\r\n+    \"@types/react\": \"^17.0.19\",\r\n+    \"autoprefixer\": \"^10.2.6\",\r\n+    \"postcss\": \"^8.3.5\",\r\n+    \"tailwindcss\": \"^2.2.4\",\r\n+    \"typescript\": \"^4.4.2\"\r\n+  }\r\n+}\r\n"
+                },
+                {
+                    "date": 1636917405034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     \"dev\": \"next dev\",\r\n     \"build\": \"next build\",\r\n     \"start\": \"next start\",\r\n     \"export\": \"next export\"\r\n-    \r\n+    \"lint\": \"next lint\"\r\n   },\r\n   \"dependencies\": {\r\n     \"@headlessui/react\": \"^1.4.0\",\r\n     \"@heroicons/react\": \"^1.0.4\",\r\n"
+                },
+                {
+                    "date": 1636917410242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"scripts\": {\r\n     \"dev\": \"next dev\",\r\n     \"build\": \"next build\",\r\n     \"start\": \"next start\",\r\n-    \"export\": \"next export\"\r\n+    \"export\": \"next export\",\r\n     \"lint\": \"next lint\"\r\n   },\r\n   \"dependencies\": {\r\n     \"@headlessui/react\": \"^1.4.0\",\r\n"
                 }
             ],
             "date": 1631898299913,

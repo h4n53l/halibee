@@ -7,6 +7,7 @@ import { getFirestore } from "@firebase/firestore";
 import {getMessaging} from 'firebase/messaging'
 import { getAnalytics } from "firebase/analytics";
 import { getPerformance } from "firebase/performance";
+import { getFunctions } from "firebase/functions";
 
 
 const firebaseConfig = {
@@ -25,6 +26,7 @@ export const auth = getAuth(firebaseApp)
 export const database = getDatabase(firebaseApp)
 export const firestore = getFirestore(firebaseApp)
 export const storage = getStorage(firebaseApp)
+export const functions = getFunctions(firebaseApp)
 export const messaging = dynamic(() => getMessaging(firebaseApp) , {ssr: false} )
 export const analytics = dynamic(() => getAnalytics(firebaseApp) , {ssr: false} )
 export const performance = dynamic(() => getPerformance(firebaseApp) , {ssr: false} )
