@@ -82,18 +82,6 @@ export default function Authentication() {
     const signIn = async () => {
         try {
             await signInWithEmailAndPassword(auth, email, password)
-            // .then((user) => {
-            //     user.getIdTokenResult(false)
-            //       .then((idTokenResult) => {
-            //          // Confirm the user is an Admin.
-            //          if (idTokenResult.claims.freelancer) {
-            //             // We will call the function here
-            //             console.log(idTokenResult.claims)                     
-            //         } else {
-            //             console.log(auth.currentUser)
-            //          }
-            //         })
-            // })
 
             if (!auth.currentUser.emailVerified) {
                 sendEmailVerification(auth.currentUser)
@@ -118,7 +106,15 @@ export default function Authentication() {
                         icon: 'success'
                     }
                 )
-            }
+                // auth.currentUser.getIdTokenResult(false)
+                //   .then((idTokenResult) => {
+                //      // Confirm the user is an Admin.
+                //      if (idTokenResult.claims.freelancer) {
+                //         // We will call the function here
+                //         console.log(idTokenResult.claims)                     
+                //     }
+                // })
+                }
             router.push('/')
         } catch (error) {
             console.log(error);
