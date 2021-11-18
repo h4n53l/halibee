@@ -85,13 +85,13 @@ export default function () {
             }
         )
             .then((freelancerProjectReference) => {
-                update(ref(database,
-                    projectDetails.clientUID + '/myProjects/' + projectDetails.clientProjectReference),
-                    {
-                        requestStatus: 'Ongoing',
-                        freelancerProjectReference: freelancerProjectReference.key
-                    }
-                )
+                // update(ref(database,
+                //     projectDetails.clientUID + '/myProjects/' + projectDetails.clientProjectReference),
+                //     {
+                //         requestStatus: 'Ongoing',
+                //         freelancerProjectReference: freelancerProjectReference.key
+                //     }
+                // )
                 update(ref(database,
                     currentUser.uid + '/clientProjects/' + freelancerProjectReference.key),
                     {
