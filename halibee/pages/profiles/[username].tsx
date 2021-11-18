@@ -76,7 +76,6 @@ export default function ProfilePage() {
     }
 
     const requestHire = () => {
-
         const hireRequestData = {
             title: projectTitle,
             description: projectDescription,
@@ -89,7 +88,6 @@ export default function ProfilePage() {
             requestTime: new Date().getTime(),
             clientAvatar: currentUser.photoURL
         }
-
 
         push(ref(database,
             currentUser.uid + '/myProjects'),
@@ -112,8 +110,6 @@ export default function ProfilePage() {
                         )
                     })
             })
-
-
         setHireForm(null)
     }
 

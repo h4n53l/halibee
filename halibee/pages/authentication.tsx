@@ -82,7 +82,7 @@ export default function Authentication() {
     const signIn = async () => {
         try {
             await signInWithEmailAndPassword(auth, email, password)
-
+            
             if (!auth.currentUser.emailVerified) {
                 sendEmailVerification(auth.currentUser)
                     .then(() => {
@@ -106,14 +106,7 @@ export default function Authentication() {
                         icon: 'success'
                     }
                 )
-                // auth.currentUser.getIdTokenResult(false)
-                //   .then((idTokenResult) => {
-                //      // Confirm the user is an Admin.
-                //      if (idTokenResult.claims.freelancer) {
-                //         // We will call the function here
-                //         console.log(idTokenResult.claims)                     
-                //     }
-                // })
+                
                 }
             router.push('/')
         } catch (error) {
