@@ -93,23 +93,6 @@ export default function ProfilePage() {
             currentUser.uid + '/myProjects'),
             hireRequestData
         )
-            // .then((clientProjectReference) => {
-            //     push(ref(database,
-            //         hiveOwner.uniqueID.stringValue + '/hireRequests'),
-            //         {
-            //             ...hireRequestData,
-            //             clientProjectReference: clientProjectReference.key
-            //         }
-            //     )
-            //         .then((hireRequestReference) => {
-            //             update(ref(database,
-            //                 hiveOwner.uniqueID.stringValue + '/hireRequests/' + hireRequestReference.key),
-            //                 {
-            //                     hireRequestReference: hireRequestReference.key
-            //                 }
-            //             )
-            //         })
-            // })
         setHireForm(null)
     }
 

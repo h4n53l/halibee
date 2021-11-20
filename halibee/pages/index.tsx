@@ -5,6 +5,7 @@ import Hero from '../components/hero'
 import { collection, getDocs } from '@firebase/firestore'
 import { firestore } from '../modules/firebase/initialiseFirebase'
 import Listings from '../components/listings'
+import { useState } from 'react'
 
 
 export const getStaticProps: GetStaticProps = async () =>  {
@@ -24,6 +25,7 @@ export const getStaticProps: GetStaticProps = async () =>  {
 
 
 export default function Home({userData}) {
+  const [user, setUser] = useState(null)
   
   return (
     <div className="flex flex-col items-center justify-center min-h-screen ">

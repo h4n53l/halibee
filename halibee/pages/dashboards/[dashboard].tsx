@@ -8,7 +8,7 @@ import { onValue, push, query as realQuery, ref, remove, update } from "@firebas
 import { onAuthStateChanged } from "@firebase/auth";
 import { Menu } from "@headlessui/react";
 import { parseDate } from "../../modules/utilities/utilities";
-import Messages from "../../modules/chatModule/chat";
+import Chat from "../../modules/chatModule/chat";
 
 
 export const getStaticProps = async () => {
@@ -613,7 +613,7 @@ export default function () {
                 :
                 (
                     <div>
-                        <Messages
+                        <Chat
                             reference={chatReference}
                             closeFunction={closeChat}
                         />

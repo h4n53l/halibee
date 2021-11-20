@@ -21,7 +21,7 @@ export const GetSortOrder = (key) => {
   }    
 }    
 
-export default function Messages({ reference, closeFunction }) {
+export default function Chat({ reference, closeFunction }) {
   const [newMessage, setNewMessage] = useState("")
   const currentUser = auth.currentUser
   const [messages, setMessages] = useState([]);
