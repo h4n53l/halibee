@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc, updateDoc } from "@firebase/firestore";
+import { doc, updateDoc } from "@firebase/firestore";
 import { updateProfile } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useState } from "react";
@@ -10,11 +10,14 @@ export default function Settings() {
     const [profileImage, setProfileImage] = useState(null)
     const [cardImage, setCardImage] = useState(null)
     const [bannerImage, setBannerImage] = useState(null)
-    const [profileEdit, setProfileEdit] = useState(null)
+    const [profileEdit, setProfileEdit] = useState<Boolean>(false)
     const [AccountSettingsEdit, setAccountSettingsEdit] = useState(null)
     const [about, setAbout] = useState(null)
     const [description, setDescription] = useState(null)
     const [hiveName, setHiveName] = useState(null)
+    const [cardProgressValue, setCardProgressValue] = useState<Number>(null)
+    const [bannerProgressValue, setBannerProgressValue] = useState<Number>(null)
+    const [freelancer, setFreelancer] = useState<Boolean>(false)
 
     if (user === null || loading) {
         return (
@@ -22,6 +25,13 @@ export default function Settings() {
                 Loading...
             </div>
         )
+    } else {
+        user.getIdTokenResult(false)
+            .then((idTokenResult) => {
+                if (idTokenResult.claims.freelancer) {
+                    setFreelancer(true)
+                }
+            })
     }
 
     const metadata = {
@@ -30,42 +40,35 @@ export default function Settings() {
 
 
     const uploadProfileImage = async () => {
-        setProfileEdit(null)
         const storageRef = ref(storage, 'images/' + profileImage.name)
         const uploadTask = uploadBytesResumable(storageRef, profileImage, metadata);
         await uploadBytesResumable(storageRef, profileImage, metadata)
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log(downloadURL)
             updateProfile(user, {
                 photoURL: downloadURL
             })
         })
-
     }
 
     const updateDatabase = async (collection, document, data) => {
-        const userDocument = await getDoc(doc(firestore, 'users', document))
-        console.log(userDocument)
-        if (userDocument.exists()) {
-            setDoc(doc(firestore, collection, document), {
-                ...data,
-                prolects: 0,
-                rating: 0,
-                category: "",
-                skill: ""
-            })
-        }
-
+        updateDoc(doc(firestore, collection, document), {
+            ...data
+        })
     }
 
     const updateProfileData = async () => {
-        setProfileEdit(null)
+
         if (profileImage != null) {
             uploadProfileImage()
         }
         if (bannerImage != null) {
             const storageRef = ref(storage, 'images/' + bannerImage.name)
             const uploadTask = uploadBytesResumable(storageRef, bannerImage, metadata)
+            uploadTask.on('state_changed',
+                function progress(snapshot) {
+                    setBannerProgressValue((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+                }
+            )
             await uploadBytesResumable(storageRef, bannerImage, metadata)
             getDownloadURL(uploadTask.snapshot.ref).then((bannerURL) => {
                 updateDatabase("freelancers", user.uid, { bannerImageURL: bannerURL })
@@ -74,16 +77,20 @@ export default function Settings() {
         if (cardImage != null) {
             const storageRef = ref(storage, 'images/' + cardImage.name)
             const uploadTask = uploadBytesResumable(storageRef, cardImage, metadata)
+            uploadTask.on('state_changed',
+                function progress(snapshot) {
+                    setCardProgressValue((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+                }
+            )
             await uploadBytesResumable(storageRef, cardImage, metadata)
             getDownloadURL(uploadTask.snapshot.ref).then((cardURL) => {
                 updateDatabase("freelancers", user.uid, { cardImageURL: cardURL })
             })
         }
         if (hiveName != null) {
-            updateDatabase("freelancers", user.uid, { 
+            updateDatabase("freelancers", user.uid, {
                 hiveName: hiveName,
-                displayName: user.displayName
-             })
+            })
         }
         if (about != null) {
             updateDatabase("freelancers", user.uid, { about: about })
@@ -91,6 +98,7 @@ export default function Settings() {
         if (description != null) {
             updateDatabase("freelancers", user.uid, { description: description })
         }
+        setProfileEdit(false)
     }
 
 
@@ -130,41 +138,44 @@ export default function Settings() {
                     </div>
                     <div className="mt-6">
                         <div className="w-full space-y-6">
-
-                            <div className="w-full">
-                                <div className=" relative ">
-                                    <input
-                                        type="text"
-                                        value={hiveName}
-                                        onChange={(e) => setHiveName(e.target.value)}
-                                        className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                        placeholder="Your Hive Name"
-                                    />
+                            {freelancer &&
+                                <div>
+                                    <div className="w-full">
+                                        <div className=" relative ">
+                                            <input
+                                                type="text"
+                                                value={hiveName}
+                                                onChange={(e) => setHiveName(e.target.value)}
+                                                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                                placeholder="Your Hive Name"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="w-full">
+                                        <div className=" relative ">
+                                            <input
+                                                type="text"
+                                                maxLength={91}
+                                                value={description}
+                                                onChange={(e) => setDescription(e.target.value)}
+                                                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                                placeholder="Short description"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="w-full">
+                                        <div className=" relative ">
+                                            <input
+                                                type="text"
+                                                value={about}
+                                                onChange={(e) => setAbout(e.target.value)}
+                                                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                                placeholder="Long description"
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="w-full">
-                                <div className=" relative ">
-                                    <input
-                                        type="text"
-                                        maxLength={91}
-                                        value={description}
-                                        onChange={(e) => setDescription(e.target.value)}
-                                        className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                        placeholder="Short description"
-                                    />
-                                </div>
-                            </div>
-                            <div className="w-full">
-                                <div className=" relative ">
-                                    <input
-                                        type="text"
-                                        value={about}
-                                        onChange={(e) => setAbout(e.target.value)}
-                                        className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                        placeholder="Long description"
-                                    />
-                                </div>
-                            </div>
+                            }
                             <div className="w-full">
                                 <div className=" relative ">
                                     <label >Upload Profile Image</label>
@@ -177,31 +188,41 @@ export default function Settings() {
                                     />
                                 </div>
                             </div>
-                            <div className="w-full">
-                                <div className=" relative ">
-                                    <label >Upload Card Image</label>
-                                    <input
-                                        type="file"
-                                        accept="image/**"
-                                        onChange={(e) => setCardImage(e.target.files[0])}
-                                        className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                        placeholder="Your Profile photo"
-                                    />
+                            {freelancer &&
+                                <div>
+                                    <div className="w-full">
+                                        <div className=" relative ">
+                                            <label >Upload Card Image</label>
+                                            <input
+                                                type="file"
+                                                accept="image/**"
+                                                onChange={(e) => setCardImage(e.target.files[0])}
+                                                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                                placeholder="Your Profile photo"
+                                            />
+                                            {cardProgressValue &&
+                                                <label>Uploading: {cardProgressValue.toFixed(1)}%</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className="w-full">
+                                        <div className=" relative ">
+                                            <label >Upload Banner Image</label>
+                                            <input
+                                                type="file"
+                                                accept="image/**"
+                                                name="Banner Image"
+                                                onChange={(e) => setBannerImage(e.target.files[0])}
+                                                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                                placeholder="Your Banner Image"
+                                            />
+                                            {bannerProgressValue &&
+                                                <label>Uploading: {bannerProgressValue.toFixed(1)}%</label>
+                                            }
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="w-full">
-                                <div className=" relative ">
-                                    <label >Upload Banner Image</label>
-                                    <input
-                                        type="file"
-                                        accept="image/**"
-                                        name="Banner Image"
-                                        onChange={(e) => setBannerImage(e.target.files[0])}
-                                        className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                        placeholder="Your Banner Image"
-                                    />
-                                </div>
-                            </div>
+                            }
                             <div>
                                 <span className="block w-full rounded-md shadow-sm">
                                     <button type="button"

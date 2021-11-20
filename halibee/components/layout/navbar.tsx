@@ -21,7 +21,7 @@ export default function Navbar() {
     router.push('/')
   }
 
-  onAuthStateChanged(auth, user => {
+
       if (user) {
         user.getIdTokenResult(false)
           .then((idTokenResult) => {
@@ -30,11 +30,10 @@ export default function Navbar() {
             }
           })
       }
-    })
 
 
   return (
-    <nav className='dark:bg-darkMode bg-primary z-30 w-full fixed'>
+    <nav className='dark:bg-darkMode z-30 bg-primary w-full sticky top-0'>
 
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">

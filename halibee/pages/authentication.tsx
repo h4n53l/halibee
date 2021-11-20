@@ -4,7 +4,6 @@ import { useState } from "react";
 import { auth, firestore, functions } from "../modules/firebase/initialiseFirebase";
 import { signOut } from "@firebase/auth"
 import Swal from "sweetalert2";
-import { doc, setDoc } from "@firebase/firestore";
 
 
 export default function Authentication() {
@@ -35,14 +34,6 @@ export default function Authentication() {
                     })
                     .then(function () {
                         const user = auth.currentUser
-                        setDoc(doc(firestore, 'users', user.uid), {
-                            displayName: user.displayName,
-                            email: user.email,
-                            emailVerified: user.emailVerified,
-                            joined: user.metadata.creationTime,
-                            avatar: user.photoURL,
-                            uniqueID: user.uid
-                        })
                         sendEmailVerification(user)
                             .then(() => {
                                 Swal.fire(

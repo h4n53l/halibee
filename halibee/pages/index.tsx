@@ -3,12 +3,13 @@ import Head from 'next/head'
 import CallToAction from '../components/callToAction'
 import Hero from '../components/hero'
 import { collection, getDocs } from '@firebase/firestore'
-import { firestore } from '../modules/firebase/initialiseFirebase'
+import { auth, firestore } from '../modules/firebase/initialiseFirebase'
 import Listings from '../components/listings'
 import { useState } from 'react'
+import { onAuthStateChanged, User } from '@firebase/auth'
 
 
-export const getStaticProps: GetStaticProps = async () =>  {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await getDocs(collection(firestore, "freelancers"))
 
   const userData = []
@@ -17,16 +18,20 @@ export const getStaticProps: GetStaticProps = async () =>  {
   })
 
   return {
-    props: {userData }
+    props: { userData }
   }
-  
+
 }
 
 
 
-export default function Home({userData}) {
-  const [user, setUser] = useState(null)
-  
+export default function Home({ userData }) {
+  const [user, setUser] = useState<User>(null)
+
+  onAuthStateChanged(auth, user => {
+    setUser(user)
+  })
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen ">
       <Head>
@@ -35,9 +40,19 @@ export default function Home({userData}) {
       </Head>
 
       <Hero />
-      <CallToAction />
 
-      <Listings title="Featured Halibees" featured={userData}/>
+      {user ?
+        <h1 className="text-primary text-center mb-5 text-5xl font-semibold">
+          Hi {user.displayName}, glad to see you!
+        </h1>
+
+        :
+
+        <CallToAction />
+
+      }
+
+      <Listings title="Featured Halibees" featured={userData} />
 
       <div className="w-full bg-primary dark:bg-darkMode mx-auto grid md:grid-cols-2 gap-8 lg:grid-cols-4 sm:grid-cols-1 py-8 text-center">
         <div className="w-full">
