@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 350,
+            "activePatchIndex": 351,
             "patches": [
                 {
                     "date": 1630080573729,
@@ -1408,6 +1408,10 @@
                 {
                     "date": 1637402577966,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \r\n \r\n \r\n export default function Home({userData}) {\r\n-  constt\r\n+  const\r\n   \r\n   return (\r\n     <div className=\"flex flex-col items-center justify-center min-h-screen \">\r\n       <Head>\r\n"
+                },
+                {
+                    "date": 1637516581195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,9 +67,9 @@\n \r\n       {!freelancer && !freelancerForm &&\r\n       <div>\r\n       <h3>\r\n-Freelancers on HaLiBee are making a difference within and beyond th\r\n+Freelancers on HaLiBee are making a difference within and beyond the\r\n       </h3>\r\n       <button\r\n       className=\"bg-primary  dark:bg-darkMode my-6 text-secondary font-bold uppercase text-base px-8 py-3 rounded ease-linear\"\r\n       onClick={() => freelancerApplication()}\r\n"
                 }
             ],
             "date": 1630080573729,

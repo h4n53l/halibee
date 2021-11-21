@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 181,
+            "activePatchIndex": 183,
             "patches": [
                 {
                     "date": 1630356140135,
@@ -732,6 +732,14 @@
                 {
                     "date": 1632681398755,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n               Take the Next Step\r\n             </button>\r\n             :\r\n             <button \r\n-            className=\"bg-primary  dark:bg-darkMode mt-3 text-secondary dark:text-primary font-bold uppercase text-base px-8 py-3 rounded ease-linear\" \r\n+            className=\"bg-primary  dark:bg-darkMode mt-3 text-secondary font-bold uppercase text-base px-8 py-3 rounded ease-linear\" \r\n             onClick={() => router.push('/authentication')}\r\n             >\r\n               Take the First Step\r\n             </button>\r\n"
+                },
+                {
+                    "date": 1637516134234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n             onClick={() => router.push('/authentication')}\r\n             >\r\n               Take the First Step\r\n             </button>\r\n-            }\r\n+            \r\n           </div>\r\n           </div>\r\n         </div>\r\n         <div className=\"w-full md:w-4/12 ml-auto mr-auto px-2\">\r\n"
+                },
+                {
+                    "date": 1637516146642,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,17 +31,9 @@\n             className=\"mt-4 text-lg text-center leading-relaxed text-gray-700\"\r\n             >\r\n               Are you a highly skilled freelancer looking to expand your reach?\r\n             </p>\r\n-            {user ?\r\n             <button \r\n-            className=\"bg-primary dark:bg-darkMode mt-3 text-secondary font-bold uppercase px-8 py-3 rounded ease-linear\" \r\n-            onClick={() => router.push('/settings')}\r\n-            >\r\n-              Take the Next Step\r\n-            </button>\r\n-            :\r\n-            <button \r\n             className=\"bg-primary  dark:bg-darkMode mt-3 text-secondary font-bold uppercase text-base px-8 py-3 rounded ease-linear\" \r\n             onClick={() => router.push('/authentication')}\r\n             >\r\n               Take the First Step\r\n"
                 }
             ],
             "date": 1630356140135,

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { auth, firestore, functions } from "../modules/firebase/initialiseFirebase";
 import { signOut } from "@firebase/auth"
 import Swal from "sweetalert2";
+import { Toast } from "../modules/utilities/utilities";
 
 
 export default function Authentication() {
@@ -36,11 +37,12 @@ export default function Authentication() {
                         const user = auth.currentUser
                         sendEmailVerification(user)
                             .then(() => {
-                                Swal.fire(
+                                Toast.fire(
                                     {
+                                        icon: 'success',
                                         title: 'Welcome!',
                                         text: 'Please verify your email through the link sent to you!',
-                                        showCloseButton: true,
+                                        showCloseButton: false,
                                         showConfirmButton: false
                                     }
                                 )
@@ -77,11 +79,12 @@ export default function Authentication() {
             if (!auth.currentUser.emailVerified) {
                 sendEmailVerification(auth.currentUser)
                     .then(() => {
-                        Swal.fire(
+                        Toast.fire(
                             {
                                 title: 'Welcome!',
+                                icon: 'success',
                                 text: 'Please verify your email through the link sent to you!',
-                                showCloseButton: true,
+                                showCloseButton: false,
                                 showConfirmButton: false
                             }
                         )
@@ -89,10 +92,10 @@ export default function Authentication() {
                     })
             }
             else {
-                Swal.fire(
+                Toast.fire(
                     {
                         title: 'Welcome!',
-                        showCloseButton: true,
+                        showCloseButton: false,
                         showConfirmButton: false,
                         icon: 'success'
                     }

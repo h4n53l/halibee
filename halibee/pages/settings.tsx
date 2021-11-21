@@ -17,6 +17,7 @@ export default function Settings() {
     const [hiveName, setHiveName] = useState(null)
     const [cardProgressValue, setCardProgressValue] = useState<Number>(null)
     const [bannerProgressValue, setBannerProgressValue] = useState<Number>(null)
+    const [avatarProgressValue, setAvatarProgressValue] = useState<Number>(null)
     const [freelancer, setFreelancer] = useState<Boolean>(false)
 
     if (user === null || loading) {
@@ -39,16 +40,21 @@ export default function Settings() {
     };
 
 
-    const uploadProfileImage = async () => {
-        const storageRef = ref(storage, 'images/' + profileImage.name)
-        const uploadTask = uploadBytesResumable(storageRef, profileImage, metadata);
-        await uploadBytesResumable(storageRef, profileImage, metadata)
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            updateProfile(user, {
-                photoURL: downloadURL
-            })
-        })
-    }
+    // const uploadProfileImage = async () => {
+    //     const storageRef = ref(storage, 'images/' + profileImage.name)
+    //     const uploadTask = uploadBytesResumable(storageRef, profileImage, metadata);
+    //     uploadTask.on('state_changed',
+    //         function progress(snapshot) {
+    //             setAvatarProgressValue((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+    //         }
+    //     )
+    //     await uploadBytesResumable(storageRef, profileImage, metadata)
+    //     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+    //         updateProfile(user, {
+    //             photoURL: downloadURL
+    //         })
+    //     })
+    // }
 
     const updateDatabase = async (collection, document, data) => {
         updateDoc(doc(firestore, collection, document), {
@@ -59,7 +65,19 @@ export default function Settings() {
     const updateProfileData = async () => {
 
         if (profileImage != null) {
-            uploadProfileImage()
+            const storageRef = ref(storage, 'images/' + profileImage.name)
+            const uploadTask = uploadBytesResumable(storageRef, profileImage, metadata);
+            uploadTask.on('state_changed',
+                function progress(snapshot) {
+                    setAvatarProgressValue((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+                }
+            )
+            await uploadBytesResumable(storageRef, profileImage, metadata)
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                updateProfile(user, {
+                    photoURL: downloadURL
+                })
+            })
         }
         if (bannerImage != null) {
             const storageRef = ref(storage, 'images/' + bannerImage.name)
@@ -139,9 +157,10 @@ export default function Settings() {
                     <div className="mt-6">
                         <div className="w-full space-y-6">
                             {freelancer &&
-                                <div>
+                                <div className="w-full space-y-6">
                                     <div className="w-full">
                                         <div className=" relative ">
+                                        <label >Your business name</label>
                                             <input
                                                 type="text"
                                                 value={hiveName}
@@ -153,24 +172,26 @@ export default function Settings() {
                                     </div>
                                     <div className="w-full">
                                         <div className=" relative ">
+                                        <label >Your card text</label>
                                             <input
                                                 type="text"
                                                 maxLength={91}
                                                 value={description}
                                                 onChange={(e) => setDescription(e.target.value)}
                                                 className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                                placeholder="Short description"
+                                                placeholder="Short introduction"
                                             />
                                         </div>
                                     </div>
                                     <div className="w-full">
                                         <div className=" relative ">
+                                        <label >Your Profile page bio</label>
                                             <input
                                                 type="text"
                                                 value={about}
                                                 onChange={(e) => setAbout(e.target.value)}
                                                 className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                                placeholder="Long description"
+                                                placeholder="Details about your services"
                                             />
                                         </div>
                                     </div>
@@ -186,6 +207,9 @@ export default function Settings() {
                                         className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                                         placeholder="Your Profile photo"
                                     />
+                                    {avatarProgressValue &&
+                                                <label>Uploading: {avatarProgressValue.toFixed(1)}%</label>
+                                            }
                                 </div>
                             </div>
                             {freelancer &&

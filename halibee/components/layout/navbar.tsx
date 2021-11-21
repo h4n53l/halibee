@@ -7,20 +7,20 @@ import { auth } from '../../modules/firebase/initialiseFirebase'
 import { signOut } from 'firebase/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 
 export default function Navbar() {
   const router = useRouter()
   const logo = "/assets/images/halibee_logo.png"
-  const user = auth.currentUser
+  const [user, loading, error] = useAuthState(auth)
   const [freelancer, setFreelancer] = useState(false)
 
   const logout = () => {
     signOut(auth)
     router.push('/')
   }
-
 
       if (user) {
         user.getIdTokenResult(false)
@@ -29,8 +29,8 @@ export default function Navbar() {
               setFreelancer(true)
             }
           })
-      }
-
+        }
+        
 
   return (
     <nav className='dark:bg-darkMode z-30 bg-primary w-full sticky top-0'>

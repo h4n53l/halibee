@@ -32,21 +32,13 @@ export default function CallToAction() {
             >
               Are you a highly skilled freelancer looking to expand your reach?
             </p>
-            {user ?
-            <button 
-            className="bg-primary dark:bg-darkMode mt-3 text-secondary font-bold uppercase px-8 py-3 rounded ease-linear" 
-            onClick={() => router.push('/settings')}
-            >
-              Take the Next Step
-            </button>
-            :
             <button 
             className="bg-primary  dark:bg-darkMode mt-3 text-secondary font-bold uppercase text-base px-8 py-3 rounded ease-linear" 
             onClick={() => router.push('/authentication')}
             >
               Take the First Step
             </button>
-            }
+            
           </div>
           </div>
         </div>

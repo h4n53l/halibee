@@ -9,6 +9,7 @@ import { onAuthStateChanged } from "@firebase/auth";
 import { Menu } from "@headlessui/react";
 import { parseDate } from "../../modules/utilities/utilities";
 import Chat from "../../modules/chatModule/chat";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 
 export const getStaticProps = async () => {
@@ -45,7 +46,7 @@ export default function () {
     const [hireRequests, setHireRequests] = useState([])
     const [myProjects, setMyProjects] = useState([])
     const [completedProjects, setCompletedProjects] = useState([])
-    const currentUser = auth.currentUser
+    const [currentUser, loading, error] = useAuthState(auth)
     const [renderToggle, setRenderToggle] = useState(false)
     const [chatMode, setChatMode] = useState(false)
     const [chatReference, setChatReference] = useState(null)

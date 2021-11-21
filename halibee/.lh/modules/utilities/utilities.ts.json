@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 8,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1635792741617,
@@ -40,6 +40,10 @@
                 {
                     "date": 1635890236961,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,5 @@\n import { formatRelative } from \"date-fns\"\r\n-import { useRouter } from \"next/router\"\r\n-import { auth } from \"../firebase/initialiseFirebase\"\r\n \r\n export const parseDate = (date) => {\r\n     return formatRelative(\r\n         new Date(date),\r\n"
+                },
+                {
+                    "date": 1637515736972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n         new Date()\r\n     )\r\n }\r\n \r\n+e\r\n \r\n-\r\n"
                 }
             ],
             "date": 1635792741617,
