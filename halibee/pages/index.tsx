@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import CallToAction from '../components/callToAction'
 import Hero from '../components/hero'
-import { collection, getDocs } from '@firebase/firestore'
+import { collection, doc, getDocs, setDoc } from '@firebase/firestore'
 import { auth, firestore } from '../modules/firebase/initialiseFirebase'
 import Listings from '../components/listings'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -27,8 +27,14 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Home({ userData }) {
   const [user, loading, error] = useAuthState(auth)
-  const [freelancer, setFreelancer] = useState<Boolean>(false)
-  const [freelancerForm, setFreelancerForm] = useState<Boolean>(false)
+  const [freelancer, setFreelancer] = useState<boolean>(false)
+  const [freelancerForm, setFreelancerForm] = useState<boolean>(false)
+  const [skill, setSkill] = useState<string>("")
+  const [name, setName] = useState<string>("")
+  const [hiveName, setHiveName] = useState<string>("")
+  const [skillCategory, setSkillCategory] = useState<string>("")
+  const [skillProfile, setSkillProfile] = useState<string>("")
+
 
   if (user) {
     user.getIdTokenResult(false)
@@ -44,6 +50,16 @@ export default function Home({ userData }) {
   }
 
   const submitFreelancerApplication = () => {
+    setDoc(doc(firestore, "freelancerApplications", user.uid), {
+      userName: user.displayName,
+      email: user.email,
+      name,
+      hiveName,
+      skill,
+      skillCategory,
+      skillProfile,
+    })
+
     setFreelancerForm(false)
   }
 
@@ -85,7 +101,7 @@ export default function Home({ userData }) {
         </div>
       }
 
-      {!freelancer && freelancerForm &&
+      {!freelancer && freelancerForm && user &&
         <div className="mx-12">
           <form className="form bg-white rounded-lg p-6 my-10  space-y-6 relative">
 
@@ -93,42 +109,68 @@ export default function Home({ userData }) {
               Application Details
             </h3>
 
-            <input
-              name="hiveName"
-              type="text"
-              maxLength={91}
-              value={""}
-              onChange={(e) => console.log(e.target.value)}
-              className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              placeholder="Hive name"
-            />
+            <div>
+              <label className="mt-3">Full Name</label>
+              <input
+                name="name"
+                type="text"
+                maxLength={91}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="rounded-lg border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                placeholder="Your full name"
+              />
+            </div>
 
-            <input
-              name="skill"
-              type="text"
-              maxLength={91}
-              value={""}
-              onChange={(e) => console.log(e.target.value)}
-              className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              placeholder="Your skill"
-            />
+            <div>
+              <label className="mt-3">Hive Name</label>
+              <input
+                name="hiveName"
+                type="text"
+                maxLength={91}
+                value={hiveName}
+                onChange={(e) => setHiveName(e.target.value)}
+                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                placeholder="Your cool business name"
+              />
+            </div>
 
-            <select 
-            className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            name="skillCategory"
-            >
-              <option value="A">Computer Programmers</option>
-              <option value="B">Graphics Designers</option>
-              <option value="-">Writer</option>
-            </select>
+            <div>
+              <label className="mt-3">Skill</label>
+              <input
+                name="skill"
+                type="text"
+                maxLength={30}
+                value={skill}
+                onChange={(e) => setSkill(e.target.value)}
+                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                placeholder="Your skill"
+              />
+            </div>
 
-            <textarea
-              name="skillProfile"
-              value={""}
-              onChange={(e) => console.log(e.target.value)}
-              placeholder="Tell us about your skill and experience"
-              className="border p-2 mt-3 w-full"
-            />
+            <div>
+              <label >Skill Category</label>
+              <select
+                className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                onChange={(e) => setSkillCategory(e.target.value)}
+              >
+                <option value="">Please Select</option>
+                <option value="Computer Programmers">Computer Programmer</option>
+                <option value="Graphics Designers">Graphics Designer</option>
+                <option value="Writers">Writer</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="mt-3">About You and Your Skill</label>
+              <textarea
+                name="skillProfile"
+                value={skillProfile}
+                onChange={(e) => setSkillProfile(e.target.value)}
+                placeholder="Tell us about your skill and experience"
+                className="rounded-lg border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
 
             <div className="relative flex flex-row items-center justify-center min-w-40 break-words w-full mb-8 ">
               <button
@@ -147,7 +189,7 @@ export default function Home({ userData }) {
         <div className="w-full">
           <h5 className="text-secondary text-5xl font-bold ">
             <span className="inline text-secondary ">
-              2179
+              2
             </span>
             <span className="text-secondary ">
               +
@@ -160,7 +202,7 @@ export default function Home({ userData }) {
         <div>
           <h5 className="text-secondary  text-5xl font-bold text-primary">
             <span className="inline text-secondary ">
-              13
+              0
             </span>
             <span className="text-secondary ">
               +
@@ -173,7 +215,7 @@ export default function Home({ userData }) {
         <div>
           <h5 className="text-5xl font-bold text-primary">
             <span className="inline text-secondary ">
-              31
+              0
             </span>
             <span className="text-secondary ">
               +
@@ -186,7 +228,7 @@ export default function Home({ userData }) {
         <div>
           <h5 className="text-5xl font-bold text-primary">
             <span className="inline text-secondary ">
-              3
+              0
             </span>
             <span className="text-secondary ">
               +

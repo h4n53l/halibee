@@ -43,7 +43,6 @@ export default function ProfilePage() {
     const [hireForm, setHireForm] = useState(null)
     const [projectDescription, setProjectDescription] = useState(null)
     const [projectTitle, setProjectTitle] = useState(null)
-    const [agreement, setAgreement] = useState(null)
     const [currentUser, loading, error] = useAuthState(auth)
     const hiveOwner = userInfo
 
@@ -108,7 +107,7 @@ export default function ProfilePage() {
                             fill='currentColor' fillRule='evenodd' />
                     </svg>
 
-                    <div>Loading ...</div>
+                    <div>Loading</div>
 
                 </div>
             </div>

@@ -67,8 +67,7 @@ export default function Chat({ reference, closeFunction }) {
 
   return (
     <>
-          (
-            <div className="pt-10 px-3" >
+            <div className="py-6 px-3" >
               <button
                 onClick={() => closeFunction()}
               >
@@ -124,7 +123,6 @@ export default function Chat({ reference, closeFunction }) {
 <div>
                 <input
                   type="text"
-                  maxLength={91}
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-60 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
@@ -152,5 +150,4 @@ export default function Chat({ reference, closeFunction }) {
 
             </div >
     </>
-  );
-}
+  )}

@@ -40,22 +40,6 @@ export default function Settings() {
     };
 
 
-    // const uploadProfileImage = async () => {
-    //     const storageRef = ref(storage, 'images/' + profileImage.name)
-    //     const uploadTask = uploadBytesResumable(storageRef, profileImage, metadata);
-    //     uploadTask.on('state_changed',
-    //         function progress(snapshot) {
-    //             setAvatarProgressValue((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
-    //         }
-    //     )
-    //     await uploadBytesResumable(storageRef, profileImage, metadata)
-    //     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-    //         updateProfile(user, {
-    //             photoURL: downloadURL
-    //         })
-    //     })
-    // }
-
     const updateDatabase = async (collection, document, data) => {
         updateDoc(doc(firestore, collection, document), {
             ...data
@@ -160,13 +144,13 @@ export default function Settings() {
                                 <div className="w-full space-y-6">
                                     <div className="w-full">
                                         <div className=" relative ">
-                                        <label >Your business name</label>
+                                        <label >Hive Name</label>
                                             <input
                                                 type="text"
                                                 value={hiveName}
                                                 onChange={(e) => setHiveName(e.target.value)}
-                                                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                                placeholder="Your Hive Name"
+                                                className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                                placeholder="Your business name"
                                             />
                                         </div>
                                     </div>
@@ -178,7 +162,7 @@ export default function Settings() {
                                                 maxLength={91}
                                                 value={description}
                                                 onChange={(e) => setDescription(e.target.value)}
-                                                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                                className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                                                 placeholder="Short introduction"
                                             />
                                         </div>
@@ -204,7 +188,7 @@ export default function Settings() {
                                         type="file"
                                         accept="image/**"
                                         onChange={(e) => setProfileImage(e.target.files[0])}
-                                        className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                                         placeholder="Your Profile photo"
                                     />
                                     {avatarProgressValue &&

@@ -1,0 +1,30 @@
+{
+    "sourceFile": ".vscode/launch.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1638012117471,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1638012126152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n       {\r\n         \"name\": \"Next.js: debug server-side\",\r\n         \"type\": \"node-terminal\",\r\n         \"request\": \"launch\",\r\n-        \"command\": \"npm run dev\"\r\n+        \"command\": \"yarn dev\"\r\n       },\r\n       {\r\n         \"name\": \"Next.js: debug client-side\",\r\n         \"type\": \"pwa-chrome\",\r\n"
+                },
+                {
+                    "date": 1638012144948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n       {\r\n         \"name\": \"Next.js: debug full stack\",\r\n         \"type\": \"node-terminal\",\r\n         \"request\": \"launch\",\r\n-        \"command\": \"npm run dev\",\r\n+        \"command\": \"yarn dev\",\r\n         \"console\": \"integratedTerminal\",\r\n         \"serverReadyAction\": {\r\n           \"pattern\": \"started server on .+, url: (https?://.+)\",\r\n           \"uriFormat\": \"%s\",\r\n"
+                },
+                {
+                    "date": 1638012251253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n {\r\n     \"version\": \"0.2.0\",\r\n     \"configurations\": [\r\n+      \r\n       {\r\n         \"name\": \"Next.js: debug server-side\",\r\n         \"type\": \"node-terminal\",\r\n         \"request\": \"launch\",\r\n"
+                }
+            ],
+            "date": 1638012117471,
+            "name": "Commit-0",
+            "content": "{\r\n    \"version\": \"0.2.0\",\r\n    \"configurations\": [\r\n      {\r\n        \"name\": \"Next.js: debug server-side\",\r\n        \"type\": \"node-terminal\",\r\n        \"request\": \"launch\",\r\n        \"command\": \"npm run dev\"\r\n      },\r\n      {\r\n        \"name\": \"Next.js: debug client-side\",\r\n        \"type\": \"pwa-chrome\",\r\n        \"request\": \"launch\",\r\n        \"url\": \"http://localhost:3000\"\r\n      },\r\n      {\r\n        \"name\": \"Next.js: debug full stack\",\r\n        \"type\": \"node-terminal\",\r\n        \"request\": \"launch\",\r\n        \"command\": \"npm run dev\",\r\n        \"console\": \"integratedTerminal\",\r\n        \"serverReadyAction\": {\r\n          \"pattern\": \"started server on .+, url: (https?://.+)\",\r\n          \"uriFormat\": \"%s\",\r\n          \"action\": \"debugWithChrome\"\r\n        }\r\n      }\r\n    ]\r\n  }"
+        }
+    ]
+}

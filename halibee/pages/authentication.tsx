@@ -37,12 +37,12 @@ export default function Authentication() {
                         const user = auth.currentUser
                         sendEmailVerification(user)
                             .then(() => {
-                                Toast.fire(
+                                Swal.fire(
                                     {
                                         icon: 'success',
                                         title: 'Welcome!',
                                         text: 'Please verify your email through the link sent to you!',
-                                        showCloseButton: false,
+                                        showCloseButton: true,
                                         showConfirmButton: false
                                     }
                                 )
