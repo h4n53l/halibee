@@ -203,7 +203,7 @@ export default function ProfilePage() {
                             placeholder="Short description of project"
                             className="border p-2 mt-3 w-full" />
                         <a className="font-bold text-sm mt-3 text-primary">Terms and Conditions</a>
-                        <div className="flex items-baseline space-x-2 mt-2">
+                        {/* <div className="flex items-baseline space-x-2 mt-2">
                             <input
                                 name="agreement"
                                 type="checkbox"
@@ -212,7 +212,7 @@ export default function ProfilePage() {
                                 className="inline-block"
                             />
                             <p className="text-gray-900 text-sm">I consent to having this website store my submitted information so they can respond to my inquiry.</p>
-                        </div>
+                        </div> */}
                         <div className="relative flex flex-row items-center justify-center min-w-40 break-words w-full mb-8 ">
                             <button
                                 className="py-2 px-4 mt-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg"
