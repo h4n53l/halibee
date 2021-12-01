@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 101,
+            "activePatchIndex": 102,
             "patches": [
                 {
                     "date": 1630153700013,
@@ -412,6 +412,10 @@
                 {
                     "date": 1635887945997,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n     register: true,\r\n     skipWaiting: true,\r\n   },\r\n   webpack: (config, options) => {\r\n-    config.experiments = {topLevelAwait: true} \r\n     const { isServer } = options\r\n     config.module.rules.push({\r\n       test: /\\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,\r\n       exclude: config.exclude,\r\n"
+                },
+                {
+                    "date": 1638307802215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,10 +39,10 @@\n     FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY,\r\n     COOKIE_SECRET_CURRENT: process.env.COOKIE_SECRET_CURRENT,\r\n     COOKIE_SECRET_PREVIOUS: process.env.COOKIE_SECRET_PREVIOUS,\r\n     FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,\r\n-    COMETCHAT_APP_ID: process.env.COMETCHAT_APP_ID,\r\n-    COMETCHAT_REGION: process.env.COMETCHAT_REGION,\r\n-    COMETCHAT_AUTH_KEY: process.env.COMETCHAT_AUTH_KEY,\r\n-    COMETCHAT_REST_API_KEY: process.env.COMETCHAT_REST_API_KEY,\r\n+    \r\n+    \r\n+    \r\n+    \r\n   },\r\n });\r\n"
                 }
             ],
             "date": 1630153700013,

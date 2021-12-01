@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { onAuthStateChanged } from "@firebase/auth";
 import { Menu } from '@headlessui/react'
 import { BellIcon } from '@heroicons/react/outline'
 import ThemeToggle from '../../modules/themeModule/themeToggle'

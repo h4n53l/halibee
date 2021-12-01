@@ -1,0 +1,142 @@
+{
+    "sourceFile": "components/rating.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 31,
+            "patches": [
+                {
+                    "date": 1638392114272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1638392145554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n Rate.defaultProps = {\r\n   count: 5,\r\n   rating: 0,\r\n   color: {\r\n-    filled: \"#f5eb3b\",\r\n+    filled: \"#FAAA20\",\r\n     unfilled: \"#DCDCDC\",\r\n   },\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1638392162077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n   count: 5,\r\n   rating: 0,\r\n   color: {\r\n     filled: \"#FAAA20\",\r\n-    unfilled: \"#DCDCDC\",\r\n+    unfilled: \"#E0F4FF\",\r\n   },\r\n };\r\n \r\n export default Rate;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638392192662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useMemo, useState } from \"react\";\r\n import PropTypes from \"prop-types\";\r\n-import { FontAwesomeIcon } from \"@fortawesome/react-fontawesome\";\r\n+import { FontAwesomeIcon } from \"re\";\r\n \r\n const Rate = ({ count, rating, color, onRating }) => {\r\n   const [hoverRating, setHoverRating] = useState(0);\r\n \r\n"
+                },
+                {
+                    "date": 1638392199622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useMemo, useState } from \"react\";\r\n import PropTypes from \"prop-types\";\r\n-import { FontAwesomeIcon } from \"re\";\r\n+import { FontAwesomeIcon } from \"react-icons/fa\";\r\n \r\n const Rate = ({ count, rating, color, onRating }) => {\r\n   const [hoverRating, setHoverRating] = useState(0);\r\n \r\n"
+                },
+                {
+                    "date": 1638392324836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n import React, { useMemo, useState } from \"react\";\r\n import PropTypes from \"prop-types\";\r\n-import { FontAwesomeIcon } from \"react-icons/fa\";\r\n-\r\n+import { BellIcon } from '@heroicons/react/outline'\r\n const Rate = ({ count, rating, color, onRating }) => {\r\n   const [hoverRating, setHoverRating] = useState(0);\r\n \r\n   const getColor = (index) => {\r\n"
+                },
+                {
+                    "date": 1638392334173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useMemo, useState } from \"react\";\r\n import PropTypes from \"prop-types\";\r\n-import { BellIcon } from '@heroicons/react/outline'\r\n+import { StarIcon } from '@heroicons/react/outline'\r\n const Rate = ({ count, rating, color, onRating }) => {\r\n   const [hoverRating, setHoverRating] = useState(0);\r\n \r\n   const getColor = (index) => {\r\n"
+                },
+                {
+                    "date": 1638392346975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     return Array(count)\r\n       .fill(0)\r\n       .map((_, i) => i + 1)\r\n       .map((idx) => (\r\n-        <FontAwesomeIcon\r\n+        <Sta\r\n           key={idx}\r\n           className=\"cursor-pointer\"\r\n           icon=\"star\"\r\n           onClick={() => onRating(idx)}\r\n"
+                },
+                {
+                    "date": 1638392354795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,12 +18,11 @@\n     return Array(count)\r\n       .fill(0)\r\n       .map((_, i) => i + 1)\r\n       .map((idx) => (\r\n-        <Sta\r\n+        <StarIcon\r\n           key={idx}\r\n           className=\"cursor-pointer\"\r\n-          icon=\"star\"\r\n           onClick={() => onRating(idx)}\r\n           style={{ color: getColor(idx) }}\r\n           onMouseEnter={() => setHoverRating(idx)}\r\n           onMouseLeave={() => setHoverRating(0)}\r\n"
+                },
+                {
+                    "date": 1638392363233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n       .map((_, i) => i + 1)\r\n       .map((idx) => (\r\n         <StarIcon\r\n           key={idx}\r\n-          className=\"cursor-pointer\"\r\n+          className=\"pointer\"\r\n           onClick={() => onRating(idx)}\r\n           style={{ color: getColor(idx) }}\r\n           onMouseEnter={() => setHoverRating(idx)}\r\n           onMouseLeave={() => setHoverRating(0)}\r\n"
+                },
+                {
+                    "date": 1638394073713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useMemo, useState } from \"react\";\r\n import PropTypes from \"prop-types\";\r\n-import { StarIcon } from '@heroicons/react/outline'\r\n+import { StarIcon } from '@rea'\r\n const Rate = ({ count, rating, color, onRating }) => {\r\n   const [hoverRating, setHoverRating] = useState(0);\r\n \r\n   const getColor = (index) => {\r\n"
+                },
+                {
+                    "date": 1638394084552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useMemo, useState } from \"react\";\r\n import PropTypes from \"prop-types\";\r\n-import { StarIcon } from '@rea'\r\n+import { StarIcon } from '@react-ic'\r\n const Rate = ({ count, rating, color, onRating }) => {\r\n   const [hoverRating, setHoverRating] = useState(0);\r\n \r\n   const getColor = (index) => {\r\n"
+                },
+                {
+                    "date": 1638394089647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useMemo, useState } from \"react\";\r\n import PropTypes from \"prop-types\";\r\n-import { StarIcon } from '@react-ic'\r\n+import { StarIcon } from '@react-icons/'\r\n const Rate = ({ count, rating, color, onRating }) => {\r\n   const [hoverRating, setHoverRating] = useState(0);\r\n \r\n   const getColor = (index) => {\r\n"
+                },
+                {
+                    "date": 1638394262870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useMemo, useState } from \"react\";\r\n import PropTypes from \"prop-types\";\r\n-import { StarIcon } from '@react-icons/'\r\n+import { StarIcon } from '@heroicons/react/outline'\r\n const Rate = ({ count, rating, color, onRating }) => {\r\n   const [hoverRating, setHoverRating] = useState(0);\r\n \r\n   const getColor = (index) => {\r\n"
+                },
+                {
+                    "date": 1638395365215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n       .map((_, i) => i + 1)\r\n       .map((idx) => (\r\n         <StarIcon\r\n           key={idx}\r\n-          className=\"pointer\"\r\n+          className=\"cursor-pointer\"\r\n           onClick={() => onRating(idx)}\r\n           style={{ color: getColor(idx) }}\r\n           onMouseEnter={() => setHoverRating(idx)}\r\n           onMouseLeave={() => setHoverRating(0)}\r\n"
+                },
+                {
+                    "date": 1638395427757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         />\r\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n-  return <div>{starRating}</div>;\r\n+  return <div clas>{starRating}</div>;\r\n };\r\n \r\n Rate.propTypes = {\r\n   count: PropTypes.number,\r\n"
+                },
+                {
+                    "date": 1638395433335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         />\r\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n-  return <div clas>{starRating}</div>;\r\n+  return <div className=\"flex space-x-3\">{starRating}</div>;\r\n };\r\n \r\n Rate.propTypes = {\r\n   count: PropTypes.number,\r\n"
+                },
+                {
+                    "date": 1638395440289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,12 @@\n         />\r\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n-  return <div className=\"flex space-x-3\">{starRating}</div>;\r\n+  return <div className=\"flex space-x-3\">\r\n+      {starRating}\r\n+      </div>\r\n+      ;\r\n };\r\n \r\n Rate.propTypes = {\r\n   count: PropTypes.number,\r\n"
+                },
+                {
+                    "date": 1638396615574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,9 @@\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n   return <div className=\"flex space-x-3\">\r\n+      \r\n       {starRating}\r\n       </div>\r\n       ;\r\n };\r\n"
+                },
+                {
+                    "date": 1638396626167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,10 +30,11 @@\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n   return <div className=\"flex space-x-3\">\r\n-      \r\n+      <p>\r\n       {starRating}\r\n+      </p>\r\n       </div>\r\n       ;\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1638396634037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n   return <div className=\"flex space-x-3\">\r\n-      <p>\r\n+      <p className>\r\n       {starRating}\r\n       </p>\r\n       </div>\r\n       ;\r\n"
+                },
+                {
+                    "date": 1638396641179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n   return <div className=\"flex space-x-3\">\r\n-      <p className>\r\n+      <p className=\"w-\">\r\n       {starRating}\r\n       </p>\r\n       </div>\r\n       ;\r\n"
+                },
+                {
+                    "date": 1638396653952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n   return <div className=\"flex space-x-3\">\r\n-      <p className=\"w-\">\r\n+      <p className=\"w-6 h\">\r\n       {starRating}\r\n       </p>\r\n       </div>\r\n       ;\r\n"
+                },
+                {
+                    "date": 1638396660887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n   return <div className=\"flex space-x-3\">\r\n-      <p className=\"w-6 h\">\r\n+      <p className=\"w-3 h-6\">\r\n       {starRating}\r\n       </p>\r\n       </div>\r\n       ;\r\n"
+                },
+                {
+                    "date": 1638396682111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n   return <div className=\"flex space-x-3\">\r\n-      <p className=\"w-3 h-6\">\r\n+      <p className=\"w-6 h-3\">\r\n       {starRating}\r\n       </p>\r\n       </div>\r\n       ;\r\n"
+                },
+                {
+                    "date": 1638396688978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n   return <div className=\"flex space-x-3\">\r\n-      <p className=\"w-6 h-3\">\r\n+      <p className=\"w-6 h-6\">\r\n       {starRating}\r\n       </p>\r\n       </div>\r\n       ;\r\n"
+                },
+                {
+                    "date": 1638396720679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,8 @@\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n   return <div className=\"flex space-x-3\">\r\n-      <p className=\"w-6 h-6\">\r\n       {starRating}\r\n       </p>\r\n       </div>\r\n       ;\r\n"
+                },
+                {
+                    "date": 1638396727114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,11 +29,10 @@\n         />\r\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n-  return <div className=\"flex space-x-3\">\r\n+  return <div className=\"flex space-x-3 h-6 \">\r\n       {starRating}\r\n-      </p>\r\n       </div>\r\n       ;\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1638396755055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         />\r\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n-  return <div className=\"flex space-x-3 h-6 \">\r\n+  return <div className=\"flex space-x- h-6 y-6\">\r\n       {starRating}\r\n       </div>\r\n       ;\r\n };\r\n"
+                },
+                {
+                    "date": 1638396830223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         />\r\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n-  return <div className=\"flex space-x- h-6 y-6\">\r\n+  return <div className=\"flex h-6 y-6\">\r\n       {starRating}\r\n       </div>\r\n       ;\r\n };\r\n"
+                },
+                {
+                    "date": 1638396835934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         />\r\n       ));\r\n   }, [count, rating, hoverRating]);\r\n \r\n-  return <div className=\"flex fle h-6 y-6\">\r\n+  return <div className=\"flex flex h-6 y-6\">\r\n       {starRating}\r\n       </div>\r\n       ;\r\n };\r\n"
+                },
+                {
+                    "date": 1638397409856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,60 @@\n+import React, { useMemo, useState } from \"react\";\r\n+import PropTypes from \"prop-types\";\r\n+import { StarIcon } from '@heroicons/react/solid'\r\n+const Rate = ({ count, rating, color, onRating }) => {\r\n+  const [hoverRating, setHoverRating] = useState(0);\r\n+\r\n+  const getColor = (index) => {\r\n+    if (hoverRating >= index) {\r\n+      return color.filled;\r\n+    } else if (!hoverRating && rating >= index) {\r\n+      return color.filled;\r\n+    }\r\n+\r\n+    return color.unfilled;\r\n+  };\r\n+\r\n+  const starRating = useMemo(() => {\r\n+    return Array(count)\r\n+      .fill(0)\r\n+      .map((_, i) => i + 1)\r\n+      .map((idx) => (\r\n+        <StarIcon\r\n+          key={idx}\r\n+          className=\"cursor-pointer\"\r\n+          onClick={() => onRating(idx)}\r\n+          style={{ color: getColor(idx) }}\r\n+          onMouseEnter={() => setHoverRating(idx)}\r\n+          onMouseLeave={() => setHoverRating(0)}\r\n+        />\r\n+      ));\r\n+  }, [count, rating, hoverRating]);\r\n+\r\n+  return <div className=\"flex flex-row\">\r\n+      <p className=\"text-sm\">\r\n+      {starRating}\r\n+      </p>\r\n+      </div>\r\n+      ;\r\n+};\r\n+\r\n+Rate.propTypes = {\r\n+  count: PropTypes.number,\r\n+  rating: PropTypes.number,\r\n+  onChange: PropTypes.func,\r\n+  color: {\r\n+    filled: PropTypes.string,\r\n+    unfilled: PropTypes.string,\r\n+  },\r\n+};\r\n+\r\n+Rate.defaultProps = {\r\n+  count: 5,\r\n+  rating: 0,\r\n+  color: {\r\n+    filled: \"#FAAA20\",\r\n+    unfilled: \"#E0F4FF\",\r\n+  },\r\n+};\r\n+\r\n+export default Rate;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1638392114272,
+            "name": "Commit-0",
+            "content": "import React, { useMemo, useState } from \"react\";\r\nimport PropTypes from \"prop-types\";\r\nimport { FontAwesomeIcon } from \"@fortawesome/react-fontawesome\";\r\n\r\nconst Rate = ({ count, rating, color, onRating }) => {\r\n  const [hoverRating, setHoverRating] = useState(0);\r\n\r\n  const getColor = (index) => {\r\n    if (hoverRating >= index) {\r\n      return color.filled;\r\n    } else if (!hoverRating && rating >= index) {\r\n      return color.filled;\r\n    }\r\n\r\n    return color.unfilled;\r\n  };\r\n\r\n  const starRating = useMemo(() => {\r\n    return Array(count)\r\n      .fill(0)\r\n      .map((_, i) => i + 1)\r\n      .map((idx) => (\r\n        <FontAwesomeIcon\r\n          key={idx}\r\n          className=\"cursor-pointer\"\r\n          icon=\"star\"\r\n          onClick={() => onRating(idx)}\r\n          style={{ color: getColor(idx) }}\r\n          onMouseEnter={() => setHoverRating(idx)}\r\n          onMouseLeave={() => setHoverRating(0)}\r\n        />\r\n      ));\r\n  }, [count, rating, hoverRating]);\r\n\r\n  return <div>{starRating}</div>;\r\n};\r\n\r\nRate.propTypes = {\r\n  count: PropTypes.number,\r\n  rating: PropTypes.number,\r\n  onChange: PropTypes.func,\r\n  color: {\r\n    filled: PropTypes.string,\r\n    unfilled: PropTypes.string,\r\n  },\r\n};\r\n\r\nRate.defaultProps = {\r\n  count: 5,\r\n  rating: 0,\r\n  color: {\r\n    filled: \"#f5eb3b\",\r\n    unfilled: \"#DCDCDC\",\r\n  },\r\n};\r\n\r\nexport default Rate;"
+        }
+    ]
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { GetStaticPaths } from "next";
 import InfoCard from "../../components/cards/infoCard";
 import { useRouter } from "next/router";
+import Rate from "../../components/rating";
 import {
   auth,
   database,
@@ -23,6 +24,7 @@ import { parseDate } from "../../modules/utilities/utilities";
 import Chat from "../../modules/chatModule/chat";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Swal from "sweetalert2";
+import { StarIcon } from "@heroicons/react/solid";
 
 export const getStaticProps = async () => {
   const response = await getDocs(collection(firestore, "users"));
@@ -64,7 +66,9 @@ export default function Dashboard() {
   const [chatMode, setChatMode] = useState(false);
   const [chatReference, setChatReference] = useState(null);
   const [freelancer, setFreelancer] = useState(false);
-  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState("");
+  const [rating, setRating] = useState(1);
+  const [reviewing, setReviewing] = useState<boolean>(false);
 
   async function fetchUserData() {
     const response = await getDocs(
@@ -146,9 +150,12 @@ export default function Dashboard() {
         Swal.fire({
           icon: "success",
           title: "Thank you for confirming.",
-          text: "This project will be moved to completed after " + username + " confirms as well.",
+          text:
+            "This project will be moved to completed after " +
+            username +
+            " confirms as well.",
           showCloseButton: true,
-          showConfirmButton: false
+          showConfirmButton: false,
         });
       }
     });
@@ -159,17 +166,30 @@ export default function Dashboard() {
     get(ref(database, reference)).then((snapshot) => {
       if (snapshot.val().shipped === true && snapshot.val().received === true) {
         update(
-          ref(database, projectDetails.freelancerUID + "/completedProjects/" + snapshot.val().freelancerProjectReference),
+          ref(
+            database,
+            projectDetails.freelancerUID +
+              "/completedProjects/" +
+              snapshot.val().freelancerProjectReference
+          ),
           {
             ...snapshot.val(),
             completionTime: new Date().getTime(),
           }
         );
 
-        update(ref(database, projectDetails.clientUID + "/completedProjects/" + snapshot.val().freelancerProjectReference), {
-          ...snapshot.val(),
-          completionTime: new Date().getTime(),
-        });
+        update(
+          ref(
+            database,
+            projectDetails.clientUID +
+              "/completedProjects/" +
+              snapshot.val().freelancerProjectReference
+          ),
+          {
+            ...snapshot.val(),
+            completionTime: new Date().getTime(),
+          }
+        );
       }
     });
   };
@@ -184,9 +204,6 @@ export default function Dashboard() {
       projectDetails.clientUID +
       "/myProjects/" +
       projectDetails.clientProjectReference;
-
-    const clientName = projectDetails.client;
-    const freelancerName = projectDetails.freelancer;
 
     if (
       currentUser.uid === projectDetails.clientUID &&
@@ -219,7 +236,12 @@ export default function Dashboard() {
     setRenderToggle(!renderToggle);
   };
 
-  const addReview = async () => {};
+  const addReview = async (data, databaseReference) => {
+    update(ref(database, databaseReference), { review: data });
+    setReview("");
+    setRating(1);
+    setReviewing(!reviewing);
+  };
 
   useEffect(() => {
     let mounted = true;
@@ -696,7 +718,9 @@ export default function Dashboard() {
                                       currentUser.uid ? (
                                         <button
                                           className="uppercase h-auto px-2 mt-3 ml-6 bg-primary dark:bg-darkMode text-secondary w-max text-center font-semibold rounded-lg"
-                                          onClick={() => addReview()}
+                                          onClick={() =>
+                                            setReviewing(!reviewing)
+                                          }
                                         >
                                           Add Review
                                         </button>
@@ -725,6 +749,40 @@ export default function Dashboard() {
                           </p>
                         </div>
                       </div>
+                      {reviewing && (
+                        <div className="bg-white w-full flex flex-col rounded-xl shadow-lg">
+                          <div className="flex flex-row mx-3 justify-items-center justify-center">
+                            <Rate
+                              rating={rating}
+                              onRating={(rate) => setRating(rate)}
+                            />
+                          </div>
+
+                          <div className="w-full flex flex-col items-center">
+                            <div className="w-3/4 flex flex-col">
+                              <textarea
+                                value={review}
+                                onChange={(e) => setReview(e.target.value)}
+                                className="m-3 p-3 text-darkMode w-90 h-24 border rounded-xl resize-none"
+                                placeholder="Your feedback"
+                              />
+                              <button
+                                className="p-3 m-3 text-lg bg-primary rounded-xl text-secondary"
+                                onClick={() =>
+                                  addReview(
+                                    { rating, review },
+                                    completedProject.freelancerUID +
+                                      "/completedProjects/" +
+                                      completedProject.freelancerProjectReference
+                                  )
+                                }
+                              >
+                                Submit Review
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
