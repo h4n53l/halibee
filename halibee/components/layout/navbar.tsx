@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import {useState } from 'react'
 import { Menu } from '@headlessui/react'
 import { BellIcon } from '@heroicons/react/outline'
 import ThemeToggle from '../../modules/themeModule/themeToggle'
@@ -7,6 +7,7 @@ import { signOut } from 'firebase/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useAuthState } from 'react-firebase-hooks/auth';
+import Authentication from '../authentication'
 
 
 
@@ -15,10 +16,15 @@ export default function Navbar() {
   const logo = "/assets/images/halibee_logo.png"
   const [user, loading, error] = useAuthState(auth)
   const [freelancer, setFreelancer] = useState(false)
+  const [showAuth, setShowAuth] = useState(false)
 
   const logout = () => {
     signOut(auth)
     router.push('/')
+  }
+
+  const spawnAuth = () => {
+    setShowAuth(!showAuth)
   }
 
       if (user) {
@@ -32,7 +38,8 @@ export default function Navbar() {
         
 
   return (
-    <nav className='dark:bg-darkMode z-30 bg-primary w-full sticky top-0'>
+    <div className=" z-30 sticky top-0">
+    <nav className='dark:bg-darkMode bg-primary w-full'>
 
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
@@ -133,6 +140,16 @@ export default function Navbar() {
                     <Menu.Item>
                       {({ active }) => (
                         <button
+                          onClick={() => spawnAuth()}
+                          className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}
+                        >
+                          Change Account
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
                           onClick={() => logout()}
                           className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700`}
                         >
@@ -147,11 +164,14 @@ export default function Navbar() {
               :
               (
                 <div className="flex font-bold uppercase text-sm px-auto py-3 rounded">
-                  <Link href='/authentication'>
-                    <a className='  text-secondary px-auot py-2 rounded-md text-sm font-medium'>
+
+                    <button 
+                    className='  text-secondary px-auot py-2 uppercase rounded-md text-sm font-medium'
+                    onClick={() => setShowAuth(!showAuth)}
+                    >
                       Login
-                    </a>
-                  </Link>
+                    </button>
+
                 </div>
               )
             }
@@ -174,5 +194,7 @@ export default function Navbar() {
       </div>
 
     </nav>
+    <Authentication showAuth={showAuth} setShowAuth={setShowAuth}/>
+</div>
   )
 }

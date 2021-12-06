@@ -189,7 +189,7 @@ export default function Home({ userData }) {
         <div className="w-full">
           <h5 className="text-secondary text-5xl font-bold ">
             <span className="inline text-secondary ">
-              2
+              3
             </span>
             <span className="text-secondary ">
               +

@@ -24,7 +24,6 @@ import { parseDate } from "../../modules/utilities/utilities";
 import Chat from "../../modules/chatModule/chat";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Swal from "sweetalert2";
-import { StarIcon } from "@heroicons/react/solid";
 
 export const getStaticProps = async () => {
   const response = await getDocs(collection(firestore, "users"));
@@ -165,6 +164,8 @@ export default function Dashboard() {
   const updateCompletedProjectDatabase = (projectDetails, reference) => {
     get(ref(database, reference)).then((snapshot) => {
       if (snapshot.val().shipped === true && snapshot.val().received === true) {
+        const completedProjectData = snapshot.val();
+        delete completedProjectData['messages'];
         update(
           ref(
             database,
@@ -173,7 +174,7 @@ export default function Dashboard() {
               snapshot.val().freelancerProjectReference
           ),
           {
-            ...snapshot.val(),
+            ...completedProjectData,
             completionTime: new Date().getTime(),
           }
         );

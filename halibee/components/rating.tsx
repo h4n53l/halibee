@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import PropTypes from "prop-types";
-import { StarIcon } from '@heroicons/react/solid'
+import { StarIcon } from "@heroicons/react/solid";
+
 const Rate = ({ count, rating, color, onRating }) => {
   const [hoverRating, setHoverRating] = useState(0);
 
@@ -30,15 +31,12 @@ const Rate = ({ count, rating, color, onRating }) => {
       ));
   }, [count, rating, hoverRating]);
 
-  return <div className="mt-3 flex flex-row items-start">
-      <p className="font-bold text-sm uppercase">
-          Your Rating: &nbsp; 
-          </p>
-  <div className="flex flex-row items-start w-40 h-40">
-      {starRating}
-      </div>
-      </div>
-      ;
+  return (
+    <div className="mt-3 flex flex-row items-start">
+      <p className="font-bold text-sm uppercase">Your Rating: &nbsp;</p>
+      <div className="flex flex-row items-start w-40 h-40">{starRating}</div>
+    </div>
+  );
 };
 
 Rate.propTypes = {
