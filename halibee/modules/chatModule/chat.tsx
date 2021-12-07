@@ -5,9 +5,11 @@ import {
   serverTimestamp,
   update,
 } from "@firebase/database";
+import { uploadBytesResumable } from "@firebase/storage";
+import { UploadIcon } from "@heroicons/react/solid";
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
-import { auth, database } from "../firebase/initialiseFirebase";
+import { auth, database, storage } from "../firebase/initialiseFirebase";
 import { parseDate } from "../utilities/utilities";
 
 const Picker = dynamic(
@@ -33,6 +35,7 @@ export default function Chat({ reference, closeFunction }) {
   const currentUser = auth.currentUser;
   const [messages, setMessages] = useState([]);
   const [showPicker, setShowPicker] = useState(false);
+  const [mediaFiles, setMediaFiles] = useState(null);
 
   const onEmojiClick = (event, emojiObject) => {
     setNewMessage((prevInput) => prevInput + emojiObject.emoji);
@@ -41,6 +44,7 @@ export default function Chat({ reference, closeFunction }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (newMessage) {
       push(ref(database, reference), {
         text: newMessage,
@@ -48,6 +52,9 @@ export default function Chat({ reference, closeFunction }) {
         avatar: currentUser.photoURL,
         timeStamp: serverTimestamp(),
       });
+    }
+    if (mediaFiles) {
+      
     }
     setNewMessage("");
   };
@@ -114,22 +121,31 @@ export default function Chat({ reference, closeFunction }) {
         onSubmit={handleSubmit}
         className=" bg-white bottom-0 rounded-lg p-6 my-10 mt-24 w-80"
       >
-        <div >
+        <div className="flex flex-row">
           <input
             type="text"
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
-            className=" rounded-lg border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className=" rounded-lg flex-1 border border-primary w-60 p-2 bg-white placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
+          <label className="w-20 p-2 bg-white rounded-md shadow-md uppercase border border-primary cursor-pointer">
+            <UploadIcon className="text-primary h-6 w-6 m-2" />
+            <input 
+            className="hidden" 
+            type="file" 
+            multiple={true} 
+            onChange={(e) => setMediaFiles(e)}
+            />
+          </label>
           <input
             type="image"
-            className="absolute -right-6"
+            className="relative right-6"
             src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
             onClick={() => setShowPicker((val) => !val)}
           />
           {showPicker && (
             <Picker
-              pickerStyle={{ width: "100%" }}
+              pickerStyle={{ width: "100%", position: "bottom" }}
               onEmojiClick={onEmojiClick}
             />
           )}
@@ -138,7 +154,6 @@ export default function Chat({ reference, closeFunction }) {
           <button
             className="py-2 px-4 mt-6 bg-primary dark:bg-darkMode text-secondary w-60 text-center text-base font-semibold shadow-lg rounded-lg rounded-lg"
             type="submit"
-            disabled={!newMessage}
           >
             Send
           </button>

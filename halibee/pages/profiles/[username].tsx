@@ -7,7 +7,7 @@ import {
 import { collection, getDocs, query, where, limit } from "@firebase/firestore";
 import { GetStaticPaths } from "next";
 import { useEffect, useState } from "react";
-import { child, get, push, ref, set, update } from "@firebase/database";
+import { onValue, push, ref } from "@firebase/database";
 import InfoCard from "../../components/cards/infoCard";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { StarIcon } from "@heroicons/react/solid";
@@ -48,9 +48,12 @@ export default function ProfilePage() {
   const [projectDescription, setProjectDescription] = useState(null);
   const [projectTitle, setProjectTitle] = useState(null);
   const [currentUser, loading, error] = useAuthState(auth);
+  const [completedProjects, setCompletedProjects] = useState([]);
   const hiveOwner = userInfo;
 
   useEffect(() => {
+    let completedProjectList = [];
+
     async function fetchUserData() {
       const response = await getDocs(
         query(
@@ -62,8 +65,21 @@ export default function ProfilePage() {
       setUserInfo(response.docs[0]["_document"].data.value.mapValue.fields);
     }
 
+    if (userInfo) {
+      onValue(
+        ref(database, userInfo.uniqueID.stringValue + "/completedProjects/"),
+        (snapshot) => {
+          if (snapshot.val()) {
+            for (var p in snapshot.val()) {
+              completedProjectList.push(snapshot.val()[p]);
+            }
+          }
+          setCompletedProjects(completedProjectList);
+        }
+      );
+    }
     fetchUserData();
-  }, []);
+  }, [userInfo]);
 
   const toggleHireButton = () => {
     if (currentUser) {
@@ -169,7 +185,7 @@ export default function ProfilePage() {
               <div className=" pt-10 lg:-mt-40 md:-mt-40 -mt-40 sm:-mt-10  w-full md:w-4/12 px-4">
                 <InfoCard
                   title="Projects Completed"
-                  value={userInfo.projects.integerValue}
+                  value={completedProjects.length}
                 />
               </div>
             </div>
@@ -239,16 +255,16 @@ export default function ProfilePage() {
           <div className="w-full bg-white shadow-lg rounded-lg my-3 px-4 py-4">
             <div className="mb-1 tracking-wide px-4 py-4">
               <h2 className="text-gray-800 font-semibold mt-1">
-                67 Users reviews
+                {completedProjects.length} Users reviews
               </h2>
               <div className="border-b -mx-8 px-8 pb-3">
                 <div className="flex items-center mt-1">
                   <div className="flex flex-row h-5 w-40 text-secondary tracking-tighter">
-                    <StarIcon/>
-                    <StarIcon/>
-                    <StarIcon/>
-                    <StarIcon/>
-                    <StarIcon/>
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
                   </div>
                   <div className="w-3/5">
                     <div className="bg-gray-300 w-full rounded-lg h-2">
@@ -260,11 +276,11 @@ export default function ProfilePage() {
                   </div>
                 </div>
                 <div className="flex items-center mt-1">
-                <div className="flex flex-row h-5 w-40 text-secondary tracking-tighter">
-                    <StarIcon/>
-                    <StarIcon/>
-                    <StarIcon/>
-                    <StarIcon/>
+                  <div className="flex flex-row h-5 w-40 text-secondary tracking-tighter">
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
                   </div>
                   <div className="w-3/5">
                     <div className="bg-gray-300 w-full rounded-lg h-2">
@@ -276,10 +292,10 @@ export default function ProfilePage() {
                   </div>
                 </div>
                 <div className="flex items-center mt-1">
-                <div className="flex flex-row h-5 w-40 text-secondary tracking-tighter">
-                    <StarIcon/>
-                    <StarIcon/>
-                    <StarIcon/>
+                  <div className="flex flex-row h-5 w-40 text-secondary tracking-tighter">
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
                   </div>
                   <div className="w-3/5">
                     <div className="bg-gray-300 w-full rounded-lg h-2">
@@ -291,9 +307,9 @@ export default function ProfilePage() {
                   </div>
                 </div>
                 <div className="flex items-center mt-1">
-                <div className="flex flex-row h-5 w-40 text-secondary tracking-tighter">
-                    <StarIcon/>
-                    <StarIcon/>
+                  <div className="flex flex-row h-5 w-40 text-secondary tracking-tighter">
+                    <StarIcon />
+                    <StarIcon />
                   </div>
                   <div className="w-3/5">
                     <div className="bg-gray-300 w-full rounded-lg h-2">
@@ -305,8 +321,8 @@ export default function ProfilePage() {
                   </div>
                 </div>
                 <div className="flex items-center mt-1">
-                <div className="flex flex-row h-5 w-40 text-secondary tracking-tighter">
-                    <StarIcon/>
+                  <div className="flex flex-row h-5 w-40 text-secondary tracking-tighter">
+                    <StarIcon />
                   </div>
                   <div className="w-3/5">
                     <div className="bg-gray-300 w-full rounded-lg h-2">
@@ -319,36 +335,44 @@ export default function ProfilePage() {
                 </div>
               </div>
 
-<div className="flex items-start">
-  <div className="flex-shrink-0">
-    <div className="inline-block relative">
-      <div className="relative w-16 h-16 rounded-full overflow-hidden">
-        <img className="absolute top-0 left-0 w-full h-full bg-cover object-fit object-cover" src="https://picsum.photos/id/646/200/200" alt="Profile picture"/>
-        <div className="absolute top-0 left-0 w-full h-full rounded-full shadow-inner"></div>
-      </div>
-      
-    </div>
-  </div>
-  <div className="ml-6">
-    <p className="flex items-baseline">
-      <span className="text-gray-600 font-bold">Mary T.</span>
-      <span className="ml-2 text-green-600 text-xs">Verified Client</span>
-    </p>
-    <div className="flex items-center mt-1">
-      <svg className="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-      <svg className="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-      <svg className="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-      <svg className="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-      <svg className="w-4 h-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-    </div>
+              {completedProjects.map((project) => (
+                <div className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <div className="inline-block relative">
+                      <div className="relative w-16 m-3 h-16 rounded-full overflow-hidden">
+                        <img
+                          className="absolute top-0 left-0 w-full h-full bg-cover object-fit object-cover"
+                          src={project.clientAvatar}
+                          alt="client_picture"
+                        />
+                      </div>
+                    </div>
+                  </div>
 
-    <div className="mt-3">
-      <span className="font-bold">Sapien consequat eleifend!</span>
-      <p className="mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    </div>
-    
-  </div>
-</div>
+                  <div className="m-6">
+                    <p className="flex items-baseline">
+                      <span className="text-gray-600 font-bold">
+                        {project.client}
+                      </span>
+                      <span className="ml-2 text-green-600 text-xs">
+                        Verified Client
+                      </span>
+                    </p>
+                    <div className="flex items-center mt-1">
+                      {[...Array(project.review.rating)].map((_, index) => (
+                        <StarIcon
+                          className="text-secondary h-5 w-5"
+                          key={index}
+                        />
+                      ))}
+                    </div>
+                    <div className="mt-3">
+                      <span className="font-bold">{project.review.title}</span>
+                      <p className="mt-1">{project.review.review}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
