@@ -74,7 +74,10 @@ export default function ProfilePage() {
               completedProjectList.push(snapshot.val()[p]);
             }
           }
-          setCompletedProjects(completedProjectList);
+          const reviewed = completedProjectList.filter((project: any) =>
+            project.hasOwnProperty("review")
+          );
+          setCompletedProjects(reviewed);
         }
       );
     }
@@ -255,7 +258,7 @@ export default function ProfilePage() {
           <div className="w-full bg-white shadow-lg rounded-lg my-3 px-4 py-4">
             <div className="mb-1 tracking-wide px-4 py-4">
               <h2 className="text-gray-800 font-semibold mt-1">
-                {completedProjects.length} Users reviews
+                {userInfo.totalReviews.IntegerValue} Users reviews
               </h2>
               <div className="border-b -mx-8 px-8 pb-3">
                 <div className="flex items-center mt-1">
@@ -267,12 +270,17 @@ export default function ProfilePage() {
                     <StarIcon />
                   </div>
                   <div className="w-3/5">
-                    <div className="bg-gray-300 w-full rounded-lg h-2">
-                      <div className=" w-7/12 bg-primary rounded-lg h-2"></div>
-                    </div>
+                    <div
+                      className="bg-primary text-sm font-medium text-secondary text-center p-0.5 leading-none rounded-full"
+                      style={{
+                        width: userInfo.fiveStarPercentage.stringValue,
+                      }}
+                    ></div>
                   </div>
                   <div className="w-1/5 text-gray-700 pl-3">
-                    <span className="text-sm">51%</span>
+                    <span className="text-sm">
+                      {userInfo.fiveStarPercentage.stringValue}
+                    </span>
                   </div>
                 </div>
                 <div className="flex items-center mt-1">
@@ -283,12 +291,17 @@ export default function ProfilePage() {
                     <StarIcon />
                   </div>
                   <div className="w-3/5">
-                    <div className="bg-gray-300 w-full rounded-lg h-2">
-                      <div className="w-1/5 bg-primary rounded-lg h-2"></div>
-                    </div>
+                  <div
+                      className="bg-primary text-sm font-medium text-secondary text-center p-0.5 leading-none rounded-full"
+                      style={{
+                        width: userInfo.fourStarPercentage.stringValue,
+                      }}
+                    ></div>
                   </div>
                   <div className="w-1/5 text-gray-700 pl-3">
-                    <span className="text-sm">17%</span>
+                    <span className="text-sm">
+                      {userInfo.fourStarPercentage.stringValue}
+                    </span>
                   </div>
                 </div>
                 <div className="flex items-center mt-1">
@@ -298,12 +311,17 @@ export default function ProfilePage() {
                     <StarIcon />
                   </div>
                   <div className="w-3/5">
-                    <div className="bg-gray-300 w-full rounded-lg h-2">
-                      <div className=" w-3/12 bg-primary rounded-lg h-2"></div>
-                    </div>
+                  <div
+                      className="bg-primary text-sm font-medium text-secondary text-center p-0.5 leading-none rounded-full"
+                      style={{
+                        width: userInfo.threeStarPercentage.stringValue,
+                      }}
+                    ></div>
                   </div>
                   <div className="w-1/5 text-gray-700 pl-3">
-                    <span className="text-sm">19%</span>
+                    <span className="text-sm">
+                      {userInfo.threeStarPercentage.stringValue}
+                    </span>
                   </div>
                 </div>
                 <div className="flex items-center mt-1">
@@ -312,12 +330,17 @@ export default function ProfilePage() {
                     <StarIcon />
                   </div>
                   <div className="w-3/5">
-                    <div className="bg-gray-300 w-full rounded-lg h-2">
-                      <div className=" w-1/5 bg-primary rounded-lg h-2"></div>
-                    </div>
+                  <div
+                      className="bg-primary text-sm font-medium text-secondary text-center p-0.5 leading-none rounded-full"
+                      style={{
+                        width: userInfo.twoStarPercentage.stringValue,
+                      }}
+                    ></div>
                   </div>
                   <div className="w-1/5 text-gray-700 pl-3">
-                    <span className="text-sm">8%</span>
+                    <span className="text-sm">
+                      {userInfo.twoStarPercentage.stringValue}
+                    </span>
                   </div>
                 </div>
                 <div className="flex items-center mt-1">
@@ -325,18 +348,23 @@ export default function ProfilePage() {
                     <StarIcon />
                   </div>
                   <div className="w-3/5">
-                    <div className="bg-gray-300 w-full rounded-lg h-2">
-                      <div className=" w-2/12 bg-primary rounded-lg h-2"></div>
-                    </div>
+                  <div
+                      className="bg-primary text-sm font-medium text-secondary text-center p-0.5 leading-none rounded-full"
+                      style={{
+                        width: userInfo.oneStarPercentage.stringValue,
+                      }}
+                    ></div>
                   </div>
                   <div className="w-1/5 text-gray-700 pl-3">
-                    <span className="text-sm">5%</span>
+                    <span className="text-sm">
+                      {userInfo.oneStarPercentage.stringValue}
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {completedProjects.map((project) => (
-                <div className="flex items-start">
+              {completedProjects.map((project, index) => (
+                <div className="flex items-start" key={index}>
                   <div className="flex-shrink-0">
                     <div className="inline-block relative">
                       <div className="relative w-16 m-3 h-16 rounded-full overflow-hidden">
@@ -367,7 +395,9 @@ export default function ProfilePage() {
                       ))}
                     </div>
                     <div className="mt-3">
-                      <span className="font-bold">{project.review.title}</span>
+                      <span className="font-bold">
+                        {project.review.reviewTitle}
+                      </span>
                       <p className="mt-1">{project.review.review}</p>
                     </div>
                   </div>

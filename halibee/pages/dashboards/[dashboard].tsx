@@ -66,6 +66,7 @@ export default function Dashboard() {
   const [chatReference, setChatReference] = useState(null);
   const [freelancer, setFreelancer] = useState(false);
   const [review, setReview] = useState("");
+  const [reviewTitle, setReviewTitle] = useState("")
   const [rating, setRating] = useState(1);
   const [reviewing, setReviewing] = useState<boolean>(false);
   
@@ -762,6 +763,14 @@ export default function Dashboard() {
 
                           <div className="w-full flex flex-col items-center">
                             <div className="w-3/4 flex flex-col">
+                              <input
+                              type="text"
+                                value={reviewTitle}
+                                onChange={(e) => setReviewTitle(e.target.value)}
+                                className="m-3 p-3 text-darkMode w-90 h-12 border rounded-xl resize-none"
+                                placeholder="Good Service? Bad Service?"
+                                maxLength={20}
+                              />
                               <textarea
                                 value={review}
                                 onChange={(e) => setReview(e.target.value)}
@@ -772,7 +781,7 @@ export default function Dashboard() {
                                 className="p-3 m-3 text-lg bg-primary rounded-xl text-secondary"
                                 onClick={() =>
                                   addReview(
-                                    { rating, review },
+                                    { rating, review, reviewTitle },
                                     completedProject.freelancerUID +
                                       "/completedProjects/" +
                                       completedProject.freelancerProjectReference
