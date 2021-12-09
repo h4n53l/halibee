@@ -167,7 +167,7 @@ export default function ProfilePage() {
               <div className=" pt-10 md:-mt-40 lg:-mt-40 sm:mt-20  w-full md:w-4/12 px-4">
                 <InfoCard
                   title="Average Rating"
-                  value={userInfo.rating.integerValue}
+                  value={userInfo.rating.stringValue}
                 />
               </div>
 
@@ -188,7 +188,7 @@ export default function ProfilePage() {
               <div className=" pt-10 lg:-mt-40 md:-mt-40 -mt-40 sm:-mt-10  w-full md:w-4/12 px-4">
                 <InfoCard
                   title="Projects Completed"
-                  value={completedProjects.length}
+                  value={userInfo.projects.integerValue}
                 />
               </div>
             </div>
@@ -258,7 +258,7 @@ export default function ProfilePage() {
           <div className="w-full bg-white shadow-lg rounded-lg my-3 px-4 py-4">
             <div className="mb-1 tracking-wide px-4 py-4">
               <h2 className="text-gray-800 font-semibold mt-1">
-                {userInfo.totalReviews.IntegerValue} Users reviews
+                {userInfo.totalReviews.integerValue} Users reviews
               </h2>
               <div className="border-b -mx-8 px-8 pb-3">
                 <div className="flex items-center mt-1">
