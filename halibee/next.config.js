@@ -7,26 +7,26 @@ module.exports = withPWA({
     skipWaiting: true,
   },
   webpack: (config, options) => {
-    const { isServer } = options
+    const { isServer } = options;
     config.module.rules.push({
       test: /\.(ogg|mp3|wav|jpg|mpeg|png|jpeg|gif|svg)$/i,
       exclude: config.exclude,
       use: [
         {
-          loader: require.resolve('file-loader'),
+          loader: require.resolve("file-loader"),
           options: {
             limit: config.inlineImageLimit,
             publicPath: `_next/static/images/`,
-            outputPath: `${isServer ? '../' : ''}static/images/`,
-            name: '[name]-[hash].[ext]',
+            outputPath: `${isServer ? "../" : ""}static/images/`,
+            name: "[name]-[hash].[ext]",
             esModule: config.esModule || false,
           },
         },
       ],
-    })
-    return config
+    });
+    return config;
   },
- reactStrictMode: false,
+  reactStrictMode: false,
   env: {
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
     FIREBASE_AUTH_DOMATIN: process.env.FIREBASE_AUTH_DOMATIN,
@@ -40,5 +40,7 @@ module.exports = withPWA({
     COOKIE_SECRET_CURRENT: process.env.COOKIE_SECRET_CURRENT,
     COOKIE_SECRET_PREVIOUS: process.env.COOKIE_SECRET_PREVIOUS,
     FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
+    CHAT_ENGINE_PROJECT_ID: process.env.CHAT_ENGINE_PROJECT_ID,
+    CHAT_ENGINE_PRIVATE_KEY: process.env.CHAT_ENGINE_PRIVATE_KEY,
   },
 });

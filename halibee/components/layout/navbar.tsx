@@ -167,7 +167,8 @@ export default function Navbar() {
 
                     <button 
                     className='  text-secondary px-auot py-2 uppercase rounded-md text-sm font-medium'
-                    onClick={() => setShowAuth(!showAuth)}
+                    //onClick={() => setShowAuth(!showAuth)}
+                    onClick={() => router.push('/authentication')}
                     >
                       Login
                     </button>

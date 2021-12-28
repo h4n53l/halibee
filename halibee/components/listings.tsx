@@ -18,7 +18,7 @@ export default function Listings(props) {
                         skill={data.skill.stringValue}
                         hiveName={data.hiveName.stringValue}
                         description={data.description.stringValue}
-                        rating={data.rating.stringValue}
+                        rating={data.rating.integerValue}
                         projects={data.projects.integerValue}
                     />
                 ))

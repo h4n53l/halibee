@@ -81,6 +81,7 @@ export default function ProfilePage() {
         }
       );
     }
+    console.log(userInfo)
     fetchUserData();
   }, [userInfo]);
 
@@ -135,12 +136,12 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="w-full p-6">
+    <div className="w-full flex flex-col justify-center">
       <div
         style={{
           backgroundImage: "url(" + userInfo.bannerImageURL.stringValue + ")",
         }}
-        className="relative md:pt-32 bg-center z-0 pb-52 pt-12"
+        className="relative md:pt-32 bg-center z-0 pb-52 pt-12 cover no-repeat"
       ></div>
 
       <div className="flex flex-wrap justify-center mb-16 align-center">
@@ -167,7 +168,7 @@ export default function ProfilePage() {
               <div className=" pt-10 md:-mt-40 lg:-mt-40 sm:mt-20  w-full md:w-4/12 px-4">
                 <InfoCard
                   title="Average Rating"
-                  value={userInfo.rating.stringValue}
+                  value={userInfo.rating.integerValue}
                 />
               </div>
 
@@ -237,7 +238,7 @@ export default function ProfilePage() {
         </div>
       )}
 
-      <section className="mx-20 text-primary dark:text-darkMode ">
+      <section className="mx-12 place-self-center text-primary text-center dark:text-darkMode">
         <div className=" flex flex-col w-full items-center">
           <h4 className="text-center font-bold text-3xl">
             About {userInfo.displayName.stringValue}
@@ -246,12 +247,13 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      <section className="m-5 text-primary dark:text-darkMode ">
+      <section className="m-6 text-primary dark:text-darkMode ">
         <div className=" flex flex-col w-full items-center">
           <h4 className="text-center font-bold text-3xl">Portfolio</h4>
         </div>
       </section>
-      <section className="mt-5 w-full text-primary dark:text-darkMode ">
+
+      <section className="m-6 w-90 text-primary dark:text-darkMode ">
         <div className="flex flex-col w-full items-center">
           <h4 className="text-center font-bold text-3xl">Reviews</h4>
 

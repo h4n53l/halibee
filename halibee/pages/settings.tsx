@@ -24,7 +24,7 @@ export default function Settings() {
   const [avatarProgressValue, setAvatarProgressValue] = useState<Number>(null);
   const [freelancer, setFreelancer] = useState<Boolean>(false);
 
-  if (user === null || loading) {
+  if (!user || loading) {
     return <div>Loading...</div>;
   } else {
     user.getIdTokenResult(false).then((idTokenResult) => {
