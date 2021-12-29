@@ -82,28 +82,18 @@ export default function Dashboard() {
     setUserInfo(response.docs[0]["_document"].data.value.mapValue.fields);
   }
 
-  const spawnChat = (reference) => {
-    setChatReference(reference);
-    setChatMode(true);
-  };
+
 
   const closeChat = () => {
     setChatMode(false);
   };
 
   const createClientProject = (projectDetails) => {
+    
     push(ref(database, currentUser.uid + "/clientProjects"), {
       ...projectDetails,
       startTime: new Date().getTime(),
       endTime: new Date().getTime() + 7884000,
-      messages: {
-        default: {
-          sender: projectDetails.client,
-          text: projectDetails.description,
-          timeStamp: new Date().getTime(),
-          avatar: projectDetails.clientAvatar,
-        },
-      },
       shipped: false,
       received: false,
     }).then((freelancerProjectReference) => {
@@ -463,12 +453,7 @@ export default function Dashboard() {
                                           <button
                                             className="uppercase h-auto px-2 mt-3 mr-6 bg-primary dark:bg-darkMode text-secondary w-max text-center font-semibold rounded-lg"
                                             onClick={() =>
-                                              spawnChat(
-                                                currentUser.uid +
-                                                  "/clientProjects/" +
-                                                  clientProject.freelancerProjectReference +
-                                                  "/messages"
-                                              )
+                                              router.push('messages')
                                             }
                                           >
                                             Messages
@@ -574,12 +559,7 @@ export default function Dashboard() {
                                       <button
                                         className="uppercase h-auto px-2 mt-3 mr-6 bg-primary dark:bg-darkMode text-secondary w-max text-center font-semibold rounded-lg"
                                         onClick={() =>
-                                          spawnChat(
-                                            myProject.freelancerUID +
-                                              "/clientProjects/" +
-                                              myProject.freelancerProjectReference +
-                                              "/messages"
-                                          )
+                                          router.push('messages')
                                         }
                                       >
                                         Messages
