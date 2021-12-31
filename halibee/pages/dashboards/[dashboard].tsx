@@ -20,7 +20,11 @@ import {
 } from "@firebase/database";
 import { onAuthStateChanged } from "@firebase/auth";
 import { Menu } from "@headlessui/react";
-import { parseDate } from "../../modules/utilities/utilities";
+import {
+  createChat,
+  createChatUser,
+  parseDate,
+} from "../../modules/utilities/utilities";
 import Chat from "../../modules/chatModule/chat";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Swal from "sweetalert2";
@@ -66,10 +70,9 @@ export default function Dashboard() {
   const [chatReference, setChatReference] = useState(null);
   const [freelancer, setFreelancer] = useState(false);
   const [review, setReview] = useState("");
-  const [reviewTitle, setReviewTitle] = useState("")
+  const [reviewTitle, setReviewTitle] = useState("");
   const [rating, setRating] = useState(1);
   const [reviewing, setReviewing] = useState<boolean>(false);
-  
 
   async function fetchUserData() {
     const response = await getDocs(
@@ -82,38 +85,59 @@ export default function Dashboard() {
     setUserInfo(response.docs[0]["_document"].data.value.mapValue.fields);
   }
 
-
-
   const closeChat = () => {
     setChatMode(false);
   };
 
   const createClientProject = (projectDetails) => {
-    
-    push(ref(database, currentUser.uid + "/clientProjects"), {
-      ...projectDetails,
-      startTime: new Date().getTime(),
-      endTime: new Date().getTime() + 7884000,
-      shipped: false,
-      received: false,
-    }).then((freelancerProjectReference) => {
-      update(
-        ref(
-          database,
-          currentUser.uid + "/clientProjects/" + freelancerProjectReference.key
-        ),
-        {
-          requestStatus: "Ongoing",
-          freelancerProjectReference: freelancerProjectReference.key,
-        }
-      );
-    });
-    remove(
-      ref(
-        database,
-        currentUser.uid + "/hireRequests/" + projectDetails.hireRequestReference
+    createChatUser(
+      projectDetails.client,
+      projectDetails.clientUID,
+      projectDetails.clientAvatar
+    )
+    .then(() => {
+      createChatUser(
+        currentUser.displayName,
+        currentUser.uid,
+        currentUser.photoURL
       )
-    );
+      .then(() => {
+        createChat(
+          projectDetails.title,
+          projectDetails.description,
+          [currentUser.displayName, projectDetails.client],
+          currentUser.displayName,
+          currentUser.uid
+        )
+
+        push(ref(database, currentUser.uid + "/clientProjects"), {
+          ...projectDetails,
+          startTime: new Date().getTime(),
+          endTime: new Date().getTime() + 7884000,
+          shipped: false,
+          received: false,
+        }).then((freelancerProjectReference) => {
+          update(
+            ref(
+              database,
+              currentUser.uid + "/clientProjects/" + freelancerProjectReference.key
+            ),
+            {
+              requestStatus: "Ongoing",
+              freelancerProjectReference: freelancerProjectReference.key,
+            }
+          );
+          remove(
+            ref(
+              database,
+              currentUser.uid + "/hireRequests/" + projectDetails.hireRequestReference
+            )
+          )
+        });
+      })
+    })
+
+
 
     setRenderToggle(!renderToggle);
   };
@@ -157,7 +181,7 @@ export default function Dashboard() {
     get(ref(database, reference)).then((snapshot) => {
       if (snapshot.val().shipped === true && snapshot.val().received === true) {
         const completedProjectData = snapshot.val();
-        delete completedProjectData['messages'];
+        delete completedProjectData["../messages"];
         update(
           ref(
             database,
@@ -243,9 +267,13 @@ export default function Dashboard() {
     const myProjectsList = [];
     const completedProjectList = [];
 
-    if (mounted) {
+if (mounted) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
+if(router.query.dashboard != user.displayName){
+  router.replace(user.displayName)
+}
+
           user.getIdTokenResult(false).then((idTokenResult) => {
             if (idTokenResult.claims.freelancer) {
               setFreelancer(true);
@@ -297,7 +325,7 @@ export default function Dashboard() {
     return function cleanup() {
       mounted = !mounted;
     };
-  }, [renderToggle, chatMode, database]);
+  }, [renderToggle, chatMode, database, currentUser]);
 
   return (
     <div className="pt-10 px-3">
@@ -453,7 +481,7 @@ export default function Dashboard() {
                                           <button
                                             className="uppercase h-auto px-2 mt-3 mr-6 bg-primary dark:bg-darkMode text-secondary w-max text-center font-semibold rounded-lg"
                                             onClick={() =>
-                                              router.push('messages')
+                                              router.push("../messages")
                                             }
                                           >
                                             Messages
@@ -558,9 +586,7 @@ export default function Dashboard() {
                                     <div className="relative flex flex-row items-center justify-between min-w-40 break-words w-full mb-8 ">
                                       <button
                                         className="uppercase h-auto px-2 mt-3 mr-6 bg-primary dark:bg-darkMode text-secondary w-max text-center font-semibold rounded-lg"
-                                        onClick={() =>
-                                          router.push('messages')
-                                        }
+                                        onClick={() => router.push("../messages")}
                                       >
                                         Messages
                                       </button>
@@ -744,7 +770,7 @@ export default function Dashboard() {
                           <div className="w-full flex flex-col items-center">
                             <div className="w-3/4 flex flex-col">
                               <input
-                              type="text"
+                                type="text"
                                 value={reviewTitle}
                                 onChange={(e) => setReviewTitle(e.target.value)}
                                 className="m-3 p-3 text-darkMode w-90 h-12 border rounded-xl resize-none"

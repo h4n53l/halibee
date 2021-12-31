@@ -87,7 +87,7 @@ export default function Navbar() {
               <div className="flex flex-row">
                 <button
                   type="button"
-                  onClick={() => router.push('/messages/' + user.displayName)}
+                  onClick={() => router.push('/messages')}
                   className="bg-none p-1 rounded-full text-gray-400 "
                 >
                   <span className="sr-only">View notifications</span>
@@ -167,8 +167,8 @@ export default function Navbar() {
 
                     <button 
                     className='  text-secondary px-auot py-2 uppercase rounded-md text-sm font-medium'
-                    //onClick={() => setShowAuth(!showAuth)}
-                    onClick={() => router.push('/authentication')}
+                    onClick={() => setShowAuth(!showAuth)}
+                    //onClick={() => router.push('/authentication')}
                     >
                       Login
                     </button>

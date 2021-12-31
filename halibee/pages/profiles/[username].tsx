@@ -81,7 +81,7 @@ export default function ProfilePage() {
         }
       );
     }
-    console.log(userInfo)
+
     fetchUserData();
   }, [userInfo]);
 

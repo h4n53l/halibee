@@ -149,7 +149,7 @@ export default function Authentication({showAuth, setShowAuth}) {
         <>
 {showAuth ?
 (
-            <div className="container center fixed z-50 flex items-center justify-center flex-1 h-full mx-auto">
+            <div className="container center absolute inset-y-80 z-50 flex items-center justify-center flex-1 h-full mx-auto">
                 <div className="w-full max-w-lg">
                     <div className="leading-loose">
                         <div className="max-w-sm p-10 m-auto bg-primary dark:bg-darkMode bg-opacity-90 rounded shadow-xl">

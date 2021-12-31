@@ -1,25 +1,15 @@
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { auth } from "../modules/firebase/initialiseFirebase";
+import {ChatEngine, ChatSettingsTop, PhotosSettings } from 'react-chat-engine';
+import { useAuthState } from "react-firebase-hooks/auth";
 
-const ChatEngine = dynamic(() =>
-  import("react-chat-engine").then((module) => module.ChatEngine)
-);
 
 export default function Messages() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
-
-  async function getFile(url) {
-    let response = await fetch(url)
-    let data = await response.blob();
-
-    return new File([data], "userPhoto.jpg", { type: "image/jpeg" });
-  }
+  const [user, loading, error] = useAuthState(auth);
 
   useEffect(() => {
     let mounted = true;
@@ -27,38 +17,18 @@ export default function Messages() {
     if (mounted) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          setUser(user);
           axios
             .get("https://api.chatengine.io/users/me/", {
               headers: {
                 "project-id": process.env.CHAT_ENGINE_PROJECT_ID,
-                "user-name": user.email,
+                "user-name": user.displayName,
                 "user-secret": user.uid,
               },
             })
             .then(() => {
-              setLoading(false);
             })
             .catch((e) => {
-              let formdata = new FormData();
-              formdata.append("email", user.email);
-              formdata.append("username", user.displayName);
-              formdata.append("secret", user.uid);
-
-              getFile(user.photoURL).then((avatar) => {
-                console.log(avatar);
-                formdata.append("avatar", avatar, avatar.name);
-
-                axios
-                  .post("https://api.chatengine.io/users/", formdata, {
-                    headers: {
-                      "private-key": process.env.CHAT_ENGINE_PRIVATE_KEY,
-                    },
-                  })
-
-                  .then(() => setLoading(false))
-                  .catch((error) => console.log("Error:", error.response));
-              });
+              console.log("No messages yet");
             });
         } else {
           router.push("/");
@@ -89,19 +59,23 @@ export default function Messages() {
             />
           </svg>
 
-          <div>Loading</div>
+          <div>No Messages Yet</div>
         </div>
       </div>
     );
   }
 
   return (
-    <div>
+    <div >
       <ChatEngine
-        height="calc(100vh - 66px)"
         projectID={process.env.CHAT_ENGINE_PROJECT_ID}
-        userName={user.email}
+        userName={user.displayName}
         userSecret={user.uid}
+        renderNewChatForm={(creds) => null}
+        renderPhotosSettings={(chat) => <PhotosSettings />}        
+        renderChatSettingsTop={(creds, chat) => <ChatSettingsTop />}
+        renderPeopleSettings={(creds, chat) => null}
+        renderOptionsSettings={(creds, chat) => null}
       />
     </div>
   );

@@ -1,4 +1,5 @@
 import 'tailwindcss/tailwind.css'
+import '../chat.css'
 import NextNProgress from "nextjs-progressbar"
 import Layout from '../components/layout'
 import { ThemeProvider } from '../modules/providers/themeProvider'

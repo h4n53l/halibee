@@ -8,6 +8,7 @@ import {
   firestore,
   storage,
 } from "../modules/firebase/initialiseFirebase";
+import { imageResizer } from "../modules/utilities/utilities";
 
 export default function Settings() {
   const [user, loading, error] = useAuthState(auth);
@@ -38,6 +39,7 @@ export default function Settings() {
     contentType: "image/**",
   };
 
+
   const updateDatabase = async (collection, document, data) => {
     updateDoc(doc(firestore, collection, document), {
       ...data,
@@ -46,6 +48,8 @@ export default function Settings() {
 
   const updateProfileData = async () => {
     if (profileImage != null) {
+      setProfileImage(imageResizer(profileImage, 500, 500))
+      console.log(profileImage);
       const storageRef = ref(storage, "images/" + profileImage.name);
       const uploadTask = uploadBytesResumable(
         storageRef,
@@ -65,6 +69,7 @@ export default function Settings() {
       });
     }
     if (bannerImage != null) {
+      setBannerImage(imageResizer(bannerImage, 1280, 738))
       const storageRef = ref(storage, "images/" + bannerImage.name);
       const uploadTask = uploadBytesResumable(
         storageRef,
@@ -82,6 +87,7 @@ export default function Settings() {
       });
     }
     if (cardImage != null) {
+      setCardImage(imageResizer(cardImage, 427, 640))
       const storageRef = ref(storage, "images/" + cardImage.name);
       const uploadTask = uploadBytesResumable(storageRef, cardImage, metadata);
       uploadTask.on("state_changed", function progress(snapshot) {
@@ -203,8 +209,8 @@ export default function Settings() {
                             width: avatarProgressValue.toFixed(0) + "%",
                           }}
                         >
-                          Uploading: {avatarProgressValue.toFixed(1)}%
                         </div>
+                          Uploading: {avatarProgressValue.toFixed(1)}%
                       </div>
                     )}
                   </div>
@@ -229,8 +235,8 @@ export default function Settings() {
                                 width: cardProgressValue.toFixed(0) + "%",
                               }}
                             >
-                              Uploading: {cardProgressValue.toFixed(1)}%
                             </div>
+                              Uploading: {cardProgressValue.toFixed(1)}%
                           </div>
                         )}
                       </div>
@@ -254,8 +260,8 @@ export default function Settings() {
                                 width: bannerProgressValue.toFixed(0) + "%",
                               }}
                             >
-                              Uploading: {bannerProgressValue.toFixed(1)}%
                             </div>
+                              Uploading: {bannerProgressValue.toFixed(1)}%
                           </div>
                         )}
                       </div>

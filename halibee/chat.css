@@ -1,0 +1,30 @@
+::-webkit-scrollbar {
+    width: 0; 
+    background: transparent;
+}
+
+.ce-chat-engine
+{
+background-color: transparent !important;
+}
+
+.ce-chat-title-text  
+{
+    color: #162C9A !important;
+}
+
+.ce-chat-subtitle-text  
+{
+    color: #FAAA20 !important;
+}
+
+.ce-their-message-bubble 
+{
+    background-color: #FAAA20 !important;
+}
+
+.ce-my-message-bubble,
+#ce-send-message-button
+{
+    background-color: #162C9A !important;
+}
