@@ -40,7 +40,13 @@ export const createChatUser = async (username, uid, photoURL) => {
           "private-key": process.env.CHAT_ENGINE_PRIVATE_KEY,
         },
       })
-      .catch((error) => console.log("Error:", error.response));
+      .catch((error) => {
+        Swal.fire({
+          title: "Error",
+          text: error,
+          icon: "error",
+        })
+      });
   });
 };
 
