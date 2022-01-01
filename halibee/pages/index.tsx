@@ -85,8 +85,8 @@ export default function Home({ userData }) {
 
       <Listings title="Featured Halibees" featured={userData} />
 
-      {!freelancer && !freelancerForm &&
-        <div className="flex flex-col items-center justify-center w-96">
+      {!freelancer && !freelancerForm && user &&
+        <div className="flex flex-col items-center justify-center mx-6">
           <h3 className="text-center leading-relaxed">
             Freelancers on HaLiBee are making a difference within and beyond
             their community by delivering World class services with their skills.

@@ -1,11 +1,9 @@
 import { useRouter } from "next/router";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../modules/firebase/initialiseFirebase";
 
 export default function CallToAction() {
   const router = useRouter()
-  const[user, loading, error] = useAuthState(auth)
 
+  
   return (
     <div className="container mx-auto my-10 px-auto">
       <div className="items-center align-center justify-center flex flex-wrap">
