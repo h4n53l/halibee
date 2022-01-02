@@ -58,6 +58,7 @@ export default function Home({ userData }) {
       skill,
       skillCategory,
       skillProfile,
+      approved: false
     })
 
     setFreelancerForm(false)

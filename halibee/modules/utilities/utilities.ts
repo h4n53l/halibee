@@ -1,7 +1,7 @@
 import axios from "axios";
 import { formatRelative } from "date-fns";
 import Swal from "sweetalert2";
-import convert from 'image-file-resize';
+import convert from "image-file-resize";
 
 export const parseDate = (date) => {
   return formatRelative(new Date(date), new Date());
@@ -31,7 +31,7 @@ export const createChatUser = async (username, uid, photoURL) => {
   formdata.append("username", username);
   formdata.append("secret", uid);
 
-  downloadImage(photoURL).then(async(avatar) => {
+  downloadImage(photoURL).then(async (avatar) => {
     formdata.append("avatar", avatar, avatar.name);
 
     await axios
@@ -45,56 +45,56 @@ export const createChatUser = async (username, uid, photoURL) => {
           title: "Error",
           text: error,
           icon: "error",
-        })
+        });
       });
   });
 };
 
-export const createChat = async(
+export const createChat = async (
   title: string,
   text: string,
   participants: Array<string>,
   username: string,
   userSecret: string
 ) => {
-
   axios
-  .put("https://api.chatengine.io/chats/", 
-  {title, usernames: participants},
-  {
-      headers: {
-        "project-id": process.env.CHAT_ENGINE_PROJECT_ID,
-        "user-name": username,
-        "user-secret": userSecret,
-      },
-    }
+    .put(
+      "https://api.chatengine.io/chats/",
+      { title, usernames: participants },
+      {
+        headers: {
+          "project-id": process.env.CHAT_ENGINE_PROJECT_ID,
+          "user-name": username,
+          "user-secret": userSecret,
+        },
+      }
     )
     .then((response) => {
-      axios
-  .post("https://api.chatengine.io/chats/"+(response.data.id).toString()+"/messages/", 
-  {text},
-  {
-      headers: {
-        "project-id": process.env.CHAT_ENGINE_PROJECT_ID,
-        "user-name": username,
-        "user-secret": userSecret,
-      },
-    })
+      axios.post(
+        "https://api.chatengine.io/chats/" +
+          response.data.id.toString() +
+          "/messages/",
+        { text },
+        {
+          headers: {
+            "project-id": process.env.CHAT_ENGINE_PROJECT_ID,
+            "user-name": username,
+            "user-secret": userSecret,
+          },
+        }
+      );
     })
     .catch((error) => console.log("Error:", error.response));
-  
 };
 
-export const imageResizer = (image, width, height ) => {
+export const imageResizer = async (image, width, height) => {
   console.log(image);
-  convert({ 
-    file: image,  
-    width, 
-    height, 
-    type: 'jpeg'
-    }).then(newImage => {
-        return newImage
-    }).catch(error => {
-         console.log("Error:", error)
-    })
-}
+  let newImage = await convert({
+    file: image,
+    width,
+    height,
+    type: "jpeg",
+  });
+  console.log(newImage);
+  return newImage;
+};

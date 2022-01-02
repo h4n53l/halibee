@@ -1,7 +1,8 @@
 import { createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
-import { auth, firestore, functions } from "../modules/firebase/initialiseFirebase";
+import { auth, firestore } from "../modules/firebase/initialiseFirebase";
+import { doc, setDoc } from "@firebase/firestore";
 import { signOut } from "@firebase/auth"
 import Swal from "sweetalert2";
 import { Toast } from "../modules/utilities/utilities";
@@ -15,6 +16,7 @@ export default function Authentication() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
+    const defaultAvatar = "https://firebasestorage.googleapis.com/v0/b/halibee.appspot.com/o/images%2FdefaultImages%2Fprofile_placeholder.png?alt=media&token=38390ea9-171a-49e9-9ee3-d585b08686c6"
     const router = useRouter()
 
     const logout = () => {
@@ -27,10 +29,17 @@ export default function Authentication() {
             if (password === repeatPassword) {
 
                 await createUserWithEmailAndPassword(auth, email, password)
-                    .then(function (result) {
-                        return updateProfile(result.user, {
+                    .then (async(result) => {
+                        const createdUser = result.user
+                        await setDoc(doc(firestore, "users", createdUser.uid), {
                             displayName: username,
-                            photoURL: "https://firebasestorage.googleapis.com/v0/b/halibee.appspot.com/o/images%2FdefaultImages%2Fprofile_placeholder.png?alt=media&token=38390ea9-171a-49e9-9ee3-d585b08686c6"
+                            avatar: defaultAvatar,
+                            joined: createdUser.metadata.creationTime,
+                            uniqueID: createdUser.uid,
+                          });
+                        return updateProfile(createdUser, {
+                            displayName: username,
+                            photoURL: defaultAvatar
                         })
                     })
                     .then(function () {

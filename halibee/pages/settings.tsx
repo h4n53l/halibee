@@ -1,4 +1,5 @@
 import { doc, updateDoc } from "@firebase/firestore";
+import axios from "axios";
 import { updateProfile } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useState } from "react";
@@ -48,12 +49,12 @@ export default function Settings() {
 
   const updateProfileData = async () => {
     if (profileImage != null) {
-      setProfileImage(imageResizer(profileImage, 500, 500))
-      console.log(profileImage);
-      const storageRef = ref(storage, "images/" + profileImage.name);
+      let resizedProfileImage = await imageResizer(profileImage, 500, 500)
+
+      const storageRef = ref(storage, "images/" + resizedProfileImage.name);
       const uploadTask = uploadBytesResumable(
         storageRef,
-        profileImage,
+        resizedProfileImage,
         metadata
       );
       uploadTask.on("state_changed", function progress(snapshot) {
@@ -61,19 +62,32 @@ export default function Settings() {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
       });
-      await uploadBytesResumable(storageRef, profileImage, metadata);
+      await uploadBytesResumable(storageRef, resizedProfileImage, metadata);
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
         updateProfile(user, {
           photoURL: downloadURL,
         });
-      });
+        updateDatabase("users", user.uid, { avatar: downloadURL });
+      })
+      .then(() => {
+        // let formdata = new FormData();
+        // formdata.append("avatar", resizedProfileImage, resizedProfileImage.name)
+
+        // axios.patch("https://api.chatengine.io/users/" + user.displayName + "/",
+        // formdata,
+        //       {headers:{
+        //         "private-key": process.env.CHAT_ENGINE_PRIVATE_KEY
+        //       }}
+        //       )
+             })
     }
     if (bannerImage != null) {
-      setBannerImage(imageResizer(bannerImage, 1280, 738))
-      const storageRef = ref(storage, "images/" + bannerImage.name);
+      let resizedBannerImage = await imageResizer(bannerImage, 1280, 738) 
+
+      const storageRef = ref(storage, "images/" + resizedBannerImage.name);
       const uploadTask = uploadBytesResumable(
         storageRef,
-        bannerImage,
+        resizedBannerImage,
         metadata
       );
       uploadTask.on("state_changed", function progress(snapshot) {
@@ -81,21 +95,22 @@ export default function Settings() {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
       });
-      await uploadBytesResumable(storageRef, bannerImage, metadata);
+      await uploadBytesResumable(storageRef, resizedBannerImage, metadata);
       getDownloadURL(uploadTask.snapshot.ref).then((bannerURL) => {
-        updateDatabase("freelancers", user.uid, { bannerImageURL: bannerURL });
+        updateDatabase("freelancers", user.uid, { 
+          bannerImageURL: bannerURL });
       });
     }
     if (cardImage != null) {
-      setCardImage(imageResizer(cardImage, 427, 640))
-      const storageRef = ref(storage, "images/" + cardImage.name);
-      const uploadTask = uploadBytesResumable(storageRef, cardImage, metadata);
+      let resizedCardImage = await imageResizer(cardImage, 427, 640) 
+      const storageRef = ref(storage, "images/" + resizedCardImage.name);
+      const uploadTask = uploadBytesResumable(storageRef, resizedCardImage, metadata);
       uploadTask.on("state_changed", function progress(snapshot) {
         setCardProgressValue(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
       });
-      await uploadBytesResumable(storageRef, cardImage, metadata);
+      await uploadBytesResumable(storageRef, resizedCardImage, metadata);
       getDownloadURL(uploadTask.snapshot.ref).then((cardURL) => {
         updateDatabase("freelancers", user.uid, { cardImageURL: cardURL });
       });
@@ -209,8 +224,8 @@ export default function Settings() {
                             width: avatarProgressValue.toFixed(0) + "%",
                           }}
                         >
-                        </div>
                           Uploading: {avatarProgressValue.toFixed(1)}%
+                        </div>
                       </div>
                     )}
                   </div>
@@ -235,8 +250,8 @@ export default function Settings() {
                                 width: cardProgressValue.toFixed(0) + "%",
                               }}
                             >
-                            </div>
                               Uploading: {cardProgressValue.toFixed(1)}%
+                            </div>
                           </div>
                         )}
                       </div>
@@ -260,8 +275,8 @@ export default function Settings() {
                                 width: bannerProgressValue.toFixed(0) + "%",
                               }}
                             >
-                            </div>
                               Uploading: {bannerProgressValue.toFixed(1)}%
+                            </div>
                           </div>
                         )}
                       </div>
