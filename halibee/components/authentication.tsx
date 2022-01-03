@@ -169,6 +169,7 @@ export default function Authentication({showAuth, setShowAuth}) {
                                             value={username}
                                             onChange={(e) => setUsername(e.target.value)}
                                             className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+                                        required
                                         />
                                     </div>
                                 </div>
@@ -180,7 +181,8 @@ export default function Authentication({showAuth, setShowAuth}) {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
-                                    />
+                                        required
+                                        />
                                 </div>
                             </div>
 
@@ -192,7 +194,8 @@ export default function Authentication({showAuth, setShowAuth}) {
                                             onChange={(e) => setPassword(e.target.value)}
                                             className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
                                             placeholder="Enter Password"
-                                        />
+                                            required
+                                            />
                                     </div>
                                 </div>
                             }
@@ -205,7 +208,8 @@ export default function Authentication({showAuth, setShowAuth}) {
                                             onChange={(e) => setRepeatPassword(e.target.value)}
                                             className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
                                             placeholder="Confirm Password"
-                                        />
+                                            required
+                                            />
                                     </div>
                                 </div>}
                             {!forgotPassword ?
@@ -234,7 +238,10 @@ export default function Authentication({showAuth, setShowAuth}) {
                                         <div className="flex flex-col justify-between align-end">
                                             <button
                                                 className="mt-6 px-4 text-secondary dark:text-primary bg-primary dark:bg-secondary w-full h-auto transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
-                                                onClick={() => setNewUser(true)}
+                                                onClick={() => {
+                                                    setShowAuth(false)
+                                                    router.push('/authentication')
+                                                }}
                                             >
                                                 Create Account?
                                             </button>

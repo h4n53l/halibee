@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1632326785422,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1641244304932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n service cloud.firestore {\r\n   match /databases/{database}/documents {\r\n     match /freelancers/{freelancer} {\r\n       allow read: if true; \r\n-      allow write: if request.auth != null && request.auth.uid == freelancer;\r\n+      allow write: if request.auth != null && request.auth.d == freelancer;\r\n     }\r\n     match /categories/{skill} {\r\n       allow read: if true; \r\n       allow write: if false;\r\n"
+                },
+                {
+                    "date": 1641244310797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n service cloud.firestore {\r\n   match /databases/{database}/documents {\r\n     match /freelancers/{freelancer} {\r\n       allow read: if true; \r\n-      allow write: if request.auth != null && request.auth.di == freelancer;\r\n+      allow write: if request.auth != null && request.auth.dis == freelancer;\r\n     }\r\n     match /categories/{skill} {\r\n       allow read: if true; \r\n       allow write: if false;\r\n"
                 }
             ],
             "date": 1632326785422,

@@ -10,6 +10,7 @@ export const parseDate = (date) => {
   return formatRelative(new Date(date), new Date());
 };
 
+/* ---- This function generates a toast in place of the default JS alert ---- */
 export const Toast = Swal.mixin({
   toast: true,
   position: "top-end",
