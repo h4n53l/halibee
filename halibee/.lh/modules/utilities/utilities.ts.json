@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 10,
             "patches": [
                 {
                     "date": 1635792741617,
@@ -44,6 +44,10 @@
                 {
                     "date": 1637515736972,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n         new Date()\r\n     )\r\n }\r\n \r\n+e\r\n \r\n-\r\n"
+                },
+                {
+                    "date": 1641226436084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n /**\r\n-This is a collection of useful functions which are accessed by other scr \r\n+This is a collection of useful functions which are accessed by other scri \r\n */\r\n \r\n import axios from \"axios\";\r\n import { formatRelative } from \"date-fns\";\r\n"
                 }
             ],
             "date": 1635792741617,

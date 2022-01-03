@@ -3,6 +3,9 @@ import { formatRelative } from "date-fns";
 import Swal from "sweetalert2";
 import convert from "image-file-resize";
 
+//NOTE This is a collection of funtions which are exported for use by other parts of the code base.
+
+/* -- This Function converts Javascript time string to readable date format - */
 export const parseDate = (date) => {
   return formatRelative(new Date(date), new Date());
 };
