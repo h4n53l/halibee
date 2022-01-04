@@ -168,7 +168,7 @@ export default function Authentication() {
     <div className="w-full h-screen font-sans bg-cover">
       <div className="container flex items-center justify-center flex-1 h-full mx-auto">
         <div className="w-full max-w-lg">
-          <div className="leading-loose">
+          <form className="leading-loose">
             <div className="max-w-sm p-10 m-auto bg-primary dark:bg-darkMode bg-opacity-90 rounded shadow-xl">
               <p className="mb-8 text-2xl font-light text-center text-white">
                 Welcome!
@@ -270,6 +270,7 @@ export default function Authentication() {
                   {newUser ? (
                     <div className="flex items-center justify-between mt-4">
                       <button
+                      type="submit"
                         className="py-2 px-4 text-primary dark:text-secondary bg-secondary dark:bg-primary w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                         onClick={createAccount}
                       >
@@ -279,6 +280,7 @@ export default function Authentication() {
                   ) : (
                     <div className="flex items-center justify-between mt-4">
                       <button
+                      type="submit"
                         className="py-2 px-4 text-primary dark:text-secondary bg-secondary dark:bg-primary w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                         onClick={signIn}
                       >
@@ -315,6 +317,7 @@ export default function Authentication() {
               ) : (
                 <div>
                   <button
+                  type="submit"
                     className="py-2 px-4 text-primary dark:text-secondary bg-secondary dark:bg-primary w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                     onClick={() => resetPassword(email)}
                   >
@@ -329,7 +332,7 @@ export default function Authentication() {
                 </div>
               )}
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
