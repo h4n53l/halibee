@@ -1,9 +1,35 @@
-# Next.js + Tailwind CSS Example
+# Documentation
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+## Introduction
 
+This is the code base for the HaLiBee web app. HaLiBee is an online platform for freelancers to ubiquituously service clients. The tech stack for this code bas is as follows:
+
+### Next JS
+This is the Javascript framework on which this web app is built. It was chosen for its in-built fullstack support, dynamic routing, server-side rendering and ease PWA readiness.
+
+### Tailwind 
+This CSS framework was used for the UI styling for the sake of proficiency, it's buit-in dark-mode settings, and its ease of implementing responsive designs.
+
+### Firebase
+This is a backend service offered by Google and based on the Google Cloud Platform, it serves as the back end service for this project, offering authentication, 
+a noSQL database, and a cloud file storage.
+
+### Chat Engine
+This is a react library provided by the online chat service called Chat Engine. It's purpose in this project is to enable real-time chat and file sharing between freelancers and clients.
+
+## Structure
+
+The source files in this project are grouped into three (3) main folders. These are:
+
+### Pages
+
+### Components
+
+### Modules
+
+
+# Next JS READ ME
 ## Preview
 
 Preview the example live on [StackBlitz](http://stackblitz.com/):
