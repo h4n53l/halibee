@@ -1,4 +1,4 @@
-# Documentation
+# HaLiBee Project Documentation
 
 
 ## Introduction
