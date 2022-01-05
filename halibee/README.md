@@ -23,10 +23,16 @@ This is a react library provided by the online chat service called Chat Engine. 
 The source files in this project are grouped into three (3) main folders. These are:
 
 ### Pages
+These files are the front end web pages which a user will interact with. The names of the files match tmatch their route names.
 
 ### Components
+These are some reusable UI components.
 
 ### Modules
+These files hold functions and configurations for the functionality of the web app. These include:
+#### Theme toggle function
+#### Firebase and Chat Engine configurations
+#### Helper functions.
 
 
 # Next JS READ ME
