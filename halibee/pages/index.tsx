@@ -7,6 +7,7 @@ import { auth, firestore } from '../modules/firebase/initialiseFirebase'
 import Listings from '../components/listings'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useState } from 'react'
+import Swal from "sweetalert2";
 
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -62,6 +63,15 @@ export default function Home({ userData }) {
     })
 
     setFreelancerForm(false)
+
+Swal.fire({
+          title: "Application Submitted Successfully!",
+          text: "Thank you for applying to be a freelancer, we will be in touch regarding updates on your application.",
+          showCloseButton: true,
+          showConfirmButton: false,
+          icon: "success",
+        });
+
   }
 
   return (
