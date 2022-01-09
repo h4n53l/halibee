@@ -46,17 +46,13 @@ export default function Navbar() {
 
           <div className=" flex items-center justify-start">
             <div className="flex-shrink-0 flex items-center">
-              <div className="pl-4 flex items-center">
-                <button
-                  className="text-secondary no-underline hover:no-underline font-bold text-2xl"
-                  onClick={() => router.push("/")}
-                >
-                  <span className="font-bold text-3xl">H</span>A
-                  <span className="font-bold text-3xl">L</span>I
-                  <span className="font-bold text-3xl">B</span>
-                  EE
-                </button>
-              </div>
+              <Link href='/'>
+                <img
+                  className="block h-8 w-auto cursor-pointer"
+                  src={logo}
+                  alt="HaLiBee"
+                />
+              </Link>
             </div>
 
             <div className="font-bold mx-auto   text-sm py-3 rounded">
