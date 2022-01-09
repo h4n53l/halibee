@@ -48,12 +48,12 @@ export default function Navbar() {
             <div className="flex-shrink-0 flex items-center">
               <div className="pl-4 flex items-center">
                 <button
-                  className="text-secondary no-underline hover:no-underline font-bold text-2xl lg:text-3xl"
+                  className="text-secondary no-underline hover:no-underline font-bold text-2xl"
                   onClick={() => router.push("/")}
                 >
-                  <span className="font-bold text-5xl">H</span>A
-                  <span className="font-bold text-5xl">L</span>I
-                  <span className="font-bold text-5xl">B</span>
+                  <span className="font-bold text-3xl">H</span>A
+                  <span className="font-bold text-3xl">L</span>I
+                  <span className="font-bold text-3xl">B</span>
                   EE
                 </button>
               </div>
